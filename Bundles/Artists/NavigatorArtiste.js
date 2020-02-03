@@ -1,33 +1,15 @@
 import React, {Component} from 'react';
-import { Button, View, Text, TouchableOpacity } from 'react-native';
+import { Button, View, Text, TouchableOpacity, Icon } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
-import ArtistesScreen from './Screen/ArtistesScreen.js';
-import Artiste1Screen from './Screen/Artiste1Screen.js';
-import Artiste2Screen from './Screen/Artiste2Screen.js';
-import DrawerNavigator from '../../navigation/DrawerNavigator.js'
+import { createAppContainer } from 'react-navigation';
+import ArtistesScreen from './Screen/ArtistesScreen';
+import ArtisteDetail from './Screen/ArtisteDetail';
+import DrawerNavigator from '../../navigation/DrawerNavigator'
 
-const NavigatorArtiste = createStackNavigator(
-  {
-    ArtistesScreen: ArtistesScreen,
-    Artiste1: Artiste1Screen,
-    Artiste2: Artiste2Screen,
-  },
-  {
-    initialRouteName: 'ArtistesScreen',
-  },
-  {
-    defaultNavigationOptions: ({ navigation }) => {
-      return {
-        headerLeft: (
-          <Icon
-            onPress={() => navigation.openDrawer()}
-            name='menu'
-            size={26}
-          />
-        )
-      };
+const NavigatorArtiste = createStackNavigator({
+    ArtistesScreen,
+    ArtisteDetail
     }
-  }
 );
 
-export default NavigatorArtiste;
+export default createAppContainer(NavigatorArtiste)
