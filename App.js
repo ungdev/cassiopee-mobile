@@ -1,6 +1,6 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import DrawerNavigator from './navigation/DrawerNavigator.js';
+import DrawerNavigator from './navigation/DrawerNavigator';
 
 export default function App() {
   return (
@@ -9,7 +9,7 @@ export default function App() {
 }
 
 const AppSwitchNavigator = createSwitchNavigator({
-  Main: { screen: DrawerNavigator }
+  DrawerNavigator
 });
 
 const AppContainer = createAppContainer(AppSwitchNavigator);
