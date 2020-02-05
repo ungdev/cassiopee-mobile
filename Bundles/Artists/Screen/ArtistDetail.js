@@ -1,72 +1,70 @@
 import React from 'react'
-import { StyleSheet, View, Text, ActivityIndicator, ScrollView, Image, TouchableOpacity } from 'react-native'
+import {
+  StyleSheet,
+  View,
+  Text,
+  ActivityIndicator,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+} from 'react-native'
 import NavigatorArtist from '../NavigatorArtist'
 import data from '../DataArtists'
 //import { connect } from 'react-redux'
 
 class ArtistDetail extends React.Component {
-
   static navigationOptions = {
     headerStyle: {
       backgroundColor: 'red',
       height: 95,
-    }
-
-  };
+    },
+  }
 
   _displayFavoriteImage() {
     var sourceImage = require('../../../images/ic_favorite_border.png')
-    return (
-      <Image
-        style={styles.favorite_image}
-        source={sourceImage}
-      />
-    )
+    return <Image style={styles.favorite_image} source={sourceImage} />
   }
 
   _displayArtist() {
-
-      return (
-        <ScrollView style={styles.scrollview_container}>
-          <View style={styles.image_container}>
-
+    const artist = this.props.navigation.getParam('artist')
+    return (
+      <ScrollView style={styles.scrollview_container}>
+        <View style={styles.image_container}>
           <Image
             style={styles.image}
             source={require('../../../images/pictures.jpg')}
           />
-          </View>
-          <Text style={styles.title_text}>{artist.title} METTRE SUPER GRANDE LIGNE DE OPEN CLASSROOM</Text>
-          <TouchableOpacity
-            style={styles.favorite_container}>
-            {this._displayFavoriteImage()}
-          </TouchableOpacity>
-          <Text style={styles.default_text}>Horaire de Passage : {artist.horaire}</Text>
-          <Text style={styles.default_text}>Scène : {artist.stage}</Text>
-          <Text style={styles.default_text}>Biographie</Text>
-          <Text style={styles.description_text}>{artist.overview}</Text>
-          <Text style={styles.default_text}>Liens</Text>
-          <Text style={styles.default_text}>{artist.facebook}</Text>
-          <Text style={styles.default_text}>{artist.instagram}</Text>
-          <Text style={styles.default_text}>{artist.youtube}</Text>
-        </ScrollView>
-      )
+        </View>
+        <Text style={styles.title_text}>{artist.title}</Text>
+        <TouchableOpacity style={styles.favorite_container}>
+          {this._displayFavoriteImage()}
+        </TouchableOpacity>
+        <Text style={styles.default_text}>
+          Horaire de Passage : {artist.horaire}
+        </Text>
+        <Text style={styles.default_text}>Scène : {artist.stage}</Text>
+        <Text style={styles.default_text}>Biographie</Text>
+        <Text style={styles.description_text}>{artist.overview}</Text>
+        <Text style={styles.default_text}>Liens</Text>
+        <Text style={styles.default_text}>{artist.facebook}</Text>
+        <Text style={styles.default_text}>{artist.instagram}</Text>
+        <Text style={styles.default_text}>{artist.youtube}</Text>
+      </ScrollView>
+    )
   }
 
   render() {
     const artist = this.props.artist
     const displayDetailForArtist = this.props.displayDetailForArtist
-    console.log(this.props)
-    return (
-      <View style={styles.main_container}>
-        {this._displayArtist()}
-      </View>
-    )
+    console.log(this.props.navigation.getParam('banane'))
+    console.log(this.props.navigation.getParam('artist').title)
+    return <View style={styles.main_container}>{this._displayArtist()}</View>
   }
 }
 
 const styles = StyleSheet.create({
   main_container: {
-    flex: 1
+    flex: 1,
   },
   loading_container: {
     position: 'absolute',
@@ -75,9 +73,9 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-  image_container:{
+  image_container: {
     backgroundColor: 'blue',
     flex: 1,
     alignItems: 'center',
@@ -86,9 +84,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    resizeMode:'cover',
+    resizeMode: 'cover',
     height: 169,
-    margin: 5
+    margin: 5,
   },
   title_text: {
     fontWeight: 'bold',
@@ -100,7 +98,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     color: '#000000',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   favorite_container: {
     alignItems: 'center',
@@ -109,22 +107,22 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     color: '#666666',
     margin: 5,
-    marginBottom: 15
+    marginBottom: 15,
   },
-  default_text: {
+  default_text: {
     marginLeft: 5,
     marginRight: 5,
     marginTop: 5,
   },
   favorite_image: {
     width: 40,
-    height: 40
-  }
+    height: 40,
+  },
 })
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    favoritesArtist: state.favoritesArtist
+    favoritesArtist: state.favoritesArtist,
   }
 }
 
