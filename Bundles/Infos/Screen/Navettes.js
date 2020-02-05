@@ -1,12 +1,14 @@
+
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, ScrollView} from 'react-native';
-import Accordion from '../Accordion/Accordion.js';
+import {Platform, StyleSheet, Text, View} from 'react-native';
+
 
 class Navettes extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Accordion/>
+        <Text style={styles.welcome}>TESTTTT</Text>
+        <Text style={styles.instructions}>YOLOOOOOO</Text>
       </View>
     );
   }
@@ -17,6 +19,14 @@ export default Navettes;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
   },
 
   });
