@@ -1,7 +1,5 @@
-
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
+import React, { Component } from 'react'
+import { Platform, StyleSheet, Text, View } from 'react-native'
 
 class Partenaires extends React.Component {
   render() {
@@ -10,11 +8,11 @@ class Partenaires extends React.Component {
         <Text style={styles.welcome}>TESTTTT</Text>
         <Text style={styles.instructions}>YOLOOOOOO</Text>
       </View>
-    );
+    )
   }
 }
 
-export default Partenaires;
+export default Partenaires
 
 const styles = StyleSheet.create({
   container: {
@@ -28,5 +26,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-
-  });
+})

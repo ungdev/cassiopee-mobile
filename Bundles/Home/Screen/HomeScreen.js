@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, Button, Linking } from 'react-native'
-import ReactDOM from 'react-dom'
 import Header from '../../../components/Header'
 import DrawerTrigger from '../../../components/DrawerTrigger'
 import CountDown from 'react-native-countdown-component'
