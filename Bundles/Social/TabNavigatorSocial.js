@@ -14,13 +14,18 @@ const TabNavigatorSocial = createAppContainer(
     {
       tabBarOptions: {
         labelStyle: {
-          fontSize: 15,
+          fontSize: 10,
           textAlign: 'center',
+        },
+        indicatorStyle: {
+          backgroundColor: 'red',
+          height: 2,
         },
         tabStyle: {
           witdh: 100,
         },
       },
+      tabBarPosition: 'top',
     }
   )
 )

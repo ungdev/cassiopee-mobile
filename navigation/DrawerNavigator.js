@@ -1,6 +1,5 @@
-
 import React from 'react'
-import {View,Text, StyleSheet, SafeAreaView, ScrollView, Dimensions, Image} from 'react-native'
+import { View, StyleSheet, SafeAreaView, ScrollView, Image } from 'react-native'
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer'
 import HomeScreen from '../Bundles/Home/Screen/HomeScreen'
 import ProgramScreen from '../Bundles/Program/Screen/ProgramScreen'
@@ -10,30 +9,85 @@ import InformationsScreen from '../Bundles/Infos/Screen/InformationsScreen'
 import SocialScreen from '../Bundles/Social/Screen/SocialScreen'
 import PlaylistScreen from '../Bundles/Playlist/Screen/PlaylistScreen'
 import MyTicketScreen from '../Bundles/Tickets/Screen/MyTicketScreen'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-const CustomDrawerComponent = (props) => (
+const CustomDrawerComponent = props => (
   <SafeAreaView style={{ flex: 1 }}>
-    <View style={{height: 150, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center'}}>
-      <Image source={require('../images/pictures.jpg')} style={{height: 120, width: 120 }}/>
+    <View
+      style={{
+        height: 150,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Image
+        source={require('../images/pictures.jpg')}
+        style={{ height: 120, width: 120 }}
+      />
     </View>
     <ScrollView>
-      <DrawerItems {...props}/>
+      <DrawerItems {...props} />
     </ScrollView>
   </SafeAreaView>
 )
 
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Accueil: {
+      screen: HomeScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name="ios-home" style={{ fontSize: 24 }} />,
+      },
+    },
+    Programme: {
+      screen: ProgramScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name="ios-timer" style={{ fontSize: 24 }} />,
+      },
+    },
+    Artistes: {
+      screen: NavigatorArtist,
+      navigationOptions: {
+        drawerIcon: <Icon name="ios-star" style={{ fontSize: 24 }} />,
+      },
+    },
+    Plan: {
+      screen: PlanScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name="ios-map" style={{ fontSize: 24 }} />,
+      },
+    },
+    Informations: {
+      screen: InformationsScreen,
+      navigationOptions: {
+        drawerIcon: (
+          <Icon name="ios-information-circle" style={{ fontSize: 24 }} />
+        ),
+      },
+    },
+    'Réseaux Sociaux': {
+      screen: SocialScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name="ios-contacts" style={{ fontSize: 24 }} />,
+      },
+    },
+    Playlist: {
+      screen: PlaylistScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name="ios-musical-notes" style={{ fontSize: 24 }} />,
+      },
+    },
+    MyBillet: {
+      screen: MyTicketScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name="md-card" style={{ fontSize: 24 }} />,
+      },
+    },
+  },
+  {
+    contentComponent: CustomDrawerComponent,
+  }
+)
 
-const DrawerNavigator = createDrawerNavigator({
-  Accueil: HomeScreen,
-  Programme: ProgramScreen,
-  Artistes: NavigatorArtist,
-  Plan: PlanScreen,
-  Informations: InformationsScreen,
-  "Réseaux Sociaux": SocialScreen,
-  Playlist: PlaylistScreen,
-  MyBillet: MyTicketScreen
-}, {
-  contentComponent: CustomDrawerComponent
-   });
-
-export default DrawerNavigator;
+export default DrawerNavigator

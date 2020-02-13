@@ -1,7 +1,10 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import DrawerTrigger from './DrawerTrigger'
-class Header extends React.Component {
+import Icon from 'react-native-vector-icons/Ionicons'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+
+class Header2 extends React.Component {
   render() {
     return (
       <SafeAreaView style={{ backgroundColor: 'red' }}>
@@ -10,7 +13,7 @@ class Header extends React.Component {
             <Text style={styles.designtitle}>{this.props.bigtitle}</Text>
           </View>
           <View style={styles.iconmenu}>
-            <DrawerTrigger />
+            <Icon name="md-arrow-back" style={{ fontSize: 24 }} />
           </View>
         </View>
       </SafeAreaView>
@@ -43,4 +46,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Header
+export default Header2

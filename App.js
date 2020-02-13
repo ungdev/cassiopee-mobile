@@ -1,15 +1,15 @@
-import React from 'react';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import DrawerNavigator from './navigation/DrawerNavigator';
+import React from 'react'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import DrawerNavigator from './navigation/DrawerNavigator'
 
-export default function App() {
-  return (
-    <AppContainer/>
-  );
+export default class App extends React.Component {
+  render() {
+    return <AppContainer />
+  }
 }
 
 const AppSwitchNavigator = createSwitchNavigator({
-  DrawerNavigator
-});
+  DrawerNavigator,
+})
 
-const AppContainer = createAppContainer(AppSwitchNavigator);
+const AppContainer = createAppContainer(AppSwitchNavigator)

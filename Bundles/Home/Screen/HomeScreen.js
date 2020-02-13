@@ -1,5 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image, Button, Linking } from 'react-native'
+import {
+  View,
+  ScrollView,
+  Text,
+  StyleSheet,
+  Image,
+  Linking,
+  TouchableOpacity,
+} from 'react-native'
 import Header from '../../../components/Header'
 import DrawerTrigger from '../../../components/DrawerTrigger'
 import CountDown from 'react-native-countdown-component'
@@ -18,54 +26,98 @@ class HomeScreen extends Component {
   }
 
   render() {
-    return (
-      <React.Fragment>
-        <Header bigtitle="Accueil" />
+    const x = this.state.totalDuration
+    console.log(x)
+    if (x == 0) {
+      return (
+        <React.Fragment>
+          <Header bigtitle="Accueil" />
 
-        <View style={styles.container}>
-          <View style={styles.container_image}>
-            <Image
-              style={styles.image}
-              source={require('../../../images/panneau.png')}
-            />
-          </View>
+          <ScrollView style={styles.scroll}>
+            <View style={styles.container}>
+              <View style={styles.container_image}>
+                <Image
+                  style={styles.image}
+                  source={require('../../../images/panneau.png')}
+                />
+              </View>
 
-          <View style={styles.container_welcome}>
-            <Text style={styles.welcome}>
-              Bienvenue sur l'application Cassiopée Gala !
-            </Text>
-            <Text style={styles.welcome}>
-              L'événement ouvre ses portes le 16 Mai 2020.
-            </Text>
-          </View>
+              <View style={styles.container_welcome}>
+                <Text style={styles.welcome}>
+                  Bienvenue sur l'application{'\n'}Cassiopée Gala !
+                </Text>
+                <Text style={styles.welcome}>
+                  L'événement ouvre ses portes{'\n'}le 16 Mai 2020.
+                </Text>
+              </View>
 
-          <View style={styles.container_countdown}>
-            <CountDown
-              digitStyle={{ backgroundColor: 'yellow' }}
-              separatorStyle={{ color: 'yellow' }}
-              showSeparator
-              timeLabels={{
-                d: 'Jours',
-                h: 'Heures',
-                m: 'Minutes',
-                s: 'Secondes',
-              }}
-              until={this.state.totalDuration}
-              timetoShow={('D', 'H', 'M', 'S')}
-              onFinish={() => alert('Le Gala a ouvert ses portes !')}
-              size={28}
-            />
-          </View>
+              <View style={styles.container_end}>
+                <Text style={styles.text_end}>
+                  Le Gala a ouvert ses porte !
+                </Text>
+              </View>
+              <View style={styles.container_end}>
+                <Text style={styles.text_end}>
+                  Nous vous souhaitons une bonne soirée.
+                </Text>
+              </View>
+            </View>
+          </ScrollView>
+        </React.Fragment>
+      )
+    } else {
+      return (
+        <React.Fragment>
+          <Header bigtitle="Accueil" />
 
-          <View>
-            <Button
-              title="Prendre Sa Place"
-              onPress={() => Linking.openURL('https://www.apple.com/fr/')}
-            />
-          </View>
-        </View>
-      </React.Fragment>
-    )
+          <ScrollView style={styles.scroll}>
+            <View style={styles.container}>
+              <View style={styles.container_image}>
+                <Image
+                  style={styles.image}
+                  source={require('../../../images/panneau.png')}
+                />
+              </View>
+
+              <View style={styles.container_welcome}>
+                <Text style={styles.welcome}>
+                  Bienvenue sur l'application{'\n'}Cassiopée Gala !
+                </Text>
+                <Text style={styles.welcome}>
+                  L'événement ouvre ses portes{'\n'}le 16 Mai 2020.
+                </Text>
+              </View>
+
+              <View style={styles.container_countdown}>
+                <CountDown
+                  digitStyle={{ backgroundColor: 'whitesmoke' }}
+                  separatorStyle={{ color: 'whitesmoke' }}
+                  showSeparator
+                  timeLabels={{
+                    d: 'Jours',
+                    h: 'Heures',
+                    m: 'Minutes',
+                    s: 'Secondes',
+                  }}
+                  until={this.state.totalDuration}
+                  timetoShow={('D', 'H', 'M', 'S')}
+                  size={28}
+                />
+              </View>
+
+              <View>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => Linking.openURL('https://www.apple.com/fr/')}
+                >
+                  <Text style={styles.text}>Prendre sa Place</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
+        </React.Fragment>
+      )
+    }
   }
 
   componentDidMount() {
@@ -93,20 +145,21 @@ class HomeScreen extends Component {
 export default HomeScreen
 
 const styles = StyleSheet.create({
+  scroll: {
+    backgroundColor: 'whitesmoke',
+  },
   container: {
-    flex: 1,
-    backgroundColor: 'yellow',
-    justifyContent: 'center',
+    backgroundColor: 'whitesmoke',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   container_image: {
     alignItems: 'center',
     width: '100%',
-    position: 'absolute',
-    top: 0,
   },
+
   image: {
-    marginTop: 10,
+    marginTop: 15,
     width: 320,
     height: 200,
   },
@@ -116,12 +169,35 @@ const styles = StyleSheet.create({
     borderWidth: 3,
   },
   container_welcome: {
+    width: '90%',
     borderWidth: 3,
+    marginTop: 20,
     margin: 5,
     alignItems: 'center',
   },
   welcome: {
+    padding: 5,
     fontSize: 20,
+    textAlign: 'center',
+  },
+  button: {
+    marginTop: 8,
+    padding: 16,
+    width: 200,
+    borderRadius: 24,
     alignItems: 'center',
+    backgroundColor: 'black',
+  },
+  text: {
+    color: 'white',
+    fontSize: 20,
+  },
+  container_end: {
+    marginTop: 20,
+    padding: 5,
+    borderWidth: 3,
+  },
+  text_end: {
+    fontSize: 18,
   },
 })

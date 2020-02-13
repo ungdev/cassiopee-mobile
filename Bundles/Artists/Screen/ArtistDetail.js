@@ -1,25 +1,22 @@
 import React from 'react'
 import {
+  Platform,
   StyleSheet,
   View,
   Text,
-  ActivityIndicator,
   ScrollView,
   Image,
   TouchableOpacity,
+  Linking,
 } from 'react-native'
-import NavigatorArtist from '../NavigatorArtist'
 import data from '../DataArtists'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import Header2 from '../../../components/Header2'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+
 //import { connect } from 'react-redux'
 
 class ArtistDetail extends React.Component {
-  static navigationOptions = {
-    headerStyle: {
-      backgroundColor: 'red',
-      height: 95,
-    },
-  }
-
   _displayFavoriteImage() {
     var sourceImage = require('../../../images/ic_favorite_border.png')
     return <Image style={styles.favorite_image} source={sourceImage} />
@@ -28,35 +25,56 @@ class ArtistDetail extends React.Component {
   _displayArtist() {
     const artist = this.props.navigation.getParam('artist')
     return (
-      <ScrollView style={styles.scrollview_container}>
-        <View style={styles.image_container}>
-          <Image
-            style={styles.image}
-            source={require('../../../images/pictures.jpg')}
-          />
-        </View>
-        <Text style={styles.title_text}>{artist.title}</Text>
-        <TouchableOpacity style={styles.favorite_container}>
-          {this._displayFavoriteImage()}
-        </TouchableOpacity>
-        <Text style={styles.default_text}>
-          Horaire de Passage : {artist.horaire}
-        </Text>
-        <Text style={styles.default_text}>Scène : {artist.stage}</Text>
-        <Text style={styles.default_text}>Biographie</Text>
-        <Text style={styles.description_text}>{artist.overview}</Text>
-        <Text style={styles.default_text}>Liens</Text>
-        <Text style={styles.default_text}>{artist.facebook}</Text>
-        <Text style={styles.default_text}>{artist.instagram}</Text>
-        <Text style={styles.default_text}>{artist.youtube}</Text>
-      </ScrollView>
+      <React.Fragment>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.props.navigation.navigate('ArtistsScreen')
+          }}
+        >
+          <Header2 bigtitle={artist.title} />
+        </TouchableWithoutFeedback>
+
+        <ScrollView style={styles.scrollview_container}>
+          <View style={styles.image_container}>
+            <Image style={styles.image} source={artist.poster} />
+          </View>
+          <Text style={styles.title_text}>{artist.title}</Text>
+          <TouchableOpacity style={styles.favorite_container}>
+            {this._displayFavoriteImage()}
+          </TouchableOpacity>
+          <Text style={styles.default_text}>
+            Horaire de Passage : {artist.horaire}
+          </Text>
+          <Text style={styles.default_text}>Scène : {artist.stage}</Text>
+          <Text style={styles.default_text}>Biographie :</Text>
+          <Text style={styles.description_text}>{artist.overview}</Text>
+          <Text style={styles.default_text}>Liens :</Text>
+
+          <View style={styles.socialartist}>
+            <Icon
+              name="facebook-official"
+              size={45}
+              onPress={() => Linking.openURL(artist.facebook)}
+            />
+            <Icon
+              name="instagram"
+              size={45}
+              onPress={() => Linking.openURL(artist.instagram)}
+            />
+            <Icon
+              name="youtube-play"
+              size={45}
+              onPress={() => Linking.openURL(artist.youtube)}
+            />
+          </View>
+        </ScrollView>
+      </React.Fragment>
     )
   }
 
   render() {
     const artist = this.props.artist
     const displayDetailForArtist = this.props.displayDetailForArtist
-    console.log(this.props.navigation.getParam('banane'))
     console.log(this.props.navigation.getParam('artist').title)
     return <View style={styles.main_container}>{this._displayArtist()}</View>
   }
@@ -76,7 +94,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image_container: {
-    backgroundColor: 'blue',
     flex: 1,
     alignItems: 'center',
   },
@@ -84,9 +101,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    resizeMode: 'cover',
-    height: 169,
-    margin: 5,
+    width: '100%',
+    height: 190,
+    position: 'relative',
   },
   title_text: {
     fontWeight: 'bold',
@@ -110,6 +127,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   default_text: {
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
     marginLeft: 5,
     marginRight: 5,
     marginTop: 5,
@@ -118,11 +137,16 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
+  socialartist: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 25,
+  },
 })
 
 const mapStateToProps = state => {
   return {
-    favoritesArtist: state.favoritesArtist,
+    favoris: state.favoris,
   }
 }
 

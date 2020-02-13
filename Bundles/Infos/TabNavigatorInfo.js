@@ -1,7 +1,7 @@
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
 import { createAppContainer } from 'react-navigation'
 import Infos from './Screen/Infos.js'
-import Navettes from './Screen/Navettes.js'
+import Transport from './Screen/Transport.js'
 import Partenaires from './Screen/Partenaires.js'
 import Reglement from './Screen/Reglement.js'
 
@@ -11,8 +11,8 @@ const TabNavigatorInfo = createAppContainer(
       Infos: {
         screen: Infos,
       },
-      Navettes: {
-        screen: Navettes,
+      Transports: {
+        screen: Transport,
       },
       Partenaires: {
         screen: Partenaires,
@@ -24,13 +24,20 @@ const TabNavigatorInfo = createAppContainer(
     {
       tabBarOptions: {
         labelStyle: {
-          fontSize: 9,
+          fontSize: 10,
           textAlign: 'center',
+          padding: 0,
         },
         tabStyle: {
-          witdh: 100,
+          witdh: '100%',
+          padding: 0,
+        },
+        indicatorStyle: {
+          backgroundColor: 'red',
+          height: 2,
         },
       },
+      tabBarPosition: 'top',
     }
   )
 )

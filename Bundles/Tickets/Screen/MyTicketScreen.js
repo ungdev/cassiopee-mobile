@@ -1,38 +1,30 @@
-import React, { Component } from "react";
-import {View, Text, StyleSheet, ScrollView } from "react-native";
-import Header from '../../../components/Header';
-import DrawerTrigger from '../../../components/DrawerTrigger';
-import TextVestiaire from '../TextVestiaire';
+import React, { Component } from 'react'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import Header from '../../../components/Header'
+import DrawerTrigger from '../../../components/DrawerTrigger'
+import TextVestiaire from '../TextVestiaire'
+import Billet from '../Billet'
 
-class MyTicketScreen extends Component{
-
-  static navigationOptions = {
-      title: 'Mon Billet',
-    };
-
-  render(){
-    return(
+class MyTicketScreen extends Component {
+  render() {
+    return (
       <React.Fragment>
-        <Header bigtitle='Mon Billet' />
-      <ScrollView contentContainerStyle={styles.container}>
-
+        <Header bigtitle="Mon Billet" />
+        <ScrollView contentContainerStyle={styles.container}>
           <View style={styles.viewvestiaire}>
-        <Text>Partie Vestiaire</Text>
-        <TextVestiaire/>
+            <TextVestiaire />
           </View>
 
           <View style={styles.viewbillet}>
-        <Text>Partie Billet</Text>
+            <Billet />
           </View>
-
-
-      </ScrollView>
-        </React.Fragment>
-    );
+        </ScrollView>
+      </React.Fragment>
+    )
   }
 }
 
-export default MyTicketScreen;
+export default MyTicketScreen
 
 const styles = StyleSheet.create({
   container: {
@@ -42,11 +34,10 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   viewbillet: {
-    flex: 3,
-    backgroundColor: 'yellow'
+    flex: 5,
   },
   viewvestiaire: {
     flex: 2,
-    backgroundColor: 'cyan'
-  }
+    borderBottomWidth: 2,
+  },
 })

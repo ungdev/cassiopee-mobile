@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
-import { Platform, StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, View, FlatList } from 'react-native'
+import dataPartenaires from '../DataPartenaires'
+import PartenairesItem from '../PartenairesItem'
 
 class Partenaires extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>TESTTTT</Text>
-        <Text style={styles.instructions}>YOLOOOOOO</Text>
+      <View style={styles.main_container}>
+        <FlatList
+          data={dataPartenaires}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) => <PartenairesItem partenaire={item} />}
+        />
       </View>
     )
   }
@@ -15,15 +20,7 @@ class Partenaires extends React.Component {
 export default Partenaires
 
 const styles = StyleSheet.create({
-  container: {
+  main_container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'red',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
   },
 })
