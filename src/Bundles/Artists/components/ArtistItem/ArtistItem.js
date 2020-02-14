@@ -1,22 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   StyleSheet,
   Text,
   TouchableOpacity,
   ImageBackground,
 } from 'react-native'
-import data from './DataArtists'
+import env from '../../../../config'
 
-class ArtistItem extends React.Component {
+export class ArtistItem extends React.Component {
   render() {
     const { displayDetailForArtist, artist } = this.props
     return (
       <TouchableOpacity
         style={styles.item_container}
-        onPress={() => displayDetailForArtist(artist)}
+        onPress={displayDetailForArtist}
       >
-        <ImageBackground style={styles.image} source={artist.poster} />
-        <Text style={styles.title_text}>{artist.title}</Text>
+        <ImageBackground
+          style={styles.image}
+          source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
+        />
+        <Text style={styles.title_text}>{artist.name}</Text>
       </TouchableOpacity>
     )
   }
@@ -40,5 +43,3 @@ const styles = StyleSheet.create({
     right: 5,
   },
 })
-
-export default ArtistItem

@@ -9,12 +9,11 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native'
-import data from '../DataArtists'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Header2 from '../../../components/Header2'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
-
-//import { connect } from 'react-redux'
+import env from '../../../config'
+import moment from 'moment'
 
 class ArtistDetail extends React.Component {
   _displayFavoriteImage() {
@@ -31,25 +30,28 @@ class ArtistDetail extends React.Component {
             this.props.navigation.navigate('ArtistsScreen')
           }}
         >
-          <Header2 bigtitle={artist.title} />
+          <Header2 bigtitle={artist.name} />
         </TouchableWithoutFeedback>
 
         <ScrollView style={styles.scrollview_container}>
           <View style={styles.image_container}>
-            <Image style={styles.image} source={artist.poster} />
+            <Image
+              style={styles.image}
+              source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
+            />
           </View>
-          <Text style={styles.title_text}>{artist.title}</Text>
+          <Text style={styles.title_text}>{artist.name}</Text>
           <TouchableOpacity style={styles.favorite_container}>
             {this._displayFavoriteImage()}
           </TouchableOpacity>
           <Text style={styles.default_text}>
-            Horaire de Passage : {artist.horaire}
+            Horaire de Passage : {moment(artist.eventDate).format('[Le] DD/MM [à] HH:mm')}
           </Text>
-          <Text style={styles.default_text}>Scène : {artist.stage}</Text>
-          <Text style={styles.default_text}>Biographie :</Text>
-          <Text style={styles.description_text}>{artist.overview}</Text>
-          <Text style={styles.default_text}>Liens :</Text>
-
+          <Text style={styles.default_text}>Scène : {artist.eventPlace}</Text>
+          {/* <Text style={styles.default_text}>Biographie :</Text> */}
+          {/* <Text style={styles.description_text}>{artist.overview}</Text> */}
+        <Text style={styles.default_text}>Liens :{artist.link}</Text>
+{/* 
           <View style={styles.socialartist}>
             <Icon
               name="facebook-official"
@@ -66,7 +68,7 @@ class ArtistDetail extends React.Component {
               size={45}
               onPress={() => Linking.openURL(artist.youtube)}
             />
-          </View>
+          </View> */}
         </ScrollView>
       </React.Fragment>
     )

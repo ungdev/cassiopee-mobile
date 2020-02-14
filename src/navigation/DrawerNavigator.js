@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, SafeAreaView, ScrollView, Image } from 'react-native'
+import { View, SafeAreaView, ScrollView, Image } from 'react-native'
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer'
 import HomeScreen from '../Bundles/Home/Screen/HomeScreen'
 import ProgramScreen from '../Bundles/Program/Screen/ProgramScreen'

@@ -1,10 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import DrawerTrigger from './DrawerTrigger'
+import { theme } from '../theme'
+const HEIGHT = 40
 class Header extends React.Component {
   render() {
     return (
-      <SafeAreaView style={{ backgroundColor: 'red' }}>
+      <SafeAreaView
+        style={{ backgroundColor: theme.colors.header.backgroundColor }}
+      >
         <View style={styles.header}>
           <View style={styles.title}>
             <Text style={styles.designtitle}>{this.props.bigtitle}</Text>
@@ -20,12 +24,11 @@ class Header extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: 15,
+    marginTop: theme.spacing.unit * 4,
     width: '100%',
-    backgroundColor: 'red',
     flexDirection: 'row',
     alignItems: 'center',
-    height: 40,
+    height: HEIGHT,
   },
   iconmenu: {
     position: 'absolute',

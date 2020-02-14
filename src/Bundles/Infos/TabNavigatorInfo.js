@@ -4,6 +4,7 @@ import Infos from './Screen/Infos.js'
 import Transport from './Screen/Transport.js'
 import Partenaires from './Screen/Partenaires.js'
 import Reglement from './Screen/Reglement.js'
+import { theme } from '../../theme'
 
 const TabNavigatorInfo = createAppContainer(
   createMaterialTopTabNavigator(
