@@ -1,1 +1,0 @@
-export { ArtistItem } from './ArtistItem'
