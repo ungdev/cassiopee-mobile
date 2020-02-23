@@ -45,30 +45,31 @@ class ArtistDetail extends React.Component {
             {this._displayFavoriteImage()}
           </TouchableOpacity>
           <Text style={styles.default_text}>
-            Horaire de Passage : {moment(artist.eventDate).format('[Le] DD/MM [à] HH:mm')}
+            Horaire de Passage :{' '}
+            {moment(artist.eventDate).format('[Le] DD/MM [à] HH:mm')}
           </Text>
           <Text style={styles.default_text}>Scène : {artist.eventPlace}</Text>
-          {/* <Text style={styles.default_text}>Biographie :</Text> */}
+          <Text style={styles.default_text}>Biographie :</Text>
           {/* <Text style={styles.description_text}>{artist.overview}</Text> */}
-        <Text style={styles.default_text}>Liens :{artist.link}</Text>
-{/* 
+          <Text style={styles.default_text}>Liens : </Text>
+
           <View style={styles.socialartist}>
             <Icon
               name="facebook-official"
               size={45}
-              onPress={() => Linking.openURL(artist.facebook)}
+              onPress={() => Linking.openURL(artist.link)}
             />
             <Icon
               name="instagram"
               size={45}
-              onPress={() => Linking.openURL(artist.instagram)}
+              onPress={() => Linking.openURL(artist.link)}
             />
             <Icon
               name="youtube-play"
               size={45}
-              onPress={() => Linking.openURL(artist.youtube)}
+              onPress={() => Linking.openURL(artist.link)}
             />
-          </View> */}
+          </View>
         </ScrollView>
       </React.Fragment>
     )

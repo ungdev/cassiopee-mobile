@@ -10,7 +10,7 @@ export default class TextVestiaire extends React.Component {
   }
 
   saveData() {
-    let numberticket = this.state.numberticket
+    const numberticket = this.state.numberticket
     AsyncStorage.setItem('numberticket', numberticket)
     console.log('stockage ' + numberticket)
   }

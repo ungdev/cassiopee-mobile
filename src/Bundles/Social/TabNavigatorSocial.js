@@ -25,7 +25,7 @@ const TabNavigatorSocial = createAppContainer(
           witdh: 100,
         },
       },
-      tabBarPosition: 'top',
+      tabBarPosition: 'bottom',
     }
   )
 )

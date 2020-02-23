@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
-import { createAppContainer } from 'react-navigation'
+import { createAppContainer, SafeAreaView } from 'react-navigation'
 import Infos from './Screen/Infos.js'
 import Transport from './Screen/Transport.js'
 import Partenaires from './Screen/Partenaires.js'
@@ -32,13 +32,14 @@ const TabNavigatorInfo = createAppContainer(
         tabStyle: {
           witdh: '100%',
           padding: 0,
+          height: 55,
         },
         indicatorStyle: {
           backgroundColor: 'red',
           height: 2,
         },
       },
-      tabBarPosition: 'top',
+      tabBarPosition: 'bottom',
     }
   )
 )

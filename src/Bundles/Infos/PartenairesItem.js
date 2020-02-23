@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Linking,
 } from 'react-native'
-import dataPartenaires from './DataPartenaires'
+import env from '../../config'
 
 class PartenairesItem extends React.Component {
   render() {
@@ -14,10 +14,13 @@ class PartenairesItem extends React.Component {
     return (
       <TouchableOpacity
         style={styles.item_container}
-        onPress={() => Linking.openURL(partenaire.link)}
+        onPress={() => Linking.openURL(partenaire.url)}
       >
-        <ImageBackground style={styles.image} source={partenaire.poster} />
-        <Text style={styles.title_text}>{partenaire.title}</Text>
+        <ImageBackground
+          style={styles.image}
+          source={{ uri: `${env.API_URI}/api/v1${partenaire.image}` }}
+        />
+        <Text style={styles.title_text}>{partenaire.name}</Text>
       </TouchableOpacity>
     )
   }

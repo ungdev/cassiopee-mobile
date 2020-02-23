@@ -208,6 +208,7 @@ export default Infos
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
+    backgroundColor: 'whitesmoke',
   },
 
   category: {

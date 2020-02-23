@@ -70,7 +70,7 @@ class Reglement extends React.Component {
           l'information.
         </Text>
         <Text style={styles.h}>Développeurs</Text>
-        <Text style={styles.p}>- Quentin Letellier{'\n'}- Arnaud Dufour</Text>
+        <Text style={styles.p}>- Quentin Letellier</Text>
         <Text style={styles.h}>Développement</Text>
         <Text style={styles.p}>Application développée avec React Native</Text>
       </ScrollView>
@@ -80,7 +80,7 @@ class Reglement extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: 'whitesmoke',
     padding: 5,
   },
   p: {

@@ -22,8 +22,8 @@ const CustomDrawerComponent = props => (
       }}
     >
       <Image
-        source={require('../images/pictures.jpg')}
-        style={{ height: 120, width: 120 }}
+        source={require('../images/panneau.png')}
+        style={{ height: 120, width: 190 }}
       />
     </View>
     <ScrollView>
@@ -43,7 +43,7 @@ const DrawerNavigator = createDrawerNavigator(
     Programme: {
       screen: ProgramScreen,
       navigationOptions: {
-        drawerIcon: <Icon name="ios-timer" style={{ fontSize: 24 }} />,
+        drawerIcon: <Icon name="ios-calendar" style={{ fontSize: 24 }} />,
       },
     },
     Artistes: {
