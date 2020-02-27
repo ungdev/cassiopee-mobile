@@ -7,7 +7,7 @@ class ComingSoon extends Component {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('../images/panneau.png')}
+          source={require('../images/Logo_Cassiopée/LogoClair.png')}
         ></Image>
         <Text style={styles.title}>Bientôt disponible...</Text>
       </View>
@@ -19,15 +19,19 @@ export default ComingSoon
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'transparent',
   },
   title: {
     fontSize: 24,
+    color: 'white',
   },
   image: {
-    marginTop: 25,
-    width: 220,
-    height: 140,
+    marginTop: 38,
+    width: 320,
+    height: 180,
+    resizeMode: 'contain',
   },
 })

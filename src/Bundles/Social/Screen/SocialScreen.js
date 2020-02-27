@@ -1,26 +1,24 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
 import Header from '../../../components/Header'
 import TabNavigatorSocial from '../TabNavigatorSocial'
+import { SafeAreaView } from 'react-native'
 
 class SocialScreen extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header bigtitle="Réseaux Sociaux" />
-        <TabNavigatorSocial />
+        <SafeAreaView
+          style={{
+            backgroundColor: '#171530',
+            flex: 1,
+          }}
+        >
+          <Header bigtitle="Réseaux Sociaux" />
+          <TabNavigatorSocial />
+        </SafeAreaView>
       </React.Fragment>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  header: {
-    paddingTop: 40,
-    backgroundColor: 'whitesmoke',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-})
 
 export default SocialScreen

@@ -7,18 +7,14 @@ import {
   ActivityIndicator,
   RefreshControl,
   ScrollView,
+  ImageBackground,
 } from 'react-native'
 import Header from '../../../components/Header'
-import Icon from 'react-native-vector-icons/Ionicons'
 import ComingSoon from '../../../components/ComingSoon'
 import { EventItem } from './EventItem'
 import { api } from '../../../lib/api'
 
 class ProgramScreen extends Component {
-  static navigationOptions = {
-    drawerIcon: <Icon name="ios-timer" style={{ fontSize: 24 }} />,
-  }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -27,18 +23,14 @@ class ProgramScreen extends Component {
       events: [],
       coming: true,
     }
-    console.log('constructeur')
     this.getDataFromServer()
   }
 
   getDataFromServer = async () => {
     const { coming } = this.state
-    console.log('getData')
 
     try {
-      console.log('fetch')
       const result = await api.get('events')
-      console.log('result: ', result.data)
       this.setState({ events: result.data, loading: false, refreshing: false })
       if (result.data.length === 0) {
         this.setState({ coming: true })
@@ -47,6 +39,10 @@ class ProgramScreen extends Component {
       }
     } catch (e) {
       console.log('erreur:', e)
+      alert(
+        'Une erreur est survenue avec le serveur. Merci de réessayer dans quelques instants. Code erreur : ' +
+          e
+      )
     }
   }
 
@@ -61,9 +57,14 @@ class ProgramScreen extends Component {
       return (
         <React.Fragment>
           <Header bigtitle="Programme" />
-          <View style={{ paddingTop: 20 }}>
-            <ActivityIndicator />
-          </View>
+          <ImageBackground
+            source={require('../../../images/background_cassiopee_modif.png')}
+            style={{ width: '100%', height: '100%' }}
+          >
+            <View style={{ paddingTop: 20 }}>
+              <ActivityIndicator size="large" color="white" />
+            </View>
+          </ImageBackground>
         </React.Fragment>
       )
     }
@@ -71,40 +72,46 @@ class ProgramScreen extends Component {
       return (
         <React.Fragment>
           <Header bigtitle="Programme" />
-          <ScrollView
-            refreshControl={
-              <RefreshControl
-                //refresh control used for the Pull to Refresh
-                refreshing={refreshing}
-                onRefresh={this.onRefresh}
-              />
-            }
+          <ImageBackground
+            source={require('../../../images/background_cassiopee_modif.png')}
+            style={{ width: '100%', height: '100%' }}
           >
-            <ComingSoon />
-          </ScrollView>
+            <ScrollView
+              style={{ flex: 1 }}
+              refreshControl={
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={this.onRefresh}
+                  tintColor={'white'}
+                />
+              }
+            >
+              <ComingSoon />
+            </ScrollView>
+          </ImageBackground>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <Header bigtitle="Programme" />
-          <ScrollView style={styles.main_container}>
-            <View style={styles.planning_container}>
-              <Text style={styles.title}>Planning de la soirée</Text>
-              <FlatList
-                data={events}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) => <EventItem event={item} />}
-                refreshControl={
-                  <RefreshControl
-                    //refresh control used for the Pull to Refresh
-                    refreshing={refreshing}
-                    onRefresh={this.onRefresh}
-                  />
-                }
-              />
-            </View>
-          </ScrollView>
+          <ImageBackground
+            source={require('../../../images/background_cassiopee_modif.png')}
+            style={{ width: '100%', height: '100%' }}
+          >
+            <FlatList
+              data={events}
+              keyExtractor={item => item.id}
+              renderItem={({ item }) => <EventItem event={item} />}
+              refreshControl={
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={this.onRefresh}
+                  tintColor={'white'}
+                />
+              }
+            />
+          </ImageBackground>
         </React.Fragment>
       )
     }
@@ -112,19 +119,3 @@ class ProgramScreen extends Component {
 }
 
 export default ProgramScreen
-
-const styles = StyleSheet.create({
-  main_container: {
-    flex: 1,
-    backgroundColor: 'purple',
-  },
-  planning_container: {
-    width: '98%',
-    alignSelf: 'center',
-  },
-  title: {
-    paddingTop: 10,
-    textAlign: 'center',
-    fontSize: 20,
-  },
-})

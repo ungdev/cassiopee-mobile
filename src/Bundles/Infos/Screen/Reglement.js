@@ -1,5 +1,5 @@
 import React from 'react'
-import { Linking, ScrollView, StyleSheet, Text } from 'react-native'
+import { ScrollView, StyleSheet, Text, ImageBackground } from 'react-native'
 
 class Reglement extends React.Component {
   render() {
@@ -70,7 +70,7 @@ class Reglement extends React.Component {
           l'information.
         </Text>
         <Text style={styles.h}>Développeurs</Text>
-        <Text style={styles.p}>- Quentin Letellier</Text>
+        <Text style={styles.p}>Quentin Letellier</Text>
         <Text style={styles.h}>Développement</Text>
         <Text style={styles.p}>Application développée avec React Native</Text>
       </ScrollView>
@@ -80,7 +80,6 @@ class Reglement extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'whitesmoke',
     padding: 5,
   },
   p: {
@@ -88,11 +87,12 @@ const styles = StyleSheet.create({
     padding: 5,
     fontSize: 15,
     textAlign: 'justify',
+    color: 'whitesmoke',
   },
 
   t: {
     marginTop: 15,
-    color: '#f05635',
+    color: '#bd945a',
     fontSize: 25,
     textAlign: 'center',
   },
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   h: {
     marginTop: 15,
     padding: 5,
-    color: '#ee7b0b',
+    color: '#f7ce8c',
     fontSize: 20,
     textAlign: 'left',
   },

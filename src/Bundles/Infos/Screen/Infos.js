@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
-
+import React from 'react'
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
-  Alert,
   ScrollView,
   Linking,
+  ImageBackground,
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -17,8 +15,9 @@ import email from 'react-native-email'
 class Infos extends React.Component {
   _goToUTT() {
     openMap({
-      query:
-        'Université de Technologie de Troyes, 12 Rue Marie Curie, 10430 Rosières-près-Troyes, France',
+      latitude: 48.270371,
+      longitude: 4.065387,
+      query: '12 Rue Marie Curie, 10000 Rosières-prés-Troyes, France',
     })
   }
 
@@ -51,21 +50,21 @@ class Infos extends React.Component {
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-body" size={25} />
+              <Icon name="ios-body" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>Interdit aux moins de 18 ans</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-bowtie" size={25} />
+              <Icon name="ios-bowtie" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>Tenue de soirée obligatoire</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-beer" size={25} />
+              <Icon name="ios-beer" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>Etat convenable exigé</Text>
           </View>
@@ -78,11 +77,11 @@ class Infos extends React.Component {
 
           <TouchableOpacity style={styles.element} onPress={this._goToUTT}>
             <View style={styles.element_icon}>
-              <Icon name="ios-pin" size={25} />
+              <Icon name="ios-pin" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>12 Rue Marie Curie, Troyes</Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} />
+              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
             </View>
           </TouchableOpacity>
         </View>
@@ -94,7 +93,7 @@ class Infos extends React.Component {
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-calendar" size={25} />
+              <Icon name="ios-calendar" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>16 Mai 2020 - 20H00</Text>
           </View>
@@ -107,21 +106,21 @@ class Infos extends React.Component {
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-time" size={25} />
+              <Icon name="ios-time" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>Ouverture à 20H00</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-warning" size={25} />
+              <Icon name="ios-warning" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>Fermeture de l'entrée à 01H00</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-volume-high" size={25} />
+              <Icon name="ios-volume-high" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>Baisse du niveau sonore à 04H30</Text>
           </View>
@@ -141,11 +140,11 @@ class Infos extends React.Component {
             }
           >
             <View style={styles.element_icon}>
-              <Icon name="ios-lock" size={25} />
+              <Icon name="ios-lock" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>See The Privacy Policy</Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} />
+              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
             </View>
           </TouchableOpacity>
 
@@ -156,13 +155,13 @@ class Infos extends React.Component {
             }
           >
             <View style={styles.element_icon}>
-              <Icon name="ios-lock" size={25} />
+              <Icon name="ios-lock" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>
               Voir la politique de confidentialité
             </Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} />
+              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
             </View>
           </TouchableOpacity>
         </View>
@@ -177,11 +176,11 @@ class Infos extends React.Component {
             onPress={this.handleEmailGala}
           >
             <View style={styles.element_icon}>
-              <Icon name="ios-mail" size={25} />
+              <Icon name="ios-mail" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>Association : gala@utt.fr</Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} />
+              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
             </View>
           </TouchableOpacity>
 
@@ -190,11 +189,11 @@ class Infos extends React.Component {
             onPress={this.handleEmailUng}
           >
             <View style={styles.element_icon}>
-              <Icon name="ios-settings" size={25} />
+              <Icon name="ios-settings" size={25} color={'whitesmoke'} />
             </View>
             <Text style={styles.text}>Problèmes Techniques : ung@utt.fr</Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} />
+              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
             </View>
           </TouchableOpacity>
         </View>
@@ -208,7 +207,7 @@ export default Infos
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
-    backgroundColor: 'whitesmoke',
+    backgroundColor: 'transparent',
   },
 
   category: {
@@ -216,6 +215,7 @@ const styles = StyleSheet.create({
     margin: 10,
     width: '95%',
     borderWidth: 2,
+    borderColor: 'whitesmoke',
     flexDirection: 'column',
   },
 
@@ -223,12 +223,14 @@ const styles = StyleSheet.create({
     marginBottom: 7,
     fontWeight: 'bold',
     fontSize: 20,
+    color: '#bd945a',
   },
 
   element: {
     flexDirection: 'row',
     height: 35,
     borderTopWidth: 1,
+    borderColor: 'whitesmoke',
     padding: 5,
   },
 
@@ -247,5 +249,6 @@ const styles = StyleSheet.create({
     marginTop: 4,
     fontSize: 15,
     marginLeft: 10,
+    color: 'whitesmoke',
   },
 })

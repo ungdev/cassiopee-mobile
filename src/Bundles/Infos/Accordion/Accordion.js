@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-
 import List, { List as ListModel } from './List'
 import List2, { List2 as ListModel2 } from './List2'
 
@@ -46,10 +45,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
   },
 })
 

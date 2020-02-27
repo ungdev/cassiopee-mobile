@@ -1,12 +1,11 @@
 import React from 'react'
 import {
-  StyleSheet,
   View,
   FlatList,
   ActivityIndicator,
-  AsyncStorage,
   RefreshControl,
   ScrollView,
+  ImageBackground,
 } from 'react-native'
 import Header from '../../../components/Header'
 import ComingSoon from '../../../components/ComingSoon'
@@ -22,27 +21,26 @@ class ArtistsScreen extends React.Component {
       artists: [],
       coming: true,
     }
-    console.log('constructeur')
     this.getDataFromServer()
   }
 
   getDataFromServer = async () => {
     const { coming } = this.state
-    console.log('getData')
-    console.log('coming', coming)
     try {
-      console.log('fetch')
       const result = await api.get('artists')
-      console.log('result: ', result.data)
+
       this.setState({ artists: result.data, loading: false, refreshing: false })
       if (result.data.length === 0) {
         this.setState({ coming: true })
       } else {
         this.setState({ coming: false })
       }
-      console.log('coming', coming)
     } catch (e) {
       console.log('erreur:', e)
+      alert(
+        'Une erreur est survenue avec le serveur. Merci de réessayer dans quelques instants. Code erreur : ' +
+          e
+      )
     }
   }
 
@@ -55,10 +53,15 @@ class ArtistsScreen extends React.Component {
     if (loading) {
       return (
         <React.Fragment>
-          <Header bigtitle="Artistes" />
-          <View style={{ paddingTop: 20 }}>
-            <ActivityIndicator />
-          </View>
+          <ImageBackground
+            source={require('../../../images/background_cassiopee_modif.png')}
+            style={{ width: '100%', height: '100%' }}
+          >
+            <Header bigtitle="Artistes" />
+            <View style={{ paddingTop: 20 }}>
+              <ActivityIndicator size="large" color="white" />
+            </View>
+          </ImageBackground>
         </React.Fragment>
       )
     }
@@ -66,24 +69,34 @@ class ArtistsScreen extends React.Component {
       return (
         <React.Fragment>
           <Header bigtitle="Artistes" />
-          <ScrollView
-            refreshControl={
-              <RefreshControl
-                //refresh control used for the Pull to Refresh
-                refreshing={refreshing}
-                onRefresh={this.onRefresh}
-              />
-            }
+          <ImageBackground
+            source={require('../../../images/background_cassiopee_modif.png')}
+            style={{ width: '100%', height: '100%' }}
           >
-            <ComingSoon />
-          </ScrollView>
+            <ScrollView
+              style={{ flex: 1 }}
+              refreshControl={
+                <RefreshControl
+                  //refresh control used for the Pull to Refresh
+                  refreshing={refreshing}
+                  onRefresh={this.onRefresh}
+                  tintColor={'white'}
+                />
+              }
+            >
+              <ComingSoon />
+            </ScrollView>
+          </ImageBackground>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <Header bigtitle="Artistes" />
-          <View style={styles.main_container}>
+          <ImageBackground
+            source={require('../../../images/background_cassiopee_modif.png')}
+            style={{ width: '100%', height: '100%' }}
+          >
             <FlatList
               data={artists}
               keyExtractor={item => item.id}
@@ -102,20 +115,15 @@ class ArtistsScreen extends React.Component {
                   //refresh control used for the Pull to Refresh
                   refreshing={refreshing}
                   onRefresh={this.onRefresh}
+                  tintColor={'white'}
                 />
               }
             />
-          </View>
+          </ImageBackground>
         </React.Fragment>
       )
     }
   }
 }
-
-const styles = StyleSheet.create({
-  main_container: {
-    flex: 1,
-  },
-})
 
 export default ArtistsScreen

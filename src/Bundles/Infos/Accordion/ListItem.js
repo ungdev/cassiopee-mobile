@@ -1,21 +1,22 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-export const LIST_ITEM_HEIGHT = 60 //height of item list
+export const LIST_ITEM_HEIGHT = 57 //height of item list
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: '#bd945a',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 8,
     paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderColor: '#f4f4f6',
+    borderTopWidth: 1,
+    borderColor: 'whitesmoke',
     height: LIST_ITEM_HEIGHT,
   },
   name: {
     fontSize: 16,
+    color: 'whitesmoke',
   },
   pointsContainerGreen: {
     borderRadius: 8,

@@ -1,5 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, Image, View } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Image,
+  View,
+  ImageBackground,
+} from 'react-native'
 import Collapsible from 'react-native-collapsible'
 import env from '../../../config'
 import moment from 'moment'
@@ -9,8 +16,8 @@ export class EventItem extends React.Component {
     super(props)
 
     this.icons = {
-      up: require('../../../images/chevron-up.png'),
-      down: require('../../../images/chevron-down.png'),
+      up: require('../../../images/chevron_white_up.png'),
+      down: require('../../../images/chevron_white_down.png'),
     }
   }
 
@@ -31,24 +38,30 @@ export class EventItem extends React.Component {
 
     return (
       <React.Fragment>
-        <TouchableOpacity
-          style={styles.item_container}
-          onPress={this.toggleExpanded}
+        <ImageBackground
+          imageStyle={{ borderRadius: 10 }}
+          style={styles.poster}
+          source={{ uri: `${env.API_URI}/api/v1${event.image}` }}
         >
-          <View style={styles.hour_start}>
-            <Text style={styles.hour_start_text}>
-              {moment(event.start).format('HH:mm')}
-            </Text>
-          </View>
+          <TouchableOpacity
+            style={styles.item_container}
+            onPress={this.toggleExpanded}
+          >
+            <View style={styles.hour_start}>
+              <Text style={styles.hour_start_text}>
+                {moment(event.start).format('HH:mm')}
+              </Text>
+            </View>
 
-          <View style={styles.name_event}>
-            <Text style={styles.name_event_text}>{event.name}</Text>
-          </View>
+            <View style={styles.name_event}>
+              <Text style={styles.name_event_text}>{event.name}</Text>
+            </View>
 
-          <View style={styles.chevron}>
-            <Image style={styles.images} source={icon}></Image>
-          </View>
-        </TouchableOpacity>
+            <View style={styles.chevron}>
+              <Image style={styles.images} source={icon}></Image>
+            </View>
+          </TouchableOpacity>
+        </ImageBackground>
 
         <Collapsible collapsed={this.state.collapsed}>
           <View style={styles.content}>
@@ -62,7 +75,7 @@ export class EventItem extends React.Component {
               Lieu : <Text style={{ fontWeight: 'normal' }}>{event.place}</Text>
             </Text>
             <Text style={{ fontWeight: 'bold', paddingBottom: 10 }}>
-              Description de l'événement :{' '}
+              Description :{' '}
               <Text style={{ fontWeight: 'normal' }}>{event.description}</Text>
             </Text>
 
@@ -72,10 +85,6 @@ export class EventItem extends React.Component {
                 {moment(event.end).format('HH:mm')}
               </Text>
             </Text>
-            <Image
-              style={styles.poster}
-              source={{ uri: `${env.API_URI}/api/v1${event.image}` }}
-            ></Image>
           </View>
         </Collapsible>
       </React.Fragment>
@@ -84,17 +93,21 @@ export class EventItem extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  poster: {
+    marginTop: 15,
+    resizeMode: 'stretch',
+    alignSelf: 'center',
+    height: 90,
+    justifyContent: 'center',
+  },
   item_container: {
     flexDirection: 'row',
-    height: 80,
-    borderWidth: 2,
-    borderRadius: 10,
-    marginTop: 10,
+    height: 90,
     justifyContent: 'center',
-    backgroundColor: 'white',
+    alignSelf: 'center',
   },
   hour_start: {
-    height: 75,
+    height: 90,
     width: '26%',
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
@@ -105,19 +118,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 17,
     fontWeight: 'bold',
+    color: 'white',
   },
   name_event: {
-    height: 75,
+    height: 90,
     width: '60%',
     justifyContent: 'center',
   },
   name_event_text: {
-    fontSize: 17,
+    fontSize: 18,
     margin: 0,
+    color: 'white',
+    fontWeight: 'bold',
   },
   chevron: {
-    height: 75,
-    width: '15%',
+    height: 90,
+    width: '12%',
     justifyContent: 'center',
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
@@ -125,21 +141,17 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   images: {
-    marginRight: 12,
     width: 30,
     height: 25,
+    marginRight: 12,
   },
   content: {
     backgroundColor: 'white',
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
-    borderTopWidth: 0,
+
     padding: 5,
-  },
-  poster: {
-    height: 160,
-    width: '100%',
-    borderRadius: 10,
-    resizeMode: 'stretch',
+    width: '98%',
+    alignSelf: 'center',
   },
 })

@@ -48,14 +48,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
   },
   text_vestiaire: {
     fontSize: 18,
+    color: 'white',
   },
   text_vestiaire_second: {
     fontSize: 14,
     marginBottom: 30,
+    color: 'white',
   },
   input: {
     fontSize: 35,
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     width: 250,
     height: 64,
     padding: 10,
-    marginBottom: 10,
-    backgroundColor: '#ecf0f1',
+    marginBottom: 7,
+    backgroundColor: '#bd945a',
   },
 })

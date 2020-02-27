@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, StyleSheet, ScrollView, ImageBackground } from 'react-native'
 import Header from '../../../components/Header'
-import DrawerTrigger from '../../../components/DrawerTrigger'
 import TextVestiaire from '../TextVestiaire'
 import Billet from '../Billet'
 
@@ -9,16 +8,21 @@ class MyTicketScreen extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header bigtitle="Mon Billet" />
-        <ScrollView contentContainerStyle={styles.container}>
-          <View style={styles.viewvestiaire}>
-            <TextVestiaire />
-          </View>
+        <ImageBackground
+          source={require('../../../images/Logo_Cassiopée/background.png')}
+          style={{ width: '100%', height: '100%' }}
+        >
+          <Header bigtitle="Mon Billet" />
+          <ScrollView contentContainerStyle={styles.container}>
+            <View style={styles.viewvestiaire}>
+              <TextVestiaire />
+            </View>
 
-          <View style={styles.viewbillet}>
-            <Billet />
-          </View>
-        </ScrollView>
+            <View style={styles.viewbillet}>
+              <Billet />
+            </View>
+          </ScrollView>
+        </ImageBackground>
       </React.Fragment>
     )
   }
@@ -38,6 +42,5 @@ const styles = StyleSheet.create({
   },
   viewvestiaire: {
     flex: 2,
-    borderBottomWidth: 2,
   },
 })

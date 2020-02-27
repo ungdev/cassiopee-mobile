@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Platform, StyleSheet, View, ActivityIndicator } from 'react-native'
+import React from 'react'
+import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { WebView } from 'react-native-webview'
 
 class Facebook extends React.Component {
@@ -18,15 +18,15 @@ class Facebook extends React.Component {
 
     let source =
       JS +
-      '<a class="fb-page" data-href="https://www.facebook.com/gala.utt/" data-tabs="timeline, events" data-width="500" data-height="3000" data-small-header="false" data-hide-cover="false"</a>'
+      '<a class="fb-page" data-href="https://www.facebook.com/gala.utt/" data-tabs="timeline, events" data-width="590" data-height="3000" data-small-header="false" data-hide-cover="false"</a>'
 
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <WebView
-          onLoad={() => this.hideSpinner()}
           style={styles.webfacebook}
           source={{ html: source }}
           javaScriptEnabled={true}
+          onLoad={() => this.hideSpinner()}
         />
         {this.state.visible && (
           <ActivityIndicator
@@ -39,6 +39,7 @@ class Facebook extends React.Component {
               position: 'absolute',
               alignItems: 'center',
               justifyContent: 'center',
+              color: Platform.OS === 'ios' ? 'white' : 'black',
             }}
             size="large"
           />
@@ -51,11 +52,9 @@ class Facebook extends React.Component {
 export default Facebook
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 0,
-  },
   webfacebook: {
-    width: 730,
+    backgroundColor: '#171530',
+    margin: -4,
+    width: '193%',
   },
 })

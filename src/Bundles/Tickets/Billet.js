@@ -1,12 +1,5 @@
 import * as React from 'react'
-import {
-  Button,
-  Image,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-} from 'react-native'
+import { Image, View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import Constants from 'expo-constants'
 import * as Permissions from 'expo-permissions'
@@ -39,7 +32,7 @@ class Billet extends React.Component {
           {image && (
             <Image
               source={{ uri: image }}
-              style={{ width: 250, height: 250 }}
+              style={{ width: '75%', height: '75%' }}
             />
           )}
         </View>
@@ -80,8 +73,6 @@ class Billet extends React.Component {
       quality: 1,
     })
 
-    console.log(picture)
-
     if (!picture.cancelled) {
       this.setState({ image: picture.uri })
     }
@@ -92,24 +83,25 @@ const styles = StyleSheet.create({
   container_button: {
     width: '100%',
     alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 2,
+    marginBottom: 10,
   },
   container_billet: {
     alignItems: 'center',
   },
   button: {
-    marginTop: 8,
+    marginBottom: 22,
     padding: 16,
-    width: 290,
-    borderRadius: 24,
+    width: '90%',
+    borderRadius: 8,
     alignItems: 'center',
-    backgroundColor: 'black',
+    backgroundColor: '#bd945a',
   },
   text: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: 'whitesmoke',
     textAlign: 'center',
-    color: 'white',
-    fontSize: 12,
   },
 })
 
