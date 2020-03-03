@@ -9,9 +9,9 @@ const TabNavigatorSocial = createAppContainer(
   createMaterialTopTabNavigator(
     {
       Facebook,
+      Instagram,
       YouTube,
       Twitter,
-      Instagram,
     },
     {
       tabBarOptions: {
