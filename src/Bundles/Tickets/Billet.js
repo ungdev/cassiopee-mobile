@@ -3,15 +3,10 @@ import { Image, View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import Constants from 'expo-constants'
 import * as Permissions from 'expo-permissions'
+import { connect } from 'react-redux'
 
 class Billet extends React.Component {
-  state = {
-    image: null,
-  }
-
   render() {
-    let { image } = this.state
-
     return (
       <View style={{ flex: 1 }}>
         <View style={styles.container_button}>
@@ -29,9 +24,9 @@ class Billet extends React.Component {
         </View>
 
         <View style={styles.container_billet}>
-          {image && (
+          {this.props.billet && (
             <Image
-              source={{ uri: image }}
+              source={{ uri: this.props.billet }}
               style={{ width: '75%', height: '75%' }}
             />
           )}
@@ -62,19 +57,21 @@ class Billet extends React.Component {
     console.log(result)
 
     if (!result.cancelled) {
-      this.setState({ image: result.uri })
+      const action = { type: 'SET_BILLET', value: result.uri }
+      this.props.dispatch(action)
     }
   }
   _takeImage = async () => {
-    let picture = await ImagePicker.launchCameraAsync({
+    let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     })
 
-    if (!picture.cancelled) {
-      this.setState({ image: picture.uri })
+    if (!result.cancelled) {
+      const action = { type: 'SET_BILLET', value: result.uri }
+      this.props.dispatch(action)
     }
   }
 }
@@ -105,4 +102,10 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Billet
+const mapStateToProps = state => {
+  return {
+    billet: state.setBillet.billet,
+  }
+}
+
+export default connect(mapStateToProps)(Billet)

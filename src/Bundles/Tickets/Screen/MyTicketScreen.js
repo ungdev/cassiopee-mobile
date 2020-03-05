@@ -5,6 +5,10 @@ import TextVestiaire from '../TextVestiaire'
 import Billet from '../Billet'
 
 class MyTicketScreen extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
       <React.Fragment>

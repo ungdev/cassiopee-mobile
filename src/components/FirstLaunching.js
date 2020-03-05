@@ -4,6 +4,10 @@ import { StyleSheet, View, Text, Image } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from '../navigation/DrawerNavigator'
+import { Provider } from 'react-redux'
+import Store from '../store/configureStore'
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/es/integration/react'
 
 const slides = [
   {
@@ -78,8 +82,15 @@ export default class FirstLaunching extends React.Component {
   }
 
   render() {
+    let persistor = persistStore(Store)
     if (this.state.showRealApp) {
-      return <AppContainer />
+      return (
+        <Provider store={Store}>
+          <PersistGate persistor={persistor}>
+            <AppContainer />
+          </PersistGate>
+        </Provider>
+      )
     } else {
       return (
         <AppIntroSlider

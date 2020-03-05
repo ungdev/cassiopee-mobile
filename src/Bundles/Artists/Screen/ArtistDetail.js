@@ -8,16 +8,49 @@ import {
   TouchableOpacity,
   Linking,
   ImageBackground,
+  Button,
+  Dimensions,
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Header2 from '../../../components/Header2'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import env from '../../../config'
 import moment from 'moment'
+import { connect } from 'react-redux'
 
 class ArtistDetail extends React.Component {
+  _toggleFavorite() {
+    const artist = this.props.navigation.getParam('artist')
+    const action = {
+      type: 'TOGGLE_FAVORITE',
+      value: artist,
+    }
+    console.log(artist.id)
+    this.props.dispatch(action)
+  }
+
+  componentDidUpdate() {
+    console.log('Tableau Favoris:')
+    console.log(this.props.favoritesArtist)
+  }
+
+  _displayFavoriteImage() {
+    const artist = this.props.navigation.getParam('artist')
+    var sourceImage = require('../../../images/ic_favorite_border_white.png')
+    if (
+      this.props.favoritesArtist.findIndex(item => item.id === artist.id) !== -1
+    ) {
+      sourceImage = require('../../../images/ic_favorite_white.png')
+      alert(
+        'Vous recevrez une notification 15 minutes avant le début du concert.'
+      )
+    }
+    return <Image source={sourceImage} style={styles.favorite_image}></Image>
+  }
+
   _displayArtist() {
     const artist = this.props.navigation.getParam('artist')
+
     return (
       <React.Fragment>
         <TouchableWithoutFeedback
@@ -40,41 +73,58 @@ class ArtistDetail extends React.Component {
             source={require('../../../images/Logo_Cassiopée/coverartiste.png')}
             style={{ width: '100%', height: '100%' }}
           >
-            <Text style={styles.title_text}>{artist.name}</Text>
-            <Text style={styles.default_text}>
-              Horaire de Passage :{'  '}
-              <Text style={{ fontWeight: 'normal' }}>
-                {moment(artist.eventDate).format('HH:mm')}
+            <ScrollView
+              style={{
+                flex: 1,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'transparent',
+              }}
+            >
+              <Text style={styles.title_text}>{artist.name}</Text>
+              <TouchableOpacity
+                style={styles.favorite_container}
+                onPress={() => this._toggleFavorite()}
+              >
+                {this._displayFavoriteImage()}
+              </TouchableOpacity>
+              <Text style={styles.default_text}>
+                Horaire de Passage :{'  '}
+                <Text style={{ fontWeight: 'normal' }}>
+                  {moment(artist.eventDate).format('HH:mm')}
+                </Text>
               </Text>
-            </Text>
-            <Text style={styles.default_text}>
-              Scène :{'  '}
-              <Text style={{ fontWeight: 'normal' }}>{artist.eventPlace}</Text>
-            </Text>
-            <Text style={styles.default_text}>Biographie :</Text>
-            {/* <Text style={styles.description_text}>{artist.overview}</Text> */}
-            <Text style={styles.default_text_lien}>Liens : </Text>
+              <Text style={styles.default_text}>
+                Scène :{'  '}
+                <Text style={{ fontWeight: 'normal' }}>
+                  {artist.eventPlace}
+                </Text>
+              </Text>
+              <Text style={styles.default_text}>Biographie :</Text>
+              {/* <Text style={styles.description_text}>{artist.overview}</Text> */}
+              <Text style={styles.default_text_lien}>Liens : </Text>
 
-            <View style={styles.socialartist}>
-              <Icon
-                name="facebook-official"
-                size={45}
-                color={'whitesmoke'}
-                onPress={() => Linking.openURL(artist.link)}
-              />
-              <Icon
-                name="instagram"
-                size={45}
-                color={'whitesmoke'}
-                onPress={() => Linking.openURL(artist.link)}
-              />
-              <Icon
-                name="youtube-play"
-                size={45}
-                color={'whitesmoke'}
-                onPress={() => Linking.openURL(artist.link)}
-              />
-            </View>
+              <View style={styles.socialartist}>
+                <Icon
+                  name="facebook-official"
+                  size={45}
+                  color={'whitesmoke'}
+                  onPress={() => Linking.openURL(artist.link)}
+                />
+                <Icon
+                  name="instagram"
+                  size={45}
+                  color={'whitesmoke'}
+                  onPress={() => Linking.openURL(artist.link)}
+                />
+                <Icon
+                  name="youtube-play"
+                  size={45}
+                  color={'whitesmoke'}
+                  onPress={() => Linking.openURL(artist.link)}
+                />
+              </View>
+            </ScrollView>
           </ImageBackground>
         </View>
       </React.Fragment>
@@ -84,6 +134,8 @@ class ArtistDetail extends React.Component {
   render() {
     const artist = this.props.artist
     const displayDetailForArtist = this.props.displayDetailForArtist
+
+    //console.log(this.props)
     return <View style={styles.main_container}>{this._displayArtist()}</View>
   }
 }
@@ -150,4 +202,9 @@ const styles = StyleSheet.create({
   },
 })
 
-export default ArtistDetail
+const mapStateToProps = state => {
+  return {
+    favoritesArtist: state.toggleFavorite.favoritesArtist,
+  }
+}
+export default connect(mapStateToProps)(ArtistDetail)

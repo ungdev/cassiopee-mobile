@@ -1,23 +1,24 @@
 import React from 'react'
 import { TextInput, View, StyleSheet, Text, AsyncStorage } from 'react-native'
+import { connect } from 'react-redux'
 
-export default class TextVestiaire extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      numberticket: '',
-    }
+class TextVestiaire extends React.Component {
+  state = {
+    number: this.props.vestiaire,
   }
 
   saveData() {
-    const numberticket = this.state.numberticket
-    AsyncStorage.setItem('numberticket', numberticket)
-    console.log('stockage ' + numberticket)
+    const result = this.state.number
+    const action = { type: 'SET_VESTIAIRE', value: result }
+    this.props.dispatch(action)
+  }
+
+  componentDidUpdate() {
+    console.log('Le numéro sauvegardé est :')
+    console.log(this.props.vestiaire)
   }
 
   render() {
-    console.log('default: ' + this.state.numberticket)
-
     return (
       <View style={styles.container_vestiaire}>
         <Text style={styles.text_vestiaire}>
@@ -27,10 +28,8 @@ export default class TextVestiaire extends React.Component {
           (Vous n'aurez plus d'excuse pour l'oublier)
         </Text>
         <TextInput
-          value={AsyncStorage.getItem('numberticket')}
-          onChangeText={numberticket => {
-            this.setState({ numberticket })
-          }}
+          onChangeText={value => this.setState({ number: value })}
+          value={this.props.vestiaire}
           onEndEditing={this.saveData()}
           placeholder="Numéro"
           keyboardType="number-pad"
@@ -59,6 +58,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   input: {
+    borderRadius: 8,
     fontSize: 35,
     fontWeight: 'bold',
     width: 250,
@@ -66,5 +66,14 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 7,
     backgroundColor: '#bd945a',
+    color: 'white',
   },
 })
+
+const mapStateToProps = state => {
+  return {
+    vestiaire: state.setVestiaire.vestiaire,
+  }
+}
+
+export default connect(mapStateToProps)(TextVestiaire)

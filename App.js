@@ -3,6 +3,10 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from './src/navigation/DrawerNavigator'
 import { AsyncStorage } from 'react-native'
 import FirstLaunching from './src/components/FirstLaunching'
+import { Provider } from 'react-redux' //distribution store in App
+import Store from './src/store/configureStore'
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/es/integration/react'
 
 export default class App extends React.Component {
   constructor() {
@@ -21,12 +25,19 @@ export default class App extends React.Component {
   }
 
   render() {
+    let persistor = persistStore(Store)
     if (this.state.firstLaunch === null) {
       return null // This is the 'tricky' part: The query to AsyncStorage is not finished, but we have to present something to the user. Null will just render nothing, so you can also put a placeholder of some sort, but effectively the interval between the first mount and AsyncStorage retrieving your data won't be noticeable to the user.
     } else if (this.state.firstLaunch == true) {
       return <FirstLaunching />
     } else {
-      return <AppContainer />
+      return (
+        <Provider store={Store}>
+          <PersistGate persistor={persistor}>
+            <AppContainer />
+          </PersistGate>
+        </Provider>
+      )
     }
   }
 }
