@@ -6,6 +6,7 @@ import {
   RefreshControl,
   ScrollView,
   ImageBackground,
+  SafeAreaView,
 } from 'react-native'
 import Header from '../../../components/Header'
 import ComingSoon from '../../../components/ComingSoon'
@@ -53,15 +54,17 @@ class ArtistsScreen extends React.Component {
     if (loading) {
       return (
         <React.Fragment>
-          <ImageBackground
-            source={require('../../../images/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <Header bigtitle="Artistes" />
-            <View style={{ paddingTop: 20 }}>
-              <ActivityIndicator size="large" color="white" />
-            </View>
-          </ImageBackground>
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+            <ImageBackground
+              source={require('../../../images/background_cassiopee_modif.png')}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <Header bigtitle="Artistes" />
+              <View style={{ paddingTop: 20 }}>
+                <ActivityIndicator size="large" color="white" />
+              </View>
+            </ImageBackground>
+          </SafeAreaView>
         </React.Fragment>
       )
     }
@@ -69,57 +72,61 @@ class ArtistsScreen extends React.Component {
       return (
         <React.Fragment>
           <Header bigtitle="Artistes" />
-          <ImageBackground
-            source={require('../../../images/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <ScrollView
-              style={{ flex: 1 }}
-              refreshControl={
-                <RefreshControl
-                  //refresh control used for the Pull to Refresh
-                  refreshing={refreshing}
-                  onRefresh={this.onRefresh}
-                  tintColor={'white'}
-                />
-              }
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+            <ImageBackground
+              source={require('../../../images/background_cassiopee_modif.png')}
+              style={{ width: '100%', height: '100%' }}
             >
-              <ComingSoon />
-            </ScrollView>
-          </ImageBackground>
+              <ScrollView
+                style={{ flex: 1 }}
+                refreshControl={
+                  <RefreshControl
+                    //refresh control used for the Pull to Refresh
+                    refreshing={refreshing}
+                    onRefresh={this.onRefresh}
+                    tintColor={'white'}
+                  />
+                }
+              >
+                <ComingSoon />
+              </ScrollView>
+            </ImageBackground>
+          </SafeAreaView>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <Header bigtitle="Artistes" />
-          <ImageBackground
-            source={require('../../../images/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <FlatList
-              data={artists}
-              keyExtractor={item => item.id}
-              renderItem={({ item }) => (
-                <ArtistItem
-                  artist={item}
-                  displayDetailForArtist={() =>
-                    this.props.navigation.navigate('ArtistDetail', {
-                      artist: item,
-                    })
-                  }
-                />
-              )}
-              refreshControl={
-                <RefreshControl
-                  //refresh control used for the Pull to Refresh
-                  refreshing={refreshing}
-                  onRefresh={this.onRefresh}
-                  tintColor={'white'}
-                />
-              }
-            />
-          </ImageBackground>
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+            <ImageBackground
+              source={require('../../../images/background_cassiopee_modif.png')}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <FlatList
+                data={artists}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => (
+                  <ArtistItem
+                    artist={item}
+                    displayDetailForArtist={() =>
+                      this.props.navigation.navigate('ArtistDetail', {
+                        artist: item,
+                      })
+                    }
+                  />
+                )}
+                refreshControl={
+                  <RefreshControl
+                    //refresh control used for the Pull to Refresh
+                    refreshing={refreshing}
+                    onRefresh={this.onRefresh}
+                    tintColor={'white'}
+                  />
+                }
+              />
+            </ImageBackground>
+          </SafeAreaView>
         </React.Fragment>
       )
     }

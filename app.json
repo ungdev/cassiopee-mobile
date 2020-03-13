@@ -13,16 +13,24 @@
       "resizeMode": "contain",
       "backgroundColor": "#171530"
     },
+    "primaryColor": "#171530",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": ["./src/images/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "L'application utilise l'appareil photo pour scanner votre billet.",
+        "NSPhotoLibraryUsageDescription": "Cette application utilise votre gallerie pour importer votre billet."
+      }
+    },
+    "android": {
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     }
-  },
-  "infoPlist": {
-    "NSCameraUsageDescription": "This app uses the camera to scan flascode on event ticket.",
-    "NSPhotoLibraryUsageDescription": "This app use the gallery to import your ticket"
   }
 }

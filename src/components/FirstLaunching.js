@@ -1,6 +1,6 @@
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from '../navigation/DrawerNavigator'
@@ -14,18 +14,25 @@ const slides = [
     key: 'somethun',
     title: 'Cassiopée te souhaite la bienvenue !',
     text:
-      'Découvre dès maintenant toutes les informations du plus gros événement de Champagne-Ardenne organisé entièrement par des étudiants.',
+      'Découvre dès maintenant toutes les informations du plus gros événement de Champagne-Ardenne entièrement organisé par des étudiants.',
     image: 'md-heart',
   },
   {
     key: 'somethun1',
-    title: 'Put Your Hands Up !',
+    title: 'Pourquoi cette Application ?',
     text:
-      "Le dévelopeur travaille activement pour te proposer d'autres nouveautés alors vérifie tes mises à jours régulièrement.",
-    image: 'ios-cog',
+      'Parmis les fonctionnalités, tu peux accèder à la billeterie, consulter les événements de la soirée et les horaires des navettes, découvrir les artistes, ajouter ton billet  ou encore noter ton numéro de vestiaire pendant la soirée ;-).',
+    image: 'ios-musical-notes',
   },
   {
     key: 'somethun2',
+    title: 'Put Your Hands Up !',
+    text:
+      "Le dévelopeur travaille activement pour te proposer d'autres nouveautés alors vérifie tes mises à jours régulièrement, le reste arrive bientôt...",
+    image: 'ios-cog',
+  },
+  {
+    key: 'somethun3',
     title: 'Are you Reaady ?',
     text: "C'est parti !",
     image: 'ios-star',

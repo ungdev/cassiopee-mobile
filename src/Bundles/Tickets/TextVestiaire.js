@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextInput, View, StyleSheet, Text, AsyncStorage } from 'react-native'
+import { TextInput, View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
 
 class TextVestiaire extends React.Component {
@@ -11,11 +11,6 @@ class TextVestiaire extends React.Component {
     const result = this.state.number
     const action = { type: 'SET_VESTIAIRE', value: result }
     this.props.dispatch(action)
-  }
-
-  componentDidUpdate() {
-    console.log('Le numéro sauvegardé est :')
-    console.log(this.props.vestiaire)
   }
 
   render() {

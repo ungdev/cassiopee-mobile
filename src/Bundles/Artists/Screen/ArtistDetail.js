@@ -6,32 +6,41 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  Linking,
   ImageBackground,
-  Button,
-  Dimensions,
+  Alert,
+  SafeAreaView,
 } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
 import Header2 from '../../../components/Header2'
+import SocialButton from '../components/SocialButton'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import env from '../../../config'
 import moment from 'moment'
 import { connect } from 'react-redux'
 
 class ArtistDetail extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      infoNotif: 0,
+    }
+  }
   _toggleFavorite() {
     const artist = this.props.navigation.getParam('artist')
     const action = {
       type: 'TOGGLE_FAVORITE',
       value: artist,
     }
-    console.log(artist.id)
     this.props.dispatch(action)
-  }
-
-  componentDidUpdate() {
-    console.log('Tableau Favoris:')
-    console.log(this.props.favoritesArtist)
+    if (
+      this.props.favoritesArtist.findIndex(item => item.id === artist.id) == -1
+    ) {
+      Alert.alert(
+        'Notification des artistes favoris',
+        'Cette fonctionalité sera disponible dans une prochaine mise à jour :-)',
+        [{ text: 'OK' }],
+        { cancelable: false }
+      )
+    }
   }
 
   _displayFavoriteImage() {
@@ -41,16 +50,12 @@ class ArtistDetail extends React.Component {
       this.props.favoritesArtist.findIndex(item => item.id === artist.id) !== -1
     ) {
       sourceImage = require('../../../images/ic_favorite_white.png')
-      alert(
-        'Vous recevrez une notification 15 minutes avant le début du concert.'
-      )
     }
     return <Image source={sourceImage} style={styles.favorite_image}></Image>
   }
 
   _displayArtist() {
     const artist = this.props.navigation.getParam('artist')
-
     return (
       <React.Fragment>
         <TouchableWithoutFeedback
@@ -68,64 +73,58 @@ class ArtistDetail extends React.Component {
               source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
             />
           </View>
-
-          <ImageBackground
-            source={require('../../../images/Logo_Cassiopée/coverartiste.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <ScrollView
-              style={{
-                flex: 1,
-                width: '100%',
-                height: '100%',
-                backgroundColor: 'transparent',
-              }}
+          <SafeAreaView style={styles.droidSafeArea}>
+            <ImageBackground
+              source={require('../../../images/Logo_Cassiopée/coverartiste.png')}
+              style={{ width: '100%', height: '100%' }}
             >
-              <Text style={styles.title_text}>{artist.name}</Text>
-              <TouchableOpacity
-                style={styles.favorite_container}
-                onPress={() => this._toggleFavorite()}
+              <ScrollView
+                style={{
+                  flex: 1,
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'transparent',
+                }}
               >
-                {this._displayFavoriteImage()}
-              </TouchableOpacity>
-              <Text style={styles.default_text}>
-                Horaire de Passage :{'  '}
-                <Text style={{ fontWeight: 'normal' }}>
-                  {moment(artist.eventDate).format('HH:mm')}
+                <Text style={styles.title_text}>{artist.name}</Text>
+                <TouchableOpacity
+                  style={styles.favorite_container}
+                  onPress={() => this._toggleFavorite()}
+                >
+                  {this._displayFavoriteImage()}
+                </TouchableOpacity>
+                <Text style={styles.default_text}>
+                  Horaire de Passage :{'  '}
+                  <Text style={{ fontWeight: 'normal' }}>
+                    {moment(artist.eventDate).format('HH:mm')}
+                  </Text>
                 </Text>
-              </Text>
-              <Text style={styles.default_text}>
-                Scène :{'  '}
-                <Text style={{ fontWeight: 'normal' }}>
-                  {artist.eventPlace}
+                <Text style={styles.default_text}>
+                  Scène :{'  '}
+                  <Text style={{ fontWeight: 'normal' }}>
+                    {artist.eventPlace}
+                  </Text>
                 </Text>
-              </Text>
-              <Text style={styles.default_text}>Biographie :</Text>
-              {/* <Text style={styles.description_text}>{artist.overview}</Text> */}
-              <Text style={styles.default_text_lien}>Liens : </Text>
+                <Text style={styles.default_text}>
+                  Biographie :{' '}
+                  <Text style={styles.description_text}>
+                    {artist.description}
+                  </Text>
+                </Text>
+                <Text style={styles.default_text_lien}>Liens : </Text>
 
-              <View style={styles.socialartist}>
-                <Icon
-                  name="facebook-official"
-                  size={45}
-                  color={'whitesmoke'}
-                  onPress={() => Linking.openURL(artist.link)}
-                />
-                <Icon
-                  name="instagram"
-                  size={45}
-                  color={'whitesmoke'}
-                  onPress={() => Linking.openURL(artist.link)}
-                />
-                <Icon
-                  name="youtube-play"
-                  size={45}
-                  color={'whitesmoke'}
-                  onPress={() => Linking.openURL(artist.link)}
-                />
-              </View>
-            </ScrollView>
-          </ImageBackground>
+                <View style={styles.socialartist}>
+                  {artist.Links.map(link => (
+                    <SocialButton
+                      key={link.uri}
+                      type={link.type}
+                      uri={link.uri}
+                    ></SocialButton>
+                  ))}
+                </View>
+              </ScrollView>
+            </ImageBackground>
+          </SafeAreaView>
         </View>
       </React.Fragment>
     )
@@ -134,7 +133,6 @@ class ArtistDetail extends React.Component {
   render() {
     const artist = this.props.artist
     const displayDetailForArtist = this.props.displayDetailForArtist
-
     //console.log(this.props)
     return <View style={styles.main_container}>{this._displayArtist()}</View>
   }
@@ -160,7 +158,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginTop: 25,
     marginBottom: 20,
-    color: 'whitesmoke',
+    color: 'white',
     textAlign: 'center',
   },
   favorite_container: {
@@ -169,27 +167,27 @@ const styles = StyleSheet.create({
   },
   description_text: {
     fontStyle: 'italic',
-    color: '#666666',
+    color: 'whitesmoke',
     margin: 5,
-    marginBottom: 15,
+    lineHeight: 23,
   },
   default_text: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    marginLeft: 45,
+    marginLeft: 30,
     marginRight: 5,
     marginTop: 15,
     marginBottom: 10,
-    color: 'whitesmoke',
+    color: 'white',
   },
   default_text_lien: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    marginLeft: 45,
+    marginLeft: 30,
     marginRight: 5,
     marginTop: 25,
     marginBottom: 8,
-    color: 'whitesmoke',
+    color: 'white',
   },
   favorite_image: {
     width: 40,
@@ -199,6 +197,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: 15,
+    paddingBottom: Platform.OS === 'android' ? 20 : 0,
+  },
+  droidSafeArea: {
+    flex: Platform.OS === 'android' ? 1 : 0,
   },
 })
 

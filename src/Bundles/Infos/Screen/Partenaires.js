@@ -5,7 +5,6 @@ import {
   ActivityIndicator,
   ScrollView,
   RefreshControl,
-  ImageBackground,
 } from 'react-native'
 import PartenairesItem from '../PartenairesItem'
 import ComingSoon from '../../../components/ComingSoon'
@@ -83,6 +82,7 @@ class Partenaires extends React.Component {
       return (
         <FlatList
           data={partners}
+          numColumns={2}
           keyExtractor={item => item.id.toString()}
           renderItem={({ item }) => <PartenairesItem partenaire={item} />}
           refreshControl={

@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Linking,
-  ImageBackground,
-} from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Linking } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import openMap from 'react-native-open-maps'
@@ -108,21 +101,21 @@ class Infos extends React.Component {
             <View style={styles.element_icon}>
               <Icon name="ios-time" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Ouverture à 20H00</Text>
+            <Text style={styles.text}>Ouverture des portes à 20H00</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-warning" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Fermeture de l'entrée à 01H00</Text>
+            <Text style={styles.text}>Fermeture de l'entrée à 02H00</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-volume-high" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Baisse du niveau sonore à 04H30</Text>
+            <Text style={styles.text}>Fin de l'événement à 05H00</Text>
           </View>
         </View>
 
@@ -132,21 +125,6 @@ class Infos extends React.Component {
               Privacy Policy/Politique de confidentialité
             </Text>
           </View>
-
-          <TouchableOpacity
-            style={styles.element}
-            onPress={() =>
-              Linking.openURL('https://gala.utt.fr/confidentialite')
-            }
-          >
-            <View style={styles.element_icon}>
-              <Icon name="ios-lock" size={25} color={'whitesmoke'} />
-            </View>
-            <Text style={styles.text}>See The Privacy Policy</Text>
-            <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
-            </View>
-          </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.element}

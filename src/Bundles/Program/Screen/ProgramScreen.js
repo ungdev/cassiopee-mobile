@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   View,
-  Text,
   FlatList,
   ActivityIndicator,
   RefreshControl,
   ScrollView,
   ImageBackground,
+  SafeAreaView,
 } from 'react-native'
 import Header from '../../../components/Header'
 import ComingSoon from '../../../components/ComingSoon'
@@ -57,14 +56,16 @@ class ProgramScreen extends Component {
       return (
         <React.Fragment>
           <Header bigtitle="Programme" />
-          <ImageBackground
-            source={require('../../../images/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <View style={{ paddingTop: 20 }}>
-              <ActivityIndicator size="large" color="white" />
-            </View>
-          </ImageBackground>
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+            <ImageBackground
+              source={require('../../../images/background_cassiopee_modif.png')}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <View style={{ paddingTop: 20 }}>
+                <ActivityIndicator size="large" color="white" />
+              </View>
+            </ImageBackground>
+          </SafeAreaView>
         </React.Fragment>
       )
     }
@@ -72,46 +73,50 @@ class ProgramScreen extends Component {
       return (
         <React.Fragment>
           <Header bigtitle="Programme" />
-          <ImageBackground
-            source={require('../../../images/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <ScrollView
-              style={{ flex: 1 }}
-              refreshControl={
-                <RefreshControl
-                  refreshing={refreshing}
-                  onRefresh={this.onRefresh}
-                  tintColor={'white'}
-                />
-              }
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+            <ImageBackground
+              source={require('../../../images/background_cassiopee_modif.png')}
+              style={{ width: '100%', height: '100%' }}
             >
-              <ComingSoon />
-            </ScrollView>
-          </ImageBackground>
+              <ScrollView
+                style={{ flex: 1 }}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={this.onRefresh}
+                    tintColor={'white'}
+                  />
+                }
+              >
+                <ComingSoon />
+              </ScrollView>
+            </ImageBackground>
+          </SafeAreaView>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <Header bigtitle="Programme" />
-          <ImageBackground
-            source={require('../../../images/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <FlatList
-              data={events}
-              keyExtractor={item => item.id}
-              renderItem={({ item }) => <EventItem event={item} />}
-              refreshControl={
-                <RefreshControl
-                  refreshing={refreshing}
-                  onRefresh={this.onRefresh}
-                  tintColor={'white'}
-                />
-              }
-            />
-          </ImageBackground>
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+            <ImageBackground
+              source={require('../../../images/background_cassiopee_modif.png')}
+              style={{ width: '100%', height: '100%' }}
+            >
+              <FlatList
+                data={events}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => <EventItem event={item} />}
+                refreshControl={
+                  <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={this.onRefresh}
+                    tintColor={'white'}
+                  />
+                }
+              />
+            </ImageBackground>
+          </SafeAreaView>
         </React.Fragment>
       )
     }

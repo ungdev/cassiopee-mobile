@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  ImageBackground,
-} from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import Accordion from '../Accordion/Accordion.js'
 
 class Transports extends React.Component {
@@ -47,7 +41,7 @@ class Transports extends React.Component {
         <Text style={styles.title}>En Train</Text>
         <View style={styles.container}>
           <Text style={styles.paragraphe}>
-            Depuis Paris : TER Gare de l’Est vers Troyes
+            Depuis Paris : TER Gare de l’Est vers Troyes.
           </Text>
         </View>
       </ScrollView>

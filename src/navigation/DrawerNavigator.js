@@ -4,7 +4,6 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer'
 import HomeScreen from '../Bundles/Home/Screen/HomeScreen'
 import ProgramScreen from '../Bundles/Program/Screen/ProgramScreen'
 import NavigatorArtist from '../Bundles/Artists/NavigatorArtist'
-import PlanScreen from '../Bundles/Plans/Screen/PlanScreen'
 import InformationsScreen from '../Bundles/Infos/Screen/InformationsScreen'
 import AssoScreen from '../Bundles/Asso/AssoScreen'
 import SocialScreen from '../Bundles/Social/Screen/SocialScreen'
@@ -60,14 +59,6 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         drawerIcon: (
           <Icon name="ios-star" style={{ fontSize: 24, color: 'white' }} />
-        ),
-      },
-    },
-    Plan: {
-      screen: PlanScreen,
-      navigationOptions: {
-        drawerIcon: (
-          <Icon name="ios-map" style={{ fontSize: 24, color: 'white' }} />
         ),
       },
     },

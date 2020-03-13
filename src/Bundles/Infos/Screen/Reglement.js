@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, ImageBackground } from 'react-native'
+import { ScrollView, StyleSheet, Text, Linking } from 'react-native'
 
 class Reglement extends React.Component {
   render() {
@@ -11,9 +11,10 @@ class Reglement extends React.Component {
           Pour des raisons de sécurité évidentes et un raison du plan VIGIPIRATE
           "SECURITE RENFORCEE - RISQUE ATTENTAT", nous vous rappelons que les
           dispositifs dangereux tels que les armes à feu ou les armes blanches
-          sont interdits à l'intérieur du Gala, sans exception.{'\n'}Une fouille
-          sera réalisée avant toute entrée, provoquant la confiscation de tout
-          matériel pouvant poser un problème de sécurité (rasoir, aérosol, ...).
+          sont interdits à l'intérieur de Cassiopée, sans exception.{'\n'}Une
+          fouille sera réalisée avant toute entrée, provoquant la confiscation
+          de tout matériel pouvant poser un problème de sécurité (rasoir,
+          aérosol, ...).
         </Text>
         <Text style={styles.h}>Identité</Text>
         <Text style={styles.p}>
@@ -44,33 +45,38 @@ class Reglement extends React.Component {
           boissons sans alcool gratuites pour tous. Nous formons également nos
           barmans à la bonne tenue de nos différents bars. De plus, comme chaque
           année, nous mettons en place des navettes gratuites entre le
-          centre-ville et le Gala.
+          centre-ville et l'événement.
         </Text>
         <Text style={styles.h}>Ecologie</Text>
         <Text style={styles.p}>
-          Le Gala a pour objectif de réduire ses déchets au maximum. Ainsi, lors
-          de la soirée aucun verre jetable ne sera distribué et tous les verres
-          seront réutilisables et consignés.
+          Cassiopée a pour objectif de réduire ses déchets au maximum. Ainsi,
+          lors de la soirée aucun verre jetable ne sera distribué et tous les
+          verres seront réutilisables et consignés.
         </Text>
         <Text style={styles.h}>Local</Text>
         <Text style={styles.p}>
-          Afin de promouvoir les produits régionaux, le Gala s'associe
+          Afin de promouvoir les produits régionaux, Cassiopée s'associe
           majoritairement avec des fournisseurs locaux.
         </Text>
         <Text style={styles.h}>Social</Text>
         <Text style={styles.p}>
-          Afin de rendre le Gala plus accessible, des places sont offertes aux
-          bénéficiaires de l’Agoraé et des tarifs préférentiels sont mis en
+          Afin de rendre l'événement plus accessible, des places sont offertes
+          aux bénéficiaires de l’Agoraé et des tarifs préférentiels sont mis en
           place pour les étudiants.
         </Text>
         <Text style={styles.t}>Crédits</Text>
         <Text style={styles.p}>
-          Application mobile développée par l'UNG (l'UTT NET GROUP)
-          l'association de l'UTT consacrée aux nouvelles technologies de
-          l'information.
+          Application mobile développée par{' '}
+          <Text
+            style={styles.dev}
+            onPress={() =>
+              Linking.openURL('https://www.linkedin.com/in/quentin-letellier')
+            }
+          >
+            Quentin Letellier,
+          </Text>{' '}
+          étudiant de l'Université de Technologie de Troyes.
         </Text>
-        <Text style={styles.h}>Développeurs</Text>
-        <Text style={styles.p}>Quentin Letellier</Text>
         <Text style={styles.h}>Développement</Text>
         <Text style={styles.p}>Application développée avec React Native</Text>
       </ScrollView>
@@ -88,6 +94,14 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'justify',
     color: 'whitesmoke',
+  },
+  dev: {
+    alignSelf: 'stretch',
+    padding: 5,
+    fontSize: 15,
+    textAlign: 'justify',
+    color: 'whitesmoke',
+    textDecorationLine: 'underline',
   },
 
   t: {

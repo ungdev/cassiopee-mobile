@@ -37,3 +37,11 @@ Mobile app for UTT's Gala : Cassiopée
 - App.js => entry point of the app
 - app.json => app infos, like version (it's important to increase it when you publish a new version)
 - README.md => this file
+
+## Version Syntax :
+
+Cassiopée is the new concept of GALA UTT. The original version is 2.0.0 (March 2020)
+
+- First number will be incremented for each edition so +1 every year.
+- Second number will be incremented for an update with new functionality in the same year (add Plan for exemple few weeks before event)
+- Third number will be incremented for minor fix, text error or security patch
