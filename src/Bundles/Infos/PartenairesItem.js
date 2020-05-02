@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   TouchableOpacity,
   ImageBackground,
-  Text,
   StyleSheet,
   Linking,
+  Dimensions,
 } from 'react-native'
 import env from '../../config'
+import Device from 'react-native-device-detection'
 
 class PartenairesItem extends React.Component {
   render() {
@@ -20,7 +21,6 @@ class PartenairesItem extends React.Component {
           style={styles.image}
           source={{ uri: `${env.API_URI}/api/v1${partenaire.image}` }}
         />
-        <Text style={styles.title_text}>{partenaire.name}</Text>
       </TouchableOpacity>
     )
   }
@@ -29,20 +29,27 @@ class PartenairesItem extends React.Component {
 const styles = StyleSheet.create({
   item_container: {
     height: 200,
+    width: '50%',
   },
   image: {
     width: '100%',
-    height: 200,
+    height: Dimensions.get('screen').height < 600 ? 150 : 200,
     position: 'relative',
   },
-  title_text: {
-    color: 'black',
-    fontWeight: 'bold',
-    fontSize: 20,
-    position: 'absolute',
-    bottom: 5,
-    right: 5,
-  },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    item_container: {
+      height: 300,
+      width: '50%',
+    },
+    image: {
+      height: 300,
+      width: '100%',
+      position: 'relative',
+    },
+  })
+}
 
 export default PartenairesItem

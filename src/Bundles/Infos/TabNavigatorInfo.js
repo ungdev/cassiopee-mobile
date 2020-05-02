@@ -1,29 +1,46 @@
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
-import { createAppContainer, SafeAreaView } from 'react-navigation'
-import Infos from './Screen/Infos.js'
-import Transport from './Screen/Transport.js'
-import Partenaires from './Screen/Partenaires.js'
-import Reglement from './Screen/Reglement.js'
-import { theme } from '../../theme'
+import { createAppContainer } from 'react-navigation'
+import Infos from './Screen/Infos'
+import Transports from './Screen/Transports'
+import Partenaires from './Screen/Partenaires'
+import Reglement from './Screen/Reglement'
+import i18n from '../../translate/index'
 
 const TabNavigatorInfo = createAppContainer(
   createMaterialTopTabNavigator(
     {
       Infos: {
         screen: Infos,
+        navigationOptions: {
+          title: i18n.t('info_menu_info'),
+        },
       },
       Transports: {
-        screen: Transport,
+        screen: Transports,
+        navigationOptions: {
+          title: i18n.t('info_menu_transport'),
+        },
       },
       Partenaires: {
         screen: Partenaires,
+        navigationOptions: {
+          title: i18n.t('info_menu_partner'),
+        },
       },
-      Règlement: {
+      Reglement: {
         screen: Reglement,
+        navigationOptions: {
+          title: i18n.t('info_menu_rule'),
+        },
       },
     },
     {
       tabBarOptions: {
+        activeTintColor: '#bd945a',
+        inactiveTintColor: 'whitesmoke',
+        style: {
+          backgroundColor: '#171530',
+        },
         labelStyle: {
           fontSize: 10,
           textAlign: 'center',
@@ -35,8 +52,8 @@ const TabNavigatorInfo = createAppContainer(
           height: 55,
         },
         indicatorStyle: {
-          backgroundColor: 'red',
-          height: 2,
+          backgroundColor: '#bd945a',
+          height: 3,
         },
       },
       tabBarPosition: 'bottom',

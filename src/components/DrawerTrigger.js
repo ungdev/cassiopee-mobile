@@ -13,7 +13,7 @@ class DrawerTrigger extends React.Component {
           this.props.navigation.dispatch(DrawerActions.openDrawer())
         }}
       >
-        <Icon name="menu" size={26} />
+        <Icon name="menu" size={26} color={'white'} />
       </TouchableOpacity>
     )
   }

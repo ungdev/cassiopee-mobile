@@ -1,19 +1,21 @@
+//Header 2 is created due to a problem with the second navigation "stack navigation" in artist bundle
 import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
-import DrawerTrigger from './DrawerTrigger'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 
 class Header2 extends React.Component {
   render() {
     return (
-      <SafeAreaView style={{ backgroundColor: 'red' }}>
+      <SafeAreaView style={{ backgroundColor: '#171530' }}>
         <View style={styles.header}>
           <View style={styles.title}>
             <Text style={styles.designtitle}>{this.props.bigtitle}</Text>
           </View>
           <View style={styles.iconmenu}>
-            <Icon name="md-arrow-back" style={{ fontSize: 24 }} />
+            <Icon
+              name="md-arrow-back"
+              style={{ fontSize: 24, color: 'white' }}
+            />
           </View>
         </View>
       </SafeAreaView>
@@ -23,26 +25,32 @@ class Header2 extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: 15,
     width: '100%',
-    backgroundColor: 'red',
     flexDirection: 'row',
     alignItems: 'center',
-    height: 40,
+    height: Platform.OS === 'ios' ? 45 : 65,
   },
   iconmenu: {
     position: 'absolute',
-    top: 5,
+    top: Platform.OS === 'ios' ? 10 : 30,
     left: 20,
   },
   title: {
     width: '100%',
-    justifyContent: 'center',
+    ...Platform.select({
+      ios: {
+        justifyContent: 'center',
+      },
+      android: {
+        marginTop: 18,
+      },
+    }),
   },
   designtitle: {
     fontSize: 18,
     textAlign: 'center',
     fontWeight: 'bold',
+    color: 'white',
   },
 })
 

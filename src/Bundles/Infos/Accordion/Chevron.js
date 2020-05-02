@@ -19,7 +19,7 @@ export default ({ transition }: ChevronProps) => {
   const rotateZ = bInterpolate(transition, -Math.PI, 0)
   return (
     <Animated.View style={[styles.container, { transform: [{ rotateZ }] }]}>
-      <Icon name="chevron-up" color="black" size={24} />
+      <Icon name="chevron-up" color="whitesmoke" size={24} />
     </Animated.View>
   )
 }

@@ -2,6 +2,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
 import ArtistsScreen from './Screen/ArtistsScreen'
 import ArtistDetail from './Screen/ArtistDetail'
+import i18n from '../../translate/index'
 
 const NavigatorArtist = createStackNavigator(
   {
@@ -9,7 +10,7 @@ const NavigatorArtist = createStackNavigator(
       screen: ArtistsScreen,
       navigationOptions: () => ({
         headerShown: false,
-        title: 'Artistes',
+        title: i18n.t('menu_artist'),
       }),
     },
     ArtistDetail: {

@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  StyleSheet,
   View,
   FlatList,
   ActivityIndicator,
@@ -10,6 +9,7 @@ import {
 import PartenairesItem from '../PartenairesItem'
 import ComingSoon from '../../../components/ComingSoon'
 import { api } from '../../../lib/api'
+import i18n from '../../../translate/index'
 
 class Partenaires extends React.Component {
   constructor(props) {
@@ -39,6 +39,7 @@ class Partenaires extends React.Component {
       }
     } catch (e) {
       console.log('erreur:', e)
+      alert(i18n.t('error') + e)
     }
   }
 
@@ -53,7 +54,7 @@ class Partenaires extends React.Component {
       return (
         <React.Fragment>
           <View style={{ paddingTop: 20 }}>
-            <ActivityIndicator />
+            <ActivityIndicator size="large" color="white" />
           </View>
         </React.Fragment>
       )
@@ -67,6 +68,7 @@ class Partenaires extends React.Component {
                 //refresh control used for the Pull to Refresh
                 refreshing={refreshing}
                 onRefresh={this.onRefresh}
+                tintColor={'white'}
               />
             }
           >
@@ -76,30 +78,23 @@ class Partenaires extends React.Component {
       )
     } else {
       return (
-        <View style={styles.main_container}>
-          <FlatList
-            data={partners}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({ item }) => <PartenairesItem partenaire={item} />}
-            refreshControl={
-              <RefreshControl
-                //refresh control used for the Pull to Refresh
-                refreshing={refreshing}
-                onRefresh={this.onRefresh}
-              />
-            }
-          />
-        </View>
+        <FlatList
+          data={partners}
+          numColumns={2}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => <PartenairesItem partenaire={item} />}
+          refreshControl={
+            <RefreshControl
+              //refresh control used for the Pull to Refresh
+              refreshing={refreshing}
+              onRefresh={this.onRefresh}
+              tintColor={'white'}
+            />
+          }
+        />
       )
     }
   }
 }
 
 export default Partenaires
-
-const styles = StyleSheet.create({
-  main_container: {
-    flex: 1,
-    backgroundColor: 'whitesmoke',
-  },
-})

@@ -9,18 +9,19 @@ import Chevron from './Chevron'
 const { not, interpolate } = Animated
 const styles = StyleSheet.create({
   container: {
-    marginTop: 5,
-    backgroundColor: 'white',
+    backgroundColor: '#bd945a',
     padding: 16,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: 17,
   },
   title: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: 'whitesmoke',
   },
   items: {
     overflow: 'hidden',

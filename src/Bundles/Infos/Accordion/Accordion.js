@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-
 import List, { List as ListModel } from './List'
 import List2, { List2 as ListModel2 } from './List2'
 
@@ -31,7 +30,7 @@ const retour: ListModel2 = {
     { name: '2H30' },
     { name: '3H00' },
     { name: '3H30' },
-    { name: '3H30' },
+    { name: '3H45' },
     { name: '4H00' },
     { name: '4H15' },
     { name: '4H30' },
@@ -46,10 +45,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
   },
 })
 

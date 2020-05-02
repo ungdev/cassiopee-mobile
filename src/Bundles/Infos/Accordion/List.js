@@ -1,30 +1,11 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, TouchableWithoutFeedback } from 'react-native'
-
 import Animated, { Easing } from 'react-native-reanimated'
 import { bInterpolate, bin, useTransition } from 'react-native-redash'
 import Chevron from './Chevron'
-import Item, { LIST_ITEM_HEIGHT, ListItem } from './ListItem'
+import Item, { LIST_ITEM_HEIGHT } from './ListItem'
 
 const { not, interpolate } = Animated
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-    padding: 16,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  items: {
-    overflow: 'hidden',
-  },
-})
 
 export default ({ aller }: ListProps) => {
   const [open, setOpen] = useState(false)
@@ -68,3 +49,23 @@ export default ({ aller }: ListProps) => {
     </>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#bd945a',
+    padding: 16,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'whitesmoke',
+  },
+  items: {
+    overflow: 'hidden',
+  },
+})
