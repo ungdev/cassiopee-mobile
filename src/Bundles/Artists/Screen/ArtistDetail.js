@@ -9,6 +9,7 @@ import {
   ImageBackground,
   Alert,
   SafeAreaView,
+  Dimensions,
 } from 'react-native'
 import Header2 from '../../../components/Header2'
 import SocialButton from '../components/SocialButton'
@@ -16,6 +17,9 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import env from '../../../config'
 import moment from 'moment'
 import { connect } from 'react-redux'
+import i18n from '../../../translate/index'
+import * as Permissions from 'expo-permissions'
+import { Notifications } from 'expo'
 
 class ArtistDetail extends React.Component {
   constructor(props) {
@@ -24,22 +28,40 @@ class ArtistDetail extends React.Component {
       infoNotif: 0,
     }
   }
-  _toggleFavorite() {
+
+  async registerForPushNotificationsAsync() {
+    //Demande de permissions
+    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS)
+    //Si la permission n'est pas accordée on fait rien.
+    if (status !== 'granted') {
+      return
+    }
+    let token = await Notifications.getExpoPushTokenAsync()
+    console.log(token)
+  }
+
+  async _toggleFavorite() {
     const artist = this.props.navigation.getParam('artist')
     const action = {
       type: 'TOGGLE_FAVORITE',
       value: artist,
     }
     this.props.dispatch(action)
-    if (
-      this.props.favoritesArtist.findIndex(item => item.id === artist.id) == -1
-    ) {
-      Alert.alert(
-        'Notification des artistes favoris',
-        'Cette fonctionalité sera disponible dans une prochaine mise à jour :-)',
-        [{ text: 'OK' }],
-        { cancelable: false }
+    //On redemande autorisation notif pour le premier artiste favoris au cas où
+    if (this.props.favoritesArtist.length === 0) {
+      const { testNotif } = await Permissions.getAsync(
+        Permissions.NOTIFICATIONS
       )
+      if (testNotif !== 'granted') {
+        this.registerForPushNotificationsAsync()
+      } else {
+        Alert.alert(
+          i18n.t('alert_fav_artist_title'),
+          i18n.t('alert_fav_artist'),
+          [{ text: 'OK' }],
+          { cancelable: false }
+        )
+      }
     }
   }
 
@@ -47,7 +69,8 @@ class ArtistDetail extends React.Component {
     const artist = this.props.navigation.getParam('artist')
     var sourceImage = require('../../../images/ic_favorite_border_white.png')
     if (
-      this.props.favoritesArtist.findIndex(item => item.id === artist.id) !== -1
+      this.props.favoritesArtist.findIndex((item) => item.id === artist.id) !==
+      -1
     ) {
       sourceImage = require('../../../images/ic_favorite_white.png')
     }
@@ -56,6 +79,7 @@ class ArtistDetail extends React.Component {
 
   _displayArtist() {
     const artist = this.props.navigation.getParam('artist')
+    //console.log(this.props.favoritesArtist)
     return (
       <React.Fragment>
         <TouchableWithoutFeedback
@@ -94,27 +118,31 @@ class ArtistDetail extends React.Component {
                   {this._displayFavoriteImage()}
                 </TouchableOpacity>
                 <Text style={styles.default_text}>
-                  Horaire de Passage :{'  '}
+                  {i18n.t('artist_detail_hours')}
+                  {'  '}
                   <Text style={{ fontWeight: 'normal' }}>
                     {moment(artist.eventDate).format('HH:mm')}
                   </Text>
                 </Text>
                 <Text style={styles.default_text}>
-                  Scène :{'  '}
+                  {i18n.t('artist_detail_stage')}
+                  {'  '}
                   <Text style={{ fontWeight: 'normal' }}>
                     {artist.eventPlace}
                   </Text>
                 </Text>
                 <Text style={styles.default_text}>
-                  Biographie :{' '}
+                  {i18n.t('artist_detail_biography')}{' '}
                   <Text style={styles.description_text}>
                     {artist.description}
                   </Text>
                 </Text>
-                <Text style={styles.default_text_lien}>Liens : </Text>
+                <Text style={styles.default_text_lien}>
+                  {i18n.t('artist_detail_links')}
+                </Text>
 
                 <View style={styles.socialartist}>
-                  {artist.Links.map(link => (
+                  {artist.Links.map((link) => (
                     <SocialButton
                       key={link.uri}
                       type={link.type}
@@ -200,11 +228,14 @@ const styles = StyleSheet.create({
     paddingBottom: Platform.OS === 'android' ? 20 : 0,
   },
   droidSafeArea: {
-    flex: Platform.OS === 'android' ? 1 : 0,
+    flex:
+      (Platform.OS === 'android' ? 1 : 0) ||
+      (Dimensions.get('screen').height < 600 ? 1 : 0),
+    backgroundColor: '#171530',
   },
 })
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     favoritesArtist: state.toggleFavorite.favoritesArtist,
   }

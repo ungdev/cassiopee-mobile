@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from '../../../components/Header'
 import TabNavigatorSocial from '../TabNavigatorSocial'
 import { SafeAreaView } from 'react-native'
+import i18n from '../../../translate/index'
 
 class SocialScreen extends Component {
   render() {
@@ -13,7 +14,7 @@ class SocialScreen extends Component {
             flex: 1,
           }}
         >
-          <Header bigtitle="Réseaux Sociaux" />
+          <Header bigtitle={i18n.t('menu_social')} />
           <TabNavigatorSocial />
         </SafeAreaView>
       </React.Fragment>

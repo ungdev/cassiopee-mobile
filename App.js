@@ -1,7 +1,7 @@
 import React from 'react'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from './src/navigation/DrawerNavigator'
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage, ImageBackground } from 'react-native'
 import FirstLaunching from './src/components/FirstLaunching'
 import { Provider } from 'react-redux' //distribution store in App
 import Store from './src/store/configureStore'
@@ -11,7 +11,7 @@ import { AppLoading } from 'expo'
 import { Asset } from 'expo-asset'
 
 function cacheImages(images) {
-  return images.map(image => {
+  return images.map((image) => {
     if (typeof image === 'string') {
       return Image.prefetch(image)
     } else {
@@ -21,8 +21,8 @@ function cacheImages(images) {
 }
 
 export default class App extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = { firstLaunch: null, isReady: false }
   }
 
@@ -42,7 +42,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    AsyncStorage.getItem('alreadyLaunched').then(value => {
+    AsyncStorage.getItem('alreadyLaunched').then((value) => {
       if (value == null) {
         AsyncStorage.setItem('alreadyLaunched', 'true') // No need to wait for `setItem` to finish, although you might want to handle errors
         this.setState({ firstLaunch: true })

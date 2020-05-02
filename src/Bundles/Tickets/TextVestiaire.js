@@ -1,6 +1,7 @@
 import React from 'react'
 import { TextInput, View, StyleSheet, Text } from 'react-native'
 import { connect } from 'react-redux'
+import i18n from '../../translate/index'
 
 class TextVestiaire extends React.Component {
   state = {
@@ -17,16 +18,16 @@ class TextVestiaire extends React.Component {
     return (
       <View style={styles.container_vestiaire}>
         <Text style={styles.text_vestiaire}>
-          Indiquez ici votre numéro de vestiaire :
+          {i18n.t('ticket_locker_room_title')}
         </Text>
         <Text style={styles.text_vestiaire_second}>
-          (Vous n'aurez plus d'excuse pour l'oublier)
+          {i18n.t('ticket_locker_room_message')}
         </Text>
         <TextInput
-          onChangeText={value => this.setState({ number: value })}
+          onChangeText={(value) => this.setState({ number: value })}
           value={this.props.vestiaire}
           onEndEditing={this.saveData()}
-          placeholder="Numéro"
+          placeholder={i18n.t('ticket_number')}
           keyboardType="number-pad"
           selectTextOnFocus
           textAlign="center"
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text_vestiaire: {
+    textAlign: 'center',
     fontSize: 18,
     color: 'white',
   },
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     vestiaire: state.setVestiaire.vestiaire,
   }

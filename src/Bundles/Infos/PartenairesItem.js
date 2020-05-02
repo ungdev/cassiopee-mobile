@@ -4,6 +4,7 @@ import {
   ImageBackground,
   StyleSheet,
   Linking,
+  Dimensions,
 } from 'react-native'
 import env from '../../config'
 import Device from 'react-native-device-detection'
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 200,
+    height: Dimensions.get('screen').height < 600 ? 150 : 200,
     position: 'relative',
   },
 })

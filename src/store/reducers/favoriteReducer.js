@@ -1,11 +1,11 @@
-const initialState = { favoritesArtist: [] }
+const initialState = { favoritesArtist: Array(2) }
 
 function toggleFavorite(state = initialState, action) {
   let nextState
   switch (action.type) {
     case 'TOGGLE_FAVORITE':
       const favoriteArtistIndex = state.favoritesArtist.findIndex(
-        item => item.id === action.value.id
+        (item) => item.id === action.value.id
       )
       if (favoriteArtistIndex !== -1) {
         //suprresion

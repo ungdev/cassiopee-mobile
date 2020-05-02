@@ -1,6 +1,6 @@
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, Dimensions } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from '../navigation/DrawerNavigator'
@@ -8,33 +8,33 @@ import { Provider } from 'react-redux'
 import Store from '../store/configureStore'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/es/integration/react'
+import i18n from '../translate/index'
+import { Notifications } from 'expo'
+import * as Permissions from 'expo-permissions'
 
 const slides = [
   {
-    key: 'somethun',
-    title: 'Cassiopée te souhaite la bienvenue !',
-    text:
-      'Découvre dès maintenant toutes les informations du plus gros événement de Champagne-Ardenne entièrement organisé par des étudiants.',
+    key: 'slide1',
+    title: i18n.t('first_launching_slide_one_title'),
+    text: i18n.t('first_launching_slide_one'),
     image: 'md-heart',
   },
   {
-    key: 'somethun1',
-    title: 'Pourquoi cette Application ?',
-    text:
-      'Parmis les fonctionnalités, tu peux accèder à la billeterie, consulter les événements de la soirée et les horaires des navettes, découvrir les artistes, ajouter ton billet  ou encore noter ton numéro de vestiaire pendant la soirée ;-).',
+    key: 'slide2',
+    title: i18n.t('first_launching_slide_two_title'),
+    text: i18n.t('first_launching_slide_two'),
     image: 'ios-musical-notes',
   },
   {
-    key: 'somethun2',
-    title: 'Put Your Hands Up !',
-    text:
-      "Le dévelopeur travaille activement pour te proposer d'autres nouveautés alors vérifie tes mises à jours régulièrement, le reste arrive bientôt...",
+    key: 'slide3',
+    title: i18n.t('first_launching_slide_three_title'),
+    text: i18n.t('first_launching_slide_three'),
     image: 'ios-cog',
   },
   {
-    key: 'somethun3',
-    title: 'Are you Reaady ?',
-    text: "C'est parti !",
+    key: 'slide4',
+    title: i18n.t('first_launching_slide_four_title'),
+    text: i18n.t('first_launching_slide_four'),
     image: 'ios-star',
   },
 ]
@@ -44,6 +44,22 @@ export default class FirstLaunching extends React.Component {
     super()
     this.state = { showRealApp: false }
   }
+
+  componentDidMount() {
+    this.registerForPushNotificationsAsync()
+  }
+
+  async registerForPushNotificationsAsync() {
+    //Demande de permissions
+    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS)
+    //Si la permission n'est pas accordée on fait rien.
+    if (status !== 'granted') {
+      return
+    }
+    let token = await Notifications.getExpoPushTokenAsync()
+    console.log(token)
+  }
+
   _renderItem = ({ item }) => (
     <View style={styles.mainContent}>
       <Ionicons
@@ -129,15 +145,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     textAlign: 'center',
     paddingHorizontal: 8,
-    fontSize: 18,
-    lineHeight: 30,
+    fontSize: Dimensions.get('screen').height < 600 ? 14 : 18,
+    lineHeight: Dimensions.get('screen').height < 600 ? 20 : 30,
   },
   title: {
     fontSize: 22,
     color: 'white',
     backgroundColor: 'transparent',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: Dimensions.get('screen').height < 600 ? 0 : 10,
   },
   buttonCircle: {
     width: 40,

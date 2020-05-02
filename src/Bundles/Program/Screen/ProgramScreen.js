@@ -12,6 +12,7 @@ import Header from '../../../components/Header'
 import ComingSoon from '../../../components/ComingSoon'
 import { EventItem } from './EventItem'
 import { api } from '../../../lib/api'
+import i18n from '../../../translate/index'
 
 class ProgramScreen extends Component {
   constructor(props) {
@@ -38,10 +39,7 @@ class ProgramScreen extends Component {
       }
     } catch (e) {
       console.log('erreur:', e)
-      alert(
-        'Une erreur est survenue avec le serveur. Merci de réessayer dans quelques instants. Code erreur : ' +
-          e
-      )
+      alert(i18n.t('error') + e)
     }
   }
 
@@ -55,7 +53,7 @@ class ProgramScreen extends Component {
     if (loading) {
       return (
         <React.Fragment>
-          <Header bigtitle="Programme" />
+          <Header bigtitle={i18n.t('menu_program')} />
           <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
             <ImageBackground
               source={require('../../../images/background_cassiopee_modif.png')}
@@ -72,7 +70,7 @@ class ProgramScreen extends Component {
     if (coming) {
       return (
         <React.Fragment>
-          <Header bigtitle="Programme" />
+          <Header bigtitle={i18n.t('menu_program')} />
           <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
             <ImageBackground
               source={require('../../../images/background_cassiopee_modif.png')}
@@ -97,7 +95,7 @@ class ProgramScreen extends Component {
     } else {
       return (
         <React.Fragment>
-          <Header bigtitle="Programme" />
+          <Header bigtitle={i18n.t('menu_program')} />
           <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
             <ImageBackground
               source={require('../../../images/background_cassiopee_modif.png')}
@@ -105,7 +103,7 @@ class ProgramScreen extends Component {
             >
               <FlatList
                 data={events}
-                keyExtractor={item => item.id}
+                keyExtractor={(item) => item.id}
                 renderItem={({ item }) => <EventItem event={item} />}
                 refreshControl={
                   <RefreshControl

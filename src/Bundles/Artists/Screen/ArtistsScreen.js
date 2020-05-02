@@ -12,6 +12,7 @@ import Header from '../../../components/Header'
 import ComingSoon from '../../../components/ComingSoon'
 import { ArtistItem } from '../components/ArtistItem'
 import { api } from '../../../lib/api'
+import i18n from '../../../translate/index'
 
 class ArtistsScreen extends React.Component {
   constructor(props) {
@@ -38,10 +39,7 @@ class ArtistsScreen extends React.Component {
       }
     } catch (e) {
       console.log('erreur:', e)
-      alert(
-        'Une erreur est survenue avec le serveur. Merci de réessayer dans quelques instants. Code erreur : ' +
-          e
-      )
+      alert(i18n.t('error') + e)
     }
   }
 
@@ -59,7 +57,7 @@ class ArtistsScreen extends React.Component {
               source={require('../../../images/background_cassiopee_modif.png')}
               style={{ width: '100%', height: '100%' }}
             >
-              <Header bigtitle="Artistes" />
+              <Header bigtitle={i18n.t('menu_artist')} />
               <View style={{ paddingTop: 20 }}>
                 <ActivityIndicator size="large" color="white" />
               </View>
@@ -71,7 +69,7 @@ class ArtistsScreen extends React.Component {
     if (coming) {
       return (
         <React.Fragment>
-          <Header bigtitle="Artistes" />
+          <Header bigtitle={i18n.t('menu_artist')} />
           <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
             <ImageBackground
               source={require('../../../images/background_cassiopee_modif.png')}
@@ -97,7 +95,7 @@ class ArtistsScreen extends React.Component {
     } else {
       return (
         <React.Fragment>
-          <Header bigtitle="Artistes" />
+          <Header bigtitle={i18n.t('menu_artist')} />
           <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
             <ImageBackground
               source={require('../../../images/background_cassiopee_modif.png')}
@@ -105,7 +103,7 @@ class ArtistsScreen extends React.Component {
             >
               <FlatList
                 data={artists}
-                keyExtractor={item => item.id}
+                keyExtractor={(item) => item.id}
                 renderItem={({ item }) => (
                   <ArtistItem
                     artist={item}

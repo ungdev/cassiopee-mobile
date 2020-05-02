@@ -10,6 +10,7 @@ import {
 import Collapsible from 'react-native-collapsible'
 import env from '../../../config'
 import moment from 'moment'
+import i18n from '../../../translate/index'
 
 export class EventItem extends React.Component {
   constructor(props) {
@@ -66,21 +67,22 @@ export class EventItem extends React.Component {
         <Collapsible collapsed={this.state.collapsed}>
           <View style={styles.content}>
             <Text style={{ fontWeight: 'bold', paddingBottom: 10 }}>
-              Début de l'événement :{' '}
+              {i18n.t('program_list_startEvent')}{' '}
               <Text style={{ fontWeight: 'normal' }}>
                 {moment(event.start).format('HH:mm')}
               </Text>
             </Text>
             <Text style={{ fontWeight: 'bold', paddingBottom: 10 }}>
-              Lieu : <Text style={{ fontWeight: 'normal' }}>{event.place}</Text>
+              {i18n.t('program_list_place')}{' '}
+              <Text style={{ fontWeight: 'normal' }}>{event.place}</Text>
             </Text>
             <Text style={{ fontWeight: 'bold', paddingBottom: 10 }}>
-              Description :{' '}
+              {i18n.t('program_list_description')}{' '}
               <Text style={{ fontWeight: 'normal' }}>{event.description}</Text>
             </Text>
 
             <Text style={{ fontWeight: 'bold' }}>
-              Fin de l'événement :{' '}
+              {i18n.t('program_list_endEvent')}{' '}
               <Text style={{ fontWeight: 'normal' }}>
                 {moment(event.end).format('HH:mm')}
               </Text>

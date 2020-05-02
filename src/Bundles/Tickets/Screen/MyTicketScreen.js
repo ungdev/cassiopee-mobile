@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView, ImageBackground } from 'react-native'
 import Header from '../../../components/Header'
 import TextVestiaire from '../TextVestiaire'
 import Billet from '../Billet'
+import i18n from '../../../translate/index'
 
 class MyTicketScreen extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class MyTicketScreen extends Component {
           source={require('../../../images/Logo_Cassiopée/background.png')}
           style={{ width: '100%', height: '100%' }}
         >
-          <Header bigtitle="Mon Billet" />
+          <Header bigtitle={i18n.t('menu_ticket')} />
           <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.viewvestiaire}>
               <TextVestiaire />

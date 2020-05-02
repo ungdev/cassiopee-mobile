@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native'
+import i18n from '../translate/index'
 
 class ComingSoon extends Component {
   render() {
@@ -9,7 +10,7 @@ class ComingSoon extends Component {
           style={styles.image}
           source={require('../images/Logo_Cassiopée/LogoClair.png')}
         ></Image>
-        <Text style={styles.title}>Bientôt disponible...</Text>
+        <Text style={styles.title}>{i18n.t('coming_soon_title')}</Text>
       </View>
     )
   }

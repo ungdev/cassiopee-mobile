@@ -9,6 +9,7 @@ import {
 import PartenairesItem from '../PartenairesItem'
 import ComingSoon from '../../../components/ComingSoon'
 import { api } from '../../../lib/api'
+import i18n from '../../../translate/index'
 
 class Partenaires extends React.Component {
   constructor(props) {
@@ -38,10 +39,7 @@ class Partenaires extends React.Component {
       }
     } catch (e) {
       console.log('erreur:', e)
-      alert(
-        'Une erreur est survenue avec le serveur. Merci de réessayer dans quelques instants. Code erreur : ' +
-          e
-      )
+      alert(i18n.t('error') + e)
     }
   }
 
@@ -83,7 +81,7 @@ class Partenaires extends React.Component {
         <FlatList
           data={partners}
           numColumns={2}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => <PartenairesItem partenaire={item} />}
           refreshControl={
             <RefreshControl

@@ -3,6 +3,7 @@ import { TouchableOpacity, Linking, Alert } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons'
 import PropTypes from 'prop-types'
+import i18n from '../../../translate/index'
 
 class SocialButton extends React.Component {
   static propTypes = {
@@ -12,8 +13,8 @@ class SocialButton extends React.Component {
 
   _showAlert(url) {
     Alert.alert(
-      'Information',
-      "Vous allez être redirigé vers une page de l'artiste",
+      i18n.t('alert_info_title'),
+      i18n.t('alert_text_redirect'),
       [
         {
           text: 'Cancel',

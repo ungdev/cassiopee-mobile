@@ -10,12 +10,12 @@ import {
   ImageBackground,
   SafeAreaView,
   Platform,
+  Dimensions,
 } from 'react-native'
 import Header from '../../../components/Header'
 import CountDown from 'react-native-countdown-component'
-//import CountDown to show the time
 import moment from 'moment'
-//import moment to help you play with date and time
+import i18n from '../../../translate/index'
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class HomeScreen extends Component {
     if (x <= 0) {
       return (
         <React.Fragment>
-          <Header bigtitle="Accueil" />
+          <Header bigtitle={i18n.t('menu_home')} />
 
           <ImageBackground
             source={require('../../../images/background_cassiopee_modif.png')}
@@ -47,23 +47,15 @@ class HomeScreen extends Component {
                 </View>
 
                 <View style={styles.container_welcome}>
-                  <Text style={styles.welcome}>
-                    Bienvenue sur l'application{'\n'}Cassiopée !
-                  </Text>
-                  <Text style={styles.welcome}>
-                    L'événement ouvre ses portes{'\n'}le 16 Mai 2020.
-                  </Text>
+                  <Text style={styles.welcome}>{i18n.t('welcome')}</Text>
+                  <Text style={styles.welcome}>{i18n.t('welcome2')}</Text>
                 </View>
 
                 <View style={styles.container_end}>
-                  <Text style={styles.text_end}>
-                    Le Gala a ouvert ses porte !
-                  </Text>
+                  <Text style={styles.text_end}>{i18n.t('open_message')}</Text>
                 </View>
                 <View style={styles.container_end}>
-                  <Text style={styles.text_end}>
-                    Nous vous souhaitons une bonne soirée.
-                  </Text>
+                  <Text style={styles.text_end}>{i18n.t('good_message')}</Text>
                 </View>
               </View>
             </ScrollView>
@@ -73,7 +65,7 @@ class HomeScreen extends Component {
     } else {
       return (
         <React.Fragment>
-          <Header bigtitle="Accueil" />
+          <Header bigtitle={i18n.t('menu_home')} />
           <SafeAreaView style={styles.droidSafeArea}>
             <ImageBackground
               source={require('../../../images/background_cassiopee_modif.png')}
@@ -89,12 +81,8 @@ class HomeScreen extends Component {
                   </View>
 
                   <View style={styles.container_welcome}>
-                    <Text style={styles.welcome}>
-                      Bienvenue sur l'application{'\n'}Cassiopée !
-                    </Text>
-                    <Text style={styles.welcome}>
-                      L'événement ouvre ses portes{'\n'}le 16 Mai 2020.
-                    </Text>
+                    <Text style={styles.welcome}>{i18n.t('welcome')}</Text>
+                    <Text style={styles.welcome}>{i18n.t('welcome2')}</Text>
                   </View>
 
                   <View style={styles.container_countdown}>
@@ -104,10 +92,10 @@ class HomeScreen extends Component {
                       separatorStyle={{ color: 'transparent' }}
                       showSeparator
                       timeLabels={{
-                        d: 'Jours',
-                        h: 'Heures',
-                        m: 'Minutes',
-                        s: 'Secondes',
+                        d: i18n.t('days'),
+                        h: i18n.t('hours'),
+                        m: i18n.t('minutes'),
+                        s: i18n.t('seconds'),
                       }}
                       timeLabelStyle={{ color: 'white' }}
                       until={this.state.totalDuration}
@@ -125,7 +113,7 @@ class HomeScreen extends Component {
                         )
                       }
                     >
-                      <Text style={styles.text}>Prendre sa Place</Text>
+                      <Text style={styles.text}>{i18n.t('take_place')}</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -139,14 +127,12 @@ class HomeScreen extends Component {
 
   componentDidMount() {
     var that = this
-    var date = moment()
-      .utcOffset('+1')
-      .format('YYYY-MM-DD hh:mm:ss')
+    var date = moment().utcOffset('+1').format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
     var expirydate = '2020-05-16 20:00:00' //Date of event
     var diffr = moment.duration(moment(expirydate).diff(moment(date)))
     //difference of the expiry date-time given and current date-time
-    var hours = parseInt(diffr.asHours()) - 11
+    var hours = parseInt(diffr.asHours()) - 12
     var minutes = parseInt(diffr.minutes())
     var seconds = parseInt(diffr.seconds())
     var d = hours * 60 * 60 + minutes * 60 + seconds
@@ -163,6 +149,7 @@ export default HomeScreen
 const styles = StyleSheet.create({
   scroll: {
     backgroundColor: 'transparent',
+    height: '100%',
   },
   container: {
     backgroundColor: 'transparent',
@@ -175,9 +162,9 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    marginTop: 15,
+    marginTop: 0,
     width: 320,
-    height: 180,
+    height: Dimensions.get('screen').height < 600 ? 100 : 180,
     resizeMode: 'contain',
   },
   container_countdown: {
@@ -224,6 +211,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   droidSafeArea: {
-    flex: Platform.OS === 'android' ? 1 : 0,
+    flex:
+      (Platform.OS === 'android' ? 1 : 0) ||
+      (Dimensions.get('screen').height < 600 ? 1 : 0),
+    backgroundColor: '#171530',
   },
 })

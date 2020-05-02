@@ -3,6 +3,7 @@ import { Image, View, StyleSheet, TouchableOpacity, Text } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
 import { connect } from 'react-redux'
+import i18n from '../../translate/index'
 
 class Billet extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Billet extends React.Component {
     const { status1 } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
     if (status1 === 'granted') {
       this.setState({
-        checkCamera: true,
+        checkGalery: true,
       })
     }
     const { status2 } = await Permissions.askAsync(Permissions.CAMERA)
@@ -35,14 +36,13 @@ class Billet extends React.Component {
   onPressAppPhoto = async () => {
     let { status } = await Permissions.getAsync(Permissions.CAMERA)
     if (status !== 'granted') {
-      alert(
-        "Vous devez autoriser l'accès à l'appareil photo pour que ce service fonctionne."
-      )
+      alert(i18n.t('alert_text_allow_camera'))
       const { status2 } = await Permissions.askAsync(Permissions.CAMERA)
       if (status2 === 'granted') {
         this.setState({
           checkCamera: true,
         })
+        this._takeImage()
       }
     } else {
       this._takeImage()
@@ -52,14 +52,13 @@ class Billet extends React.Component {
   onPressGalery = async () => {
     let { status } = await Permissions.getAsync(Permissions.CAMERA_ROLL)
     if (status !== 'granted') {
-      alert(
-        "Vous devez autoriser l'accès à la gallerie pour que ce service fonctionne."
-      )
+      alert(i18n.t('alert_text_allow_galery'))
       const { status1 } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
       if (status1 === 'granted') {
         this.setState({
-          checkCamera: true,
+          checkGalery: true,
         })
+        this._pickImage()
       }
     } else {
       this._pickImage()
@@ -102,18 +101,14 @@ class Billet extends React.Component {
             style={styles.button}
             onPress={() => this.onPressGalery()}
           >
-            <Text style={styles.text}>
-              Importer votre billet depuis votre Galerie
-            </Text>
+            <Text style={styles.text}>{i18n.t('ticket_import_galery')}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.button}
             onPress={() => this.onPressAppPhoto()}
           >
-            <Text style={styles.text}>
-              Importer votre billet depuis votre Appareil Photo
-            </Text>
+            <Text style={styles.text}>{i18n.t('ticket_import_camera')}</Text>
           </TouchableOpacity>
         </View>
 
@@ -156,7 +151,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     billet: state.setBillet.billet,
   }

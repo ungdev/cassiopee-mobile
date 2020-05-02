@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import openMap from 'react-native-open-maps'
 import email from 'react-native-email'
+import i18n from '../../../translate/index'
 
 class Infos extends React.Component {
   _goToUTT() {
@@ -38,34 +39,34 @@ class Infos extends React.Component {
       <ScrollView style={styles.main_container}>
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>Accès</Text>
+            <Text style={styles.title}>{i18n.t('info_access_title')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-body" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Interdit aux moins de 18 ans</Text>
+            <Text style={styles.text}>{i18n.t('info_age')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-bowtie" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Tenue de soirée obligatoire</Text>
+            <Text style={styles.text}>{i18n.t('info_dresscode')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-beer" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Etat convenable exigé</Text>
+            <Text style={styles.text}>{i18n.t('info_spirit')}</Text>
           </View>
         </View>
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>Adresse</Text>
+            <Text style={styles.title}>{i18n.t('info_adress_title')}</Text>
           </View>
 
           <TouchableOpacity style={styles.element} onPress={this._goToUTT}>
@@ -81,49 +82,49 @@ class Infos extends React.Component {
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>Date</Text>
+            <Text style={styles.title}>{i18n.t('info_date_title')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-calendar" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>16 Mai 2020 - 20H00</Text>
+            <Text style={styles.text}>{i18n.t('info_date')}</Text>
           </View>
         </View>
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>Horaires</Text>
+            <Text style={styles.title}>{i18n.t('info_schedule_title')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-time" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Ouverture des portes à 20H00</Text>
+            <Text style={styles.text}>{i18n.t('info_schedule_open')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-warning" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Fermeture de l'entrée à 02H00</Text>
+            <Text style={styles.text}>
+              {i18n.t('info_schedule_ticket_close')}
+            </Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon name="ios-volume-high" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Fin de l'événement à 05H00</Text>
+            <Text style={styles.text}>{i18n.t('info_schedule_close')}</Text>
           </View>
         </View>
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>
-              Privacy Policy/Politique de confidentialité
-            </Text>
+            <Text style={styles.title}>{i18n.t('info_privacy_title')}</Text>
           </View>
 
           <TouchableOpacity
@@ -135,9 +136,7 @@ class Infos extends React.Component {
             <View style={styles.element_icon}>
               <Icon name="ios-lock" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>
-              Voir la politique de confidentialité
-            </Text>
+            <Text style={styles.text}>{i18n.t('info_privacy')}</Text>
             <View style={styles.element_arrow}>
               <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
             </View>
@@ -146,7 +145,7 @@ class Infos extends React.Component {
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>Nous contacter</Text>
+            <Text style={styles.title}>{i18n.t('info_contact_title')}</Text>
           </View>
 
           <TouchableOpacity
@@ -156,7 +155,7 @@ class Infos extends React.Component {
             <View style={styles.element_icon}>
               <Icon name="ios-mail" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Association : gala@utt.fr</Text>
+            <Text style={styles.text}>{i18n.t('info_contact_mail_gala')}</Text>
             <View style={styles.element_arrow}>
               <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
             </View>
@@ -169,7 +168,7 @@ class Infos extends React.Component {
             <View style={styles.element_icon}>
               <Icon name="ios-settings" size={25} color={'whitesmoke'} />
             </View>
-            <Text style={styles.text}>Problèmes Techniques : ung@utt.fr</Text>
+            <Text style={styles.text}>{i18n.t('info_contact_mail_ung')}</Text>
             <View style={styles.element_arrow}>
               <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
             </View>
