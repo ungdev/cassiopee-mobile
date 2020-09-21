@@ -28,7 +28,7 @@ class AssoScreen extends Component {
       <React.Fragment>
         <Header bigtitle={i18n.t('menu_asso')} />
         <ImageBackground
-          source={require('../../images/background_cassiopee_modif.png')}
+          source={require('../../../assets/background_cassiopee_modif.png')}
           style={{ width: '100%', height: '100%', resizeMode: 'center' }}
         >
           <View style={styles.container}>

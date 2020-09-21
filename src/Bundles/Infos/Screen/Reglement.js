@@ -1,6 +1,7 @@
 import React from 'react'
 import { ScrollView, StyleSheet, Text, Linking } from 'react-native'
 import i18n from '../../../translate/index'
+const Device = require('react-native-device-detection')
 
 class Reglement extends React.Component {
   render() {
@@ -82,5 +83,43 @@ const styles = StyleSheet.create({
     color: '#00b5ec',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    p: {
+      alignSelf: 'stretch',
+      padding: 5,
+      fontSize: 18,
+      textAlign: 'justify',
+      color: 'whitesmoke',
+    },
+    dev: {
+      alignSelf: 'stretch',
+      padding: 5,
+      fontSize: 18,
+      textAlign: 'justify',
+      color: 'whitesmoke',
+      textDecorationLine: 'underline',
+    },
+
+    t: {
+      marginTop: 15,
+      color: '#bd945a',
+      fontSize: 28,
+      textAlign: 'center',
+    },
+
+    h: {
+      marginTop: 15,
+      padding: 5,
+      color: '#f7ce8c',
+      fontSize: 25,
+      textAlign: 'left',
+    },
+    title: {
+      fontSize: 22,
+    },
+  })
+}
 
 export default Reglement

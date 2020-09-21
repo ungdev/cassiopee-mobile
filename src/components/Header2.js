@@ -2,6 +2,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
+const Device = require('react-native-device-detection')
 
 class Header2 extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class Header2 extends React.Component {
           <View style={styles.iconmenu}>
             <Icon
               name="md-arrow-back"
-              style={{ fontSize: 24, color: 'white' }}
+              style={{ fontSize: Device.isTablet ? 30 : 24, color: 'white' }}
             />
           </View>
         </View>
@@ -53,5 +54,38 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    header: {
+      width: '100%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: Platform.OS === 'ios' ? 45 : 85,
+    },
+    iconmenu: {
+      position: 'absolute',
+      top: Platform.OS === 'ios' ? 20 : 40,
+      left: 20,
+    },
+    title: {
+      width: '100%',
+      ...Platform.select({
+        ios: {
+          justifyContent: 'center',
+        },
+        android: {
+          marginTop: 18,
+        },
+      }),
+    },
+    designtitle: {
+      fontSize: 21,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      color: 'white',
+    },
+  })
+}
 
 export default Header2

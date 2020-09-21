@@ -1,9 +1,17 @@
 import * as React from 'react'
-import { Image, View, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import {
+  Image,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  Dimensions,
+} from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
 import { connect } from 'react-redux'
 import i18n from '../../translate/index'
+const Device = require('react-native-device-detection')
 
 class Billet extends React.Component {
   constructor(props) {
@@ -14,31 +22,13 @@ class Billet extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.getPermissionAsync()
-  }
-
-  getPermissionAsync = async () => {
-    const { status1 } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
-    if (status1 === 'granted') {
-      this.setState({
-        checkGalery: true,
-      })
-    }
-    const { status2 } = await Permissions.askAsync(Permissions.CAMERA)
-    if (status2 === 'granted') {
-      this.setState({
-        checkCamera: true,
-      })
-    }
-  }
-
   onPressAppPhoto = async () => {
     let { status } = await Permissions.getAsync(Permissions.CAMERA)
     if (status !== 'granted') {
-      alert(i18n.t('alert_text_allow_camera'))
-      const { status2 } = await Permissions.askAsync(Permissions.CAMERA)
-      if (status2 === 'granted') {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA)
+      if (status !== 'granted') {
+        alert(i18n.t('alert_text_allow_camera'))
+      } else {
         this.setState({
           checkCamera: true,
         })
@@ -52,9 +42,10 @@ class Billet extends React.Component {
   onPressGalery = async () => {
     let { status } = await Permissions.getAsync(Permissions.CAMERA_ROLL)
     if (status !== 'granted') {
-      alert(i18n.t('alert_text_allow_galery'))
-      const { status1 } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
-      if (status1 === 'granted') {
+      const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
+      if (status !== 'granted') {
+        alert(i18n.t('alert_text_allow_galery'))
+      } else {
         this.setState({
           checkGalery: true,
         })
@@ -136,7 +127,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    marginBottom: 22,
+    marginBottom: Dimensions.get('screen').height < 600 ? 18 : 22,
     padding: 16,
     width: '90%',
     borderRadius: 8,
@@ -144,12 +135,31 @@ const styles = StyleSheet.create({
     backgroundColor: '#bd945a',
   },
   text: {
-    fontSize: 14,
+    fontSize: Dimensions.get('screen').height < 600 ? 12 : 14,
     fontWeight: 'bold',
     color: 'whitesmoke',
     textAlign: 'center',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    button: {
+      marginBottom: Dimensions.get('screen').height < 600 ? 18 : 22,
+      padding: 26,
+      width: '90%',
+      borderRadius: 8,
+      alignItems: 'center',
+      backgroundColor: '#bd945a',
+    },
+    text: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: 'whitesmoke',
+      textAlign: 'center',
+    },
+  })
+}
 
 const mapStateToProps = (state) => {
   return {

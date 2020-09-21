@@ -20,6 +20,7 @@
   "take_place": "Comprar su billete",
 
   "error": "Se produjo un error con el servidor. Por favor, inténtelo de nuevo en unos momentos. Código de error: ",
+  "error2": "La solicitud de notificación no fue apoyada por el servidor. Inténtalo de nuevo más tarde.",
 
   "program_list_startEvent": "Inicio del evento : ",
   "program_list_place": "Lugar : ",
@@ -37,14 +38,7 @@
   "alert_text_allow_galery": "Debe permitir el acceso a la galería para que este servicio funcione.",
   "alert_fav_artist_title": "Notificación de los artistas favoritos",
   "alert_fav_artist": "Recibirás una notificación de tus artistas favoritos 10 minutos antes del comienzo de su concierto.",
-
-  "map_title": "MAPA INTERACTIVO",
-  "map_first_message": "Haga clic en un área para obtener más información.",
-  "map_filter_all": "Ver todos",
-  "map_filter_animation": "Animación",
-  "map_filter_artist": "Artista",
-  "map_filter_food": "Catering",
-  "map_filter_eat": "EAT",
+  "alert_fav_artiste_allow": "Debes habilitar las notificaciones para recibir alertas de tus artistas favoritos.\n¿Quiere permitir las notificaciones?",
 
   "ticket_import_galery": "Importe su entrada desde su Galería",
   "ticket_import_camera": "Importa tu boleto de la cámara",
@@ -112,5 +106,86 @@
   "first_launching_slide_three_title": "¡Levanta las manos!",
   "first_launching_slide_three": "El desarrollador está trabajando activamente para traerte más características nuevas, así que revisa tus actualizaciones regularmente, el resto viene pronto...",
   "first_launching_slide_four_title": "¿Estás listo?",
-  "first_launching_slide_four": "¡Vámonos!"
+  "first_launching_slide_four": "¡Vámonos!",
+
+  "map_title": "MAPA INTERACTIVO",
+  "map_first_message": "Haga clic en un área para obtener más información.",
+  "map_filter_all": "Ver todos",
+  "map_filter_animation": "Animación",
+  "map_filter_artist": "Artista",
+  "map_filter_food": "Catering",
+  "map_filter_eat": "EAT",
+
+  "map_id1_name": "STAND DE PREVENCIÓN ANPAA",
+  "map_id1_description": "Que tengas una noche segura con la ANPAA.\nEl material de prevención está disponible en el stand:\n\n- Alcoholímetros\n- Tapas para ecocups\n- Tapones para los oídos\n- Preservativos",
+
+  "map_id2_name": "CINTA DE RECARGA SIN EFECTIVO Edificio M",
+  "map_id2_description": "Aquí encontrará un punto de recarga para recargar su cuenta sin dinero.",
+
+  "map_id3_name": "CINTA DE RECARGA SIN EFECTIVO Edificio A",
+  "map_id3_description": "Aquí encontrará un punto de recarga para recargar su cuenta sin dinero.",
+
+  "map_id4_name": "Cinta de recarga sin dinero en efectivo Inicio",
+  "map_id4_description": "Aquí encontrará un punto de recarga para recargar su cuenta sin dinero.",
+
+  "map_id5_name": "PUESTO DE FILMACIÓN ARGENTIQUE Y CHAPELLE",
+  "map_id5_description": "¡Vengan a inmortalizar esta magnífica velada bajo las cámaras de la asociación Argentique!\n\n¿Quieres casarte?\nTambién podrás inmortalizar el día más hermoso de tu vida.",
+
+  "map_id6_name": "BARRAS ELUSIVAS",
+  "map_id6_description": "El personal de la UTT y ASANUTT están trabajando juntos para que vuelvas a tu vida de estudiante.",
+  "map_id6_selling": "En venta en este espacio:\n\n- Plato de queso y fiambres\n- Vinos\n- Champaña",
+
+  "map_id7_name": "GOLDEN STAGE Y \nEAT LE CABARET DE LOS FAL' INNOV' UTT",
+  "map_id7_description": "Ven a conocer a los mejores estudiantes DJs.\n\n- HYXY a las 22H35\n\n- Antoto a las 00H00\n\n- Quentin LTL a 01H00\n\n- Stormer a 02H00",
+  "map_id7_selling": "Todos pensaron que era imposible, pero aquí están. Innov'UTT y Fal'UTT reunidos para esta Gala, para ti!\n\nEn venta en este espacio:\n\n- Cocktail Cacibel\n- Chouffe\n- Faro\n- Champaña\n- Pin's",
+
+  "map_id8_name": "BAR GOLDEN NUGGET",
+  "map_id8_description": "¡Prepárense para conquistar el oeste en nuestro bar de vaqueros!\nPodrás probar cervezas directamente de las lejanas tierras de Bélgica, como Delirium Red y Maredsous.\n\nTambién tendrás la oportunidad de probar un cóctel de casa, el famoso kir royal!",
+  "map_id8_selling": "En venta en este espacio:\n\n- Kir Royale\n- Delirium Red\n- Maredsous",
+
+  "map_id9_name": "HEALTHY FOODTRUCK\n& FRANCK'S DINNER",
+  "map_id9_description": "¿Un poco de hambre? ¡Está por aquí!",
+  "map_id9_selling": "En venta en este espacio:\n\n- Hamburguesa de pollo\n- Hamburguesa de salmón\n- Buddha bowl pollo/salmón/falafel\n- Pastel de flores vegetariano\n- Tiramisú con galletas rosas\n- Jugo de desintoxicación\n- Hot-dog\n- Nachos",
+
+  "map_id10_name": "BAR INTER ECOLE",
+  "map_id10_description": "Bar gestionado por las diferentes escuelas de la aglomeración troyana, ¡conocerás nuevas caras allí!",
+  "map_id10_selling": "En venta en este espacio:\n\n- Delirium Red\n- Chouffe\n- Faro\n- Terrano Blanche\n- Terrano Blonde\n- Maredsous\n- Saint-Martin Ambrée",
+
+  "map_id11_name": "CAESAR PALACE (ESCENA PRINCIPAL)",
+  "map_id11_description": "Escenario principal donde actuarán los más grandes artistas de la Gala.\n\n\n- FRH & Léo L'AS a las 21H30\n\n- Tez Cadey a las 22H30\n\n- French Fuse a las 00H00\n\n- Jay Style a 01H15\n\n- Salut C'est Cool a 02H30",
+
+  "map_id12_name": "LA CARTE URBAN FOODTRUCK",
+  "map_id12_description": "¿Un poco de hambre? ¡Ven y come algo!",
+  "map_id12_selling": "En venta en este espacio:\n\n- Papas fritas\n- Ensalada vegetariana\n- Hamburguesa de carne de vacuno\n- Burritos",
+
+  "map_id13_name": "ESTACIÓN DE PRIMEROS AUXILIOS SEC'UTT",
+  "map_id13_description": "Si terminas en una posición de seguridad lateral, probablemente te despiertes allí. :)",
+
+  "map_id14_name": "BAR A SOFTS (GRATIS) ET KARAOKE",
+  "map_id14_description": "¿Sediento?\n\n¡Ven y bebe refrescos gratis en este bar!\nAdemás habrá un karaoke.",
+
+  "map_id15_name": "ELVIS STAGE & BAR",
+  "map_id15_description": "Una atmósfera de roca para toda la noche:\n\n\n- Prol'UTT a las 20H30\n\n- Big Band UTT a las 21H45\n\n- Wazaaa a las 23H00\n\n- Ceci Dit a 00H45\n\n- KMGB a 02H00\n\n- Max Motion a 03H30",
+  "map_id15_selling": "Entre en la atmósfera greco-romana de nuestro bar, le sumergiremos en la atmósfera de uno de los hoteles más famosos del mundo: ¡el Caesar Palace!\nLas fuentes de cerveza le recordarán las termas romanas con la dulce Blanche de Namur para saciar su sed. Rinde homenaje a Bachus disfrutando de la música embriagadora y deja que sea la musa de tu noche.\n\nEn venta en este espacio:\n\n- Cocktail Viridi Malum\n- Chouffe\n- Deli Red\n- Terrano Blanche\n- Saint-Martin Ambrée\n- Champaña",
+
+  "map_id16_name": "TORO MECÁNICO",
+  "map_id16_description": "¡Vamos al rodeo! ¿Romperás el récord?",
+
+  "map_id17_name": "RUTT VEGAS Y VERY BAD PMOM",
+  "map_id17_description": "El rugby se trata de un balón con amigos alrededor y cuando el balón no está, los amigos siguen ahí. Te gusta la fiesta y te gustan los amigos, ¡sabes dónde encontrarnos!\n\nPara pasar una Gala extraordinaria, ven y únete a nosotros en nuestro EAT para encontrarte en el ambiente de Very Bad Trip con por supuesto la convivencia y el buen ambiente reconocido mundialmente de los PMOMs.",
+  "map_id17_selling": "En venta en este espacio:\n\n- Suze Cocktail\n- Chouffe\n- Faro\n- Saint-Martin Ambrée\n- Buzz Fick\n- Deli Red\n- Terrano Blanche\n- Champaña\n\nEncuentra la siguiente actividad en este espacio:\n\n- Ruleta loca",
+
+  "map_id18_name": "GUARDARROPA Y ÁREA DE DESCANSO SAM",
+  "map_id18_description": "Deje sus cosas aquí de forma gratuita.\n¡No pierdas tu boleto!\nPuede anotarlo directamente en esta solicitud, en 'Mi billete'.\n\nEl área de descanso SAM te permite dormir un poco para volver a la carretera con seguridad.",
+
+  "map_id19_name": "SALA DE JUEGOS DEL CASINO",
+  "map_id19_description": "¡Ya no pasa nada! ¡Hagan sus apuestas!\nPresume de tus habilidades en el póquer, el blackjack y la ruleta.",
+
+  "map_id20_name": "DREAM NIGHT (B105) + BALLROOM",
+  "map_id20_description": "La banda de música y ATECAP te ofrecen una comida exótica.\nVen a conocernos para mover las caderas mientras escuchas música de calidad, recarga tus baterías mientras bebes cervezas, refrescos y cócteles de frutas y diviértete con el Water-Pong, la ruleta gigante y otras festividades.\nQué programa tan atractivo... ¡Hasta pronto!",
+  "map_id20_selling": "En venta en este espacio:\n\n- Cocktail l'EXO\n- Maredsous\n- Faro\n- Champaña\n\nEncuentra la siguiente actividad en este espacio:\n\n- Waterpong",
+
+  "map_id21_name": "FOODTRUCKS : CREP D'ELO &\nL'ATELIER DU LAHMACUN",
+  "map_id21_description": "¿Un poco de hambre? ¡Ven y come algo!",
+  "map_id21_selling": "En venta en este espacio:\n\n- Panqueques de azúcar/mermelada de fresa/nutella\n- Panqueques con crema fresca, queso Emmental y jamón.\n- Panqueques con crema fresca, jamón y huevo\n\n- Lahmacun\n- Papas fritas"
 }

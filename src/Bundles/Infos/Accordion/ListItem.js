@@ -40,26 +40,8 @@ export default ({ item, isLast }: ListItemProps) => {
   //avant le 16 mai, tous les points sont rouges car il n'y a pas de navette aux arrêts en question
   //le 16 mai et 17 mai un point vert = navette pas encore passé car ce n'est pas encore l'heure
   // dès le 17 mai 6H du matin les points redeviennent rouges, Gala terminé, plus de navette
-
-  //console.log(time);
-  if (date == 17 && month == 5 && item.name > time) {
-    //COMPORTEMENT DIMANCHE 17 MAI
-    return (
-      <View
-        style={[
-          styles.container,
-          {
-            borderBottomLeftRadius: bottomRadius,
-            borderBottomRightRadius: bottomRadius,
-          },
-        ]}
-      >
-        <Text style={styles.name}>{item.name}</Text>
-        <View style={styles.pointsContainerGreen}></View>
-      </View>
-    )
-  } else if (date >= 17 && month >= 5 && hours > 6) {
-    //COMPORTEMENT APRES GALA
+  if (date == 17 && month == 5 && hours >= 5 && min >= 30) {
+    //COMPORTEMENT DIMANCHE 17 MAI APRES 6H
     return (
       <View
         style={[
@@ -74,7 +56,23 @@ export default ({ item, isLast }: ListItemProps) => {
         <View style={styles.pointsContainerRed}></View>
       </View>
     )
-  } else if (date == 16 && month == 5 && item.name < time) {
+  } else if (date == 17 && month == 5 && item.id2 > time) {
+    //COMPORTEMENT DIMANCHE 17 MAI JUSQUE 6H
+    return (
+      <View
+        style={[
+          styles.container,
+          {
+            borderBottomLeftRadius: bottomRadius,
+            borderBottomRightRadius: bottomRadius,
+          },
+        ]}
+      >
+        <Text style={styles.name}>{item.name}</Text>
+        <View style={styles.pointsContainerGreen}></View>
+      </View>
+    )
+  } else if (date == 16 && month == 5 && item.id > time) {
     //COMPORTEMENT SAMEDI 16 MAI
     return (
       <View

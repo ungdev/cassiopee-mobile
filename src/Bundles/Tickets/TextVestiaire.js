@@ -1,7 +1,8 @@
 import React from 'react'
-import { TextInput, View, StyleSheet, Text } from 'react-native'
+import { TextInput, View, StyleSheet, Text, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import i18n from '../../translate/index'
+const Device = require('react-native-device-detection')
 
 class TextVestiaire extends React.Component {
   state = {
@@ -46,11 +47,11 @@ const styles = StyleSheet.create({
   },
   text_vestiaire: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: Dimensions.get('screen').height < 600 ? 14 : 18,
     color: 'white',
   },
   text_vestiaire_second: {
-    fontSize: 14,
+    fontSize: 12,
     marginBottom: 30,
     color: 'white',
   },
@@ -59,13 +60,39 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: 'bold',
     width: 250,
-    height: 64,
+    height: Dimensions.get('screen').height < 600 ? 55 : 64,
     padding: 10,
     marginBottom: 7,
     backgroundColor: '#bd945a',
     color: 'white',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    text_vestiaire: {
+      textAlign: 'center',
+      fontSize: 22,
+      color: 'white',
+    },
+    text_vestiaire_second: {
+      fontSize: 19,
+      marginBottom: 30,
+      color: 'white',
+    },
+    input: {
+      borderRadius: 8,
+      fontSize: 40,
+      fontWeight: 'bold',
+      width: 250,
+      height: 80,
+      padding: 10,
+      marginBottom: 7,
+      backgroundColor: '#bd945a',
+      color: 'white',
+    },
+  })
+}
 
 const mapStateToProps = (state) => {
   return {

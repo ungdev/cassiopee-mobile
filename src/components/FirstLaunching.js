@@ -4,13 +4,13 @@ import { StyleSheet, View, Text, Dimensions } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from '../navigation/DrawerNavigator'
-import { Provider } from 'react-redux'
 import Store from '../store/configureStore'
 import { persistStore } from 'redux-persist'
-import { PersistGate } from 'redux-persist/es/integration/react'
 import i18n from '../translate/index'
 import { Notifications } from 'expo'
 import * as Permissions from 'expo-permissions'
+import { api } from '../lib/api'
+import { connect } from 'react-redux'
 
 const slides = [
   {
@@ -39,12 +39,11 @@ const slides = [
   },
 ]
 
-export default class FirstLaunching extends React.Component {
+class FirstLaunching extends React.Component {
   constructor() {
     super()
     this.state = { showRealApp: false }
   }
-
   componentDidMount() {
     this.registerForPushNotificationsAsync()
   }
@@ -56,8 +55,20 @@ export default class FirstLaunching extends React.Component {
     if (status !== 'granted') {
       return
     }
+    //Récupération Token
     let token = await Notifications.getExpoPushTokenAsync()
-    console.log(token)
+    //Stockage dans l'Appli
+    console.log('token recupere', token)
+    const action = { type: 'SET_TOKEN', value: token }
+    this.props.dispatch(action)
+    //On envoie ensuite au serveur
+    try {
+      const result = await api.post('expoTokens', { token })
+      console.log('Token envoyé au serveur')
+    } catch (e) {
+      console.log('erreur:', e)
+      alert(i18n.t('error2') + e)
+    }
   }
 
   _renderItem = ({ item }) => (
@@ -99,21 +110,13 @@ export default class FirstLaunching extends React.Component {
   }
 
   _onDone = () => {
-    // User finished the introduction. Show real app through
-    // navigation or simply by controlling state
     this.setState({ showRealApp: true })
   }
 
   render() {
     let persistor = persistStore(Store)
     if (this.state.showRealApp) {
-      return (
-        <Provider store={Store}>
-          <PersistGate persistor={persistor}>
-            <AppContainer />
-          </PersistGate>
-        </Provider>
-      )
+      return <AppContainer />
     } else {
       return (
         <AppIntroSlider
@@ -165,8 +168,16 @@ const styles = StyleSheet.create({
   },
 })
 
+const mapStateToProps = (state) => {
+  return {
+    keyToken: state.setkeyToken.keyToken,
+  }
+}
+
 const AppSwitchNavigator = createSwitchNavigator({
   DrawerNavigator,
 })
 
 const AppContainer = createAppContainer(AppSwitchNavigator)
+
+export default connect(mapStateToProps)(FirstLaunching)

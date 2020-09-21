@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   ImageBackground,
   Alert,
-  SafeAreaView,
   Dimensions,
 } from 'react-native'
 import Header2 from '../../../components/Header2'
@@ -20,22 +19,15 @@ import { connect } from 'react-redux'
 import i18n from '../../../translate/index'
 import * as Permissions from 'expo-permissions'
 import { Notifications } from 'expo'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+const Device = require('react-native-device-detection')
 
 class ArtistDetail extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      infoNotif: 0,
-    }
   }
 
-  async registerForPushNotificationsAsync() {
-    //Demande de permissions
-    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS)
-    //Si la permission n'est pas accordée on fait rien.
-    if (status !== 'granted') {
-      return
-    }
+  async getTokenFromExpo() {
     let token = await Notifications.getExpoPushTokenAsync()
     console.log(token)
   }
@@ -47,39 +39,45 @@ class ArtistDetail extends React.Component {
       value: artist,
     }
     this.props.dispatch(action)
-    //On redemande autorisation notif pour le premier artiste favoris au cas où
+    //si c'est le premier artiste favoris, message infos
     if (this.props.favoritesArtist.length === 0) {
-      const { testNotif } = await Permissions.getAsync(
-        Permissions.NOTIFICATIONS
-      )
-      if (testNotif !== 'granted') {
-        this.registerForPushNotificationsAsync()
-      } else {
-        Alert.alert(
+      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS)
+      //test si les notifs ont été activé
+      if (status !== 'granted') {
+        return Alert.alert(
           i18n.t('alert_fav_artist_title'),
-          i18n.t('alert_fav_artist'),
-          [{ text: 'OK' }],
+          i18n.t('alert_fav_artiste_allow'),
+          [
+            { text: 'OK', onPress: () => this.getTokenFromExpo() },
+            { text: 'Cancel', style: 'cancel' },
+          ],
           { cancelable: false }
         )
       }
+      Alert.alert(
+        i18n.t('alert_fav_artist_title'),
+        i18n.t('alert_fav_artist'),
+        [{ text: 'OK' }],
+        { cancelable: false }
+      )
     }
   }
 
   _displayFavoriteImage() {
     const artist = this.props.navigation.getParam('artist')
-    var sourceImage = require('../../../images/ic_favorite_border_white.png')
+    var sourceImage = require('../../../../assets/ic_favorite_border_white.png')
     if (
       this.props.favoritesArtist.findIndex((item) => item.id === artist.id) !==
       -1
     ) {
-      sourceImage = require('../../../images/ic_favorite_white.png')
+      sourceImage = require('../../../../assets/ic_favorite_white.png')
     }
     return <Image source={sourceImage} style={styles.favorite_image}></Image>
   }
 
   _displayArtist() {
     const artist = this.props.navigation.getParam('artist')
-    //console.log(this.props.favoritesArtist)
+    console.log(this.props.favoritesArtist)
     return (
       <React.Fragment>
         <TouchableWithoutFeedback
@@ -97,9 +95,9 @@ class ArtistDetail extends React.Component {
               source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
             />
           </View>
-          <SafeAreaView style={styles.droidSafeArea}>
+          <SafeAreaProvider style={styles.droidSafeArea}>
             <ImageBackground
-              source={require('../../../images/Logo_Cassiopée/coverartiste.png')}
+              source={require('../../../../assets/Logo_Cassiopée/coverartiste.png')}
               style={{ width: '100%', height: '100%' }}
             >
               <ScrollView
@@ -152,7 +150,7 @@ class ArtistDetail extends React.Component {
                 </View>
               </ScrollView>
             </ImageBackground>
-          </SafeAreaView>
+          </SafeAreaProvider>
         </View>
       </React.Fragment>
     )
@@ -161,7 +159,6 @@ class ArtistDetail extends React.Component {
   render() {
     const artist = this.props.artist
     const displayDetailForArtist = this.props.displayDetailForArtist
-    //console.log(this.props)
     return <View style={styles.main_container}>{this._displayArtist()}</View>
   }
 }
@@ -202,8 +199,10 @@ const styles = StyleSheet.create({
   default_text: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    marginLeft: 30,
-    marginRight: 5,
+    fontSize: 14,
+    marginLeft: 10,
+    textAlign: 'justify',
+    marginRight: 10,
     marginTop: 15,
     marginBottom: 10,
     color: 'white',
@@ -211,7 +210,7 @@ const styles = StyleSheet.create({
   default_text_lien: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    marginLeft: 30,
+    marginLeft: 10,
     marginRight: 5,
     marginTop: 25,
     marginBottom: 8,
@@ -231,9 +230,43 @@ const styles = StyleSheet.create({
     flex:
       (Platform.OS === 'android' ? 1 : 0) ||
       (Dimensions.get('screen').height < 600 ? 1 : 0),
-    backgroundColor: '#171530',
+    backgroundColor: 'transparent',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    image: {
+      width: '100%',
+      height: 300,
+      position: 'relative',
+    },
+    favorite_image: {
+      width: 60,
+      height: 60,
+    },
+    default_text: {
+      textTransform: 'uppercase',
+      fontWeight: 'bold',
+      fontSize: 15,
+      textAlign: 'justify',
+      marginLeft: 20,
+      marginRight: 20,
+      marginTop: 15,
+      marginBottom: 10,
+      color: 'white',
+    },
+    default_text_lien: {
+      textTransform: 'uppercase',
+      fontWeight: 'bold',
+      marginLeft: 20,
+      marginRight: 5,
+      marginTop: 25,
+      marginBottom: 8,
+      color: 'white',
+    },
+  })
+}
 
 const mapStateToProps = (state) => {
   return {

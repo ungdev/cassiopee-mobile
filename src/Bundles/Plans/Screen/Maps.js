@@ -1,17 +1,11 @@
-const getRandomColor = () => {
-  const letters = '0123456789ABCDEF'
-  let color = '#'
-  for (var i = 0; i < 6; i++) color += letters[Math.floor(Math.random() * 16)]
-  return color
-}
+import i18n from '../../../translate/index'
 
 export default FIGURES = [
   {
     id: '1',
-    name: 'STAND DE PREVENTION ANPAA',
+    name: i18n.t('map_id1_name'),
     shape: 'rectangle',
-    description:
-      "Passez une soirée en toute sécurité avec l'ANPAA.\nDu matériel de prévention est disponible sur le stand :\n\n- Ethylotests\n- Couvercles pour écocups\n- Bouchons d'oreille\n- Préservatifs",
+    description: i18n.t('map_id1_description'),
     x2: 173,
     y2: 134,
     x1: 150,
@@ -21,9 +15,8 @@ export default FIGURES = [
   },
   {
     id: '2',
-    name: 'BORNE DE RECHARGEMENT CASHLESS Bâtiment M',
-    description:
-      'Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.',
+    name: i18n.t('map_id2_name'),
+    description: i18n.t('map_id2_description'),
     shape: 'circle',
     x1: 115,
     y1: 166,
@@ -33,9 +26,8 @@ export default FIGURES = [
   },
   {
     id: '3',
-    name: 'BORNE DE RECHARGEMENT CASHLESS Bâtiment A',
-    description:
-      'Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.',
+    name: i18n.t('map_id3_name'),
+    description: i18n.t('map_id3_description'),
     shape: 'circle',
     x1: 183,
     y1: 118,
@@ -45,9 +37,8 @@ export default FIGURES = [
   },
   {
     id: '4',
-    name: 'BORNE DE RECHARGEMENT CASHLESS Accueil',
-    description:
-      'Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.',
+    name: i18n.t('map_id4_name'),
+    description: i18n.t('map_id4_description'),
     shape: 'circle',
     x1: 230,
     y1: 180,
@@ -57,9 +48,8 @@ export default FIGURES = [
   },
   {
     id: '5',
-    name: 'Stand Photo Argentique et Chapelle',
-    description:
-      "Venez immortaliser cette magnifique soirée sous les appareils photos l'association Argentique !\n\nUne envie de mariage ?\nVous pourrez également immortaliser le plus beau jour de votre vie !",
+    name: i18n.t('map_id5_name'),
+    description: i18n.t('map_id5_description'),
     shape: 'circle',
     x1: 169,
     y1: 137,
@@ -69,11 +59,9 @@ export default FIGURES = [
   },
   {
     id: '6',
-    name: 'BAR INSAISISSABLES',
-    description:
-      "Le personnel de l'UTT et l'ASANUTT s'associent pour vous faire retrouver votre vie étudiante.",
-    selling:
-      'En vente sur cette espace :\n\n- Plateau de fromage et de charcuterie\n- Vins\n- Champagne',
+    name: i18n.t('map_id6_name'),
+    description: i18n.t('map_id6_description'),
+    selling: i18n.t('map_id6_selling'),
     shape: 'circle',
     x1: 195,
     y1: 138,
@@ -83,12 +71,10 @@ export default FIGURES = [
   },
   {
     id: '7',
-    name: "GOLDEN STAGE & \nEAT LE CABARET DES FAL' INNOV' UTT",
+    name: i18n.t('map_id7_name'),
     shape: 'rectangle',
-    description:
-      'Venez retrouver les plus grands DJs étudiants.\n\n- HYXY à 22H35\n\n- Antoto à 00H00\n\n- Quentin LTL à 01H00\n\n- Stormer à 02H00',
-    selling:
-      "Tous pensaient cela impossible, mais pourtant les voilà ! Innov'UTT et Fal'UTT réunis pour ce Gala, pour vous !\n\nEn vente sur cet espace :\n\n- Cocktail Cacibel\n- Chouffe\n- Faro\n- Champagne\n- Pin's",
+    description: i18n.t('map_id7_description'),
+    selling: i18n.t('map_id7_selling'),
     x2: 145,
     y2: 161,
     x1: 122,
@@ -98,11 +84,9 @@ export default FIGURES = [
   },
   {
     id: '8',
-    name: 'BAR GOLDEN NUGGET',
-    description:
-      "Pars à la conquête de l'ouest dans notre bar cowboy !\nTu pourras goûter à des bières venues tout droit des contrées lointaines de Belgique telles que la Delirium Red et la Maredsous !\n\nTu auras aussi l'occasion de tester un cocktail bien de chez nous, el famoso kir royal !",
-    selling:
-      'En vente sur cet espace :\n\n- Kir Royale\n- Delirium Red\n- Maredsous',
+    name: i18n.t('map_id8_name'),
+    description: i18n.t('map_id8_description'),
+    selling: i18n.t('map_id8_selling'),
     shape: 'circle',
     x1: 155,
     y1: 152,
@@ -112,11 +96,10 @@ export default FIGURES = [
   },
   {
     id: '9',
-    name: "HEALTHY FOODTRUCK\n& FRANCK'S DINNER",
+    name: i18n.t('map_id9_name'),
     shape: 'rectangle',
-    description: "Un petit creux ? C'est par ici !",
-    selling:
-      'En vente sur cet espace :\n\n- Burger poulet\n- Burger saumon\n- Buddha bowl poulet/saumon/falafel\n- Gâteau de fleurs vegan\n- Tiramisu aux biscuits roses\n- Jus détox\n- Hot-dog\n- Nachos',
+    description: i18n.t('map_id9_description'),
+    selling: i18n.t('map_id9_selling'),
     x2: 155,
     y2: 190,
     x1: 140,
@@ -126,12 +109,10 @@ export default FIGURES = [
   },
   {
     id: '10',
-    name: 'BAR INTER ECOLE',
+    name: i18n.t('map_id10_name'),
     shape: 'rectangle',
-    description:
-      "Bar géré par les différentes écoles de l'agglomération troyenne, vous y recontrerez de nouvelles têtes !",
-    selling:
-      'En vente sur cet espace :\n\n- Delirium Red\n- Chouffe\n- Faro\n- Terrano Blanche\n- Terrano Blonde\n- Maredsous\n- Saint-Martin Ambrée',
+    description: i18n.t('map_id10_description'),
+    selling: i18n.t('map_id10_selling'),
     x2: 180,
     y2: 219,
     x1: 150,
@@ -141,10 +122,9 @@ export default FIGURES = [
   },
   {
     id: '11',
-    name: 'CAESAR PALACE (SCENE PRINCIPALE)',
+    name: i18n.t('map_id11_name'),
     shape: 'rectangle',
-    description:
-      "Scène principale où se produiront les plus grands artistes du Gala.\n\n\n- FRH & Léo L'AS à 21H30\n\n- Tez Cadey à 22H30\n\n- French Fuse à 00H00\n\n- Jay Style à 01H15\n\n- Salut C'est Cool à 02H30",
+    description: i18n.t('map_id11_description'),
     x2: 208,
     y2: 229,
     x1: 184,
@@ -154,11 +134,10 @@ export default FIGURES = [
   },
   {
     id: '12',
-    name: 'LA CARTE URBAN FOODTRUCK',
+    name: i18n.t('map_id12_name'),
     shape: 'rectangle',
-    description: 'Un petit creux ? Venez vous restaurer !',
-    selling:
-      'En vente sur cet espace :\n\n- Frites\n- Salade Végétarienne\n- Burger Boeuf\n- Burritos',
+    description: i18n.t('map_id12_description'),
+    selling: i18n.t('map_id12_selling'),
     x2: 234,
     y2: 229,
     x1: 214,
@@ -168,9 +147,9 @@ export default FIGURES = [
   },
   {
     id: '13',
-    name: "POSTE DE SECOURISME SEC'UTT",
+    name: i18n.t('map_id13_name'),
     shape: 'circle',
-    description: 'Si tu finis en PLS, tu te réveilleras sûrement là bas :)',
+    description: i18n.t('map_id13_description'),
     x1: 209,
     y1: 183,
     radius: 18,
@@ -179,10 +158,9 @@ export default FIGURES = [
   },
   {
     id: '14',
-    name: 'BAR A SOFTS (GRATUITS) ET KARAOKE',
+    name: i18n.t('map_id14_name'),
     shape: 'circle',
-    description:
-      'Tu as soif ?\n\nViens boire des softs gratuits dans ce bar !\nEn plus il y aura un Karaoké',
+    description: i18n.t('map_id14_description'),
     x1: 238,
     y1: 202,
     radius: 23,
@@ -191,12 +169,10 @@ export default FIGURES = [
   },
   {
     id: '15',
-    name: 'ELVIS STAGE & BAR',
+    name: i18n.t('map_id15_name'),
     shape: 'rectangle',
-    description:
-      "Une ambiance rock pour toute la soirée :\n\n\n- Prol'UTT à 20H30\n\n- Big Band UTT à 21H45\n\n- Wazaaa à 23H00\n\n- Ceci Dit à 00H45\n\n- KMGB à 02H00\n\n- Max Motion à 03H30",
-    selling:
-      "Entrez dans l'atmosphère greco-romaine de notre bar, nous allons vous plonger dans l'ambiance d'un des hôtels les plus connus au monde : Le Caesar Palace !\nLes fontaines de bières vous rappelleront les thermes romains avec la douce Blanche de Namur pour vous désaltérer. Rendez hommage à Bachus en profitant de la musique enivrante et laissez celle-ci être la muse de votre soirée !\n\nEn vente sur cet espace :\n\n- Cocktail Viridi Malum\n- Chouffe\n- Deli Red\n- Terrano Blanche\n- Saint-Martin Ambrée\n- Champagne",
+    description: i18n.t('map_id15_description'),
+    selling: i18n.t('map_id15_selling'),
     x2: 301,
     y2: 200,
     x1: 267,
@@ -206,24 +182,22 @@ export default FIGURES = [
   },
   {
     id: '16',
-    name: 'TAUREAU MECANIQUE',
+    name: i18n.t('map_id16_name'),
     shape: 'rectangle',
-    description: "C'est partit pour le rodéo ! Battrez-vous le record ?",
-    x2: 291,
-    y2: 168,
+    description: i18n.t('map_id16_description'),
+    x2: 298,
+    y2: 172,
     x1: 271,
-    y1: 154,
+    y1: 156,
     prefill: 'transparent',
     fill: 'transparent',
   },
   {
     id: '17',
-    name: 'RUTT VEGAS & VERY BAD PMOM',
+    name: i18n.t('map_id17_name'),
     shape: 'rectangle',
-    description:
-      "Le rugby, c'est l'histoire d'un ballon avec des copains autour et quand il n'y a plus de ballon, il reste les copains. Tu aimes la fête et les copains, tu sais où nous trouver !\n\nPour passer un Gala extraordinaire, venez nous rejoindre au sein de notre EAT pour vous retrouver dans l'ambiance de Very Bad Trip avec bien sur la convivialité et la bonne ambiance reconnu mondialement des PMOMs.",
-    selling:
-      'En vente sur cet espace :\n\n- Suze Cocktail\n- Chouffe\n- Faro\n- Saint-Martin Ambrée\n- Buzz Fick\n- Deli Red\n- Terrano Blanche\n- Champagne',
+    description: i18n.t('map_id17_description'),
+    selling: i18n.t('map_id17_selling'),
     x2: 300,
     y2: 148,
     x1: 267,
@@ -233,10 +207,9 @@ export default FIGURES = [
   },
   {
     id: '18',
-    name: 'VESTIAIRE ET ESPACE DE REPOS SAM',
+    name: i18n.t('map_id18_name'),
     shape: 'rectangle',
-    description:
-      "Déposez ici vos affaires gratuitement.\nNe perdez pas votre ticket !\nVous pouvez le noter directement dans cette application, rubrique 'Mon Billet'\n\nL'espace repos SAM vous permet de dormir un petit moment pour reprendre la route en toute sécurité !",
+    description: i18n.t('map_id18_description'),
     x2: 262,
     y2: 139,
     x1: 250,
@@ -246,10 +219,9 @@ export default FIGURES = [
   },
   {
     id: '19',
-    name: 'SALLE DE JEUX CASINO',
+    name: i18n.t('map_id19_name'),
     shape: 'rectangle',
-    description:
-      'Rien ne va plus ! Faîtes vos jeux !\nMontrer vos talents au poker, blackjack et roulette.',
+    description: i18n.t('map_id19_description'),
     x2: 245,
     y2: 138,
     x1: 224,
@@ -259,12 +231,10 @@ export default FIGURES = [
   },
   {
     id: '20',
-    name: 'DREAM NIGHT (B105) + SALLE DE BAL',
+    name: i18n.t('map_id20_name'),
     shape: 'rectangle',
-    description:
-      "La fanfare et l'ATECAP vous proposent un EAT des plus exotiques !\nVenez nous retrouver pour vous déhancher en écoutant de la musique de qualité, vous ressourcer en sirotant bières, softs et cocktails fruités et vous amuser avec un Water-Pong, une roulette géante et d'autres festivités.\nQuel programme alléchant… A toute suite !",
-    selling:
-      "En vente sur cet espace :\n\n- Cocktail l'EXO\n- Maredsous\n- Faro\n- Champagne\n\nRetrouvez l'activité suivante sur cet espace :\n\n- Waterpong",
+    description: i18n.t('map_id20_description'),
+    selling: i18n.t('map_id20_selling'),
     x2: 245,
     y2: 122,
     x1: 206,
@@ -274,11 +244,10 @@ export default FIGURES = [
   },
   {
     id: '21',
-    name: "FOODTRUCKS : CREP D'ELO &\nL'ATELIER DU LAHMACUN",
+    name: i18n.t('map_id21_name'),
     shape: 'rectangle',
-    description: 'Un petit creux ? Venez vous sustanter !',
-    selling:
-      'En vente sur cet espace :\n\n- Crêpes au sucre/confiture de fraise/nutella\n- Crêpes à la crème fraîche, emmentale et jambon\n- Crêpes à la crème fraîche, jambon et oeuf\n\n- Lahmacun\n- Frites',
+    description: i18n.t('map_id21_description'),
+    selling: i18n.t('map_id21_selling'),
     x2: 260,
     y2: 170,
     x1: 223,

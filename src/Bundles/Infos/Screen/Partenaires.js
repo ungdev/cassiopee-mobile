@@ -65,7 +65,6 @@ class Partenaires extends React.Component {
           <ScrollView
             refreshControl={
               <RefreshControl
-                //refresh control used for the Pull to Refresh
                 refreshing={refreshing}
                 onRefresh={this.onRefresh}
                 tintColor={'white'}
@@ -85,7 +84,6 @@ class Partenaires extends React.Component {
           renderItem={({ item }) => <PartenairesItem partenaire={item} />}
           refreshControl={
             <RefreshControl
-              //refresh control used for the Pull to Refresh
               refreshing={refreshing}
               onRefresh={this.onRefresh}
               tintColor={'white'}

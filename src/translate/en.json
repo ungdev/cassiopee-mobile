@@ -20,6 +20,7 @@
   "take_place": "Buy ticket",
 
   "error": "An error has occurred with the server. Please try again in a few moments. Error code: ",
+  "error2": "The notification request was not supported by the server. Try again later.",
 
   "program_list_startEvent": "Start Event : ",
   "program_list_place": "Place : ",
@@ -37,14 +38,7 @@
   "alert_text_allow_galery": "For this service, you must allow Cassiopée access to your photos",
   "alert_fav_artist_title": "Notification of Favourite Artists",
   "alert_fav_artist": "You will receive a notification of your favorite artists 10 minutes before the start of their concert.",
-
-  "map_title": "INTERACTIVE MAP",
-  "map_first_message": "Click on an area for more information.",
-  "map_filter_all": "See all",
-  "map_filter_animation": "Animation",
-  "map_filter_artist": "Artists",
-  "map_filter_food": "Food & Drinks",
-  "map_filter_eat": "EAT",
+  "alert_fav_artiste_allow": "You must enable notifications to receive alerts from your favorite artists.\nDo you want to allow notifications?",
 
   "ticket_import_galery": "Import ticket from your Gallery",
   "ticket_import_camera": "Import ticket from your Camera",
@@ -112,5 +106,86 @@
   "first_launching_slide_three_title": "Put Your Hands Up !",
   "first_launching_slide_three": "The developer is actively working to offer you other new features so check your updates regularly, the rest is coming soon ...",
   "first_launching_slide_four_title": "Are you Reaady ?",
-  "first_launching_slide_four": "Let's go !"
+  "first_launching_slide_four": "Let's go !",
+
+  "map_title": "INTERACTIVE MAP",
+  "map_first_message": "Click on an area for more information.",
+  "map_filter_all": "See all",
+  "map_filter_animation": "Animation",
+  "map_filter_artist": "Artists",
+  "map_filter_food": "Food & Drinks",
+  "map_filter_eat": "EAT",
+
+  "map_id1_name": "ANPAA PREVENTION STAND",
+  "map_id1_description": "Have a safe evening with the ANPAA.\nPrevention material is available on the stand:\n\n- Breathalyzers\n- Lids for ecocups\n- Ear plugs\n- Condoms",
+
+  "map_id2_name": "CASHLESS REFILL TAPE Building M",
+  "map_id2_description": "You will find here a recharging point to recharge your cashless account.",
+
+  "map_id3_name": "CASHLESS REFILL TAPE Building A",
+  "map_id3_description": "You will find here a recharging point to recharge your cashless account.",
+
+  "map_id4_name": "CASHLESS REFILL TAPE Home",
+  "map_id4_description": "You will find here a recharging point to recharge your cashless account.",
+
+  "map_id5_name": "ARGENTIQUE AND CHAPELLE PHOTO BOOTH",
+  "map_id5_description": "Come and immortalize this magnificent evening under the cameras of the Argentique association!\n\nFeel like getting married?\nYou will also be able to immortalize the most beautiful day of your life!",
+
+  "map_id6_name": "ELUSIVE BARS",
+  "map_id6_description": "The staff of the UTT and ASANUTT are working together to get you back to your student life.",
+  "map_id6_selling": "For sale on this space :\n\n- Cheese and sausage platter\n- Vine\n- Champagne",
+
+  "map_id7_name": "GOLDEN STAGE & \nEAT LE CABARET DES FAL' INNOV' UTT",
+  "map_id7_description": "Come and meet the greatest student DJs.\n\n- HYXY at 22H35\n\n- Antoto at 00H00\n\n- Quentin LTL at 01H00\n\n- Stormer at 02H00",
+  "map_id7_selling": "Everyone thought it impossible, but here they are! Innov'UTT and Fal'UTT reunited for this Gala, for you!\n\nFor sale on this space :\n\n- Cacibel Cocktail\n- Chouffe\n- Faro\n- Champagne\n- Pin's",
+
+  "map_id8_name": "GOLDEN NUGGET BAR",
+  "map_id8_description": "Set out to conquer the west in our cowboy bar!\nYou'll be able to taste beers straight from the faraway lands of Belgium such as Delirium Red and Maredsous!\n\nYou will also have the opportunity to try a cocktail from our region, the famous kir royal!",
+  "map_id8_selling": "For sale on this place :\n\n- Kir Royale\n- Delirium Red\n- Maredsous",
+
+  "map_id9_name": "HEALTHY FOODTRUCK\n& FRANCK'S DINNER",
+  "map_id9_description": "A little peckish? It's over here!",
+  "map_id9_selling": "For sale on this place :\n\n- Chicken Burger\n- Burger saumon\n- Buddha bowl chicken/salmon/falafel\n- Vegan flower cake\n- Tiramisu with pink biscuits\n- Detox Juice\n- Hot-dog\n- Nachos",
+
+  "map_id10_name": "INTER SCHOOL BAR",
+  "map_id10_description": "Bar managed by the different schools of the Trojan agglomeration, you will meet new faces there!",
+  "map_id10_selling": "For sale on this place :\n\n- Delirium Red\n- Chouffe\n- Faro\n- Terrano White\n- Terrano Blonde\n- Maredsous\n- Saint-Martin Ambrée",
+
+  "map_id11_name": "CAESAR PALACE (MAIN STAGE)",
+  "map_id11_description": "Main stage where the Gala's greatest artists will perform.\n\n\n- FRH & Léo L'AS at 21H30\n\n- Tez Cadey at 22H30\n\n- French Fuse at 00H00\n\n- Jay Style at 01H15\n\n- Salut C'est Cool at 02H30",
+
+  "map_id12_name": "LA CARTE URBAN FOODTRUCK",
+  "map_id12_description": "A little peckish? Come and have a bite to eat!",
+  "map_id12_selling": "For sale on this place :\n\n- French fries\n- Vegetarian Salad\n- Beef Burger\n- Burritos",
+
+  "map_id13_name": "SEC'UTT FIRST-AID STATION",
+  "map_id13_description": "If you end up in LP, you'll probably wake up there. :)",
+
+  "map_id14_name": "SOFTS BAR (FREE) AND KARAOKE",
+  "map_id14_description": "Are you thirsty?\n\nCome and drink free softs in this bar!\nPlus there'll be karaoke.",
+
+  "map_id15_name": "ELVIS STAGE & BAR",
+  "map_id15_description": "A rock atmosphere for the whole evening:\n\n\n- Prol'UTT at 20H30\n\n- Big Band UTT at 21H45\n\n- Wazaaa at 23H00\n\n- Ceci Dit at 00H45\n\n- KMGB at 02H00\n\n- Max Motion at 03H30",
+  "map_id15_selling": "Enter the Greco-Roman atmosphere of our bar, we will plunge you into the atmosphere of one of the most famous hotels in the world : Caesar Palace!\nThe beer fountains will remind you of the Roman thermal baths with the sweet Blanche de Namur to quench your thirst. Pay homage to Bachus by enjoying the intoxicating music and let it be the muse of your evening!\n\nFor sale on this place :\n\n- Viridi Malum Cocktail\n- Chouffe\n- Deli Red\n- Terrano White\n- Saint-Martin Ambrée\n- Champagne",
+
+  "map_id16_name": "MECHANICAL BULL",
+  "map_id16_description": "Let's go to the rodeo! Will you break the record?",
+
+  "map_id17_name": "RUTT VEGAS & VERY BAD PMOM",
+  "map_id17_description": "Rugby is the story of a ball with friends around and when there is no more ball, there are still friends. You like partying and friends, you know where to find us!\n\nTo spend an extraordinary Gala, come to join us in our EAT to find you in the atmosphere of Very Bad Trip with of course the conviviality and the good atmosphere recognized worldwide of the PMOMs.",
+  "map_id17_selling": "For sale on this place :\n\n- Cocktail Suze\n- Chouffe\n- Faro\n- Saint-Martin Ambrée\n- Buzz Fick\n- Deli Red\n- Terrano White\n- Champagne\n\nFind the following activity on this space :\n\n- Crazy Roulette",
+
+  "map_id18_name": "CLOAKROOM AND REST AREA SAM",
+  "map_id18_description": "Drop off your stuff here for free.\nDon't lose your ticket!\nYou can note it directly in this application, section 'My Ticket'.\n\nThe SAM rest area allows you to sleep a little while to get back on the road safely!",
+
+  "map_id19_name": "CASINO GAMING ROOM",
+  "map_id19_description": "Nothing's wrong anymore! Place your bets!\nShow off your poker, blackjack and roulette skills.",
+
+  "map_id20_name": "DREAM NIGHT (B105) + BALLROOM",
+  "map_id20_description": "The brass band and ATECAP offer you a most exotic EAT!\nCome and meet us to wiggle your hips while listening to quality music, recharge your batteries while sipping beers, soft drinks and fruity cocktails and have fun with Water-Pong, a giant roulette wheel and other festivities.\nWhat an enticing program... See you soon!",
+  "map_id20_selling": "For sale on this place :\n\n- EXO Cocktail\n- Maredsous\n- Faro\n- Champagne\n\nFind the following activity on this space :\n\n- Waterpong",
+
+  "map_id21_name": "FOODTRUCKS : CREP D'ELO &\nL'ATELIER DU LAHMACUN",
+  "map_id21_description": "A little peckish? Come and have a bite to eat!",
+  "map_id21_selling": "For sale on this place :\n\n- Sugar pancakes/strawberry jam/nutella\n- Pancakes with fresh cream, Emmental cheese and ham\n- Pancakes with fresh cream, ham and egg\n\n- Lahmacun\n- French fries"
 }

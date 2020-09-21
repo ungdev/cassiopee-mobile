@@ -4,6 +4,7 @@ import Facebook from './Screen/Facebook'
 import Instagram from './Screen/Instagram'
 import Twitter from './Screen/Twitter'
 import YouTube from './Screen/YouTube'
+const Device = require('react-native-device-detection')
 
 const TabNavigatorSocial = createAppContainer(
   createMaterialTopTabNavigator(
@@ -21,7 +22,7 @@ const TabNavigatorSocial = createAppContainer(
           backgroundColor: '#171530',
         },
         labelStyle: {
-          fontSize: 10,
+          fontSize: Device.isTablet ? 14 : 10,
           textAlign: 'center',
           padding: 0,
         },

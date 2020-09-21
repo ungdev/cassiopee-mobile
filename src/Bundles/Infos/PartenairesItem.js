@@ -41,12 +41,13 @@ const styles = StyleSheet.create({
 if (Device.isTablet) {
   Object.assign(styles, {
     item_container: {
-      height: 300,
+      height: 280,
       width: '50%',
+      alignite: 'center',
     },
     image: {
-      height: 300,
-      width: '100%',
+      height: 280,
+      width: '98%',
       position: 'relative',
     },
   })

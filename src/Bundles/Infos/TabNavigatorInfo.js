@@ -5,6 +5,7 @@ import Transports from './Screen/Transports'
 import Partenaires from './Screen/Partenaires'
 import Reglement from './Screen/Reglement'
 import i18n from '../../translate/index'
+const Device = require('react-native-device-detection')
 
 const TabNavigatorInfo = createAppContainer(
   createMaterialTopTabNavigator(
@@ -42,7 +43,7 @@ const TabNavigatorInfo = createAppContainer(
           backgroundColor: '#171530',
         },
         labelStyle: {
-          fontSize: 10,
+          fontSize: Device.isTablet ? 14 : 10,
           textAlign: 'center',
           padding: 0,
         },

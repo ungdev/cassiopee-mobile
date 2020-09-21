@@ -6,6 +6,7 @@ import {
   RefreshControl,
   ScrollView,
   ImageBackground,
+  Dimensions,
   SafeAreaView,
 } from 'react-native'
 import Header from '../../../components/Header'
@@ -54,9 +55,16 @@ class ProgramScreen extends Component {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_program')} />
-          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+          <SafeAreaView
+            style={{
+              flex:
+                (Platform.OS === 'android' ? 1 : 0) ||
+                (Dimensions.get('screen').height < 600 ? 1 : 0),
+              backgroundColor: '#171530',
+            }}
+          >
             <ImageBackground
-              source={require('../../../images/background_cassiopee_modif.png')}
+              source={require('../../../../assets/background_cassiopee_modif.png')}
               style={{ width: '100%', height: '100%' }}
             >
               <View style={{ paddingTop: 20 }}>
@@ -71,9 +79,16 @@ class ProgramScreen extends Component {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_program')} />
-          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+          <SafeAreaView
+            style={{
+              flex:
+                (Platform.OS === 'android' ? 1 : 0) ||
+                (Dimensions.get('screen').height < 600 ? 1 : 0),
+              backgroundColor: '#171530',
+            }}
+          >
             <ImageBackground
-              source={require('../../../images/background_cassiopee_modif.png')}
+              source={require('../../../../assets/background_cassiopee_modif.png')}
               style={{ width: '100%', height: '100%' }}
             >
               <ScrollView
@@ -96,9 +111,16 @@ class ProgramScreen extends Component {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_program')} />
-          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+          <SafeAreaView
+            style={{
+              flex:
+                (Platform.OS === 'android' ? 1 : 0) ||
+                (Dimensions.get('screen').height < 600 ? 1 : 0),
+              backgroundColor: '#171530',
+            }}
+          >
             <ImageBackground
-              source={require('../../../images/background_cassiopee_modif.png')}
+              source={require('../../../../assets/background_cassiopee_modif.png')}
               style={{ width: '100%', height: '100%' }}
             >
               <FlatList

@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons'
 import PropTypes from 'prop-types'
 import i18n from '../../../translate/index'
+const Device = require('react-native-device-detection')
 
 class SocialButton extends React.Component {
   static propTypes = {
@@ -34,31 +35,51 @@ class SocialButton extends React.Component {
       case 'facebook':
         return (
           <TouchableOpacity onPress={() => this._showAlert(url)}>
-            <Icon name="facebook-official" size={45} color={'whitesmoke'} />
+            <Icon
+              name="facebook-official"
+              size={Device.isTablet ? 60 : 45}
+              color={'whitesmoke'}
+            />
           </TouchableOpacity>
         )
       case 'instagram':
         return (
           <TouchableOpacity onPress={() => this._showAlert(url)}>
-            <Icon name="instagram" size={45} color={'whitesmoke'} />
+            <Icon
+              name="instagram"
+              size={Device.isTablet ? 60 : 45}
+              color={'whitesmoke'}
+            />
           </TouchableOpacity>
         )
       case 'youtube':
         return (
           <TouchableOpacity onPress={() => this._showAlert(url)}>
-            <Icon name="youtube-play" size={45} color={'whitesmoke'} />
+            <Icon
+              name="youtube-play"
+              size={Device.isTablet ? 60 : 45}
+              color={'whitesmoke'}
+            />
           </TouchableOpacity>
         )
       case 'twitter':
         return (
           <TouchableOpacity onPress={() => this._showAlert(url)}>
-            <Icon name="twitter" size={45} color={'whitesmoke'} />
+            <Icon
+              name="twitter"
+              size={Device.isTablet ? 60 : 45}
+              color={'whitesmoke'}
+            />
           </TouchableOpacity>
         )
       case 'web':
         return (
           <TouchableOpacity onPress={() => this._showAlert(url)}>
-            <Icon2 name="web" size={45} color={'whitesmoke'} />
+            <Icon2
+              name="web"
+              size={Device.isTablet ? 60 : 45}
+              color={'whitesmoke'}
+            />
           </TouchableOpacity>
         )
       default:

@@ -14,7 +14,7 @@ class InformationsScreen extends Component {
           }}
         >
           <ImageBackground
-            source={require('../../../images/Logo_Cassiopée/background.png')}
+            source={require('../../../../assets/Logo_Cassiopée/background.png')}
             style={{ width: '100%', height: '100%', resizeMode: 'center' }}
           >
             <Header bigtitle={i18n.t('menu_infos')} />

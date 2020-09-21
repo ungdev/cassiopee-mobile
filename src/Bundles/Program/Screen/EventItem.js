@@ -17,8 +17,8 @@ export class EventItem extends React.Component {
     super(props)
 
     this.icons = {
-      up: require('../../../images/chevron_white_up.png'),
-      down: require('../../../images/chevron_white_down.png'),
+      up: require('../../../../assets/chevron_white_up.png'),
+      down: require('../../../../assets/chevron_white_down.png'),
     }
   }
 

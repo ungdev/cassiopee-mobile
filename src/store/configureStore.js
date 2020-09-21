@@ -2,6 +2,7 @@ import { createStore } from 'redux'
 import toggleFavorite from './reducers/favoriteReducer'
 import setBillet from './reducers/billetReducer'
 import setVestiaire from './reducers/vestaireReducer'
+import setkeyToken from './reducers/tokenReducer'
 import { persistCombineReducers } from 'redux-persist'
 import { AsyncStorage } from 'react-native'
 
@@ -15,5 +16,6 @@ export default createStore(
     toggleFavorite,
     setBillet,
     setVestiaire,
+    setkeyToken,
   })
 )

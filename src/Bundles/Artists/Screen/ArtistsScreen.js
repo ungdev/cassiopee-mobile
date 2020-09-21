@@ -6,13 +6,14 @@ import {
   RefreshControl,
   ScrollView,
   ImageBackground,
-  SafeAreaView,
+  Dimensions,
 } from 'react-native'
 import Header from '../../../components/Header'
 import ComingSoon from '../../../components/ComingSoon'
 import { ArtistItem } from '../components/ArtistItem'
 import { api } from '../../../lib/api'
 import i18n from '../../../translate/index'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 class ArtistsScreen extends React.Component {
   constructor(props) {
@@ -52,9 +53,9 @@ class ArtistsScreen extends React.Component {
     if (loading) {
       return (
         <React.Fragment>
-          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+          <SafeAreaProvider style={{ flex: 1, backgroundColor: '#171530' }}>
             <ImageBackground
-              source={require('../../../images/background_cassiopee_modif.png')}
+              source={require('../../../../assets/background_cassiopee_modif.png')}
               style={{ width: '100%', height: '100%' }}
             >
               <Header bigtitle={i18n.t('menu_artist')} />
@@ -62,7 +63,7 @@ class ArtistsScreen extends React.Component {
                 <ActivityIndicator size="large" color="white" />
               </View>
             </ImageBackground>
-          </SafeAreaView>
+          </SafeAreaProvider>
         </React.Fragment>
       )
     }
@@ -70,9 +71,9 @@ class ArtistsScreen extends React.Component {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_artist')} />
-          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+          <SafeAreaProvider style={{ flex: 1, backgroundColor: '#171530' }}>
             <ImageBackground
-              source={require('../../../images/background_cassiopee_modif.png')}
+              source={require('../../../../assets/background_cassiopee_modif.png')}
               style={{ width: '100%', height: '100%' }}
             >
               <ScrollView
@@ -89,16 +90,23 @@ class ArtistsScreen extends React.Component {
                 <ComingSoon />
               </ScrollView>
             </ImageBackground>
-          </SafeAreaView>
+          </SafeAreaProvider>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_artist')} />
-          <SafeAreaView style={{ flex: 1, backgroundColor: '#171530' }}>
+          <SafeAreaProvider
+            style={{
+              flex:
+                (Platform.OS === 'android' ? 1 : 0) ||
+                (Dimensions.get('screen').height < 600 ? 1 : 0),
+              backgroundColor: '#171530',
+            }}
+          >
             <ImageBackground
-              source={require('../../../images/background_cassiopee_modif.png')}
+              source={require('../../../../assets/background_cassiopee_modif.png')}
               style={{ width: '100%', height: '100%' }}
             >
               <FlatList
@@ -124,7 +132,7 @@ class ArtistsScreen extends React.Component {
                 }
               />
             </ImageBackground>
-          </SafeAreaView>
+          </SafeAreaProvider>
         </React.Fragment>
       )
     }

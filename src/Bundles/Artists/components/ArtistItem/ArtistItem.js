@@ -6,6 +6,7 @@ import {
   ImageBackground,
 } from 'react-native'
 import env from '../../../../config'
+const Device = require('react-native-device-detection')
 
 export class ArtistItem extends React.Component {
   render() {
@@ -43,3 +44,16 @@ const styles = StyleSheet.create({
     right: 5,
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    item_container: {
+      height: 300,
+    },
+    image: {
+      width: '100%',
+      height: 300,
+      position: 'relative',
+    },
+  })
+}

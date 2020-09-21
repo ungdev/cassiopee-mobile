@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView, Platform } from 'react-native'
 import DrawerTrigger from './DrawerTrigger'
+const Device = require('react-native-device-detection')
 
 class Header extends React.Component {
   render() {
@@ -53,5 +54,38 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    header: {
+      width: '100%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: Platform.OS === 'ios' ? 45 : 85,
+    },
+    iconmenu: {
+      position: 'absolute',
+      top: Platform.OS === 'ios' ? 20 : 40,
+      left: 20,
+    },
+    title: {
+      width: '100%',
+      ...Platform.select({
+        ios: {
+          justifyContent: 'center',
+        },
+        android: {
+          marginTop: 18,
+        },
+      }),
+    },
+    designtitle: {
+      fontSize: 21,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      color: 'white',
+    },
+  })
+}
 
 export default Header

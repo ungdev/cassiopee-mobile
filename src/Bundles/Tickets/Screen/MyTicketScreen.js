@@ -14,7 +14,7 @@ class MyTicketScreen extends Component {
     return (
       <React.Fragment>
         <ImageBackground
-          source={require('../../../images/Logo_Cassiopée/background.png')}
+          source={require('../../../../assets/Logo_Cassiopée/background.png')}
           style={{ width: '100%', height: '100%' }}
         >
           <Header bigtitle={i18n.t('menu_ticket')} />

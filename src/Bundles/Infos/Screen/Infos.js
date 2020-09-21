@@ -5,6 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import openMap from 'react-native-open-maps'
 import email from 'react-native-email'
 import i18n from '../../../translate/index'
+const Device = require('react-native-device-detection')
 
 class Infos extends React.Component {
   _goToUTT() {
@@ -44,21 +45,33 @@ class Infos extends React.Component {
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-body" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-body"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_age')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-bowtie" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-bowtie"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_dresscode')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-beer" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-beer"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_spirit')}</Text>
           </View>
@@ -71,11 +84,19 @@ class Infos extends React.Component {
 
           <TouchableOpacity style={styles.element} onPress={this._goToUTT}>
             <View style={styles.element_icon}>
-              <Icon name="ios-pin" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-pin"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>12 Rue Marie Curie, Troyes</Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-arrow-forward"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
           </TouchableOpacity>
         </View>
@@ -87,7 +108,11 @@ class Infos extends React.Component {
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-calendar" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-calendar"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_date')}</Text>
           </View>
@@ -100,14 +125,22 @@ class Infos extends React.Component {
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-time" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-time"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_schedule_open')}</Text>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-warning" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-warning"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>
               {i18n.t('info_schedule_ticket_close')}
@@ -116,7 +149,11 @@ class Infos extends React.Component {
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
-              <Icon name="ios-volume-high" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-volume-high"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_schedule_close')}</Text>
           </View>
@@ -134,11 +171,19 @@ class Infos extends React.Component {
             }
           >
             <View style={styles.element_icon}>
-              <Icon name="ios-lock" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-lock"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_privacy')}</Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-arrow-forward"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
           </TouchableOpacity>
         </View>
@@ -153,11 +198,19 @@ class Infos extends React.Component {
             onPress={this.handleEmailGala}
           >
             <View style={styles.element_icon}>
-              <Icon name="ios-mail" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-mail"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_contact_mail_gala')}</Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-arrow-forward"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
           </TouchableOpacity>
 
@@ -166,11 +219,19 @@ class Infos extends React.Component {
             onPress={this.handleEmailUng}
           >
             <View style={styles.element_icon}>
-              <Icon name="ios-settings" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-settings"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
             <Text style={styles.text}>{i18n.t('info_contact_mail_ung')}</Text>
             <View style={styles.element_arrow}>
-              <Icon name="ios-arrow-forward" size={25} color={'whitesmoke'} />
+              <Icon
+                name="ios-arrow-forward"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
             </View>
           </TouchableOpacity>
         </View>
@@ -229,3 +290,27 @@ const styles = StyleSheet.create({
     color: 'whitesmoke',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    title: {
+      marginBottom: 7,
+      fontWeight: 'bold',
+      fontSize: 24,
+      color: '#bd945a',
+    },
+    text: {
+      marginTop: 4,
+      fontSize: 22,
+      marginLeft: 10,
+      color: 'whitesmoke',
+    },
+    element: {
+      flexDirection: 'row',
+      height: 45,
+      borderTopWidth: 1,
+      borderColor: 'whitesmoke',
+      padding: 5,
+    },
+  })
+}

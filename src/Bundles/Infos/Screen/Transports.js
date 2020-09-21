@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import Accordion from '../Accordion/Accordion.js'
 import i18n from '../../../translate/index'
+const Device = require('react-native-device-detection')
 
 class Transports extends React.Component {
   render() {
@@ -57,3 +58,19 @@ const styles = StyleSheet.create({
     color: 'whitesmoke',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    title: {
+      marginTop: 15,
+      color: '#bd945a',
+      fontSize: 25,
+      textAlign: 'center',
+    },
+    paragraphe: {
+      textAlign: 'justify',
+      color: 'whitesmoke',
+      fontSize: 18,
+    },
+  })
+}

@@ -20,6 +20,7 @@
   "take_place": "购买你的地方",
 
   "error": "服务器出现了错误。请稍后再试。错误代码： ",
+  "error2": "服务器不支持该通知请求。以后再试。",
 
   "program_list_startEvent": "活动的开始。 : ",
   "program_list_place": "地点 : ",
@@ -37,14 +38,7 @@
   "alert_text_allow_galery": "您必须允许访问画廊才能使用这项服务。",
   "alert_fav_artist_title": "通知喜欢的艺术家",
   "alert_fav_artist": "您将在音乐会开始前10分钟收到您喜欢的艺术家的通知。",
-
-  "map_title": "互动地图",
-  "map_first_message": "点击一个区域了解更多信息。",
-  "map_filter_all": "查看全部",
-  "map_filter_animation": "动画",
-  "map_filter_artist": "藝術家",
-  "map_filter_food": "餐饮业",
-  "map_filter_eat": "EAT",
+  "alert_fav_artiste_allow": "您必须启用通知功能，以接收来自您喜爱的艺术家的提醒。要不要允许通知？",
 
   "ticket_import_galery": "从您的画廊导入您的票据",
   "ticket_import_camera": "从你的相机中导入你的票据",
@@ -112,5 +106,86 @@
   "first_launching_slide_three_title": "把你的手举起来！",
   "first_launching_slide_three": "开发者正在积极努力为您带来更多的新功能，请定期查看更新，其他的功能很快就会到来......",
   "first_launching_slide_four_title": "你准备好了吗？",
-  "first_launching_slide_four": "我们走吧！"
+  "first_launching_slide_four": "我们走吧！",
+
+  "map_title": "互动地图",
+  "map_first_message": "点击一个区域了解更多信息。",
+  "map_filter_all": "查看全部",
+  "map_filter_animation": "动画",
+  "map_filter_artist": "藝術家",
+  "map_filter_food": "餐饮业",
+  "map_filter_eat": "EAT",
+
+  "map_id1_name": "防疫站",
+  "map_id1_description": "祝你和ANPAA度过一个安全的夜晚。\n摊上有预防材料。\n\n- 呼吸分析器\n- 生态杯的盖子\n- 耳塞\n- 避孕套",
+
+  "map_id2_name": "充值您的帐户。 点B",
+  "map_id2_description": "您可以在这里找到一个充电点，为您的无现金账户充值。",
+
+  "map_id3_name": "充值您的帐户。 点A",
+  "map_id3_description": "您可以在这里找到一个充电点，为您的无现金账户充值。",
+
+  "map_id4_name": "充值您的帐户。 接待处",
+  "map_id4_description": "您可以在这里找到一个充电点，为您的无现金账户充值。",
+
+  "map_id5_name": "摄影展台 ARGENTIQUE ET CHAPELLE",
+  "map_id5_description": "来吧，在Argentique协会的镜头下，让这个华丽的夜晚不朽!\n\n你想结婚吗？\n你也可以将自己的一生中最美的一天不朽!",
+
+  "map_id6_name": "酒吧",
+  "map_id6_description": "UTT和ASANUTT的工作人员一起努力，让你回归学生生活。",
+  "map_id6_selling": "在此空间出售。\n\n- 奶酪和冷盘拼盘\n- 酒类\n- 香槟酒",
+
+  "map_id7_name": "GOLDEN STAGE & \nEAT 城堡 FAL' INNOV' UTT",
+  "map_id7_description": "来见见最棒的学生DJ吧。\n\n- HYXY à 22H35\n\n- Antoto à 00H00\n\n- Quentin LTL à 01H00\n\n- Stormer à 02H00",
+  "map_id7_selling": "每个人都认为这是不可能的，但他们来了! Innov'UTT和Fal'UTT重聚一堂，为你而来!\n\n在这个空间发售。 :\n\n- 鸡尾酒会 Cacibel\n- Chouffe\n- Faro\n- 香槟酒\n- Pin's",
+
+  "map_id8_name": "BAR GOLDEN NUGGET",
+  "map_id8_description": "在我们的牛仔酒吧里，开始征服西部!\n您将能直接品尝到来自遥远的比利时的啤酒，如Delirium Red和Maredsous!\n\n您还将有机会品尝到来自家乡的鸡尾酒，el famoso kir royal!",
+  "map_id8_selling": "在这个空间发售。:\n\n- Kir Royale\n- Delirium Red\n- Maredsous",
+
+  "map_id9_name": "HEALTHY FOODTRUCK\n& FRANCK'S DINNER",
+  "map_id9_description": "有点点小毛病？就在这里！",
+  "map_id9_selling": "在这个空间发售。 :\n\n- 鸡肉汉堡\n- 三文鱼汉堡\n- Buddha bowl 鸡肉/鲑鱼/falafel\n- 素花蛋糕\n- 提拉米苏配粉色饼干\n- 排毒果汁\n- 热狗\n- 玉米片",
+
+  "map_id10_name": "BAR INTER ECOLE",
+  "map_id10_description": "由不同流派的木马聚集地管理的酒吧，你会在那里遇到新的面孔！在这里，你会遇到新的面孔。",
+  "map_id10_selling": "在这个空间发售。 :\n\n- Delirium Red\n- Chouffe\n- Faro\n- Terrano Blanche\n- Terrano Blonde\n- Maredsous\n- Saint-Martin Ambrée",
+
+  "map_id11_name": "CAESAR PALACE (主舞台)",
+  "map_id11_description": "主舞台上，晚会最伟大的艺术家们将在这里表演。\n\n\n- FRH & Léo L'AS à 21H30\n\n- Tez Cadey à 22H30\n\n- French Fuse à 00H00\n\n- Jay Style à 01H15\n\n- Salut C'est Cool à 02H30",
+
+  "map_id12_name": "LA CARTE URBAN FOODTRUCK",
+  "map_id12_description": "有点点小毛病？来吃点东西吧!",
+  "map_id12_selling": "在这个空间发售。 :\n\n- 薯条\n- 素食沙拉\n- 牛肉汉堡\n- 玉米卷饼",
+
+  "map_id13_name": "急救站",
+  "map_id13_description": "如果您到达侧向安全位置，则很可能会在那里醒来。:)",
+
+  "map_id14_name": "沙发吧（免费）和卡拉OK",
+  "map_id14_description": "渴了？\n\n来这间酒吧喝免费的软饮料吧!\n再加上会有卡拉OK。",
+
+  "map_id15_name": "ELVIS STAGE & BAR",
+  "map_id15_description": "整场晚会的摇滚氛围。\n\n\n- Prol'UTT à 20H30\n\n- Big Band UTT à 21H45\n\n- Wazaaa à 23H00\n\n- Ceci Dit à 00H45\n\n- KMGB à 02H00\n\n- Max Motion à 03H30",
+  "map_id15_selling": "进入我们的酒吧，我们会让您沉浸在世界上最著名的酒店之一--凯撒皇宫的氛围中！啤酒喷泉会让您想起罗马式的温泉浴场，甜美的白兰地纳木尔啤酒会让您解渴。向巴丘斯致敬，享受醉人的音乐，让它成为你夜晚的缪斯！在这里，你可以享受到巴丘斯的音乐。\n\n在这个空间发售。 :\n\n- 鸡尾酒会 Viridi Malum\n- Chouffe\n- Deli Red\n- Terrano Blanche\n- Saint-Martin Ambrée\n- 香槟酒",
+
+  "map_id16_name": "机械公牛",
+  "map_id16_description": "我们去参加圈地赛吧！你会打破纪录吗？",
+
+  "map_id17_name": "RUTT VEGAS & VERY BAD PMOM",
+  "map_id17_description": "橄榄球就是和朋友们一起围着球打，当球走了，朋友们还在那里。喜欢聚会和朋友，你知道去哪里找我们!\n\n为了度过一个非同寻常的晚会，请来参加我们的EAT，让你在 '非常糟糕的旅行 '的氛围中找到自己，当然还有全世界公认的PMOMs的热情和良好的氛围。",
+  "map_id17_selling": "在这个空间发售。 :\n\n- Suze 鸡尾酒会\n- Chouffe\n- Faro\n- Saint-Martin Ambrée\n- Buzz Fick\n- Deli Red\n- Terrano Blanche\n- 香槟酒\n\n在这个空间里找到以下活动。\n\n- 疯狂的轮盘赌",
+
+  "map_id18_name": "衣帽间和休息区",
+  "map_id18_description": "把你的东西放在这里免费的。\n别把车票弄丢了!\n您可以直接在此应用程序中的 '我的车票 '下注明。\n\nSAM休息区可以让你多睡一会儿，安全上路!",
+
+  "map_id19_name": "赌场赌房",
+  "map_id19_description": "没有什么问题了！下注吧!\n炫耀你的扑克、21点和轮盘赌技巧。",
+
+  "map_id20_name": "DREAM NIGHT (B105) + 球室",
+  "map_id20_description": "铜管乐队和ATECAP为您提供了最有异域风情的EAT!\n来和我们相约，一边听着高质量的音乐一边摇摆你的臀部，一边喝着啤酒、软饮料和果味鸡尾酒一边充电，还有水球、巨型轮盘赌等节庆活动，让你玩得不亦乐乎。\n多么诱人的节目啊............再见!",
+  "map_id20_selling": "在这个空间发售。 :\n\n- 鸡尾酒会 l'EXO\n- Maredsous\n- Faro\n- 香槟酒\n\n在这个空间里找到以下活动。\n\n- 水坊",
+
+  "map_id21_name": "FOODTRUCKS : CREP D'ELO &\nL'ATELIER DU LAHMACUN",
+  "map_id21_description": "有点点小毛病？来吃点东西吧!",
+  "map_id21_selling": "在这个空间发售。 :\n\n- 糖饼/草莓酱/榛子酱\n- 煎饼配鲜奶油、艾门塔尔奶酪和火腿\n- 煎饼配鲜奶油、火腿和鸡蛋\n\n- Lahmacun\n- 薯条"
 }

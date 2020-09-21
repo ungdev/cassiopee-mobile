@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  SafeAreaView,
-  ScrollView,
-  Image,
-  ImageBackground,
-  Dimensions,
-} from 'react-native'
+import { ScrollView, Image, ImageBackground, Dimensions } from 'react-native'
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer'
 import HomeScreen from '../Bundles/Home/Screen/HomeScreen'
 import ProgramScreen from '../Bundles/Program/Screen/ProgramScreen'
@@ -19,28 +13,28 @@ import MyTicketScreen from '../Bundles/Tickets/Screen/MyTicketScreen'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Icone from 'react-native-vector-icons/FontAwesome5'
 import i18n from '../translate/index'
+const Device = require('react-native-device-detection')
 
 const CustomDrawerComponent = (props) => (
   <ImageBackground
-    source={require('../images/Logo_Cassiopée/tower3.png')}
+    source={require('../../assets/Logo_Cassiopée/tower3.png')}
     style={{ width: '100%', height: '100%' }}
   >
-    <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView>
-        <Image
-          source={require('../images/Logo_Cassiopée/LogoClair.png')}
-          style={{
-            height: 100,
-            width: 230,
-            alignSelf: 'center',
-            marginTop: Dimensions.get('screen').height < 600 ? 15 : 72,
-            resizeMode: 'cover',
-          }}
-        />
+    <ScrollView>
+      <Image
+        source={require('../../assets/Logo_Cassiopée/LogoClair.png')}
+        style={{
+          height: Device.isTablet ? 90 : 70,
+          width: Device.isTablet ? 270 : 200,
+          alignSelf: 'center',
+          marginTop: Dimensions.get('screen').height > 700 ? 88 : 30,
+          marginBottom: 20,
+          resizeMode: 'cover',
+        }}
+      />
 
-        <DrawerItems {...props} />
-      </ScrollView>
-    </SafeAreaView>
+      <DrawerItems {...props} />
+    </ScrollView>
   </ImageBackground>
 )
 
@@ -51,7 +45,10 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         title: i18n.t('menu_home'),
         drawerIcon: (
-          <Icon name="ios-home" style={{ fontSize: 24, color: 'white' }} />
+          <Icon
+            name="ios-home"
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+          />
         ),
       },
     },
@@ -60,7 +57,10 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         title: i18n.t('menu_program'),
         drawerIcon: (
-          <Icon name="ios-calendar" style={{ fontSize: 24, color: 'white' }} />
+          <Icon
+            name="ios-calendar"
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+          />
         ),
       },
     },
@@ -69,7 +69,10 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         title: i18n.t('menu_artist'),
         drawerIcon: (
-          <Icon name="ios-star" style={{ fontSize: 24, color: 'white' }} />
+          <Icon
+            name="ios-star"
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+          />
         ),
       },
     },
@@ -78,7 +81,10 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         title: i18n.t('menu_map'),
         drawerIcon: (
-          <Icon name="ios-map" style={{ fontSize: 24, color: 'white' }} />
+          <Icon
+            name="ios-map"
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+          />
         ),
       },
     },
@@ -89,7 +95,7 @@ const DrawerNavigator = createDrawerNavigator(
         drawerIcon: (
           <Icon
             name="ios-information-circle"
-            style={{ fontSize: 24, color: 'white' }}
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
           />
         ),
       },
@@ -101,7 +107,7 @@ const DrawerNavigator = createDrawerNavigator(
         drawerIcon: (
           <Icone
             name="hand-holding-heart"
-            style={{ fontSize: 24, color: 'white' }}
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
           />
         ),
       },
@@ -111,7 +117,10 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         title: i18n.t('menu_social'),
         drawerIcon: (
-          <Icon name="ios-contacts" style={{ fontSize: 24, color: 'white' }} />
+          <Icon
+            name="ios-contacts"
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+          />
         ),
       },
     },
@@ -122,7 +131,7 @@ const DrawerNavigator = createDrawerNavigator(
         drawerIcon: (
           <Icon
             name="ios-musical-notes"
-            style={{ fontSize: 24, color: 'white' }}
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
           />
         ),
       },
@@ -132,7 +141,10 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         title: i18n.t('menu_ticket'),
         drawerIcon: (
-          <Icon name="md-card" style={{ fontSize: 24, color: 'white' }} />
+          <Icon
+            name="md-card"
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+          />
         ),
       },
     },
@@ -144,9 +156,10 @@ const DrawerNavigator = createDrawerNavigator(
       inactiveBackgroundColor: 'transparent',
       labelStyle: {
         color: 'white',
-        fontSize: 14,
+        fontSize: Device.isTablet ? 18 : 14,
       },
     },
+    drawerBackgroundColor: 'transparent',
   }
 )
 

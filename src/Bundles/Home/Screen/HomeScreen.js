@@ -8,14 +8,16 @@ import {
   Linking,
   TouchableOpacity,
   ImageBackground,
-  SafeAreaView,
   Platform,
   Dimensions,
+  SafeAreaView,
 } from 'react-native'
 import Header from '../../../components/Header'
 import CountDown from 'react-native-countdown-component'
 import moment from 'moment'
 import i18n from '../../../translate/index'
+import { connect } from 'react-redux'
+const Device = require('react-native-device-detection')
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -27,14 +29,14 @@ class HomeScreen extends Component {
 
   render() {
     const x = this.state.totalDuration
-    console.log(x)
+    console.log('token stocké', this.props.keyToken)
     if (x <= 0) {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_home')} />
 
           <ImageBackground
-            source={require('../../../images/background_cassiopee_modif.png')}
+            source={require('../../../../assets/background_cassiopee_modif.png')}
             style={{ width: '100%', height: '100%' }}
           >
             <ScrollView style={styles.scroll}>
@@ -42,7 +44,7 @@ class HomeScreen extends Component {
                 <View style={styles.container_image}>
                   <Image
                     style={styles.image}
-                    source={require('../../../images/Logo_Cassiopée/LogoClair.png')}
+                    source={require('../../../../assets/Logo_Cassiopée/LogoClair.png')}
                   />
                 </View>
 
@@ -57,6 +59,19 @@ class HomeScreen extends Component {
                 <View style={styles.container_end}>
                   <Text style={styles.text_end}>{i18n.t('good_message')}</Text>
                 </View>
+
+                <View>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() =>
+                      Linking.openURL(
+                        'https://www.billetweb.fr/cassiopee-gala-utt'
+                      )
+                    }
+                  >
+                    <Text style={styles.text}>{i18n.t('take_place')}</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </ScrollView>
           </ImageBackground>
@@ -68,7 +83,7 @@ class HomeScreen extends Component {
           <Header bigtitle={i18n.t('menu_home')} />
           <SafeAreaView style={styles.droidSafeArea}>
             <ImageBackground
-              source={require('../../../images/background_cassiopee_modif.png')}
+              source={require('../../../../assets/background_cassiopee_modif.png')}
               style={{ width: '100%', height: '100%' }}
             >
               <ScrollView style={styles.scroll}>
@@ -76,7 +91,7 @@ class HomeScreen extends Component {
                   <View style={styles.container_image}>
                     <Image
                       style={styles.image}
-                      source={require('../../../images/Logo_Cassiopée/LogoClair.png')}
+                      source={require('../../../../assets/Logo_Cassiopée/LogoClair.png')}
                     />
                   </View>
 
@@ -100,7 +115,7 @@ class HomeScreen extends Component {
                       timeLabelStyle={{ color: 'white' }}
                       until={this.state.totalDuration}
                       timetoShow={('D', 'H', 'M', 'S')}
-                      size={28}
+                      size={Device.isTablet ? 36 : 28}
                     />
                   </View>
 
@@ -116,6 +131,10 @@ class HomeScreen extends Component {
                       <Text style={styles.text}>{i18n.t('take_place')}</Text>
                     </TouchableOpacity>
                   </View>
+                  <Text style={{ color: 'white', textAlign: 'center' }}>
+                    Votre Token :{'\n'}
+                    {this.props.keyToken}
+                  </Text>
                 </View>
               </ScrollView>
             </ImageBackground>
@@ -129,10 +148,9 @@ class HomeScreen extends Component {
     var that = this
     var date = moment().utcOffset('+1').format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
-    var expirydate = '2020-05-16 20:00:00' //Date of event
+    var expirydate = '2020-06-26 20:00:00' //Date of event
     var diffr = moment.duration(moment(expirydate).diff(moment(date)))
-    //difference of the expiry date-time given and current date-time
-    var hours = parseInt(diffr.asHours()) - 12
+    var hours = parseInt(diffr.asHours()) + 12 //add +12 sometimes
     var minutes = parseInt(diffr.minutes())
     var seconds = parseInt(diffr.seconds())
     var d = hours * 60 * 60 + minutes * 60 + seconds
@@ -144,7 +162,13 @@ class HomeScreen extends Component {
   }
 }
 
-export default HomeScreen
+const mapStateToProps = (state) => {
+  return {
+    keyToken: state.setkeyToken.keyToken,
+  }
+}
+
+export default connect(mapStateToProps)(HomeScreen)
 
 const styles = StyleSheet.create({
   scroll: {
@@ -163,13 +187,13 @@ const styles = StyleSheet.create({
 
   image: {
     marginTop: 0,
-    width: 320,
-    height: Dimensions.get('screen').height < 600 ? 100 : 180,
+    width: Dimensions.get('window').height < 600 ? 280 : 320,
+    height: Dimensions.get('window').height < 600 ? 120 : 210,
     resizeMode: 'contain',
   },
   container_countdown: {
     margin: 10,
-    marginTop: 30,
+    marginTop: 25,
     padding: 5,
     borderWidth: 3,
     borderColor: 'white',
@@ -178,7 +202,7 @@ const styles = StyleSheet.create({
     width: '90%',
     borderWidth: 3,
     borderColor: 'white',
-    marginTop: 20,
+    marginTop: Dimensions.get('window').height < 600 ? 15 : 20,
     margin: 5,
     alignItems: 'center',
   },
@@ -201,7 +225,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   container_end: {
-    marginTop: 40,
+    marginTop: Dimensions.get('window').height < 600 ? 15 : 30,
+    marginBottom: Dimensions.get('window').height < 600 ? 10 : 15,
     padding: 5,
     borderWidth: 3,
     borderColor: 'white',
@@ -217,3 +242,58 @@ const styles = StyleSheet.create({
     backgroundColor: '#171530',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    image: {
+      marginTop: 0,
+      width: 520,
+      height: 300,
+      resizeMode: 'contain',
+    },
+    container_countdown: {
+      margin: 10,
+      marginTop: 45,
+      padding: 25,
+      borderWidth: 3,
+      borderColor: 'white',
+    },
+    container_welcome: {
+      width: '90%',
+      borderWidth: 3,
+      borderColor: 'white',
+      marginTop: 20,
+      margin: 5,
+      alignItems: 'center',
+    },
+    welcome: {
+      padding: 5,
+      fontSize: 25,
+      textAlign: 'center',
+      color: 'white',
+    },
+    button: {
+      marginTop: 43,
+      padding: 16,
+      width: 250,
+      borderRadius: 24,
+      alignItems: 'center',
+      backgroundColor: '#171530',
+    },
+    text: {
+      color: 'white',
+      fontSize: 25,
+    },
+    container_end: {
+      marginTop: 40,
+      marginBottom: 15,
+      padding: 5,
+      borderWidth: 3,
+      borderColor: 'white',
+    },
+    text_end: {
+      fontSize: 22,
+      color: 'white',
+    },
+  })
+}

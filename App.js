@@ -6,39 +6,12 @@ import FirstLaunching from './src/components/FirstLaunching'
 import { Provider } from 'react-redux' //distribution store in App
 import Store from './src/store/configureStore'
 import { persistStore } from 'redux-persist'
-import { PersistGate } from 'redux-persist/es/integration/react'
-import { AppLoading } from 'expo'
-import { Asset } from 'expo-asset'
-
-function cacheImages(images) {
-  return images.map((image) => {
-    if (typeof image === 'string') {
-      return Image.prefetch(image)
-    } else {
-      return Asset.fromModule(image).downloadAsync()
-    }
-  })
-}
+import { PersistGate } from 'redux-persist/integration/react'
 
 export default class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { firstLaunch: null, isReady: false }
-  }
-
-  async _loadAssetsAsync() {
-    const imageAssets = cacheImages([
-      require('./src/images/background_cassiopee_modif.png'),
-      require('./src/images/chevron_white_up.png'),
-      require('./src/images/chevron_white_down.png'),
-      require('./src/images/ic_favorite_border_white.png'),
-      require('./src/images/ic_favorite_white.png'),
-      require('./src/images/Logo_Cassiopée/background.png'),
-      require('./src/images/Logo_Cassiopée/coverartiste.png'),
-      require('./src/images/Logo_Cassiopée/tower3.png'),
-      require('./src/images/Logo_Cassiopée/LogoClair.png'),
-    ])
-    await Promise.all([...imageAssets])
+    this.state = { firstLaunch: null }
   }
 
   componentDidMount() {
@@ -53,25 +26,42 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (!this.state.isReady) {
-      return (
-        <AppLoading
-          startAsync={this._loadAssetsAsync}
-          onFinish={() => this.setState({ isReady: true })}
-          onError={console.warn}
-        />
-      )
-    }
-
     let persistor = persistStore(Store)
     if (this.state.firstLaunch === null) {
-      return null // This is the 'tricky' part: The query to AsyncStorage is not finished, but we have to present something to the user. Null will just render nothing, so you can also put a placeholder of some sort, but effectively the interval between the first mount and AsyncStorage retrieving your data won't be noticeable to the user.
+      return (
+        <ImageBackground
+          source={require('./assets/splash.png')}
+          style={{ width: '100%', height: '100%', resizeMode: 'center' }}
+        ></ImageBackground>
+      ) // This is the 'tricky' part: The query to AsyncStorage is not finished, but we have to present something to the user. Null will just render nothing, so you can also put a placeholder of some sort, but effectively the interval between the first mount and AsyncStorage retrieving your data won't be noticeable to the user.
     } else if (this.state.firstLaunch == true) {
-      return <FirstLaunching />
+      return (
+        <Provider store={Store}>
+          <PersistGate
+            loading={
+              <ImageBackground
+                source={require('./assets/splash.png')}
+                style={{ width: '100%', height: '100%', resizeMode: 'center' }}
+              ></ImageBackground>
+            }
+            persistor={persistor}
+          >
+            <FirstLaunching />
+          </PersistGate>
+        </Provider>
+      )
     } else {
       return (
         <Provider store={Store}>
-          <PersistGate persistor={persistor}>
+          <PersistGate
+            loading={
+              <ImageBackground
+                source={require('./assets/splash.png')}
+                style={{ width: '100%', height: '100%', resizeMode: 'center' }}
+              ></ImageBackground>
+            }
+            persistor={persistor}
+          >
             <AppContainer />
           </PersistGate>
         </Provider>

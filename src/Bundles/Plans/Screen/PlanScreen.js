@@ -5,15 +5,16 @@ import {
   Text,
   ScrollView,
   ImageBackground,
-  TouchableOpacity,
-  SafeAreaView,
   Dimensions,
+  SafeAreaView,
 } from 'react-native'
+import { ButtonGroup } from 'react-native-elements'
 import Header from '../../../components/Header'
 import ImageMapper from './components/ImageMapper'
 import ReactNativeZoomableView from '@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView'
 import FIGURES from './Maps'
 import i18n from '../../../translate/index'
+const Device = require('react-native-device-detection')
 
 const data = FIGURES
 
@@ -25,37 +26,39 @@ class PlanScreen extends Component {
       selectedAreaName: i18n.t('map_title'),
       selectedAreaDescription: i18n.t('map_first_message'),
       selectedAreaOther: null,
-      image_plan: require('../../../images/all.png'),
+      image_plan: require('../../../../assets/all.png'),
+      index: 0,
     }
   }
 
-  changeImagePlan(choix) {
+  changeImagePlan = (index) => {
     this.setState({
       selectedAreaId: null,
       selectedAreaName: i18n.t('map_title'),
       selectedAreaDescription: i18n.t('map_first_message'),
       selectedAreaOther: null,
+      index: index,
     })
 
-    if (choix === 'animation') {
+    if (index === 1) {
       this.setState({
-        image_plan: require('../../../images/animation.jpg'),
+        image_plan: require('../../../../assets/all.png'),
       })
-    } else if (choix === 'artiste') {
+    } else if (index === 2) {
       this.setState({
-        image_plan: require('../../../images/artiste.jpg'),
+        image_plan: require('../../../../assets/all.png'),
       })
-    } else if (choix === 'restauration') {
+    } else if (index === 3) {
       this.setState({
-        image_plan: require('../../../images/restauration.jpg'),
+        image_plan: require('../../../../assets/all.png'),
       })
-    } else if (choix === 'eat') {
+    } else if (index === 4) {
       this.setState({
-        image_plan: require('../../../images/eat.jpg'),
+        image_plan: require('../../../../assets/all.png'),
       })
     } else {
       this.setState({
-        image_plan: require('../../../images/all.png'),
+        image_plan: require('../../../../assets/all.png'),
       })
     }
   }
@@ -106,25 +109,25 @@ class PlanScreen extends Component {
         <Header bigtitle={i18n.t('menu_map')} />
         <SafeAreaView style={styles.droidSafeArea}>
           <ImageBackground
-            source={require('../../../images/background_cassiopee_modif.png')}
+            source={require('../../../../assets/background_cassiopee_modif.png')}
             style={{ width: '100%', height: '100%' }}
           >
             <View style={styles.main_container}>
               <ScrollView style={styles.container_map}>
                 <ReactNativeZoomableView
-                  maxZoom={3}
+                  maxZoom={Device.isTablet ? 5 : 3}
                   minZoom={0.55}
                   zoomStep={-0.000003}
                   initialZoom={1}
                   bindToBorders={true}
-                  pinchToZoomInSensitivity={2}
-                  pinchToZoomOutSensitivity={2}
+                  pinchToZoomInSensitivity={Device.isTablet ? 3 : 2}
+                  pinchToZoomOutSensitivity={Device.isTablet ? 3 : 2}
                   movementSensibility={0.7}
                   captureEvent={true}
                 >
                   <ImageMapper
-                    imgHeight={330}
-                    imgWidth={395}
+                    imgHeight={Device.isTablet ? 330 : 330}
+                    imgWidth={Device.isTablet ? 395 : 395}
                     imgSource={this.state.image_plan}
                     imgMap={data}
                     onPress={(item, idx, event) =>
@@ -136,46 +139,19 @@ class PlanScreen extends Component {
                 </ReactNativeZoomableView>
               </ScrollView>
               <View style={styles.select_bouton}>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => this.changeImagePlan('all')}
-                >
-                  <Text style={styles.text_button}>
-                    {i18n.t('map_filter_all')}
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => this.changeImagePlan('animation')}
-                >
-                  <Text style={styles.text_button}>
-                    {i18n.t('map_filter_animation')}
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => this.changeImagePlan('artiste')}
-                >
-                  <Text style={styles.text_button}>
-                    {i18n.t('map_filter_artist')}
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => this.changeImagePlan('restauration')}
-                >
-                  <Text style={styles.text_button}>
-                    {i18n.t('map_filter_food')}
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.button2}
-                  onPress={() => this.changeImagePlan('eat')}
-                >
-                  <Text style={styles.text_button}>
-                    {i18n.t('map_filter_eat')}
-                  </Text>
-                </TouchableOpacity>
+                <ButtonGroup
+                  onPress={this.changeImagePlan}
+                  selectedIndex={this.state.index}
+                  buttons={[
+                    i18n.t('map_filter_all'),
+                    i18n.t('map_filter_animation'),
+                    i18n.t('map_filter_artist'),
+                    i18n.t('map_filter_food'),
+                    i18n.t('map_filter_eat'),
+                  ]}
+                  containerStyle={styles.button}
+                  textStyle={styles.text_button}
+                />
               </View>
               <ScrollView style={styles.container_description}>
                 <View style={styles.container_description_detail}>
@@ -246,37 +222,37 @@ const styles = StyleSheet.create({
   },
   select_bouton: {
     width: '100%',
-    paddingTop: 6,
-    paddingBottom: 6,
     flexDirection: 'row',
-    backgroundColor: 'black',
     justifyContent: 'space-around',
+    paddingTop: 2,
+    backgroundColor: '#171530',
   },
   button: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    height: 40,
+    width: '100%',
     backgroundColor: 'transparent',
-    borderRightWidth: 1,
-    borderColor: 'white',
-  },
-  button2: {
-    paddingTop: 10,
-    paddingBottom: 10,
-    backgroundColor: 'transparent',
-    borderColor: 'white',
+    justifyContent: 'space-between',
   },
   text_button: {
     color: 'white',
-    fontSize: 15,
-    paddingRight: 5,
-    paddingRight: 5,
+    fontSize: Dimensions.get('screen').height < 600 ? 12 : 14,
+    textAlign: 'center',
   },
   droidSafeArea: {
     flex:
-      (Platform.OS === 'android' ? 1 : 0) ||
+      (Platform.OS === 'android' ? 1 : 1) ||
       (Dimensions.get('screen').height < 600 ? 1 : 0),
     backgroundColor: '#171530',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    container_map: {
+      height: '20%',
+      width: '100%',
+    },
+  })
+}
 
 export default PlanScreen
