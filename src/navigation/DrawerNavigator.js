@@ -117,8 +117,8 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         title: i18n.t('menu_social'),
         drawerIcon: (
-          <Icon
-            name="ios-contacts"
+          <Icone
+            name="share-alt"
             style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
           />
         ),

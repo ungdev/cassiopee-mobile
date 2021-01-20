@@ -1,11 +1,10 @@
 {
   "expo": {
-    "name": "Cassiopée",
+    "name": "Cassiopée 2021",
     "slug": "cassiopee",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": ["ios", "android"],
-    "version": "2.0.0",
+    "version": "2.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -24,7 +23,7 @@
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "L'application utilise l'appareil photo pour scanner votre billet.",
-        "NSPhotoLibraryUsageDescription": "Cette application utilise votre gallerie pour importer votre billet."
+        "NSPhotoLibraryUsageDescription": "Cette application utilise votre galerie pour importer votre billet."
       }
     },
     "android": {
