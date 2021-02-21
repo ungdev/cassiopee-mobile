@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
   t: {
     marginTop: 15,
-    color: '#bd945a',
+    color: '#C6E9FA',
     fontSize: 25,
     textAlign: 'center',
   },
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   h: {
     marginTop: 15,
     padding: 5,
-    color: '#f7ce8c',
+    color: '#a6e2ff',
     fontSize: 20,
     textAlign: 'left',
   },
@@ -104,7 +104,7 @@ if (Device.isTablet) {
 
     t: {
       marginTop: 15,
-      color: '#bd945a',
+      color: '#C6E9FA',
       fontSize: 28,
       textAlign: 'center',
     },
@@ -112,7 +112,7 @@ if (Device.isTablet) {
     h: {
       marginTop: 15,
       padding: 5,
-      color: '#f7ce8c',
+      color: '#a6e2ff',
       fontSize: 25,
       textAlign: 'left',
     },

@@ -134,7 +134,7 @@ class FirstLaunching extends React.Component {
 
 const styles = StyleSheet.create({
   mainContent: {
-    backgroundColor: '#171530',
+    backgroundColor: '#0A3D60',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',

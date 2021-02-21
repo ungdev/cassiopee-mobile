@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
     marginBottom: 7,
     fontWeight: 'bold',
     fontSize: 20,
-    color: '#bd945a',
+    color: '#C6E9FA',
   },
 
   element: {
@@ -297,7 +297,7 @@ if (Device.isTablet) {
       marginBottom: 7,
       fontWeight: 'bold',
       fontSize: 24,
-      color: '#bd945a',
+      color: '#C6E9FA',
     },
     text: {
       marginTop: 4,

@@ -60,7 +60,7 @@ class ProgramScreen extends Component {
               flex:
                 (Platform.OS === 'android' ? 1 : 0) ||
                 (Dimensions.get('screen').height < 600 ? 1 : 0),
-              backgroundColor: '#171530',
+              backgroundColor: '#0A3D60',
             }}
           >
             <ImageBackground
@@ -84,7 +84,7 @@ class ProgramScreen extends Component {
               flex:
                 (Platform.OS === 'android' ? 1 : 0) ||
                 (Dimensions.get('screen').height < 600 ? 1 : 0),
-              backgroundColor: '#171530',
+              backgroundColor: '#0A3D60',
             }}
           >
             <ImageBackground
@@ -116,7 +116,7 @@ class ProgramScreen extends Component {
               flex:
                 (Platform.OS === 'android' ? 1 : 0) ||
                 (Dimensions.get('screen').height < 600 ? 1 : 0),
-              backgroundColor: '#171530',
+              backgroundColor: '#0A3D60',
             }}
           >
             <ImageBackground

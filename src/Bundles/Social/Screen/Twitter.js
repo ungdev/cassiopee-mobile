@@ -30,7 +30,7 @@ export default Twitter
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#171530',
+    backgroundColor: '#0A3D60',
     margin: -4,
   },
 })

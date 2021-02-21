@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     width: 200,
     borderRadius: 24,
     alignItems: 'center',
-    backgroundColor: '#171530',
+    backgroundColor: '#0A3D60',
   },
   text: {
     color: 'white',
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     flex:
       (Platform.OS === 'android' ? 1 : 0) ||
       (Dimensions.get('screen').height < 600 ? 1 : 0),
-    backgroundColor: '#171530',
+    backgroundColor: '#0A3D60',
   },
 })
 
@@ -278,7 +278,7 @@ if (Device.isTablet) {
       width: 250,
       borderRadius: 24,
       alignItems: 'center',
-      backgroundColor: '#171530',
+      backgroundColor: '#0A3D60',
     },
     text: {
       color: 'white',

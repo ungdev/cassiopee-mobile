@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('screen').height < 600 ? 55 : 64,
     padding: 10,
     marginBottom: 7,
-    backgroundColor: '#bd945a',
+    backgroundColor: '#0A3D60',
     color: 'white',
   },
 })
@@ -88,7 +88,7 @@ if (Device.isTablet) {
       height: 80,
       padding: 10,
       marginBottom: 7,
-      backgroundColor: '#bd945a',
+      backgroundColor: '#C6E9FA',
       color: 'white',
     },
   })

@@ -10,7 +10,7 @@ class InformationsScreen extends Component {
       <React.Fragment>
         <SafeAreaView
           style={{
-            backgroundColor: '#171530',
+            backgroundColor: '#0A3D60',
           }}
         >
           <ImageBackground

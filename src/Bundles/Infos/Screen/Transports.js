@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: 15,
-    color: '#bd945a',
+    color: '#C6E9FA',
     fontSize: 25,
     textAlign: 'center',
   },
@@ -63,7 +63,7 @@ if (Device.isTablet) {
   Object.assign(styles, {
     title: {
       marginTop: 15,
-      color: '#bd945a',
+      color: '#C6E9FA',
       fontSize: 25,
       textAlign: 'center',
     },

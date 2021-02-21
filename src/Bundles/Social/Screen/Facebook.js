@@ -53,7 +53,7 @@ export default Facebook
 
 const styles = StyleSheet.create({
   webfacebook: {
-    backgroundColor: '#171530',
+    backgroundColor: '#0A3D60',
     margin: -4,
     width: '193%',
   },

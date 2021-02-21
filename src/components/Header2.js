@@ -7,7 +7,7 @@ const Device = require('react-native-device-detection')
 class Header2 extends React.Component {
   render() {
     return (
-      <SafeAreaView style={{ backgroundColor: '#171530' }}>
+      <SafeAreaView style={{ backgroundColor: '#0A3D60' }}>
         <View style={styles.header}>
           <View style={styles.title}>
             <Text style={styles.designtitle}>{this.props.bigtitle}</Text>
