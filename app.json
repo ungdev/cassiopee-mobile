@@ -8,7 +8,7 @@
     "orientation": "portrait",
     "icon": "./assets/icone_1024_2021.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash_2021.png",
       "resizeMode": "contain",
       "backgroundColor": "#0A3D60"
     },
