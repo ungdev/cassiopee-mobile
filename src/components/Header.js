@@ -65,7 +65,7 @@ if (Device.isTablet) {
     },
     iconmenu: {
       position: 'absolute',
-      top: Platform.OS === 'ios' ? 20 : 40,
+      top: Platform.OS === 'ios' ? 10 : 40,
       left: 20,
     },
     title: {
