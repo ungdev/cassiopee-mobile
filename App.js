@@ -30,7 +30,7 @@ export default class App extends React.Component {
     if (this.state.firstLaunch === null) {
       return (
         <ImageBackground
-          source={require('./assets/splash.png')}
+          source={require('./assets/splash_2021.png')}
           style={{ width: '100%', height: '100%', resizeMode: 'center' }}
         ></ImageBackground>
       ) // This is the 'tricky' part: The query to AsyncStorage is not finished, but we have to present something to the user. Null will just render nothing, so you can also put a placeholder of some sort, but effectively the interval between the first mount and AsyncStorage retrieving your data won't be noticeable to the user.
@@ -40,7 +40,7 @@ export default class App extends React.Component {
           <PersistGate
             loading={
               <ImageBackground
-                source={require('./assets/splash.png')}
+                source={require('./assets/splash_2021.png')}
                 style={{ width: '100%', height: '100%', resizeMode: 'center' }}
               ></ImageBackground>
             }
@@ -56,7 +56,7 @@ export default class App extends React.Component {
           <PersistGate
             loading={
               <ImageBackground
-                source={require('./assets/splash.png')}
+                source={require('./assets/splash_2021.png')}
                 style={{ width: '100%', height: '100%', resizeMode: 'center' }}
               ></ImageBackground>
             }

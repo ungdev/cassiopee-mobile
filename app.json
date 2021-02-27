@@ -9,8 +9,8 @@
     "icon": "./assets/icone_1024_2021.png",
     "splash": {
       "image": "./assets/splash_2021.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0A3D60"
+      "resizeMode": "cover",
+      "backgroundColor": "transparent"
     },
     "primaryColor": "#0A3D60",
     "updates": {

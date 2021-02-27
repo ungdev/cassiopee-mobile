@@ -12,6 +12,7 @@ import {
   Dimensions,
   SafeAreaView,
 } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 import Header from '../../../components/Header'
 import CountDown from 'react-native-countdown-component'
 import moment from 'moment'
@@ -44,34 +45,48 @@ class HomeScreen extends Component {
                 <View style={styles.container_image}>
                   <Image
                     style={styles.image}
-                    source={require('../../../../assets/Logo_Cassiopée/LogoClair.png')}
+                    source={require('../../../../assets/Logo_2021.png')}
                   />
                 </View>
 
-                <View style={styles.container_welcome}>
+                <LinearGradient
+                  start={[0, 1]}
+                  end={[1, 0]}
+                  colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                  style={styles.container_welcome}
+                >
                   <Text style={styles.welcome}>{i18n.t('welcome')}</Text>
-                  <Text style={styles.welcome}>{i18n.t('welcome2')}</Text>
-                </View>
+                  <Text style={styles.welcome2}>{i18n.t('welcome2')}</Text>
+                </LinearGradient>
 
-                <View style={styles.container_end}>
+                <LinearGradient
+                  start={[0, 1]}
+                  end={[1, 0]}
+                  colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                  style={styles.container_end}
+                >
                   <Text style={styles.text_end}>{i18n.t('open_message')}</Text>
-                </View>
-                <View style={styles.container_end}>
-                  <Text style={styles.text_end}>{i18n.t('good_message')}</Text>
-                </View>
+                </LinearGradient>
 
-                <View>
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={() =>
-                      Linking.openURL(
-                        'https://www.billetweb.fr/cassiopee-gala-utt'
-                      )
-                    }
-                  >
-                    <Text style={styles.text}>{i18n.t('take_place')}</Text>
-                  </TouchableOpacity>
-                </View>
+                <LinearGradient
+                  start={[0, 1]}
+                  end={[1, 0]}
+                  colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                  style={styles.container_end}
+                >
+                  <Text style={styles.text_end}>{i18n.t('good_message')}</Text>
+                </LinearGradient>
+
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() =>
+                    Linking.openURL(
+                      'https://www.billetweb.fr/cassiopee-gala-utt'
+                    )
+                  }
+                >
+                  <Text style={styles.text}>{i18n.t('take_place')}</Text>
+                </TouchableOpacity>
               </View>
             </ScrollView>
           </ImageBackground>
@@ -91,46 +106,59 @@ class HomeScreen extends Component {
                   <View style={styles.container_image}>
                     <Image
                       style={styles.image}
-                      source={require('../../../../assets/Logo_Cassiopée/LogoClair.png')}
+                      source={require('../../../../assets/Logo_2021.png')}
                     />
                   </View>
 
-                  <View style={styles.container_welcome}>
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_welcome}
+                  >
                     <Text style={styles.welcome}>{i18n.t('welcome')}</Text>
-                    <Text style={styles.welcome}>{i18n.t('welcome2')}</Text>
-                  </View>
+                    <Text style={styles.welcome2}>{i18n.t('welcome2')}</Text>
+                  </LinearGradient>
 
                   <View style={styles.container_countdown}>
-                    <CountDown
-                      digitStyle={{ backgroundColor: 'transparrent' }}
-                      digitTxtStyle={{ color: 'white' }}
-                      separatorStyle={{ color: 'transparent' }}
-                      showSeparator
-                      timeLabels={{
-                        d: i18n.t('days'),
-                        h: i18n.t('hours'),
-                        m: i18n.t('minutes'),
-                        s: i18n.t('seconds'),
-                      }}
-                      timeLabelStyle={{ color: 'white' }}
-                      until={this.state.totalDuration}
-                      timetoShow={('D', 'H', 'M', 'S')}
-                      size={Device.isTablet ? 36 : 28}
-                    />
+                    <LinearGradient
+                      start={[0, 1]}
+                      end={[1, 0]}
+                      colors={[
+                        'rgb(198, 233, 250)',
+                        'rgba(198, 233, 250, 0.6)',
+                      ]}
+                    >
+                      <CountDown
+                        digitStyle={{ backgroundColor: 'transparrent' }}
+                        digitTxtStyle={{ color: '#0A3D60' }}
+                        separatorStyle={{ color: 'transparent' }}
+                        showSeparator
+                        timeLabels={{
+                          d: i18n.t('days'),
+                          h: i18n.t('hours'),
+                          m: i18n.t('minutes'),
+                          s: i18n.t('seconds'),
+                        }}
+                        timeLabelStyle={{ color: '#0A3D60' }}
+                        until={this.state.totalDuration}
+                        timetoShow={('D', 'H', 'M', 'S')}
+                        size={Device.isTablet ? 36 : 28}
+                      />
+                    </LinearGradient>
                   </View>
 
-                  <View>
-                    <TouchableOpacity
-                      style={styles.button}
-                      onPress={() =>
-                        Linking.openURL(
-                          'https://www.billetweb.fr/cassiopee-gala-utt'
-                        )
-                      }
-                    >
-                      <Text style={styles.text}>{i18n.t('take_place')}</Text>
-                    </TouchableOpacity>
-                  </View>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() =>
+                      Linking.openURL(
+                        'https://www.billetweb.fr/cassiopee-gala-utt'
+                      )
+                    }
+                  >
+                    <Text style={styles.text}>{i18n.t('take_place')}</Text>
+                  </TouchableOpacity>
+
                   <Text style={{ color: 'white', textAlign: 'center' }}>
                     Votre Token :{'\n'}
                     {this.props.keyToken}
@@ -176,10 +204,12 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   container: {
+    width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   container_image: {
     alignItems: 'center',
     width: '100%',
@@ -192,31 +222,35 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   container_countdown: {
+    width: '92%',
     margin: 10,
     marginTop: 25,
     padding: 5,
-    borderWidth: 3,
-    borderColor: 'white',
   },
   container_welcome: {
     width: '90%',
-    borderWidth: 3,
-    borderColor: 'white',
+    margin: 10,
     marginTop: Dimensions.get('window').height < 600 ? 15 : 20,
-    margin: 5,
     alignItems: 'center',
   },
   welcome: {
-    padding: 5,
+    fontWeight: 'bold',
+    padding: 10,
+    fontSize: 22,
+    textAlign: 'center',
+    color: '#0A3D60',
+  },
+  welcome2: {
+    padding: 10,
     fontSize: 20,
     textAlign: 'center',
-    color: 'white',
+    color: '#0A3D60',
   },
   button: {
     marginTop: 18,
     padding: 16,
-    width: 200,
-    borderRadius: 24,
+    width: '90%',
+    borderRadius: 0,
     alignItems: 'center',
     backgroundColor: '#0A3D60',
   },
@@ -225,15 +259,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   container_end: {
+    width: '90%',
     marginTop: Dimensions.get('window').height < 600 ? 15 : 30,
     marginBottom: Dimensions.get('window').height < 600 ? 10 : 15,
     padding: 5,
-    borderWidth: 3,
-    borderColor: 'white',
   },
   text_end: {
+    textAlign: 'center',
     fontSize: 18,
-    color: 'white',
+    color: '#0A3D60',
+    padding: 10,
   },
   droidSafeArea: {
     flex:
@@ -252,31 +287,35 @@ if (Device.isTablet) {
       resizeMode: 'contain',
     },
     container_countdown: {
+      width: '96%',
       margin: 10,
       marginTop: 45,
       padding: 25,
-      borderWidth: 3,
-      borderColor: 'white',
     },
     container_welcome: {
       width: '90%',
-      borderWidth: 3,
-      borderColor: 'white',
       marginTop: 20,
       margin: 5,
       alignItems: 'center',
     },
     welcome: {
+      fontWeight: 'bold',
       padding: 5,
       fontSize: 25,
       textAlign: 'center',
-      color: 'white',
+      color: '#0A3D60',
+    },
+    welcome2: {
+      padding: 5,
+      fontSize: 25,
+      textAlign: 'center',
+      color: '#0A3D60',
     },
     button: {
       marginTop: 43,
       padding: 16,
-      width: 250,
-      borderRadius: 24,
+      width: '90%',
+      borderRadius: 0,
       alignItems: 'center',
       backgroundColor: '#0A3D60',
     },
@@ -285,15 +324,16 @@ if (Device.isTablet) {
       fontSize: 25,
     },
     container_end: {
+      width: '90%',
       marginTop: 40,
       marginBottom: 15,
       padding: 5,
-      borderWidth: 3,
-      borderColor: 'white',
     },
     text_end: {
       fontSize: 22,
-      color: 'white',
+      color: '#0A3D60',
+      padding: 10,
+      textAlign: 'center',
     },
   })
 }
