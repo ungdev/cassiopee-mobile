@@ -100,7 +100,7 @@ const DrawerNavigator = createDrawerNavigator(
         ),
       },
     },
-    "Asso'": {
+    /*"Asso'": {
       screen: AssoScreen,
       navigationOptions: {
         title: i18n.t('menu_asso'),
@@ -111,7 +111,7 @@ const DrawerNavigator = createDrawerNavigator(
           />
         ),
       },
-    },
+    },*/
     'Réseaux Sociaux': {
       screen: SocialScreen,
       navigationOptions: {
@@ -124,7 +124,7 @@ const DrawerNavigator = createDrawerNavigator(
         ),
       },
     },
-    Playlist: {
+    /*Playlist: {
       screen: PlaylistScreen,
       navigationOptions: {
         title: i18n.t('menu_playlist'),
@@ -147,7 +147,7 @@ const DrawerNavigator = createDrawerNavigator(
           />
         ),
       },
-    },
+    },*/
   },
   {
     contentComponent: CustomDrawerComponent,

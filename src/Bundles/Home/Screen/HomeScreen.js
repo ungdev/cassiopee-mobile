@@ -158,11 +158,6 @@ class HomeScreen extends Component {
                   >
                     <Text style={styles.text}>{i18n.t('take_place')}</Text>
                   </TouchableOpacity>
-
-                  <Text style={{ color: 'white', textAlign: 'center' }}>
-                    Votre Token :{'\n'}
-                    {this.props.keyToken}
-                  </Text>
                 </View>
               </ScrollView>
             </ImageBackground>

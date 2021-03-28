@@ -57,7 +57,7 @@ class Infos extends React.Component {
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon
-                name="ios-bowtie"
+                name="star"
                 size={Device.isTablet ? 36 : 25}
                 color={'whitesmoke'}
               />
@@ -172,7 +172,7 @@ class Infos extends React.Component {
           >
             <View style={styles.element_icon}>
               <Icon
-                name="ios-lock"
+                name="ios-lock-closed"
                 size={Device.isTablet ? 36 : 25}
                 color={'whitesmoke'}
               />

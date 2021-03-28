@@ -8,7 +8,7 @@ class ComingSoon extends Component {
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={require('../../assets/Logo_Cassiopée/LogoClair.png')}
+          source={require('../../assets/Logo_2021.png')}
         ></Image>
         <Text style={styles.title}>{i18n.t('coming_soon_title')}</Text>
       </View>

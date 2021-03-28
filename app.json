@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash_2021.png",
       "resizeMode": "cover",
-      "backgroundColor": "transparent"
+      "backgroundColor": "#0A3D60"
     },
     "primaryColor": "#0A3D60",
     "updates": {

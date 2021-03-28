@@ -19,7 +19,6 @@ class Transports extends React.Component {
             {i18n.t('transport_shuttle_after')}
           </Text>
         </View>
-        <Accordion />
         <Text style={styles.title}>{i18n.t('transport_car_title')}</Text>
         <View style={styles.container}>
           <Text style={styles.paragraphe}>{i18n.t('transport_car')}</Text>
@@ -32,6 +31,8 @@ class Transports extends React.Component {
     )
   }
 }
+
+/*If you want add Shuttle info, add this component : <Accordion /> */
 
 export default Transports
 

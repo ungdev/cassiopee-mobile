@@ -88,26 +88,19 @@ class ArtistDetail extends React.Component {
           <Header2 bigtitle={artist.name} />
         </TouchableWithoutFeedback>
 
-        <View style={styles.main_container}>
-          <View style={styles.image_container}>
-            <Image
-              style={styles.image}
-              source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
-            />
-          </View>
-          <SafeAreaProvider style={styles.droidSafeArea}>
-            <ImageBackground
-              source={require('../../../../assets/Logo_Cassiopée/coverartiste.png')}
-              style={{ width: '100%', height: '100%' }}
-            >
-              <ScrollView
-                style={{
-                  flex: 1,
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: 'transparent',
-                }}
-              >
+        <View style={styles.image_container}>
+          <Image
+            style={styles.image}
+            source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
+          />
+        </View>
+        <SafeAreaProvider style={styles.droidSafeArea}>
+          <ImageBackground
+            source={require('../../../../assets/Logo_Cassiopée/coverartiste.png')}
+            style={{ width: '100%', height: '100%' }}
+          >
+            <View style={{ flex: 1 }}>
+              <ScrollView>
                 <Text style={styles.title_text}>{artist.name}</Text>
                 <TouchableOpacity
                   style={styles.favorite_container}
@@ -149,9 +142,9 @@ class ArtistDetail extends React.Component {
                   ))}
                 </View>
               </ScrollView>
-            </ImageBackground>
-          </SafeAreaProvider>
-        </View>
+            </View>
+          </ImageBackground>
+        </SafeAreaProvider>
       </React.Fragment>
     )
   }
@@ -187,6 +180,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   favorite_container: {
+    display: 'none' /*delete this if ou want add favorite feature*/,
     alignItems: 'center',
     marginBottom: 10,
   },
@@ -227,6 +221,7 @@ const styles = StyleSheet.create({
     paddingBottom: Platform.OS === 'android' ? 20 : 0,
   },
   droidSafeArea: {
+    height: '100%',
     flex:
       (Platform.OS === 'android' ? 1 : 0) ||
       (Dimensions.get('screen').height < 600 ? 1 : 0),
