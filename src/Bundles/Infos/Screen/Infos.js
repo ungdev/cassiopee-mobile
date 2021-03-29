@@ -57,7 +57,7 @@ class Infos extends React.Component {
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon
-                name="star"
+                name="ios-fitness"
                 size={Device.isTablet ? 36 : 25}
                 color={'whitesmoke'}
               />
@@ -132,19 +132,6 @@ class Infos extends React.Component {
               />
             </View>
             <Text style={styles.text}>{i18n.t('info_schedule_open')}</Text>
-          </View>
-
-          <View style={styles.element}>
-            <View style={styles.element_icon}>
-              <Icon
-                name="ios-warning"
-                size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
-              />
-            </View>
-            <Text style={styles.text}>
-              {i18n.t('info_schedule_ticket_close')}
-            </Text>
           </View>
 
           <View style={styles.element}>
@@ -239,6 +226,19 @@ class Infos extends React.Component {
     )
   }
 }
+
+/* <View style={styles.element}>
+            <View style={styles.element_icon}>
+              <Icon
+                name="ios-warning"
+                size={Device.isTablet ? 36 : 25}
+                color={'whitesmoke'}
+              />
+            </View>
+            <Text style={styles.text}>
+              {i18n.t('info_schedule_ticket_close')}
+            </Text>
+   </View> */
 
 export default Infos
 

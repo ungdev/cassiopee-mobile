@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Linking } from 'react-native'
 import Accordion from '../Accordion/Accordion.js'
 import i18n from '../../../translate/index'
 const Device = require('react-native-device-detection')
@@ -13,12 +13,14 @@ class Transports extends React.Component {
           <Text style={styles.paragraphe}>
             {i18n.t('transport_shuttle_before')}
           </Text>
-        </View>
-        <View style={styles.container}>
-          <Text style={styles.paragraphe}>
-            {i18n.t('transport_shuttle_after')}
+          <Text
+            style={styles.buslink}
+            onPress={() => Linking.openURL('https://www.tcat.fr/')}
+          >
+            www.tcat.fr
           </Text>
         </View>
+
         <Text style={styles.title}>{i18n.t('transport_car_title')}</Text>
         <View style={styles.container}>
           <Text style={styles.paragraphe}>{i18n.t('transport_car')}</Text>
@@ -57,6 +59,11 @@ const styles = StyleSheet.create({
   paragraphe: {
     textAlign: 'justify',
     color: 'whitesmoke',
+  },
+  buslink: {
+    textAlign: 'center',
+    color: 'whitesmoke',
+    textDecorationLine: 'underline',
   },
 })
 

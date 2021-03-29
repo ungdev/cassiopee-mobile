@@ -10,18 +10,17 @@ class Reglement extends React.Component {
         <Text style={styles.t}>{i18n.t('rule_title')}</Text>
         <Text style={styles.h}>{i18n.t('rule_security_title')}</Text>
         <Text style={styles.p}>{i18n.t('rule_security')}</Text>
+        <Text style={styles.p}>{''}</Text>
+        <Text style={styles.textimportant}>{i18n.t('rule_mask')}</Text>
         <Text style={styles.h}>{i18n.t('rule_identity_title')}</Text>
         <Text style={styles.p}>{i18n.t('rule_identity')}</Text>
-        <Text style={styles.h}>{i18n.t('rule_dresscode_title')}</Text>
-        <Text style={styles.p}>{i18n.t('rule_dresscode')}</Text>
         <Text style={styles.h}>{i18n.t('rule_prevention_title')}</Text>
-        <Text style={styles.p}>{i18n.t('rule_prevention')}</Text>
+        <Text style={styles.p}>{i18n.t('rule_prevention_2021')}</Text>
         <Text style={styles.h}>{i18n.t('rule_ecology_title')}</Text>
         <Text style={styles.p}>{i18n.t('rule_ecology')}</Text>
         <Text style={styles.h}>{i18n.t('rule_local_title')}</Text>
         <Text style={styles.p}>{i18n.t('rule_local')}</Text>
-        <Text style={styles.h}>{i18n.t('rule_social_title')}</Text>
-        <Text style={styles.p}>{i18n.t('rule_social')}</Text>
+
         <Text style={styles.t}>{i18n.t('rule_credits_title')}</Text>
         <Text style={styles.p}>
           {i18n.t('rule_credits_one')}{' '}
@@ -52,6 +51,14 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'justify',
     color: 'whitesmoke',
+  },
+  textimportant: {
+    alignSelf: 'stretch',
+    padding: 5,
+    fontSize: 15,
+    textAlign: 'justify',
+    color: 'whitesmoke',
+    fontWeight: 'bold',
   },
   dev: {
     alignSelf: 'stretch',

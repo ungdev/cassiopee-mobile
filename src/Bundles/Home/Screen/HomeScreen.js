@@ -77,16 +77,32 @@ class HomeScreen extends Component {
                   <Text style={styles.text_end}>{i18n.t('good_message')}</Text>
                 </LinearGradient>
 
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() =>
-                    Linking.openURL(
-                      'https://www.billetweb.fr/cassiopee-gala-utt'
-                    )
-                  }
-                >
-                  <Text style={styles.text}>{i18n.t('take_place')}</Text>
-                </TouchableOpacity>
+                <View style={styles.container_button}>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() =>
+                      Linking.openURL(
+                        'https://www.billetweb.fr/cassiopee-gala-utt'
+                      )
+                    }
+                  >
+                    <Text style={styles.text}>
+                      {i18n.t('billeterie_champagne')}
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() =>
+                      Linking.openURL(
+                        'https://www.billetweb.fr/cassiopee-gala-utt'
+                      )
+                    }
+                  >
+                    <Text style={styles.text}>
+                      {i18n.t('restauration_link')}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </ScrollView>
           </ImageBackground>
@@ -147,17 +163,32 @@ class HomeScreen extends Component {
                       />
                     </LinearGradient>
                   </View>
-
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={() =>
-                      Linking.openURL(
-                        'https://www.billetweb.fr/cassiopee-gala-utt'
-                      )
-                    }
-                  >
-                    <Text style={styles.text}>{i18n.t('take_place')}</Text>
-                  </TouchableOpacity>
+                  <View style={styles.container_button}>
+                    <TouchableOpacity
+                      style={styles.button}
+                      onPress={() =>
+                        Linking.openURL(
+                          'https://www.billetweb.fr/cassiopee-gala-utt'
+                        )
+                      }
+                    >
+                      <Text style={styles.text}>
+                        {i18n.t('billeterie_champagne')}
+                      </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.button}
+                      onPress={() =>
+                        Linking.openURL(
+                          'https://www.billetweb.fr/cassiopee-gala-utt'
+                        )
+                      }
+                    >
+                      <Text style={styles.text}>
+                        {i18n.t('restauration_link')}
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </ScrollView>
             </ImageBackground>
@@ -169,11 +200,11 @@ class HomeScreen extends Component {
 
   componentDidMount() {
     var that = this
-    var date = moment().utcOffset('+1').format('YYYY-MM-DD hh:mm:ss')
+    var date = moment().utcOffset('+2').format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
-    var expirydate = '2021-06-04 20:00:00' //Date of event
+    var expirydate = '2021-06-04 15:00:00' //Date of event
     var diffr = moment.duration(moment(expirydate).diff(moment(date)))
-    var hours = parseInt(diffr.asHours()) + 12 //add +12 sometimes
+    var hours = parseInt(diffr.asHours()) + 10 //add +12 sometimes
     var minutes = parseInt(diffr.minutes())
     var seconds = parseInt(diffr.seconds())
     var d = hours * 60 * 60 + minutes * 60 + seconds
@@ -242,9 +273,10 @@ const styles = StyleSheet.create({
     color: '#0A3D60',
   },
   button: {
-    marginTop: 18,
-    padding: 16,
-    width: '90%',
+    margin: '5%',
+    padding: 5,
+    width: '40%',
+    height: 80,
     borderRadius: 0,
     alignItems: 'center',
     backgroundColor: '#0A3D60',
@@ -252,6 +284,8 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
     fontSize: 20,
+    textAlign: 'center',
+    padding: 8,
   },
   container_end: {
     width: '90%',
@@ -270,6 +304,12 @@ const styles = StyleSheet.create({
       (Platform.OS === 'android' ? 1 : 0) ||
       (Dimensions.get('screen').height < 600 ? 1 : 0),
     backgroundColor: '#0A3D60',
+  },
+  container_button: {
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
   },
 })
 
