@@ -20,6 +20,7 @@ import i18n from '../../../translate/index'
 import * as Permissions from 'expo-permissions'
 import * as Notifications from 'expo-notifications'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { SafeAreaView } from 'react-navigation'
 const Device = require('react-native-device-detection')
 
 class ArtistDetail extends React.Component {
@@ -94,57 +95,56 @@ class ArtistDetail extends React.Component {
             source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
           />
         </View>
-        <SafeAreaProvider style={styles.droidSafeArea}>
+
+        <ScrollView style={{ flex: 1 }}>
           <ImageBackground
             source={require('../../../../assets/Logo_Cassiopée/coverartiste.png')}
             style={{ width: '100%', height: '100%' }}
           >
-            <View style={{ flex: 1 }}>
-              <ScrollView>
-                <Text style={styles.title_text}>{artist.name}</Text>
-                <TouchableOpacity
-                  style={styles.favorite_container}
-                  onPress={() => this._toggleFavorite()}
-                >
-                  {this._displayFavoriteImage()}
-                </TouchableOpacity>
-                <Text style={styles.default_text}>
-                  {i18n.t('artist_detail_hours')}
-                  {'  '}
-                  <Text style={{ fontWeight: 'normal' }}>
-                    {moment(artist.eventDate).format('HH:mm')}
-                  </Text>
+            <SafeAreaView style={styles.droidSafeArea}>
+              <Text style={styles.title_text}>{artist.name}</Text>
+              <TouchableOpacity
+                style={styles.favorite_container}
+                onPress={() => this._toggleFavorite()}
+              >
+                {this._displayFavoriteImage()}
+              </TouchableOpacity>
+              <Text style={styles.default_text}>
+                {i18n.t('artist_detail_hours')}
+                {'  '}
+                <Text style={{ fontWeight: 'normal' }}>
+                  {moment(artist.eventDate).format('HH:mm')}
                 </Text>
-                <Text style={styles.default_text}>
-                  {i18n.t('artist_detail_stage')}
-                  {'  '}
-                  <Text style={{ fontWeight: 'normal' }}>
-                    {artist.eventPlace}
-                  </Text>
+              </Text>
+              <Text style={styles.default_text}>
+                {i18n.t('artist_detail_stage')}
+                {'  '}
+                <Text style={{ fontWeight: 'normal' }}>
+                  {artist.eventPlace}
                 </Text>
-                <Text style={styles.default_text}>
-                  {i18n.t('artist_detail_biography')}{' '}
-                  <Text style={styles.description_text}>
-                    {artist.description}
-                  </Text>
+              </Text>
+              <Text style={styles.default_text}>
+                {i18n.t('artist_detail_biography')}{' '}
+                <Text style={styles.description_text}>
+                  {artist.description}
                 </Text>
-                <Text style={styles.default_text_lien}>
-                  {i18n.t('artist_detail_links')}
-                </Text>
+              </Text>
+              <Text style={styles.default_text_lien}>
+                {i18n.t('artist_detail_links')}
+              </Text>
 
-                <View style={styles.socialartist}>
-                  {artist.Links.map((link) => (
-                    <SocialButton
-                      key={link.uri}
-                      type={link.type}
-                      uri={link.uri}
-                    ></SocialButton>
-                  ))}
-                </View>
-              </ScrollView>
-            </View>
+              <View style={styles.socialartist}>
+                {artist.Links.map((link) => (
+                  <SocialButton
+                    key={link.uri}
+                    type={link.type}
+                    uri={link.uri}
+                  ></SocialButton>
+                ))}
+              </View>
+            </SafeAreaView>
           </ImageBackground>
-        </SafeAreaProvider>
+        </ScrollView>
       </React.Fragment>
     )
   }
