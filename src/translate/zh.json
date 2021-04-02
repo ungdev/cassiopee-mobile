@@ -8,6 +8,7 @@
   "menu_social": "社交网络",
   "menu_playlist": "播放列表",
   "menu_ticket": "我的车票",
+  "menu_foodtruck": "食物餐车",
 
   "welcome": "欢迎来到仙后座应用程序 !",
   "welcome2": "本次活动将于2021年6月5日开幕。",
@@ -110,6 +111,10 @@
   "first_launching_slide_three": "开发者正在积极努力为您带来更多的新功能，请定期查看更新，其他的功能很快就会到来......",
   "first_launching_slide_four_title": "你准备好了吗？",
   "first_launching_slide_four": "我们走吧！",
+
+  "first_launching_slide_one_2021": "完全针对Cassiopée2020（在我们心中永远如此）进行了重新设计，今年该应用程序又针对我们的特别版进行了转换。",
+  "first_launching_slide_two_2021": "发现这一不可思议的一天的艺术家，活动，事件和更多信息。",
+  "first_launching_slide_three_2021": "对于其他新功能和将来的功能，请不要忘记激活更新。",
 
   "map_title": "互动地图",
   "map_first_message": "点击一个区域了解更多信息。",

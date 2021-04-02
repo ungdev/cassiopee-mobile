@@ -8,11 +8,12 @@
   "menu_social": "Redes Sociales",
   "menu_playlist": "Playlist",
   "menu_ticket": "Mi Billete",
+  "menu_foodtruck": "Camión de comida",
 
   "welcome": "Bienvenido a la aplicación \nCassiopée!",
   "welcome2": "El evento se inaugura\n el 5 de junio de 2021.",
   "open_message": "¡Casiopée ha abierto sus puertas!",
-  "good_message": "Le deseamos una buena noche.",
+  "good_message": "Le deseamos una buena dia.",
   "days": "Días",
   "hours": "Horario",
   "minutes": "Actas",
@@ -110,6 +111,10 @@
   "first_launching_slide_three": "El desarrollador está trabajando activamente para traerte más características nuevas, así que revisa tus actualizaciones regularmente, el resto viene pronto...",
   "first_launching_slide_four_title": "¿Estás listo?",
   "first_launching_slide_four": "¡Vámonos!",
+
+  "first_launching_slide_one_2021": "Completamente rediseñada para Cassiopée 2020 (para siempre en nuestros corazones), la aplicación se ha vuelto a transformar este año para nuestra edición especial.",
+  "first_launching_slide_two_2021": "Descubre los artistas, actividades, eventos y mucha más información de este increíble día.",
+  "first_launching_slide_three_2021": "Para otras funciones nuevas y funciones futuras, no olvide activar las actualizaciones.",
 
   "map_title": "MAPA INTERACTIVO",
   "map_first_message": "Haga clic en un área para obtener más información.",

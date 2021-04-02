@@ -16,19 +16,19 @@ const slides = [
   {
     key: 'slide1',
     title: i18n.t('first_launching_slide_one_title'),
-    text: i18n.t('first_launching_slide_one'),
+    text: i18n.t('first_launching_slide_one_2021'),
     image: 'md-heart',
   },
   {
     key: 'slide2',
     title: i18n.t('first_launching_slide_two_title'),
-    text: i18n.t('first_launching_slide_two'),
+    text: i18n.t('first_launching_slide_two_2021'),
     image: 'ios-musical-notes',
   },
   {
     key: 'slide3',
     title: i18n.t('first_launching_slide_three_title'),
-    text: i18n.t('first_launching_slide_three'),
+    text: i18n.t('first_launching_slide_three_2021'),
     image: 'ios-cog',
   },
   {
