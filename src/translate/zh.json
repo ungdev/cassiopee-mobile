@@ -18,7 +18,7 @@
   "minutes": "會議紀要",
   "seconds": "秒级",
   "billeterie_champagne": "香槟订单",
-  "restauration_link": "现场用餐",
+  "restauration_link": "食品卡车订单",
 
   "error": "服务器出现了错误。请稍后再试。错误代码： ",
   "error2": "服务器不支持该通知请求。以后再试。",

@@ -306,6 +306,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0A3D60',
   },
   container_button: {
+    justifyContent: 'center',
     width: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',

@@ -18,7 +18,7 @@
   "minutes": "Minutes",
   "seconds": "Secondes",
   "billeterie_champagne": "Commande de Champagne",
-  "restauration_link": "Se Restaurer sur Place",
+  "restauration_link": "Commande Food Truck",
 
   "error": "Une erreur est survenue avec le serveur. Merci de réessayer dans quelques instants. Code erreur : ",
   "error2": "La demande de notification n'a pas été pris en charge par le serveur. Réessayer plus tard.",

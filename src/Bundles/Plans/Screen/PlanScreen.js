@@ -118,7 +118,7 @@ class PlanScreen extends Component {
                   maxZoom={Device.isTablet ? 5 : 3}
                   minZoom={0.55}
                   zoomStep={-0.000003}
-                  initialZoom={1}
+                  initialZoom={Device.isTablet ? 1 : 1}
                   bindToBorders={true}
                   pinchToZoomInSensitivity={Device.isTablet ? 3 : 2}
                   pinchToZoomOutSensitivity={Device.isTablet ? 3 : 2}
