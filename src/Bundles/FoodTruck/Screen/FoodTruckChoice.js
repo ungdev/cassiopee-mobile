@@ -1,28 +1,33 @@
 import * as React from 'react'
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import Header from '../../../components/Header.js'
+import i18n from '../../../translate/index'
 
 export default function FoodTruckChoice({ navigation }) {
   return (
-    <View style={styles.main_container}>
-      <View style={styles.second_container}>
-        <TouchableOpacity
-          style={styles.button}
-          title="Go to TRUCK 1"
-          onPress={() => navigation.navigate('Food Truck 1')}
-        >
-          <Text style={styles.text}>Name Food Truck 1</Text>
-        </TouchableOpacity>
+    <React.Fragment>
+      <Header bigtitle={i18n.t('menu_foodtruck')} />
+      <View style={styles.main_container}>
+        <View style={styles.second_container}>
+          <TouchableOpacity
+            style={styles.button}
+            title="Go to TRUCK 1"
+            onPress={() => navigation.navigate('Food Truck 1')}
+          >
+            <Text style={styles.text}>Name Food Truck 1</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.second_container}>
+          <TouchableOpacity
+            style={styles.button}
+            title="Go to TRUCK 2"
+            onPress={() => navigation.navigate('Food Truck 2')}
+          >
+            <Text style={styles.text}>Name Food Truck 2</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.second_container}>
-        <TouchableOpacity
-          style={styles.button}
-          title="Go to TRUCK 2"
-          onPress={() => navigation.navigate('Food Truck 2')}
-        >
-          <Text style={styles.text}>Name Food Truck 2</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </React.Fragment>
   )
 }
 

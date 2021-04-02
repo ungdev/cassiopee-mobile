@@ -20,12 +20,20 @@ export default function FoodTruckNavigator() {
           component={FoodTruckChoice}
         />
         <Stack.Screen
-          options={{ headerTitleAlign: 'center' }}
+          options={{
+            headerTitleAlign: 'center',
+            headerTintColor: 'white',
+            headerStyle: { backgroundColor: '#0A3D60' },
+          }}
           name="Food Truck 1"
           component={Truck1Screen}
         />
         <Stack.Screen
-          options={{ headerTitleAlign: 'center' }}
+          options={{
+            headerTitleAlign: 'center',
+            headerTintColor: 'white',
+            headerStyle: { backgroundColor: '#0A3D60' },
+          }}
           name="Food Truck 2"
           component={Truck2Screen}
         />

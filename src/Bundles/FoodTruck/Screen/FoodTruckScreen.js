@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { SafeAreaView, View } from 'react-native'
-import Header from '../../../components/Header'
+import Header from '../../../components/Header2'
 import FoodTruckNavigator from '../FoodTruckNavigator'
 import i18n from '../../../translate/index'
 
@@ -14,7 +14,6 @@ class FoodTruckScreen extends Component {
           }}
         >
           <View style={{ width: '100%', height: '100%', resizeMode: 'center' }}>
-            <Header bigtitle={i18n.t('menu_foodtruck')} />
             <FoodTruckNavigator />
           </View>
         </SafeAreaView>
