@@ -18,7 +18,7 @@ import moment from 'moment'
 import { connect } from 'react-redux'
 import i18n from '../../../translate/index'
 import * as Permissions from 'expo-permissions'
-import { Notifications } from 'expo'
+import * as Notifications from 'expo-notifications'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 const Device = require('react-native-device-detection')
 

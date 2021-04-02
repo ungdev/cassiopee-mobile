@@ -7,7 +7,7 @@ import DrawerNavigator from '../navigation/DrawerNavigator'
 import Store from '../store/configureStore'
 import { persistStore } from 'redux-persist'
 import i18n from '../translate/index'
-import { Notifications } from 'expo'
+import * as Notifications from 'expo-notifications'
 import * as Permissions from 'expo-permissions'
 import { api } from '../lib/api'
 import { connect } from 'react-redux'
@@ -58,15 +58,16 @@ class FirstLaunching extends React.Component {
     //Récupération Token
     let token = await Notifications.getExpoPushTokenAsync()
     //Stockage dans l'Appli
-    console.log('token recupere', token)
+    console.log('token recupere', token.data)
     const action = { type: 'SET_TOKEN', value: token }
     this.props.dispatch(action)
     //On envoie ensuite au serveur
     try {
-      const result = await api.post('expoTokens', { token })
+      const result = await api.post('expoTokens', { token: token.data })
       console.log('Token envoyé au serveur')
     } catch (e) {
-      console.log('erreur:', e)
+      console.log('token pas envoyé au serveur')
+      console.log('reponse', e.response)
       alert(i18n.t('error2') + e)
     }
   }
@@ -88,7 +89,7 @@ class FirstLaunching extends React.Component {
     return (
       <View style={styles.buttonCircle}>
         <Ionicons
-          name="md-arrow-round-forward"
+          name="md-arrow-forward-sharp"
           color="rgba(255, 255, 255, .9)"
           size={24}
           style={{ backgroundColor: 'transparent' }}
