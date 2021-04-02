@@ -6,13 +6,11 @@ import ProgramScreen from '../Bundles/Program/Screen/ProgramScreen'
 import NavigatorArtist from '../Bundles/Artists/NavigatorArtist'
 import PlanScreen from '../Bundles/Plans/Screen/PlanScreen'
 import InformationsScreen from '../Bundles/Infos/Screen/InformationsScreen'
-import AssoScreen from '../Bundles/Asso/AssoScreen'
 import SocialScreen from '../Bundles/Social/Screen/SocialScreen'
-import PlaylistScreen from '../Bundles/Playlist/Screen/PlaylistScreen'
-import MyTicketScreen from '../Bundles/Tickets/Screen/MyTicketScreen'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Icone from 'react-native-vector-icons/FontAwesome5'
 import i18n from '../translate/index'
+import FoodTruckScreen from '../Bundles/FoodTruck/Screen/FoodTruckScreen'
 const Device = require('react-native-device-detection')
 
 const CustomDrawerComponent = (props) => (
@@ -119,6 +117,18 @@ const DrawerNavigator = createDrawerNavigator(
         drawerIcon: (
           <Icone
             name="share-alt"
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+          />
+        ),
+      },
+    },
+    'Food Truck': {
+      screen: FoodTruckScreen,
+      navigationOptions: {
+        title: i18n.t('menu_foodtruck'),
+        drawerIcon: (
+          <Icon
+            name="ios-fast-food"
             style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
           />
         ),

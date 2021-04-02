@@ -179,9 +179,7 @@ class HomeScreen extends Component {
                     <TouchableOpacity
                       style={styles.button}
                       onPress={() =>
-                        Linking.openURL(
-                          'https://www.billetweb.fr/cassiopee-gala-utt'
-                        )
+                        Linking.openURL('cassiopee://FoodTruckScreen')
                       }
                     >
                       <Text style={styles.text}>
@@ -202,7 +200,7 @@ class HomeScreen extends Component {
     var that = this
     var date = moment().utcOffset('+2').format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
-    var expirydate = '2021-06-04 15:00:00' //Date of event
+    var expirydate = '2020-06-04 15:00:00' //Date of event
     var diffr = moment.duration(moment(expirydate).diff(moment(date)))
     var hours = parseInt(diffr.asHours()) + 10 //add +12 sometimes
     var minutes = parseInt(diffr.minutes())
