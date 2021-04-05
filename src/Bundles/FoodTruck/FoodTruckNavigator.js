@@ -35,6 +35,10 @@ export default function FoodTruckNavigator() {
             headerTitleAlign: 'center',
             headerTintColor: 'white',
             headerStyle: { backgroundColor: '#0A3D60' },
+            headerTitleStyle: {
+              fontFamily: 'brigade-condensed-regular',
+              fontSize: 25,
+            },
           }}
           name="Food Truck 2"
           component={Truck2Screen}
