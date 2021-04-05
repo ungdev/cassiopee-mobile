@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, Image } from 'react-native'
 import i18n from '../translate/index'
+import { TitleText } from './TitleText'
 
 class ComingSoon extends Component {
   render() {
@@ -10,7 +11,9 @@ class ComingSoon extends Component {
           style={styles.image}
           source={require('../../assets/Logo_2021.png')}
         ></Image>
-        <Text style={styles.title}>{i18n.t('coming_soon_title')}</Text>
+        <TitleText style={styles.title}>
+          {i18n.t('coming_soon_title')}
+        </TitleText>
       </View>
     )
   }
@@ -26,7 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     color: 'white',
   },
   image: {

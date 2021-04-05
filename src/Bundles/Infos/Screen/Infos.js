@@ -5,6 +5,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import openMap from 'react-native-open-maps'
 import email from 'react-native-email'
 import i18n from '../../../translate/index'
+import { TitleText } from '../../../components/TitleText'
+import { StyledText } from '../../../components/StyledText'
 const Device = require('react-native-device-detection')
 
 class Infos extends React.Component {
@@ -40,7 +42,9 @@ class Infos extends React.Component {
       <ScrollView style={styles.main_container}>
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>{i18n.t('info_access_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_access_title')}
+            </TitleText>
           </View>
 
           <View style={styles.element}>
@@ -51,7 +55,7 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_age')}</Text>
+            <StyledText style={styles.text}>{i18n.t('info_age')}</StyledText>
           </View>
 
           <View style={styles.element}>
@@ -62,7 +66,9 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_dresscode')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_dresscode')}
+            </StyledText>
           </View>
 
           <View style={styles.element}>
@@ -73,13 +79,15 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_spirit')}</Text>
+            <StyledText style={styles.text}>{i18n.t('info_spirit')}</StyledText>
           </View>
         </View>
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>{i18n.t('info_adress_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_adress_title')}
+            </TitleText>
           </View>
 
           <TouchableOpacity style={styles.element} onPress={this._goToUTT}>
@@ -90,7 +98,9 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>12 Rue Marie Curie, Troyes</Text>
+            <StyledText style={styles.text}>
+              12 Rue Marie Curie, Troyes
+            </StyledText>
             <View style={styles.element_arrow}>
               <Icon
                 name="ios-arrow-forward"
@@ -103,7 +113,9 @@ class Infos extends React.Component {
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>{i18n.t('info_date_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_date_title')}
+            </TitleText>
           </View>
 
           <View style={styles.element}>
@@ -114,13 +126,15 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_date')}</Text>
+            <StyledText style={styles.text}>{i18n.t('info_date')}</StyledText>
           </View>
         </View>
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>{i18n.t('info_schedule_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_schedule_title')}
+            </TitleText>
           </View>
 
           <View style={styles.element}>
@@ -131,7 +145,9 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_schedule_open')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_schedule_open')}
+            </StyledText>
           </View>
 
           <View style={styles.element}>
@@ -142,13 +158,17 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_schedule_close')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_schedule_close')}
+            </StyledText>
           </View>
         </View>
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>{i18n.t('info_privacy_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_privacy_title')}
+            </TitleText>
           </View>
 
           <TouchableOpacity
@@ -164,7 +184,9 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_privacy')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_privacy')}
+            </StyledText>
             <View style={styles.element_arrow}>
               <Icon
                 name="ios-arrow-forward"
@@ -177,7 +199,9 @@ class Infos extends React.Component {
 
         <View style={styles.category}>
           <View>
-            <Text style={styles.title}>{i18n.t('info_contact_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_contact_title')}
+            </TitleText>
           </View>
 
           <TouchableOpacity
@@ -191,7 +215,9 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_contact_mail_gala')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_contact_mail_gala')}
+            </StyledText>
             <View style={styles.element_arrow}>
               <Icon
                 name="ios-arrow-forward"
@@ -212,7 +238,9 @@ class Infos extends React.Component {
                 color={'whitesmoke'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_contact_mail_ung')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_contact_mail_ung')}
+            </StyledText>
             <View style={styles.element_arrow}>
               <Icon
                 name="ios-arrow-forward"
@@ -259,8 +287,7 @@ const styles = StyleSheet.create({
 
   title: {
     marginBottom: 7,
-    fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 24,
     color: '#C6E9FA',
   },
 
@@ -285,7 +312,7 @@ const styles = StyleSheet.create({
 
   text: {
     marginTop: 4,
-    fontSize: 15,
+    fontSize: 17,
     marginLeft: 10,
     color: 'whitesmoke',
   },
@@ -296,7 +323,7 @@ if (Device.isTablet) {
     title: {
       marginBottom: 7,
       fontWeight: 'bold',
-      fontSize: 24,
+      fontSize: 28,
       color: '#C6E9FA',
     },
     text: {

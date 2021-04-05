@@ -43,9 +43,10 @@ const TabNavigatorInfo = createAppContainer(
           backgroundColor: '#0A3D60',
         },
         labelStyle: {
-          fontSize: Device.isTablet ? 14 : 10,
+          fontSize: Device.isTablet ? 20 : 16,
           textAlign: 'center',
           padding: 0,
+          fontFamily: 'brigade-condensed-regular',
         },
         tabStyle: {
           witdh: '100%',

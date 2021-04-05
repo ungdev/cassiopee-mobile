@@ -21,6 +21,8 @@ import * as Permissions from 'expo-permissions'
 import * as Notifications from 'expo-notifications'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { SafeAreaView } from 'react-navigation'
+import { TitleText } from '../../../components/TitleText'
+import { StyledText } from '../../../components/StyledText'
 const Device = require('react-native-device-detection')
 
 class ArtistDetail extends React.Component {
@@ -102,7 +104,7 @@ class ArtistDetail extends React.Component {
             style={{ width: '100%', height: '100%' }}
           >
             <SafeAreaView style={styles.droidSafeArea}>
-              <Text style={styles.title_text}>{artist.name}</Text>
+              <TitleText style={styles.title_text}>{artist.name}</TitleText>
               <TouchableOpacity
                 style={styles.favorite_container}
                 onPress={() => this._toggleFavorite()}
@@ -112,22 +114,22 @@ class ArtistDetail extends React.Component {
               <Text style={styles.default_text}>
                 {i18n.t('artist_detail_hours')}
                 {'  '}
-                <Text style={{ fontWeight: 'normal' }}>
+                <StyledText style={{ fontWeight: 'normal' }}>
                   {moment(artist.eventDate).format('HH:mm')}
-                </Text>
+                </StyledText>
               </Text>
               <Text style={styles.default_text}>
                 {i18n.t('artist_detail_stage')}
                 {'  '}
-                <Text style={{ fontWeight: 'normal' }}>
+                <StyledText style={{ fontWeight: 'normal' }}>
                   {artist.eventPlace}
-                </Text>
+                </StyledText>
               </Text>
               <Text style={styles.default_text}>
                 {i18n.t('artist_detail_biography')}{' '}
-                <Text style={styles.description_text}>
+                <StyledText style={styles.description_text}>
                   {artist.description}
-                </Text>
+                </StyledText>
               </Text>
               <Text style={styles.default_text_lien}>
                 {i18n.t('artist_detail_links')}
@@ -169,7 +171,6 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   title_text: {
-    fontWeight: 'bold',
     fontSize: 35,
     flexWrap: 'wrap',
     marginLeft: 5,
@@ -185,21 +186,22 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   description_text: {
-    fontStyle: 'italic',
+    fontWeight: 'normal',
     color: 'whitesmoke',
     margin: 5,
-    lineHeight: 23,
+    lineHeight: 25,
   },
   default_text: {
     textTransform: 'uppercase',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 16,
     marginLeft: 10,
     textAlign: 'justify',
     marginRight: 10,
     marginTop: 15,
     marginBottom: 10,
     color: 'white',
+    lineHeight: 25,
   },
   default_text_lien: {
     textTransform: 'uppercase',
@@ -250,6 +252,7 @@ if (Device.isTablet) {
       marginTop: 15,
       marginBottom: 10,
       color: 'white',
+      lineHeight: 28,
     },
     default_text_lien: {
       textTransform: 'uppercase',

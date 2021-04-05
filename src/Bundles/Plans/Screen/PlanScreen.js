@@ -14,6 +14,8 @@ import ImageMapper from './components/ImageMapper'
 import ReactNativeZoomableView from '@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView'
 import FIGURES from './Maps'
 import i18n from '../../../translate/index'
+import { TitleText } from '../../../components/TitleText'
+import { StyledText } from '../../../components/StyledText'
 const Device = require('react-native-device-detection')
 
 const data = FIGURES
@@ -87,9 +89,9 @@ class PlanScreen extends Component {
     } else {
       return (
         <View style={styles.container_other_detail}>
-          <Text style={styles.container_other_detail_text}>
+          <StyledText style={styles.container_other_detail_text}>
             {this.state.selectedAreaOther}
-          </Text>
+          </StyledText>
         </View>
       )
     }
@@ -155,12 +157,12 @@ class PlanScreen extends Component {
               </View>
               <ScrollView style={styles.container_description}>
                 <View style={styles.container_description_detail}>
-                  <Text style={styles.container_description_detail_name}>
+                  <TitleText style={styles.container_description_detail_name}>
                     {selectedAreaName}
-                  </Text>
-                  <Text style={styles.container_description_detail_text}>
+                  </TitleText>
+                  <StyledText style={styles.container_description_detail_text}>
                     {selectedAreaDescription}
-                  </Text>
+                  </StyledText>
                 </View>
                 {this.adaptcontain()}
               </ScrollView>
@@ -197,11 +199,11 @@ const styles = StyleSheet.create({
   },
   container_description_detail_name: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 24,
     color: 'white',
   },
   container_description_detail_text: {
-    fontSize: 15,
+    fontSize: 17,
     padding: 6,
     paddingTop: 15,
     color: 'white',
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
     borderColor: 'white',
   },
   container_other_detail_text: {
-    fontSize: 15,
+    fontSize: 17,
     padding: 6,
     color: 'white',
   },
@@ -237,6 +239,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: Dimensions.get('screen').height < 600 ? 12 : 14,
     textAlign: 'center',
+    fontFamily: 'brigade-regular',
   },
   droidSafeArea: {
     flex:

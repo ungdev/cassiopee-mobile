@@ -18,6 +18,8 @@ import CountDown from 'react-native-countdown-component'
 import moment from 'moment'
 import i18n from '../../../translate/index'
 import { connect } from 'react-redux'
+import { TitleText } from '../../../components/TitleText'
+import { StyledText } from '../../../components/StyledText'
 const Device = require('react-native-device-detection')
 
 class HomeScreen extends Component {
@@ -55,8 +57,12 @@ class HomeScreen extends Component {
                   colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
                   style={styles.container_welcome}
                 >
-                  <Text style={styles.welcome}>{i18n.t('welcome')}</Text>
-                  <Text style={styles.welcome2}>{i18n.t('welcome2')}</Text>
+                  <TitleText style={styles.welcome}>
+                    {i18n.t('welcome')}
+                  </TitleText>
+                  <StyledText style={styles.welcome2}>
+                    {i18n.t('welcome2')}
+                  </StyledText>
                 </LinearGradient>
 
                 <LinearGradient
@@ -65,7 +71,9 @@ class HomeScreen extends Component {
                   colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
                   style={styles.container_end}
                 >
-                  <Text style={styles.text_end}>{i18n.t('open_message')}</Text>
+                  <StyledText style={styles.text_end}>
+                    {i18n.t('open_message')}
+                  </StyledText>
                 </LinearGradient>
 
                 <LinearGradient
@@ -74,7 +82,9 @@ class HomeScreen extends Component {
                   colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
                   style={styles.container_end}
                 >
-                  <Text style={styles.text_end}>{i18n.t('good_message')}</Text>
+                  <StyledText style={styles.text_end}>
+                    {i18n.t('good_message')}
+                  </StyledText>
                 </LinearGradient>
 
                 <View style={styles.container_button}>
@@ -86,9 +96,9 @@ class HomeScreen extends Component {
                       )
                     }
                   >
-                    <Text style={styles.text}>
+                    <StyledText style={styles.text}>
                       {i18n.t('billeterie_champagne')}
-                    </Text>
+                    </StyledText>
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={styles.button}
@@ -98,9 +108,9 @@ class HomeScreen extends Component {
                       )
                     }
                   >
-                    <Text style={styles.text}>
+                    <StyledText style={styles.text}>
                       {i18n.t('restauration_link')}
-                    </Text>
+                    </StyledText>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -132,8 +142,12 @@ class HomeScreen extends Component {
                     colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
                     style={styles.container_welcome}
                   >
-                    <Text style={styles.welcome}>{i18n.t('welcome')}</Text>
-                    <Text style={styles.welcome2}>{i18n.t('welcome2')}</Text>
+                    <TitleText style={styles.welcome}>
+                      {i18n.t('welcome')}
+                    </TitleText>
+                    <StyledText style={styles.welcome2}>
+                      {i18n.t('welcome2')}
+                    </StyledText>
                   </LinearGradient>
 
                   <View style={styles.container_countdown}>
@@ -172,9 +186,9 @@ class HomeScreen extends Component {
                         )
                       }
                     >
-                      <Text style={styles.text}>
+                      <StyledText style={styles.text}>
                         {i18n.t('billeterie_champagne')}
-                      </Text>
+                      </StyledText>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.button}
@@ -182,9 +196,9 @@ class HomeScreen extends Component {
                         Linking.openURL('cassiopee://FoodTruckScreen')
                       }
                     >
-                      <Text style={styles.text}>
+                      <StyledText style={styles.text}>
                         {i18n.t('restauration_link')}
-                      </Text>
+                      </StyledText>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -242,31 +256,31 @@ const styles = StyleSheet.create({
   image: {
     marginTop: 0,
     width: Dimensions.get('window').height < 600 ? 280 : 320,
-    height: Dimensions.get('window').height < 600 ? 120 : 210,
+    height: Dimensions.get('window').height < 600 ? 120 : 200,
     resizeMode: 'contain',
   },
   container_countdown: {
     width: '92%',
-    margin: 10,
+    margin: 5,
     marginTop: 25,
     padding: 5,
   },
   container_welcome: {
     width: '90%',
-    margin: 10,
+    margin: 5,
     marginTop: Dimensions.get('window').height < 600 ? 15 : 20,
     alignItems: 'center',
   },
   welcome: {
     fontWeight: 'bold',
     padding: 10,
-    fontSize: 22,
+    fontSize: 28,
     textAlign: 'center',
     color: '#0A3D60',
   },
   welcome2: {
     padding: 10,
-    fontSize: 20,
+    fontSize: 24,
     textAlign: 'center',
     color: '#0A3D60',
   },
@@ -281,7 +295,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 22,
     textAlign: 'center',
     padding: 8,
   },
@@ -293,7 +307,7 @@ const styles = StyleSheet.create({
   },
   text_end: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 20,
     color: '#0A3D60',
     padding: 10,
   },
@@ -335,7 +349,7 @@ if (Device.isTablet) {
     welcome: {
       fontWeight: 'bold',
       padding: 5,
-      fontSize: 25,
+      fontSize: 37,
       textAlign: 'center',
       color: '#0A3D60',
     },

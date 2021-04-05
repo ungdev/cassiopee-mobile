@@ -166,7 +166,9 @@ const DrawerNavigator = createDrawerNavigator(
       inactiveBackgroundColor: 'transparent',
       labelStyle: {
         color: 'white',
-        fontSize: Device.isTablet ? 18 : 14,
+        fontSize: Device.isTablet ? 26 : 22,
+        fontFamily: 'brigade-condensed-regular',
+        fontWeight: 'normal',
       },
     },
     drawerBackgroundColor: 'transparent',

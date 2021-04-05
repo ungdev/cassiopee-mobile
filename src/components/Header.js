@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView, Platform } from 'react-native'
 import DrawerTrigger from './DrawerTrigger'
+import { TitleText } from './TitleText'
 const Device = require('react-native-device-detection')
 
 class Header extends React.Component {
@@ -13,7 +14,9 @@ class Header extends React.Component {
       >
         <View style={styles.header}>
           <View style={styles.title}>
-            <Text style={styles.designtitle}>{this.props.bigtitle}</Text>
+            <TitleText style={styles.designtitle}>
+              {this.props.bigtitle}
+            </TitleText>
           </View>
           <View style={styles.iconmenu}>
             <DrawerTrigger />
@@ -29,11 +32,11 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    height: Platform.OS === 'ios' ? 45 : 65,
+    height: Platform.OS === 'ios' ? 45 : 70,
   },
   iconmenu: {
     position: 'absolute',
-    top: Platform.OS === 'ios' ? 10 : 30,
+    top: Platform.OS === 'ios' ? 10 : 35,
     left: 20,
   },
   title: {
@@ -43,15 +46,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
       },
       android: {
-        marginTop: 18,
+        marginTop: 25,
       },
     }),
   },
   designtitle: {
-    fontSize: 18,
+    fontSize: 25,
     textAlign: 'center',
-    fontWeight: 'bold',
     color: 'white',
+    fontWeight: 'normal',
   },
 })
 
@@ -80,7 +83,7 @@ if (Device.isTablet) {
       }),
     },
     designtitle: {
-      fontSize: 21,
+      fontSize: 28,
       textAlign: 'center',
       fontWeight: 'bold',
       color: 'white',

@@ -2,32 +2,44 @@ import React from 'react'
 import { StyleSheet, Text, View, ScrollView, Linking } from 'react-native'
 import Accordion from '../Accordion/Accordion.js'
 import i18n from '../../../translate/index'
+import { TitleText } from '../../../components/TitleText.js'
+import { StyledText } from '../../../components/StyledText.js'
 const Device = require('react-native-device-detection')
 
 class Transports extends React.Component {
   render() {
     return (
       <ScrollView style={styles.main_container}>
-        <Text style={styles.title}>{i18n.t('transport_shuttle_title')}</Text>
+        <TitleText style={styles.title}>
+          {i18n.t('transport_shuttle_title')}
+        </TitleText>
         <View style={styles.container}>
-          <Text style={styles.paragraphe}>
+          <StyledText style={styles.paragraphe}>
             {i18n.t('transport_shuttle_before')}
-          </Text>
-          <Text
+          </StyledText>
+          <StyledText
             style={styles.buslink}
             onPress={() => Linking.openURL('https://www.tcat.fr/')}
           >
             www.tcat.fr
-          </Text>
+          </StyledText>
         </View>
 
-        <Text style={styles.title}>{i18n.t('transport_car_title')}</Text>
+        <TitleText style={styles.title}>
+          {i18n.t('transport_car_title')}
+        </TitleText>
         <View style={styles.container}>
-          <Text style={styles.paragraphe}>{i18n.t('transport_car')}</Text>
+          <StyledText style={styles.paragraphe}>
+            {i18n.t('transport_car')}
+          </StyledText>
         </View>
-        <Text style={styles.title}>{i18n.t('transport_train_title')}</Text>
+        <StyledText style={styles.title}>
+          {i18n.t('transport_train_title')}
+        </StyledText>
         <View style={styles.container}>
-          <Text style={styles.paragraphe}>{i18n.t('transport_train')}</Text>
+          <StyledText style={styles.paragraphe}>
+            {i18n.t('transport_train')}
+          </StyledText>
         </View>
       </ScrollView>
     )
@@ -53,12 +65,13 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 15,
     color: '#C6E9FA',
-    fontSize: 25,
+    fontSize: 28,
     textAlign: 'center',
   },
   paragraphe: {
     textAlign: 'justify',
     color: 'whitesmoke',
+    fontSize: 17,
   },
   buslink: {
     textAlign: 'center',
@@ -78,7 +91,7 @@ if (Device.isTablet) {
     paragraphe: {
       textAlign: 'justify',
       color: 'whitesmoke',
-      fontSize: 18,
+      fontSize: 20,
     },
   })
 }

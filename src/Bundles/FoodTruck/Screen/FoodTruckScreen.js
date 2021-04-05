@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { SafeAreaView, View } from 'react-native'
-import Header from '../../../components/Header2'
 import FoodTruckNavigator from '../FoodTruckNavigator'
 import i18n from '../../../translate/index'
 

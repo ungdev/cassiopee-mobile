@@ -7,6 +7,8 @@ import { Provider } from 'react-redux' //distribution store in App
 import Store from './src/store/configureStore'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
+import * as Font from 'expo-font'
+import { AppLoading } from 'expo'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,6 +17,20 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    this._loadResourcesAsync()
+    this._firstLaunched()
+  }
+
+  _loadResourcesAsync = async () => {
+    return Promise.all([
+      Font.loadAsync({
+        'brigade-condensed-regular': require('./assets/font/Fundamental_Brigade_Condensed.ttf'),
+        'brigade-regular': require('./assets/font/Fundamental_Brigade.ttf'),
+      }),
+    ])
+  }
+
+  _firstLaunched = async () => {
     AsyncStorage.getItem('alreadyLaunched').then((value) => {
       if (value == null) {
         AsyncStorage.setItem('alreadyLaunched', 'true') // No need to wait for `setItem` to finish, although you might want to handle errors
