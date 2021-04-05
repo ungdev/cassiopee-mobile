@@ -20,6 +20,8 @@ import i18n from '../../../translate/index'
 import { connect } from 'react-redux'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
+import { NavigationEvents } from 'react-navigation'
+import { useNavigation } from '@react-navigation/native'
 const Device = require('react-native-device-detection')
 
 class HomeScreen extends Component {
@@ -193,7 +195,7 @@ class HomeScreen extends Component {
                     <TouchableOpacity
                       style={styles.button}
                       onPress={() =>
-                        Linking.openURL('cassiopee://FoodTruckScreen')
+                        this.props.navigation.navigate('Food Truck')
                       }
                     >
                       <StyledText style={styles.text}>
@@ -272,7 +274,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   welcome: {
-    fontWeight: 'bold',
     padding: 10,
     fontSize: 28,
     textAlign: 'center',
