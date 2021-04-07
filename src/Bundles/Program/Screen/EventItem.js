@@ -11,6 +11,7 @@ import Collapsible from 'react-native-collapsible'
 import env from '../../../config'
 import moment from 'moment'
 import i18n from '../../../translate/index'
+import { LinearGradient } from 'expo-linear-gradient'
 
 export class EventItem extends React.Component {
   constructor(props) {
@@ -65,7 +66,12 @@ export class EventItem extends React.Component {
         </ImageBackground>
 
         <Collapsible collapsed={this.state.collapsed}>
-          <View style={styles.content}>
+          <LinearGradient
+            start={[0, 1]}
+            end={[1, 0]}
+            colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+            style={styles.content}
+          >
             <Text style={{ fontWeight: 'bold', paddingBottom: 10 }}>
               {i18n.t('program_list_startEvent')}{' '}
               <Text style={{ fontWeight: 'normal' }}>
@@ -87,7 +93,7 @@ export class EventItem extends React.Component {
                 {moment(event.end).format('HH:mm')}
               </Text>
             </Text>
-          </View>
+          </LinearGradient>
         </Collapsible>
       </React.Fragment>
     )
@@ -148,10 +154,9 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   content: {
-    backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: 10,
-
+    borderColor: 'transparent',
     padding: 5,
     width: '98%',
     alignSelf: 'center',

@@ -9,7 +9,7 @@ class Header extends React.Component {
     return (
       <SafeAreaView
         style={{
-          backgroundColor: '#0A3D60',
+          backgroundColor: '#094E6F',
         }}
       >
         <View style={styles.header}>

@@ -10,9 +10,9 @@
     "splash": {
       "image": "./assets/splash_2021.png",
       "resizeMode": "cover",
-      "backgroundColor": "#0A3D60"
+      "backgroundColor": "#094E6F"
     },
-    "primaryColor": "#0A3D60",
+    "primaryColor": "#094E6F",
     "updates": {
       "fallbackToCacheTimeout": 0
     },

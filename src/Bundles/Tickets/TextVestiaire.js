@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('screen').height < 600 ? 55 : 64,
     padding: 10,
     marginBottom: 7,
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
     color: 'white',
   },
 })

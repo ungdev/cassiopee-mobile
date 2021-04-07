@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 0,
     alignItems: 'center',
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
   },
   text: {
     textAlign: 'center',

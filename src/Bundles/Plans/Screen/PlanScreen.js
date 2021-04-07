@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
   container_description: {
     width: '100%',
     height: '60%',
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
     margin: 0,
     paddingTop: 6,
   },
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     paddingTop: 2,
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
   },
   button: {
     height: 40,
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     flex:
       (Platform.OS === 'android' ? 1 : 1) ||
       (Dimensions.get('screen').height < 600 ? 1 : 0),
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
   },
 })
 

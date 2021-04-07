@@ -23,6 +23,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { SafeAreaView } from 'react-navigation'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
+import { LinearGradient } from 'expo-linear-gradient'
 const Device = require('react-native-device-detection')
 
 class ArtistDetail extends React.Component {
@@ -83,26 +84,28 @@ class ArtistDetail extends React.Component {
     console.log(this.props.favoritesArtist)
     return (
       <React.Fragment>
-        <TouchableWithoutFeedback
-          onPress={() => {
-            this.props.navigation.navigate('ArtistsScreen')
-          }}
+        <LinearGradient
+          style={{ height: '100%' }}
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['#22749C', '#43B9D5']}
         >
-          <Header2 bigtitle={artist.name} />
-        </TouchableWithoutFeedback>
-
-        <View style={styles.image_container}>
-          <Image
-            style={styles.image}
-            source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
-          />
-        </View>
-
-        <ScrollView style={{ flex: 1 }}>
-          <ImageBackground
-            source={require('../../../../assets/Logo_Cassiopée/coverartiste.png')}
-            style={{ width: '100%', height: '100%' }}
+          <TouchableWithoutFeedback
+            onPress={() => {
+              this.props.navigation.navigate('ArtistsScreen')
+            }}
           >
+            <Header2 bigtitle={artist.name} />
+          </TouchableWithoutFeedback>
+
+          <View style={styles.image_container}>
+            <Image
+              style={styles.image}
+              source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
+            />
+          </View>
+
+          <ScrollView style={{ flex: 1 }}>
             <SafeAreaView style={styles.droidSafeArea}>
               <TitleText style={styles.title_text}>{artist.name}</TitleText>
               <TouchableOpacity
@@ -145,8 +148,8 @@ class ArtistDetail extends React.Component {
                 ))}
               </View>
             </SafeAreaView>
-          </ImageBackground>
-        </ScrollView>
+          </ScrollView>
+        </LinearGradient>
       </React.Fragment>
     )
   }

@@ -20,7 +20,7 @@ const CustomDrawerComponent = (props) => (
   >
     <ScrollView>
       <Image
-        source={require('../../assets/Logo_Cassiopée/LogoClair.png')}
+        source={require('../../assets/logo_2021_dayedition.png')}
         style={{
           height: Device.isTablet ? 90 : 70,
           width: Device.isTablet ? 270 : 200,
@@ -45,7 +45,10 @@ const DrawerNavigator = createDrawerNavigator(
         drawerIcon: (
           <Icon
             name="ios-home"
-            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+            style={{
+              fontSize: Device.isTablet ? 27 : 24,
+              color: 'white',
+            }}
           />
         ),
       },
@@ -162,7 +165,7 @@ const DrawerNavigator = createDrawerNavigator(
   {
     contentComponent: CustomDrawerComponent,
     contentOptions: {
-      activeBackgroundColor: '#46403b',
+      activeBackgroundColor: '#094E6F,',
       inactiveBackgroundColor: 'transparent',
       labelStyle: {
         color: 'white',

@@ -21,7 +21,7 @@ export default function FoodTruckNavigator() {
           options={{
             headerTitleAlign: 'center',
             headerTintColor: 'white',
-            headerStyle: { backgroundColor: '#0A3D60' },
+            headerStyle: { backgroundColor: '#094E6F' },
             headerTitleStyle: {
               fontFamily: 'brigade-condensed-regular',
               fontSize: 25,
@@ -34,7 +34,7 @@ export default function FoodTruckNavigator() {
           options={{
             headerTitleAlign: 'center',
             headerTintColor: 'white',
-            headerStyle: { backgroundColor: '#0A3D60' },
+            headerStyle: { backgroundColor: '#094E6F' },
             headerTitleStyle: {
               fontFamily: 'brigade-condensed-regular',
               fontSize: 25,

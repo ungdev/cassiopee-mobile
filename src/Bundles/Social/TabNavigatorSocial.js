@@ -19,7 +19,7 @@ const TabNavigatorSocial = createAppContainer(
         activeTintColor: '#C6E9FA',
         inactiveTintColor: 'whitesmoke',
         style: {
-          backgroundColor: '#0A3D60',
+          backgroundColor: '#094E6F',
         },
         labelStyle: {
           fontSize: Device.isTablet ? 14 : 10,

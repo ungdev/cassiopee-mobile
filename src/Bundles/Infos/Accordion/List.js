@@ -52,7 +52,7 @@ export default ({ aller }: ListProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
     padding: 16,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,

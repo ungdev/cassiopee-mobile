@@ -9,7 +9,7 @@ class FoodTruckScreen extends Component {
       <React.Fragment>
         <SafeAreaView
           style={{
-            backgroundColor: '#0A3D60',
+            backgroundColor: '#094E6F',
           }}
         >
           <View style={{ width: '100%', height: '100%', resizeMode: 'center' }}>

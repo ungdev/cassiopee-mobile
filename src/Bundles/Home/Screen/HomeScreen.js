@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import {
   View,
   ScrollView,
-  Text,
   StyleSheet,
   Image,
   Linking,
   TouchableOpacity,
-  ImageBackground,
   Platform,
   Dimensions,
   SafeAreaView,
@@ -20,8 +18,6 @@ import i18n from '../../../translate/index'
 import { connect } from 'react-redux'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
-import { NavigationEvents } from 'react-navigation'
-import { useNavigation } from '@react-navigation/native'
 const Device = require('react-native-device-detection')
 
 class HomeScreen extends Component {
@@ -39,102 +35,118 @@ class HomeScreen extends Component {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_home')} />
-
-          <ImageBackground
-            source={require('../../../../assets/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <ScrollView style={styles.scroll}>
-              <View style={styles.container}>
-                <View style={styles.container_image}>
-                  <Image
-                    style={styles.image}
-                    source={require('../../../../assets/Logo_2021.png')}
-                  />
-                </View>
-
-                <LinearGradient
-                  start={[0, 1]}
-                  end={[1, 0]}
-                  colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
-                  style={styles.container_welcome}
-                >
-                  <TitleText style={styles.welcome}>
-                    {i18n.t('welcome')}
-                  </TitleText>
-                  <StyledText style={styles.welcome2}>
-                    {i18n.t('welcome2')}
-                  </StyledText>
-                </LinearGradient>
-
-                <LinearGradient
-                  start={[0, 1]}
-                  end={[1, 0]}
-                  colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
-                  style={styles.container_end}
-                >
-                  <StyledText style={styles.text_end}>
-                    {i18n.t('open_message')}
-                  </StyledText>
-                </LinearGradient>
-
-                <LinearGradient
-                  start={[0, 1]}
-                  end={[1, 0]}
-                  colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
-                  style={styles.container_end}
-                >
-                  <StyledText style={styles.text_end}>
-                    {i18n.t('good_message')}
-                  </StyledText>
-                </LinearGradient>
-
-                <View style={styles.container_button}>
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={() =>
-                      Linking.openURL(
-                        'https://www.billetweb.fr/cassiopee-gala-utt'
-                      )
-                    }
-                  >
-                    <StyledText style={styles.text}>
-                      {i18n.t('billeterie_champagne')}
-                    </StyledText>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={() =>
-                      Linking.openURL(
-                        'https://www.billetweb.fr/cassiopee-gala-utt'
-                      )
-                    }
-                  >
-                    <StyledText style={styles.text}>
-                      {i18n.t('restauration_link')}
-                    </StyledText>
-                  </TouchableOpacity>
-                </View>
+          <SafeAreaView style={styles.droidSafeArea}>
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
+            >
+              <View style={styles.containerBottomImage}>
+                <Image
+                  style={styles.bottomImage}
+                  source={require('../../../../assets/bottom_ocean_fish.png')}
+                />
               </View>
-            </ScrollView>
-          </ImageBackground>
+              <ScrollView style={styles.scroll}>
+                <View style={styles.container}>
+                  <View style={styles.container_image}>
+                    <Image
+                      style={styles.image}
+                      source={require('../../../../assets/logo_2021_dayedition.png')}
+                    />
+                  </View>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_welcome}
+                  >
+                    <TitleText style={styles.welcome}>
+                      {i18n.t('welcome')}
+                    </TitleText>
+                    <StyledText style={styles.welcome2}>
+                      {i18n.t('welcome2')}
+                    </StyledText>
+                  </LinearGradient>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_end}
+                  >
+                    <StyledText style={styles.text_end}>
+                      {i18n.t('open_message')}
+                    </StyledText>
+                  </LinearGradient>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_end}
+                  >
+                    <StyledText style={styles.text_end}>
+                      {i18n.t('good_message')}
+                    </StyledText>
+                  </LinearGradient>
+
+                  <View style={styles.container_button}>
+                    <TouchableOpacity
+                      style={styles.button}
+                      onPress={() =>
+                        Linking.openURL(
+                          'https://www.billetweb.fr/cassiopee-gala-utt'
+                        )
+                      }
+                    >
+                      <StyledText style={styles.text}>
+                        {i18n.t('billeterie_champagne')}
+                      </StyledText>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.button}
+                      onPress={() =>
+                        Linking.openURL(
+                          'https://www.billetweb.fr/cassiopee-gala-utt'
+                        )
+                      }
+                    >
+                      <StyledText style={styles.text}>
+                        {i18n.t('restauration_link')}
+                      </StyledText>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </ScrollView>
+            </LinearGradient>
+          </SafeAreaView>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_home')} />
+
           <SafeAreaView style={styles.droidSafeArea}>
-            <ImageBackground
-              source={require('../../../../assets/background_cassiopee_modif.png')}
-              style={{ width: '100%', height: '100%' }}
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
             >
+              <View style={styles.containerBottomImage}>
+                <Image
+                  style={styles.bottomImage}
+                  source={require('../../../../assets/bottom_ocean_fish.png')}
+                />
+              </View>
               <ScrollView style={styles.scroll}>
                 <View style={styles.container}>
                   <View style={styles.container_image}>
                     <Image
                       style={styles.image}
-                      source={require('../../../../assets/Logo_2021.png')}
+                      source={require('../../../../assets/logo_2021_dayedition.png')}
                     />
                   </View>
 
@@ -163,7 +175,7 @@ class HomeScreen extends Component {
                     >
                       <CountDown
                         digitStyle={{ backgroundColor: 'transparrent' }}
-                        digitTxtStyle={{ color: '#0A3D60' }}
+                        digitTxtStyle={{ color: '#094E6F' }}
                         separatorStyle={{ color: 'transparent' }}
                         showSeparator
                         timeLabels={{
@@ -172,7 +184,7 @@ class HomeScreen extends Component {
                           m: i18n.t('minutes'),
                           s: i18n.t('seconds'),
                         }}
-                        timeLabelStyle={{ color: '#0A3D60' }}
+                        timeLabelStyle={{ color: '#094E6F' }}
                         until={this.state.totalDuration}
                         timetoShow={('D', 'H', 'M', 'S')}
                         size={Device.isTablet ? 36 : 28}
@@ -205,7 +217,7 @@ class HomeScreen extends Component {
                   </View>
                 </View>
               </ScrollView>
-            </ImageBackground>
+            </LinearGradient>
           </SafeAreaView>
         </React.Fragment>
       )
@@ -258,7 +270,7 @@ const styles = StyleSheet.create({
   image: {
     marginTop: 0,
     width: Dimensions.get('window').height < 600 ? 280 : 320,
-    height: Dimensions.get('window').height < 600 ? 120 : 200,
+    height: Dimensions.get('window').height < 600 ? 120 : 180,
     resizeMode: 'contain',
   },
   container_countdown: {
@@ -269,21 +281,21 @@ const styles = StyleSheet.create({
   },
   container_welcome: {
     width: '90%',
-    margin: 5,
-    marginTop: Dimensions.get('window').height < 600 ? 15 : 20,
+    marginTop: Dimensions.get('window').height < 600 ? 5 : 5,
+    marginBottom: Dimensions.get('window').height < 600 ? 15 : 15,
     alignItems: 'center',
   },
   welcome: {
     padding: 10,
     fontSize: 28,
     textAlign: 'center',
-    color: '#0A3D60',
+    color: '#094E6F',
   },
   welcome2: {
     padding: 10,
     fontSize: 24,
     textAlign: 'center',
-    color: '#0A3D60',
+    color: '#094E6F',
   },
   button: {
     margin: '5%',
@@ -292,7 +304,7 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 0,
     alignItems: 'center',
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
   },
   text: {
     color: 'white',
@@ -302,20 +314,20 @@ const styles = StyleSheet.create({
   },
   container_end: {
     width: '90%',
-    marginTop: Dimensions.get('window').height < 600 ? 15 : 30,
+    marginTop: Dimensions.get('window').height < 600 ? 10 : 15,
     marginBottom: Dimensions.get('window').height < 600 ? 10 : 15,
     padding: 5,
   },
   text_end: {
     textAlign: 'center',
     fontSize: 20,
-    color: '#0A3D60',
+    color: '#094E6F',
     padding: 10,
   },
   droidSafeArea: {
     flex:
-      (Platform.OS === 'android' ? 1 : 0) ||
-      (Dimensions.get('screen').height < 600 ? 1 : 0),
+      (Platform.OS === 'android' ? 1 : 1) ||
+      (Dimensions.get('screen').height < 600 ? 1 : 1),
     backgroundColor: '#0A3D60',
   },
   container_button: {
@@ -324,6 +336,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     alignItems: 'center',
+  },
+  containerBottomImage: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: '18%',
+    width: '100%',
+  },
+  bottomImage: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: (Dimensions.get('screen').height * 17) / 100,
+    width: Dimensions.get('screen').width,
+    resizeMode: 'cover',
   },
 })
 
@@ -343,8 +370,8 @@ if (Device.isTablet) {
     },
     container_welcome: {
       width: '90%',
-      marginTop: 20,
-      margin: 5,
+      marginTop: 15,
+      marginBottom: 20,
       alignItems: 'center',
     },
     welcome: {
@@ -352,13 +379,13 @@ if (Device.isTablet) {
       padding: 5,
       fontSize: 37,
       textAlign: 'center',
-      color: '#0A3D60',
+      color: '#094E6F',
     },
     welcome2: {
       padding: 5,
       fontSize: 25,
       textAlign: 'center',
-      color: '#0A3D60',
+      color: '#094E6F',
     },
     button: {
       marginTop: 43,
@@ -366,7 +393,7 @@ if (Device.isTablet) {
       width: '90%',
       borderRadius: 0,
       alignItems: 'center',
-      backgroundColor: '#0A3D60',
+      backgroundColor: '#094E6F',
     },
     text: {
       color: 'white',
@@ -374,13 +401,13 @@ if (Device.isTablet) {
     },
     container_end: {
       width: '90%',
-      marginTop: 40,
-      marginBottom: 15,
+      marginTop: 20,
+      marginBottom: 20,
       padding: 5,
     },
     text_end: {
       fontSize: 22,
-      color: '#0A3D60',
+      color: '#094E6F',
       padding: 10,
       textAlign: 'center',
     },

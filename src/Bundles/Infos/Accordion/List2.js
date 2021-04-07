@@ -9,7 +9,7 @@ import Chevron from './Chevron'
 const { not, interpolate } = Animated
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
     padding: 16,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,

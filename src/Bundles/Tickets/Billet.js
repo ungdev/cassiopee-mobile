@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     width: '90%',
     borderRadius: 8,
     alignItems: 'center',
-    backgroundColor: '#0A3D60',
+    backgroundColor: '#094E6F',
   },
   text: {
     fontSize: Dimensions.get('screen').height < 600 ? 12 : 14,
@@ -150,7 +150,7 @@ if (Device.isTablet) {
       width: '90%',
       borderRadius: 8,
       alignItems: 'center',
-      backgroundColor: '#0A3D60',
+      backgroundColor: '#094E6F',
     },
     text: {
       fontSize: 18,
