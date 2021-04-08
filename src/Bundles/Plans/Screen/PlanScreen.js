@@ -104,31 +104,35 @@ class PlanScreen extends Component {
         >
           <Header bigtitle={i18n.t('menu_map')} />
 
-          <ScrollView style={styles.container_map}>
-            <ReactNativeZoomableView
-              maxZoom={Device.isTablet ? 5 : 3}
-              minZoom={0.55}
-              zoomStep={-0.000003}
-              initialZoom={Device.isTablet ? 1 : 1}
-              bindToBorders={true}
-              pinchToZoomInSensitivity={Device.isTablet ? 3 : 2}
-              pinchToZoomOutSensitivity={Device.isTablet ? 3 : 2}
-              movementSensibility={0.7}
-              captureEvent={true}
-            >
-              <ImageMapper
-                imgHeight={Device.isTablet ? 330 : 330}
-                imgWidth={Device.isTablet ? 395 : 395}
-                imgSource={this.state.image_plan}
-                imgMap={data}
-                onPress={(item, idx, event) =>
-                  this.mainImgWasPressed(item, idx, event)
-                }
-                containerStyle={{ top: 0 }}
-                selectedAreaId={this.state.selectedAreaId}
-              />
-            </ReactNativeZoomableView>
-          </ScrollView>
+          <View style={styles.container_map}>
+            <ScrollView>
+              <ReactNativeZoomableView
+                maxZoom={Device.isTablet ? 4 : 3}
+                minZoom={0.55}
+                zoomStep={-0.000003}
+                initialZoom={Device.isTablet ? 1.4 : 1}
+                bindToBorders={true}
+                pinchToZoomInSensitivity={Device.isTablet ? 3 : 2}
+                pinchToZoomOutSensitivity={Device.isTablet ? 3 : 2}
+                movementSensibility={0.7}
+                captureEvent={true}
+              >
+                <ImageMapper
+                  imgHeight={Device.isTablet ? 330 : 330}
+                  imgWidth={Device.isTablet ? 395 : 395}
+                  imgSource={this.state.image_plan}
+                  imgMap={data}
+                  onPress={(item, idx, event) =>
+                    this.mainImgWasPressed(item, idx, event)
+                  }
+                  containerStyle={{
+                    alignSelf: 'center',
+                  }}
+                  selectedAreaId={this.state.selectedAreaId}
+                />
+              </ReactNativeZoomableView>
+            </ScrollView>
+          </View>
 
           <View style={styles.select_bouton}>
             <ButtonGroup
@@ -170,6 +174,7 @@ const styles = StyleSheet.create({
   container_map: {
     flex: 1,
   },
+
   container_description_detail: {
     width: '96%',
     padding: 5,
@@ -234,8 +239,7 @@ const styles = StyleSheet.create({
 if (Device.isTablet) {
   Object.assign(styles, {
     container_map: {
-      height: '20%',
-      width: '100%',
+      flex: 1,
     },
   })
 }
