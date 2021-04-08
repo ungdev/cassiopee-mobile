@@ -1,13 +1,5 @@
 import React, { Component } from 'react'
-import {
-  StyleSheet,
-  View,
-  Text,
-  ScrollView,
-  ImageBackground,
-  Dimensions,
-  SafeAreaView,
-} from 'react-native'
+import { StyleSheet, View, ScrollView, Dimensions, Text } from 'react-native'
 import { ButtonGroup } from 'react-native-elements'
 import Header from '../../../components/Header'
 import ImageMapper from './components/ImageMapper'
@@ -16,6 +8,8 @@ import FIGURES from './Maps'
 import i18n from '../../../translate/index'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
+import { SafeAreaView } from 'react-navigation'
+import { LinearGradient } from 'expo-linear-gradient'
 const Device = require('react-native-device-detection')
 
 const data = FIGURES
@@ -98,97 +92,83 @@ class PlanScreen extends Component {
   }
 
   render() {
-    const {
-      selectedAreaId,
-      selectedAreaName,
-      selectedAreaDescription,
-      selectedAreaOther,
-      image_plan,
-    } = this.state
+    const { selectedAreaName, selectedAreaDescription } = this.state
 
     return (
       <React.Fragment>
-        <Header bigtitle={i18n.t('menu_map')} />
-        <SafeAreaView style={styles.droidSafeArea}>
-          <ImageBackground
-            source={require('../../../../assets/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <View style={styles.main_container}>
-              <ScrollView style={styles.container_map}>
-                <ReactNativeZoomableView
-                  maxZoom={Device.isTablet ? 5 : 3}
-                  minZoom={0.55}
-                  zoomStep={-0.000003}
-                  initialZoom={Device.isTablet ? 1 : 1}
-                  bindToBorders={true}
-                  pinchToZoomInSensitivity={Device.isTablet ? 3 : 2}
-                  pinchToZoomOutSensitivity={Device.isTablet ? 3 : 2}
-                  movementSensibility={0.7}
-                  captureEvent={true}
-                >
-                  <ImageMapper
-                    imgHeight={Device.isTablet ? 330 : 330}
-                    imgWidth={Device.isTablet ? 395 : 395}
-                    imgSource={this.state.image_plan}
-                    imgMap={data}
-                    onPress={(item, idx, event) =>
-                      this.mainImgWasPressed(item, idx, event)
-                    }
-                    containerStyle={{ top: 0 }}
-                    selectedAreaId={this.state.selectedAreaId}
-                  />
-                </ReactNativeZoomableView>
-              </ScrollView>
-              <View style={styles.select_bouton}>
-                <ButtonGroup
-                  onPress={this.changeImagePlan}
-                  selectedIndex={this.state.index}
-                  buttons={[
-                    i18n.t('map_filter_all'),
-                    i18n.t('map_filter_animation'),
-                    i18n.t('map_filter_artist'),
-                    i18n.t('map_filter_food'),
-                    i18n.t('map_filter_eat'),
-                  ]}
-                  containerStyle={styles.button}
-                  textStyle={styles.text_button}
-                />
+        <LinearGradient
+          style={{ height: '100%' }}
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['#22749C', '#43B9D5']}
+        >
+          <Header bigtitle={i18n.t('menu_map')} />
+
+          <ScrollView style={styles.container_map}>
+            <ReactNativeZoomableView
+              maxZoom={Device.isTablet ? 5 : 3}
+              minZoom={0.55}
+              zoomStep={-0.000003}
+              initialZoom={Device.isTablet ? 1 : 1}
+              bindToBorders={true}
+              pinchToZoomInSensitivity={Device.isTablet ? 3 : 2}
+              pinchToZoomOutSensitivity={Device.isTablet ? 3 : 2}
+              movementSensibility={0.7}
+              captureEvent={true}
+            >
+              <ImageMapper
+                imgHeight={Device.isTablet ? 330 : 330}
+                imgWidth={Device.isTablet ? 395 : 395}
+                imgSource={this.state.image_plan}
+                imgMap={data}
+                onPress={(item, idx, event) =>
+                  this.mainImgWasPressed(item, idx, event)
+                }
+                containerStyle={{ top: 0 }}
+                selectedAreaId={this.state.selectedAreaId}
+              />
+            </ReactNativeZoomableView>
+          </ScrollView>
+
+          <View style={styles.select_bouton}>
+            <ButtonGroup
+              onPress={this.changeImagePlan}
+              selectedButtonStyle={{ backgroundColor: '#094E6F' }}
+              selectedIndex={this.state.index}
+              buttons={[
+                i18n.t('map_filter_all'),
+                i18n.t('map_filter_animation'),
+                i18n.t('map_filter_artist'),
+                i18n.t('map_filter_food'),
+                i18n.t('map_filter_eat'),
+              ]}
+              containerStyle={styles.button}
+              textStyle={styles.text_button}
+            />
+          </View>
+
+          <ScrollView style={{ flex: 1 }}>
+            <SafeAreaView style={styles.droidSafeArea}>
+              <View style={styles.container_description_detail}>
+                <TitleText style={styles.container_description_detail_name}>
+                  {selectedAreaName}
+                </TitleText>
+                <StyledText style={styles.container_description_detail_text}>
+                  {selectedAreaDescription}
+                </StyledText>
               </View>
-              <ScrollView style={styles.container_description}>
-                <View style={styles.container_description_detail}>
-                  <TitleText style={styles.container_description_detail_name}>
-                    {selectedAreaName}
-                  </TitleText>
-                  <StyledText style={styles.container_description_detail_text}>
-                    {selectedAreaDescription}
-                  </StyledText>
-                </View>
-                {this.adaptcontain()}
-              </ScrollView>
-            </View>
-          </ImageBackground>
-        </SafeAreaView>
+              {this.adaptcontain()}
+            </SafeAreaView>
+          </ScrollView>
+        </LinearGradient>
       </React.Fragment>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  main_container: {
-    width: '100%',
-    height: '100%',
-  },
   container_map: {
-    height: '40%',
-    width: '100%',
-  },
-  container_description: {
-    width: '100%',
-    height: '60%',
-    backgroundColor: '#094E6F',
-    margin: 0,
-    paddingTop: 6,
+    flex: 1,
   },
   container_description_detail: {
     width: '96%',
@@ -226,8 +206,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingTop: 2,
-    backgroundColor: '#094E6F',
+    marginBottom: 5,
   },
   button: {
     height: 40,
@@ -242,10 +221,11 @@ const styles = StyleSheet.create({
     fontFamily: 'brigade-regular',
   },
   droidSafeArea: {
+    height: '100%',
     flex:
-      (Platform.OS === 'android' ? 1 : 1) ||
+      (Platform.OS === 'android' ? 1 : 0) ||
       (Dimensions.get('screen').height < 600 ? 1 : 0),
-    backgroundColor: '#094E6F',
+    backgroundColor: 'transparent',
   },
 })
 

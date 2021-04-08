@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     height: 280,
   },
   text: {
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: 'white',
     backgroundColor: 'transparent',
     textAlign: 'center',
     paddingHorizontal: 8,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
@@ -6,7 +6,6 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  ImageBackground,
   Alert,
   Dimensions,
 } from 'react-native'
@@ -19,7 +18,6 @@ import { connect } from 'react-redux'
 import i18n from '../../../translate/index'
 import * as Permissions from 'expo-permissions'
 import * as Notifications from 'expo-notifications'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { SafeAreaView } from 'react-navigation'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'

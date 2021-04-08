@@ -37,8 +37,8 @@ const TabNavigatorInfo = createAppContainer(
     },
     {
       tabBarOptions: {
-        activeTintColor: '#C6E9FA',
-        inactiveTintColor: 'whitesmoke',
+        activeTintColor: '#43B9D5',
+        inactiveTintColor: 'white',
         style: {
           backgroundColor: '#094E6F',
         },
@@ -54,7 +54,7 @@ const TabNavigatorInfo = createAppContainer(
           height: 55,
         },
         indicatorStyle: {
-          backgroundColor: '#C6E9FA',
+          backgroundColor: '#43B9D5',
           height: 3,
         },
       },

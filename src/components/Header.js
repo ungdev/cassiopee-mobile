@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    height: Platform.OS === 'ios' ? 45 : 70,
+    height: Platform.OS === 'ios' ? 45 : 80,
   },
   iconmenu: {
     position: 'absolute',
-    top: Platform.OS === 'ios' ? 10 : 35,
+    top: Platform.OS === 'ios' ? 10 : 45,
     left: 20,
   },
   title: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
       },
       android: {
-        marginTop: 25,
+        marginTop: 35,
       },
     }),
   },

@@ -18,28 +18,12 @@ export default function FoodTruckNavigator() {
           component={FoodTruckChoice}
         />
         <Stack.Screen
-          options={{
-            headerTitleAlign: 'center',
-            headerTintColor: 'white',
-            headerStyle: { backgroundColor: '#094E6F' },
-            headerTitleStyle: {
-              fontFamily: 'brigade-condensed-regular',
-              fontSize: 25,
-            },
-          }}
+          options={{ headerShown: false }}
           name="Food Truck 1"
           component={Truck1Screen}
         />
         <Stack.Screen
-          options={{
-            headerTitleAlign: 'center',
-            headerTintColor: 'white',
-            headerStyle: { backgroundColor: '#094E6F' },
-            headerTitleStyle: {
-              fontFamily: 'brigade-condensed-regular',
-              fontSize: 25,
-            },
-          }}
+          options={{ headerShown: false }}
           name="Food Truck 2"
           component={Truck2Screen}
         />

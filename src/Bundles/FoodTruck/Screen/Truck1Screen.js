@@ -1,15 +1,52 @@
-import * as React from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
+import React from 'react'
+import { View, StyleSheet, Text, SafeAreaView } from 'react-native'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import Header2 from '../../../components/Header2'
 
-export default function Truck1Screen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <View style={styles.tabtotal}>
-        <Text style={styles.textleft}>Total Commande : </Text>
-        <Text style={styles.textright}>XX,XX €</Text>
-      </View>
-    </View>
-  )
+export default class Truck1Screen extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
+    return (
+      <React.Fragment>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            this.props.navigation.navigate('Back')
+          }}
+        >
+          <Header2 bigtitle="Food Truck 1" />
+        </TouchableWithoutFeedback>
+        <SafeAreaView
+          style={{
+            backgroundColor: '#094E6F',
+            flex: 1,
+          }}
+        >
+          <LinearGradient
+            style={{ height: '100%' }}
+            start={[0, 1]}
+            end={[1, 0]}
+            colors={['#22749C', '#43B9D5']}
+          >
+            <View
+              style={{
+                flex: 1,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <View style={styles.tabtotal}>
+                <Text style={styles.textleft}>Total Commande : </Text>
+                <Text style={styles.textright}>XX,XX €</Text>
+              </View>
+            </View>
+          </LinearGradient>
+        </SafeAreaView>
+      </React.Fragment>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
