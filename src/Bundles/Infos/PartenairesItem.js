@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Linking,
   Dimensions,
+  Image,
 } from 'react-native'
 import env from '../../config'
 import Device from 'react-native-device-detection'
@@ -17,7 +18,7 @@ class PartenairesItem extends React.Component {
         style={styles.item_container}
         onPress={() => Linking.openURL(partenaire.url)}
       >
-        <ImageBackground
+        <Image
           style={styles.image}
           source={{ uri: `${env.API_URI}/api/v1${partenaire.image}` }}
         />
@@ -32,9 +33,9 @@ const styles = StyleSheet.create({
     width: '50%',
   },
   image: {
-    width: '100%',
     height: Dimensions.get('screen').height < 600 ? 150 : 200,
     position: 'relative',
+    resizeMode: 'contain',
   },
 })
 
@@ -47,8 +48,8 @@ if (Device.isTablet) {
     },
     image: {
       height: 280,
-      width: '98%',
       position: 'relative',
+      resizeMode: 'contain',
     },
   })
 }

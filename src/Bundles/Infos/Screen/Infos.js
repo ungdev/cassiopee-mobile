@@ -283,6 +283,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'whitesmoke',
     flexDirection: 'column',
+    borderRadius: 10,
   },
 
   title: {

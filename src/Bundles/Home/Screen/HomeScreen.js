@@ -108,9 +108,7 @@ class HomeScreen extends Component {
                     <TouchableOpacity
                       style={styles.button}
                       onPress={() =>
-                        Linking.openURL(
-                          'https://www.billetweb.fr/cassiopee-gala-utt'
-                        )
+                        this.props.navigation.navigate('Food_Truck')
                       }
                     >
                       <StyledText style={styles.text}>
@@ -166,6 +164,11 @@ class HomeScreen extends Component {
 
                   <View style={styles.container_countdown}>
                     <LinearGradient
+                      style={{
+                        borderWidth: 1,
+                        borderRadius: 10,
+                        borderColor: 'transparent',
+                      }}
                       start={[0, 1]}
                       end={[1, 0]}
                       colors={[
@@ -207,7 +210,7 @@ class HomeScreen extends Component {
                     <TouchableOpacity
                       style={styles.button}
                       onPress={() =>
-                        this.props.navigation.navigate('Food Truck')
+                        this.props.navigation.navigate('Food_Truck')
                       }
                     >
                       <StyledText style={styles.text}>
@@ -278,8 +281,14 @@ const styles = StyleSheet.create({
     margin: 5,
     marginTop: 25,
     padding: 5,
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'transparent',
   },
   container_welcome: {
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'transparent',
     width: '90%',
     marginTop: Dimensions.get('window').height < 600 ? 5 : 5,
     marginBottom: Dimensions.get('window').height < 600 ? 15 : 15,
@@ -302,9 +311,11 @@ const styles = StyleSheet.create({
     padding: 5,
     width: '40%',
     height: 80,
-    borderRadius: 0,
+    borderRadius: 10,
     alignItems: 'center',
     backgroundColor: '#094E6F',
+    borderWidth: 1,
+    borderColor: 'transparent',
   },
   text: {
     color: 'white',
@@ -317,6 +328,7 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get('window').height < 600 ? 10 : 15,
     marginBottom: Dimensions.get('window').height < 600 ? 10 : 15,
     padding: 5,
+    borderRadius: 10,
   },
   text_end: {
     textAlign: 'center',
@@ -373,6 +385,7 @@ if (Device.isTablet) {
       marginTop: 15,
       marginBottom: 20,
       alignItems: 'center',
+      borderRadius: 10,
     },
     welcome: {
       fontWeight: 'bold',
@@ -394,6 +407,7 @@ if (Device.isTablet) {
       borderRadius: 0,
       alignItems: 'center',
       backgroundColor: '#094E6F',
+      borderRadius: 10,
     },
     text: {
       color: 'white',
@@ -404,6 +418,7 @@ if (Device.isTablet) {
       marginTop: 20,
       marginBottom: 20,
       padding: 5,
+      borderRadius: 10,
     },
     text_end: {
       fontSize: 22,

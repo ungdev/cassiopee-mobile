@@ -125,7 +125,7 @@ const DrawerNavigator = createDrawerNavigator(
         ),
       },
     },
-    'Food Truck': {
+    Food_Truck: {
       screen: FoodTruckScreen,
       navigationOptions: {
         title: i18n.t('menu_foodtruck'),

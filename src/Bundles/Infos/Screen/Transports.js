@@ -9,37 +9,40 @@ const Device = require('react-native-device-detection')
 class Transports extends React.Component {
   render() {
     return (
-      <ScrollView style={styles.main_container}>
-        <TitleText style={styles.title}>
-          {i18n.t('transport_shuttle_title')}
-        </TitleText>
-        <View style={styles.container}>
-          <StyledText style={styles.paragraphe}>
-            {i18n.t('transport_shuttle_before')}
-          </StyledText>
-          <StyledText
-            style={styles.buslink}
-            onPress={() => Linking.openURL('https://www.tcat.fr/')}
-          >
-            www.tcat.fr
-          </StyledText>
-        </View>
+      <ScrollView style={{ flex: 1 }}>
+        <View style={styles.main_container}>
+          <TitleText style={styles.title}>
+            {i18n.t('transport_shuttle_title')}
+          </TitleText>
+          <View style={styles.container}>
+            <StyledText style={styles.paragraphe}>
+              {i18n.t('transport_shuttle_before')}
+            </StyledText>
+            <StyledText style={styles.paragraphe}>{''}</StyledText>
+            <StyledText
+              style={styles.buslink}
+              onPress={() => Linking.openURL('https://www.tcat.fr/')}
+            >
+              www.tcat.fr
+            </StyledText>
+          </View>
 
-        <TitleText style={styles.title}>
-          {i18n.t('transport_car_title')}
-        </TitleText>
-        <View style={styles.container}>
-          <StyledText style={styles.paragraphe}>
-            {i18n.t('transport_car')}
+          <TitleText style={styles.title}>
+            {i18n.t('transport_car_title')}
+          </TitleText>
+          <View style={styles.container}>
+            <StyledText style={styles.paragraphe}>
+              {i18n.t('transport_car')}
+            </StyledText>
+          </View>
+          <StyledText style={styles.title}>
+            {i18n.t('transport_train_title')}
           </StyledText>
-        </View>
-        <StyledText style={styles.title}>
-          {i18n.t('transport_train_title')}
-        </StyledText>
-        <View style={styles.container}>
-          <StyledText style={styles.paragraphe}>
-            {i18n.t('transport_train')}
-          </StyledText>
+          <View style={styles.container}>
+            <StyledText style={styles.paragraphe}>
+              {i18n.t('transport_train')}
+            </StyledText>
+          </View>
         </View>
       </ScrollView>
     )
@@ -53,7 +56,7 @@ export default Transports
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
-    backgroundColor: 'transparent',
+    alignItems: 'center',
   },
   container: {
     borderWidth: 2,
@@ -61,6 +64,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     margin: 15,
+    width: '96%',
   },
   title: {
     marginTop: 15,
@@ -77,6 +81,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'whitesmoke',
     textDecorationLine: 'underline',
+    fontSize: 17,
   },
 })
 

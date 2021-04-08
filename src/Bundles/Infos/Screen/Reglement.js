@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, Linking } from 'react-native'
+import { ScrollView, StyleSheet, Text, Linking, View } from 'react-native'
 import { StyledText } from '../../../components/StyledText'
 import { TitleText } from '../../../components/TitleText'
 import i18n from '../../../translate/index'
@@ -10,42 +10,70 @@ class Reglement extends React.Component {
     return (
       <ScrollView contentContainerStyle={styles.container}>
         <TitleText style={styles.t}>{i18n.t('rule_title')}</TitleText>
-        <TitleText style={styles.h}>{i18n.t('rule_security_title')}</TitleText>
-        <StyledText style={styles.p}>{i18n.t('rule_security')}</StyledText>
-        <StyledText style={styles.p}>{''}</StyledText>
-        <StyledText style={styles.textimportant}>
-          {i18n.t('rule_mask')}
-        </StyledText>
-        <TitleText style={styles.h}>{i18n.t('rule_identity_title')}</TitleText>
-        <StyledText style={styles.p}>{i18n.t('rule_identity')}</StyledText>
-        <TitleText style={styles.h}>
-          {i18n.t('rule_prevention_title')}
-        </TitleText>
-        <StyledText style={styles.p}>
-          {i18n.t('rule_prevention_2021')}
-        </StyledText>
-        <TitleText style={styles.h}>{i18n.t('rule_ecology_title')}</TitleText>
-        <StyledText style={styles.p}>{i18n.t('rule_ecology')}</StyledText>
-        <TitleText style={styles.h}>{i18n.t('rule_local_title')}</TitleText>
-        <StyledText style={styles.p}>{i18n.t('rule_local')}</StyledText>
+
+        <View style={styles.container_rules}>
+          <TitleText style={styles.h}>
+            {i18n.t('rule_security_title')}
+          </TitleText>
+          <StyledText style={styles.p}>{i18n.t('rule_security')}</StyledText>
+        </View>
+
+        <View style={styles.container_rules}>
+          <StyledText style={styles.textimportant}>
+            {i18n.t('rule_mask')}
+          </StyledText>
+        </View>
+
+        <View style={styles.container_rules}>
+          <TitleText style={styles.h}>
+            {i18n.t('rule_identity_title')}
+          </TitleText>
+          <StyledText style={styles.p}>{i18n.t('rule_identity')}</StyledText>
+        </View>
+
+        <View style={styles.container_rules}>
+          <TitleText style={styles.h}>
+            {i18n.t('rule_prevention_title')}
+          </TitleText>
+          <StyledText style={styles.p}>
+            {i18n.t('rule_prevention_2021')}
+          </StyledText>
+        </View>
+
+        <View style={styles.container_rules}>
+          <TitleText style={styles.h}>{i18n.t('rule_ecology_title')}</TitleText>
+          <StyledText style={styles.p}>{i18n.t('rule_ecology')}</StyledText>
+        </View>
+
+        <View style={styles.container_rules}>
+          <TitleText style={styles.h}>{i18n.t('rule_local_title')}</TitleText>
+          <StyledText style={styles.p}>{i18n.t('rule_local')}</StyledText>
+        </View>
 
         <TitleText style={styles.t}>{i18n.t('rule_credits_title')}</TitleText>
-        <StyledText style={styles.p}>
-          {i18n.t('rule_credits_one')}{' '}
-          <StyledText
-            style={styles.dev}
-            onPress={() =>
-              Linking.openURL('https://www.linkedin.com/in/quentin-letellier')
-            }
-          >
-            Quentin Letellier,
-          </StyledText>{' '}
-          {i18n.t('rule_credits_two')}
-        </StyledText>
+
+        <View style={styles.container_rules}>
+          <StyledText style={styles.p}>
+            {i18n.t('rule_credits_one')}{' '}
+            <StyledText
+              style={styles.dev}
+              onPress={() =>
+                Linking.openURL('https://www.linkedin.com/in/quentin-letellier')
+              }
+            >
+              Quentin Letellier,
+            </StyledText>{' '}
+            {i18n.t('rule_credits_two')}
+          </StyledText>
+        </View>
+
         <TitleText style={styles.h}>
           {i18n.t('rule_development_title')}
         </TitleText>
-        <StyledText style={styles.p}>{i18n.t('rule_development')}</StyledText>
+
+        <View style={styles.container_rules}>
+          <StyledText style={styles.p}>{i18n.t('rule_development')}</StyledText>
+        </View>
       </ScrollView>
     )
   }
@@ -54,6 +82,15 @@ class Reglement extends React.Component {
 const styles = StyleSheet.create({
   container: {
     padding: 5,
+    alignItems: 'center',
+  },
+  container_rules: {
+    width: '98%',
+    borderWidth: 2,
+    borderColor: 'whitesmoke',
+    borderRadius: 10,
+    padding: 5,
+    margin: 10,
   },
   p: {
     alignSelf: 'stretch',
@@ -86,8 +123,7 @@ const styles = StyleSheet.create({
   },
 
   h: {
-    marginTop: 15,
-    padding: 5,
+    padding: 3,
     color: '#a6e2ff',
     fontSize: 24,
     textAlign: 'left',

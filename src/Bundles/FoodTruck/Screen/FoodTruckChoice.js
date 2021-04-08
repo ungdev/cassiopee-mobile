@@ -76,6 +76,9 @@ const styles = StyleSheet.create({
     borderRadius: 0,
     alignItems: 'center',
     backgroundColor: '#094E6F',
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'transparent',
   },
   text: {
     textAlign: 'center',

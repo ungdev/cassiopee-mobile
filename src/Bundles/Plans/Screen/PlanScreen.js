@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderWidth: 1,
     borderColor: 'white',
+    borderRadius: 10,
   },
   container_description_detail_name: {
     textAlign: 'center',
@@ -196,6 +197,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderWidth: 1,
     borderColor: 'white',
+    borderRadius: 10,
   },
   container_other_detail_text: {
     fontSize: 17,
