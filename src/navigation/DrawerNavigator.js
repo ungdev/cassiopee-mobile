@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, Image, ImageBackground, Dimensions } from 'react-native'
+import { ScrollView, Image, Dimensions, StyleSheet, View } from 'react-native'
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer'
 import HomeScreen from '../Bundles/Home/Screen/HomeScreen'
 import ProgramScreen from '../Bundles/Program/Screen/ProgramScreen'
@@ -11,29 +11,39 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Icone from 'react-native-vector-icons/FontAwesome5'
 import i18n from '../translate/index'
 import FoodTruckScreen from '../Bundles/FoodTruck/Screen/FoodTruckScreen'
+import { LinearGradient } from 'expo-linear-gradient'
+import { SafeAreaView } from 'react-navigation'
 const Device = require('react-native-device-detection')
 
 const CustomDrawerComponent = (props) => (
-  <ImageBackground
-    source={require('../../assets/Logo_Cassiopée/tower3.png')}
-    style={{ width: '100%', height: '100%' }}
+  <LinearGradient
+    style={{ height: '100%' }}
+    start={[0, 1]}
+    end={[1, 0]}
+    colors={['#22749C', '#43B9D5']}
   >
-    <ScrollView>
-      <Image
-        source={require('../../assets/logo_2021_dayedition.png')}
-        style={{
-          height: Device.isTablet ? 90 : 70,
-          width: Device.isTablet ? 270 : 200,
-          alignSelf: 'center',
-          marginTop: Dimensions.get('screen').height > 700 ? 88 : 30,
-          marginBottom: 20,
-          resizeMode: 'cover',
-        }}
-      />
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }}>
+        <Image
+          source={require('../../assets/logo_2021_dayedition.png')}
+          style={{
+            height: Device.isTablet ? 90 : 70,
+            width: Device.isTablet ? 270 : 200,
+            alignSelf: 'center',
+            marginTop: Dimensions.get('screen').height > 700 ? 55 : 30,
+            marginBottom: 30,
+            resizeMode: 'cover',
+          }}
+        />
 
-      <DrawerItems {...props} />
-    </ScrollView>
-  </ImageBackground>
+        <DrawerItems {...props} />
+      </ScrollView>
+      <Image
+        style={styles.bottomImage}
+        source={require('../../assets/bottom_chateau_menu.png')}
+      />
+    </SafeAreaView>
+  </LinearGradient>
 )
 
 const DrawerNavigator = createDrawerNavigator(
@@ -165,10 +175,11 @@ const DrawerNavigator = createDrawerNavigator(
   {
     contentComponent: CustomDrawerComponent,
     contentOptions: {
-      activeBackgroundColor: '#094E6F,',
+      activeTintColor: '#ffffff',
+      activeBackgroundColor: '#094E6F',
+      inactiveTintColor: '#ffffff',
       inactiveBackgroundColor: 'transparent',
       labelStyle: {
-        color: 'white',
         fontSize: Device.isTablet ? 26 : 22,
         fontFamily: 'brigade-condensed-regular',
         fontWeight: 'normal',
@@ -179,3 +190,23 @@ const DrawerNavigator = createDrawerNavigator(
 )
 
 export default DrawerNavigator
+
+const styles = StyleSheet.create({
+  containerBottomImage: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: '18%',
+    width: '100%',
+    backgroundColor: 'green',
+    alignItems: 'center',
+  },
+  bottomImage: {
+    height: Device.isTablet ? 90 : 200,
+    width: Device.isTablet ? 270 : 300,
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    position: 'absolute',
+    bottom: 0,
+  },
+})

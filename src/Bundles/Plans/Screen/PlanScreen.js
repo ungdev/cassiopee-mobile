@@ -82,11 +82,16 @@ class PlanScreen extends Component {
       return null
     } else {
       return (
-        <View style={styles.container_other_detail}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_description_detail}
+        >
           <StyledText style={styles.container_other_detail_text}>
             {this.state.selectedAreaOther}
           </StyledText>
-        </View>
+        </LinearGradient>
       )
     }
   }
@@ -153,14 +158,19 @@ class PlanScreen extends Component {
 
           <ScrollView style={{ flex: 1 }}>
             <SafeAreaView style={styles.droidSafeArea}>
-              <View style={styles.container_description_detail}>
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description_detail}
+              >
                 <TitleText style={styles.container_description_detail_name}>
                   {selectedAreaName}
                 </TitleText>
                 <StyledText style={styles.container_description_detail_text}>
                   {selectedAreaDescription}
                 </StyledText>
-              </View>
+              </LinearGradient>
               {this.adaptcontain()}
             </SafeAreaView>
           </ScrollView>
@@ -179,20 +189,21 @@ const styles = StyleSheet.create({
     width: '96%',
     padding: 5,
     alignSelf: 'center',
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: 'white',
     borderRadius: 10,
+    marginBottom: 10,
   },
   container_description_detail_name: {
     textAlign: 'center',
     fontSize: 24,
-    color: 'white',
+    color: '#094E6F',
   },
   container_description_detail_text: {
     fontSize: 17,
     padding: 6,
     paddingTop: 15,
-    color: 'white',
+    color: '#094E6F',
     textAlign: 'center',
   },
   container_other_detail: {
@@ -200,20 +211,21 @@ const styles = StyleSheet.create({
     width: '96%',
     padding: 5,
     alignSelf: 'center',
-    borderWidth: 1,
-    borderColor: 'white',
+    borderWidth: 0,
+    borderColor: '#094E6F',
     borderRadius: 10,
   },
   container_other_detail_text: {
     fontSize: 17,
     padding: 6,
-    color: 'white',
+    color: '#094E6F',
   },
   select_bouton: {
-    width: '100%',
+    width: '96%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginBottom: 5,
+    alignSelf: 'center',
   },
   button: {
     height: 40,

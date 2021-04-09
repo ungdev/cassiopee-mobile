@@ -19,7 +19,7 @@
   "minutes": "Minutes",
   "seconds": "Seconds",
   "billeterie_champagne": "Champagne Order",
-  "restauration_link": "Food Truck Order",
+  "restauration_link": "Food Truck\nOrder",
 
   "error": "An error has occurred with the server. Please try again in a few moments. Error code: ",
   "error2": "The notification request was not supported by the server. Try again later.",

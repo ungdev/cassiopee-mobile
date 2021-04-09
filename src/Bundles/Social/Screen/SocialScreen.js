@@ -31,14 +31,23 @@ class SocialScreen extends Component {
                 source={require('../../../../assets/bottom_ocean.png')}
               />
             </View>
+
             <View style={styles.mainContainer}>
-              <TitleText style={styles.follow}>{i18n.t('follow_us')}</TitleText>
-              <View style={styles.column}>
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.column}
+              >
+                <TitleText style={styles.follow}>
+                  {i18n.t('follow_us')}
+                </TitleText>
+
                 <View style={styles.row}>
                   <Icon
                     name="facebook"
                     type="font-awesome-5"
-                    color="#1977f3"
+                    color="#094E6F"
                     size={Device.isTablet ? 250 : 150}
                     iconStyle={styles.icon}
                     onPress={() =>
@@ -48,7 +57,7 @@ class SocialScreen extends Component {
                   <Icon
                     name="instagram"
                     type="font-awesome"
-                    color="whitesmoke"
+                    color="#094E6F"
                     size={Device.isTablet ? 250 : 150}
                     iconStyle={styles.icon}
                     onPress={() =>
@@ -62,7 +71,7 @@ class SocialScreen extends Component {
                   <Icon
                     name="twitter"
                     type="font-awesome"
-                    color="#1da1f2"
+                    color="#094E6F"
                     size={Device.isTablet ? 250 : 150}
                     iconStyle={styles.icon}
                     onPress={() =>
@@ -72,7 +81,7 @@ class SocialScreen extends Component {
                   <Icon
                     name="youtube-play"
                     type="font-awesome"
-                    color="#c00"
+                    color="#094E6F"
                     size={Device.isTablet ? 250 : 130}
                     iconStyle={styles.icon}
                     onPress={() =>
@@ -82,7 +91,7 @@ class SocialScreen extends Component {
                     }
                   />
                 </View>
-              </View>
+              </LinearGradient>
             </View>
           </LinearGradient>
         </SafeAreaView>
@@ -94,9 +103,10 @@ class SocialScreen extends Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    width: '100%',
+    width: '94%',
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'center',
   },
   containerBottomImage: {
     position: 'absolute',
@@ -116,24 +126,28 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 20,
-    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
     width: '100%',
-    padding: 10,
   },
   column: {
     flexDirection: 'column',
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
+    borderRadius: 10,
   },
   icon: {
     margin: 15,
   },
   follow: {
-    color: 'white',
+    color: '#094E6F',
     fontSize: 28,
-    marginBottom: '5%',
+    marginBottom: 30,
+    marginTop: 25,
+    width: '100%',
+    textAlign: 'center',
   },
 })
 

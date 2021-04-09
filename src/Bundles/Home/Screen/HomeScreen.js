@@ -277,22 +277,21 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   container_countdown: {
-    width: '92%',
-    margin: 5,
-    marginTop: 25,
+    width: '95.7%',
     padding: 5,
     borderWidth: 1,
     borderRadius: 10,
     borderColor: 'transparent',
+    marginBottom: '5%',
   },
   container_welcome: {
     borderWidth: 1,
     borderRadius: 10,
     borderColor: 'transparent',
-    width: '90%',
-    marginTop: Dimensions.get('window').height < 600 ? 5 : 5,
-    marginBottom: Dimensions.get('window').height < 600 ? 15 : 15,
+    width: '93%',
     alignItems: 'center',
+    marginBottom: '5%',
+    marginTop: '5%',
   },
   welcome: {
     padding: 10,
@@ -307,9 +306,9 @@ const styles = StyleSheet.create({
     color: '#094E6F',
   },
   button: {
-    margin: '5%',
     padding: 5,
-    width: '40%',
+    width: '45%',
+    marginHorizontal: '1.2%',
     height: 80,
     borderRadius: 10,
     alignItems: 'center',
@@ -325,10 +324,9 @@ const styles = StyleSheet.create({
   },
   container_end: {
     width: '90%',
-    marginTop: Dimensions.get('window').height < 600 ? 10 : 15,
-    marginBottom: Dimensions.get('window').height < 600 ? 10 : 15,
     padding: 5,
     borderRadius: 10,
+    marginBottom: '5%',
   },
   text_end: {
     textAlign: 'center',
@@ -376,14 +374,10 @@ if (Device.isTablet) {
     },
     container_countdown: {
       width: '96%',
-      margin: 10,
-      marginTop: 45,
       padding: 25,
     },
     container_welcome: {
       width: '90%',
-      marginTop: 15,
-      marginBottom: 20,
       alignItems: 'center',
       borderRadius: 10,
     },
@@ -401,7 +395,6 @@ if (Device.isTablet) {
       color: '#094E6F',
     },
     button: {
-      marginTop: 43,
       padding: 16,
       width: '90%',
       borderRadius: 0,
@@ -415,8 +408,6 @@ if (Device.isTablet) {
     },
     container_end: {
       width: '90%',
-      marginTop: 20,
-      marginBottom: 20,
       padding: 5,
       borderRadius: 10,
     },

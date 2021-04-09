@@ -105,46 +105,86 @@ class ArtistDetail extends React.Component {
 
           <ScrollView style={{ flex: 1 }}>
             <SafeAreaView style={styles.droidSafeArea}>
-              <TitleText style={styles.title_text}>{artist.name}</TitleText>
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
+                <TitleText style={styles.title_text}>{artist.name}</TitleText>
+              </LinearGradient>
+
               <TouchableOpacity
                 style={styles.favorite_container}
                 onPress={() => this._toggleFavorite()}
               >
                 {this._displayFavoriteImage()}
               </TouchableOpacity>
-              <Text style={styles.default_text}>
-                {i18n.t('artist_detail_hours')}
-                {'  '}
-                <StyledText style={{ fontWeight: 'normal' }}>
-                  {moment(artist.eventDate).format('HH:mm')}
-                </StyledText>
-              </Text>
-              <Text style={styles.default_text}>
-                {i18n.t('artist_detail_stage')}
-                {'  '}
-                <StyledText style={{ fontWeight: 'normal' }}>
-                  {artist.eventPlace}
-                </StyledText>
-              </Text>
-              <Text style={styles.default_text}>
-                {i18n.t('artist_detail_biography')}{' '}
-                <StyledText style={styles.description_text}>
-                  {artist.description}
-                </StyledText>
-              </Text>
-              <Text style={styles.default_text_lien}>
-                {i18n.t('artist_detail_links')}
-              </Text>
 
-              <View style={styles.socialartist}>
-                {artist.Links.map((link) => (
-                  <SocialButton
-                    key={link.uri}
-                    type={link.type}
-                    uri={link.uri}
-                  ></SocialButton>
-                ))}
-              </View>
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
+                <Text style={styles.default_text}>
+                  {i18n.t('artist_detail_hours')}
+                  {'  '}
+                  <StyledText style={{ fontWeight: 'normal' }}>
+                    {moment(artist.eventDate).format('HH:mm')}
+                  </StyledText>
+                </Text>
+              </LinearGradient>
+
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
+                <Text style={styles.default_text}>
+                  {i18n.t('artist_detail_stage')}
+                  {'  '}
+                  <StyledText style={{ fontWeight: 'normal' }}>
+                    {artist.eventPlace}
+                  </StyledText>
+                </Text>
+              </LinearGradient>
+
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
+                <Text style={styles.default_text}>
+                  {i18n.t('artist_detail_biography')}{' '}
+                  <StyledText style={styles.description_text}>
+                    {artist.description}
+                  </StyledText>
+                </Text>
+              </LinearGradient>
+
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
+                <Text style={styles.default_text_lien}>
+                  {i18n.t('artist_detail_links')}
+                </Text>
+
+                <View style={styles.socialartist}>
+                  {artist.Links.map((link) => (
+                    <SocialButton
+                      key={link.uri}
+                      type={link.type}
+                      uri={link.uri}
+                    ></SocialButton>
+                  ))}
+                </View>
+              </LinearGradient>
             </SafeAreaView>
           </ScrollView>
         </LinearGradient>
@@ -165,20 +205,29 @@ const styles = StyleSheet.create({
   },
   image_container: {
     alignItems: 'center',
+    marginBottom: 5,
   },
   image: {
     width: '100%',
     height: 190,
     position: 'relative',
   },
+  container_description: {
+    width: '96%',
+    padding: 5,
+    alignSelf: 'center',
+    borderWidth: 0,
+    borderColor: 'white',
+    borderRadius: 10,
+    marginTop: 5,
+    marginBottom: 5,
+  },
   title_text: {
     fontSize: 35,
     flexWrap: 'wrap',
     marginLeft: 5,
     marginRight: 5,
-    marginTop: 25,
-    marginBottom: 20,
-    color: 'white',
+    color: '#094E6F',
     textAlign: 'center',
   },
   favorite_container: {
@@ -188,7 +237,7 @@ const styles = StyleSheet.create({
   },
   description_text: {
     fontWeight: 'normal',
-    color: 'whitesmoke',
+    color: '#094E6F',
     margin: 5,
     lineHeight: 25,
   },
@@ -199,9 +248,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     textAlign: 'justify',
     marginRight: 10,
-    marginTop: 15,
-    marginBottom: 10,
-    color: 'white',
+    marginTop: 5,
+    marginBottom: 5,
+    color: '#094E6F',
     lineHeight: 25,
   },
   default_text_lien: {
@@ -209,9 +258,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: 10,
     marginRight: 5,
-    marginTop: 25,
-    marginBottom: 8,
-    color: 'white',
+    marginTop: 5,
+    marginBottom: 5,
+    color: '#094E6F',
   },
   favorite_image: {
     width: 40,
@@ -220,8 +269,7 @@ const styles = StyleSheet.create({
   socialartist: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 15,
-    paddingBottom: Platform.OS === 'android' ? 20 : 0,
+    paddingBottom: 5,
   },
   droidSafeArea: {
     height: '100%',
@@ -252,7 +300,7 @@ if (Device.isTablet) {
       marginRight: 20,
       marginTop: 15,
       marginBottom: 10,
-      color: 'white',
+      color: '#094E6F',
       lineHeight: 28,
     },
     default_text_lien: {
@@ -262,7 +310,7 @@ if (Device.isTablet) {
       marginRight: 5,
       marginTop: 25,
       marginBottom: 8,
-      color: 'white',
+      color: '#094E6F',
     },
   })
 }

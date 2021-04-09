@@ -38,7 +38,7 @@ class SocialButton extends React.Component {
             <Icon
               name="facebook-official"
               size={Device.isTablet ? 60 : 45}
-              color={'whitesmoke'}
+              color={'#094E6F'}
             />
           </TouchableOpacity>
         )
@@ -48,7 +48,7 @@ class SocialButton extends React.Component {
             <Icon
               name="instagram"
               size={Device.isTablet ? 60 : 45}
-              color={'whitesmoke'}
+              color={'#094E6F'}
             />
           </TouchableOpacity>
         )
@@ -58,7 +58,7 @@ class SocialButton extends React.Component {
             <Icon
               name="youtube-play"
               size={Device.isTablet ? 60 : 45}
-              color={'whitesmoke'}
+              color={'#094E6F'}
             />
           </TouchableOpacity>
         )
@@ -68,7 +68,7 @@ class SocialButton extends React.Component {
             <Icon
               name="twitter"
               size={Device.isTablet ? 60 : 45}
-              color={'whitesmoke'}
+              color={'#094E6F'}
             />
           </TouchableOpacity>
         )
@@ -78,7 +78,7 @@ class SocialButton extends React.Component {
             <Icon2
               name="web"
               size={Device.isTablet ? 60 : 45}
-              color={'whitesmoke'}
+              color={'#094E6F'}
             />
           </TouchableOpacity>
         )

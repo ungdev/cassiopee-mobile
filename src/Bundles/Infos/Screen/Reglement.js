@@ -1,3 +1,4 @@
+import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
 import { ScrollView, StyleSheet, Text, Linking, View } from 'react-native'
 import { StyledText } from '../../../components/StyledText'
@@ -11,48 +12,99 @@ class Reglement extends React.Component {
       <ScrollView contentContainerStyle={styles.container}>
         <TitleText style={styles.t}>{i18n.t('rule_title')}</TitleText>
 
-        <View style={styles.container_rules}>
-          <TitleText style={styles.h}>
-            {i18n.t('rule_security_title')}
-          </TitleText>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
+          <View style={styles.container_second}>
+            <TitleText style={styles.h}>
+              {i18n.t('rule_security_title')}
+            </TitleText>
+          </View>
           <StyledText style={styles.p}>{i18n.t('rule_security')}</StyledText>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.container_rules}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
           <StyledText style={styles.textimportant}>
             {i18n.t('rule_mask')}
           </StyledText>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.container_rules}>
-          <TitleText style={styles.h}>
-            {i18n.t('rule_identity_title')}
-          </TitleText>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
+          <View style={styles.container_second}>
+            <TitleText style={styles.h}>
+              {i18n.t('rule_identity_title')}
+            </TitleText>
+          </View>
+
           <StyledText style={styles.p}>{i18n.t('rule_identity')}</StyledText>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.container_rules}>
-          <TitleText style={styles.h}>
-            {i18n.t('rule_prevention_title')}
-          </TitleText>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
+          <View style={styles.container_second}>
+            <TitleText style={styles.h}>
+              {i18n.t('rule_prevention_title')}
+            </TitleText>
+          </View>
+
           <StyledText style={styles.p}>
             {i18n.t('rule_prevention_2021')}
           </StyledText>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.container_rules}>
-          <TitleText style={styles.h}>{i18n.t('rule_ecology_title')}</TitleText>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
+          <View style={styles.container_second}>
+            <TitleText style={styles.h}>
+              {i18n.t('rule_ecology_title')}
+            </TitleText>
+          </View>
+
           <StyledText style={styles.p}>{i18n.t('rule_ecology')}</StyledText>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.container_rules}>
-          <TitleText style={styles.h}>{i18n.t('rule_local_title')}</TitleText>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
+          <View style={styles.container_second}>
+            <TitleText style={styles.h}>{i18n.t('rule_local_title')}</TitleText>
+          </View>
+
           <StyledText style={styles.p}>{i18n.t('rule_local')}</StyledText>
-        </View>
+        </LinearGradient>
 
         <TitleText style={styles.t}>{i18n.t('rule_credits_title')}</TitleText>
 
-        <View style={styles.container_rules}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
           <StyledText style={styles.p}>
             {i18n.t('rule_credits_one')}{' '}
             <StyledText
@@ -65,15 +117,20 @@ class Reglement extends React.Component {
             </StyledText>{' '}
             {i18n.t('rule_credits_two')}
           </StyledText>
-        </View>
+        </LinearGradient>
 
         <TitleText style={styles.h}>
           {i18n.t('rule_development_title')}
         </TitleText>
 
-        <View style={styles.container_rules}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
           <StyledText style={styles.p}>{i18n.t('rule_development')}</StyledText>
-        </View>
+        </LinearGradient>
       </ScrollView>
     )
   }
@@ -85,54 +142,60 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container_rules: {
-    width: '98%',
-    borderWidth: 2,
-    borderColor: 'whitesmoke',
+    width: '97%',
+    borderWidth: 0,
+    borderColor: '#094E6F',
     borderRadius: 10,
     padding: 5,
     margin: 10,
+  },
+  container_second: {
+    borderBottomWidth: 1,
+    borderColor: '#094E6F',
+    alignSelf: 'center',
+    width: '100%',
   },
   p: {
     alignSelf: 'stretch',
     padding: 5,
     fontSize: 17,
     textAlign: 'justify',
-    color: 'whitesmoke',
+    color: '#094E6F',
   },
   textimportant: {
     alignSelf: 'stretch',
     padding: 5,
     fontSize: 20,
     textAlign: 'justify',
-    color: 'whitesmoke',
+    color: '#094E6F',
   },
   dev: {
     alignSelf: 'stretch',
     padding: 5,
     fontSize: 17,
     textAlign: 'justify',
-    color: 'whitesmoke',
+    color: '#094E6F',
     textDecorationLine: 'underline',
   },
 
   t: {
     marginTop: 15,
-    color: '#C6E9FA',
+    color: '#094E6F',
     fontSize: 28,
     textAlign: 'center',
   },
 
   h: {
     padding: 3,
-    color: '#a6e2ff',
+    color: '#094E6F',
     fontSize: 24,
-    textAlign: 'left',
+    textAlign: 'center',
   },
   title: {
     fontSize: 28,
   },
   link: {
-    color: '#00b5ec',
+    color: '#ffffff',
   },
 })
 
@@ -143,14 +206,14 @@ if (Device.isTablet) {
       padding: 5,
       fontSize: 18,
       textAlign: 'justify',
-      color: 'whitesmoke',
+      color: '#094E6Fsmoke',
     },
     dev: {
       alignSelf: 'stretch',
       padding: 5,
       fontSize: 18,
       textAlign: 'justify',
-      color: 'whitesmoke',
+      color: '#094E6Fsmoke',
       textDecorationLine: 'underline',
     },
 
