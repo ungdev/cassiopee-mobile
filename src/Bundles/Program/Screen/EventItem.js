@@ -14,6 +14,7 @@ import i18n from '../../../translate/index'
 import { LinearGradient } from 'expo-linear-gradient'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
+const Device = require('react-native-device-detection')
 
 export class EventItem extends React.Component {
   constructor(props) {
@@ -148,7 +149,6 @@ const styles = StyleSheet.create({
   hour_start_text: {
     textAlign: 'center',
     fontSize: 25,
-
     color: 'white',
   },
   name_event: {
@@ -189,3 +189,23 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
   },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    hour_start_text: {
+      textAlign: 'center',
+      fontSize: 30,
+      color: 'white',
+    },
+    name_event_text: {
+      fontSize: 30,
+      margin: 0,
+      color: 'white',
+    },
+    text: {
+      color: '#094E6F',
+      fontSize: 18,
+      fontWeight: 'normal',
+    },
+  })
+}

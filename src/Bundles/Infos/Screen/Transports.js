@@ -122,15 +122,16 @@ const styles = StyleSheet.create({
 if (Device.isTablet) {
   Object.assign(styles, {
     title: {
-      marginTop: 15,
       color: '#094E6F',
       fontSize: 25,
       textAlign: 'center',
+      marginBottom: 10,
     },
     paragraphe: {
+      marginTop: 10,
       textAlign: 'justify',
       color: '#094E6F',
-      fontSize: 20,
+      fontSize: 18,
     },
   })
 }

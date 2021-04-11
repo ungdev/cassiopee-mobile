@@ -44,9 +44,6 @@ class FirstLaunching extends React.Component {
     super()
     this.state = { showRealApp: false }
   }
-  componentDidMount() {
-    this.registerForPushNotificationsAsync()
-  }
 
   async registerForPushNotificationsAsync() {
     //Demande de permissions
@@ -112,6 +109,7 @@ class FirstLaunching extends React.Component {
 
   _onDone = () => {
     this.setState({ showRealApp: true })
+    this.registerForPushNotificationsAsync()
   }
 
   render() {

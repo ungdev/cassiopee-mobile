@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 5,
-    width: '45%',
+    width: '44%',
     marginHorizontal: '1.2%',
     height: 80,
     borderRadius: 10,
@@ -315,6 +315,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#094E6F',
     borderWidth: 1,
     borderColor: 'transparent',
+    justifyContent: 'center',
   },
   text: {
     color: 'white',
@@ -373,13 +374,14 @@ if (Device.isTablet) {
       resizeMode: 'contain',
     },
     container_countdown: {
-      width: '96%',
-      padding: 25,
+      width: '90%',
+      marginBottom: '5%',
     },
     container_welcome: {
       width: '90%',
       alignItems: 'center',
       borderRadius: 10,
+      marginBottom: '5%',
     },
     welcome: {
       fontWeight: 'bold',
@@ -394,14 +396,7 @@ if (Device.isTablet) {
       textAlign: 'center',
       color: '#094E6F',
     },
-    button: {
-      padding: 16,
-      width: '90%',
-      borderRadius: 0,
-      alignItems: 'center',
-      backgroundColor: '#094E6F',
-      borderRadius: 10,
-    },
+
     text: {
       color: 'white',
       fontSize: 25,
@@ -410,6 +405,7 @@ if (Device.isTablet) {
       width: '90%',
       padding: 5,
       borderRadius: 10,
+      marginBottom: '5%',
     },
     text_end: {
       fontSize: 22,

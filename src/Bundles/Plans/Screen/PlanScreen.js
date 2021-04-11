@@ -253,6 +253,18 @@ if (Device.isTablet) {
     container_map: {
       flex: 1,
     },
+    container_description_detail_name: {
+      textAlign: 'center',
+      fontSize: 25,
+      color: '#094E6F',
+    },
+    container_description_detail_text: {
+      fontSize: 18,
+      padding: 6,
+      paddingTop: 15,
+      color: '#094E6F',
+      textAlign: 'center',
+    },
   })
 }
 

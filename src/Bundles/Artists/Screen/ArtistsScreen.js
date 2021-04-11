@@ -15,7 +15,6 @@ import ComingSoon from '../../../components/ComingSoon'
 import { ArtistItem } from '../components/ArtistItem'
 import { api } from '../../../lib/api'
 import i18n from '../../../translate/index'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { LinearGradient } from 'expo-linear-gradient'
 
 class ArtistsScreen extends React.Component {

@@ -315,6 +315,7 @@ const styles = StyleSheet.create({
     borderColor: '#094E6F',
     flexDirection: 'column',
     borderRadius: 10,
+    alignSelf: 'center',
   },
 
   title: {
@@ -353,15 +354,26 @@ const styles = StyleSheet.create({
 
 if (Device.isTablet) {
   Object.assign(styles, {
+    category: {
+      padding: 5,
+      margin: 10,
+      width: '95%',
+      borderWidth: 0,
+      borderColor: '#094E6F',
+      flexDirection: 'column',
+      borderRadius: 10,
+      alignSelf: 'center',
+    },
     title: {
+      textAlign: 'center',
       marginBottom: 7,
       fontWeight: 'bold',
-      fontSize: 28,
-      color: '#C6E9FA',
+      fontSize: 25,
+      color: '#094E6F',
     },
     text: {
-      marginTop: 4,
-      fontSize: 22,
+      marginTop: 8,
+      fontSize: 18,
       marginLeft: 10,
       color: '#094E6F',
     },

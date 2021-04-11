@@ -27,7 +27,7 @@ const CustomDrawerComponent = (props) => (
         <Image
           source={require('../../assets/logo_2021_dayedition.png')}
           style={{
-            height: Device.isTablet ? 90 : 70,
+            height: Device.isTablet ? 100 : 70,
             width: Device.isTablet ? 270 : 200,
             alignSelf: 'center',
             marginTop: Dimensions.get('screen').height > 700 ? 55 : 30,
@@ -202,8 +202,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bottomImage: {
-    height: Device.isTablet ? 90 : 200,
-    width: Device.isTablet ? 270 : 300,
+    height: Device.isTablet ? 200 : 200,
+    width: Device.isTablet ? 300 : 300,
     alignSelf: 'center',
     resizeMode: 'contain',
     position: 'absolute',

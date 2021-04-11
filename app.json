@@ -1,12 +1,12 @@
 {
   "expo": {
     "name": "Cassiopée 2021",
-    "slug": "cassiopee",
+    "slug": "cassiopee2021",
     "privacy": "public",
     "platforms": ["ios", "android"],
     "version": "2.1.0",
     "orientation": "portrait",
-    "icon": "./assets/icone_1024_2021.png",
+    "icon": "./assets/logo_appli_1024px.png",
     "splash": {
       "image": "./assets/splash_2021.png",
       "resizeMode": "cover",
@@ -18,32 +18,17 @@
     },
     "assetBundlePatterns": ["./src/images/*"],
     "ios": {
-      "bundleIdentifier": "com.galautt.cassiopeetest",
+      "bundleIdentifier": "com.galautt.cassiopee2021",
       "buildNumber": "1.0.0",
       "supportsTablet": true,
       "infoPlist": {
-        "LSApplicationQueriesSchemes": [
-          "fb",
-          "twitter",
-          "YouTube",
-          "intagram",
-          "snapchat"
-        ],
-        "NSCameraUsageDescription": "L'application utilise l'appareil photo pour scanner votre billet.",
-        "NSPhotoLibraryUsageDescription": "Cette application utilise votre galerie pour importer votre billet."
+        "LSApplicationQueriesSchemes": ["fb", "twitter", "YouTube", "intagram"]
       }
     },
     "android": {
-      "package": "com.galautt.cassiopee_test",
+      "package": "com.galautt.cassiopee2021",
       "versionCode": 1,
-      "googleServicesFile": "./google-services.json",
-      "permissions": [
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE",
-        "INTERNET",
-        "NOTIFICATIONS"
-      ]
+      "permissions": ["INTERNET", "NOTIFICATIONS"]
     }
   }
 }

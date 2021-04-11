@@ -204,35 +204,37 @@ if (Device.isTablet) {
     p: {
       alignSelf: 'stretch',
       padding: 5,
+      marginTop: 10,
+      marginBottom: 10,
       fontSize: 18,
       textAlign: 'justify',
-      color: '#094E6Fsmoke',
+      color: '#094E6F',
     },
     dev: {
       alignSelf: 'stretch',
       padding: 5,
       fontSize: 18,
       textAlign: 'justify',
-      color: '#094E6Fsmoke',
+      color: '#094E6F',
       textDecorationLine: 'underline',
     },
 
     t: {
       marginTop: 15,
-      color: '#C6E9FA',
+      color: '#094E6F',
       fontSize: 28,
       textAlign: 'center',
     },
 
     h: {
-      marginTop: 15,
-      padding: 5,
-      color: '#a6e2ff',
+      marginTop: 10,
+      marginBottom: 10,
+      color: '#094E6F',
       fontSize: 25,
-      textAlign: 'left',
+      textAlign: 'center',
     },
     title: {
-      fontSize: 22,
+      fontSize: 25,
     },
   })
 }

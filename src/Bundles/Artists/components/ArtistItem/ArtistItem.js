@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
   },
   title_text: {
     color: 'white',
-    fontSize: 28,
+    fontSize: 35,
     position: 'absolute',
     bottom: 5,
-    right: 5,
+    right: 10,
   },
 })
 
@@ -54,6 +54,14 @@ if (Device.isTablet) {
       width: '100%',
       height: 300,
       position: 'relative',
+    },
+    title_text: {
+      color: 'white',
+      fontSize: 30,
+      position: 'absolute',
+      bottom: 5,
+      right: 10,
+      fontSize: 35,
     },
   })
 }

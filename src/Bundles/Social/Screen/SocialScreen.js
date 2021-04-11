@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 import Header from '../../../components/Header'
-import { SafeAreaView, View, StyleSheet, Image, Dimensions } from 'react-native'
+import {
+  SafeAreaView,
+  View,
+  StyleSheet,
+  Image,
+  Dimensions,
+  Text,
+} from 'react-native'
 import i18n from '../../../translate/index'
 import { Icon } from 'react-native-elements'
 import { Linking } from 'react-native'
@@ -44,52 +51,67 @@ class SocialScreen extends Component {
                 </TitleText>
 
                 <View style={styles.row}>
-                  <Icon
-                    name="facebook"
-                    type="font-awesome-5"
-                    color="#094E6F"
-                    size={Device.isTablet ? 250 : 150}
-                    iconStyle={styles.icon}
-                    onPress={() =>
-                      Linking.openURL('https://www.facebook.com/gala.utt')
-                    }
-                  />
-                  <Icon
-                    name="instagram"
-                    type="font-awesome"
-                    color="#094E6F"
-                    size={Device.isTablet ? 250 : 150}
-                    iconStyle={styles.icon}
-                    onPress={() =>
-                      Linking.openURL(
-                        'https://www.instagram.com/cassiopee_galautt/'
-                      )
-                    }
-                  />
+                  <View style={styles.social}>
+                    <Icon
+                      name="facebook"
+                      type="font-awesome-5"
+                      color="#094E6F"
+                      size={Device.isTablet ? 250 : 150}
+                      onPress={() =>
+                        Linking.openURL('https://www.facebook.com/gala.utt')
+                      }
+                    />
+                  </View>
+                  <View style={styles.social}>
+                    <Icon
+                      name="instagram"
+                      type="font-awesome"
+                      color="#094E6F"
+                      size={Device.isTablet ? 250 : 150}
+                      onPress={() =>
+                        Linking.openURL(
+                          'https://www.instagram.com/cassiopee_galautt/'
+                        )
+                      }
+                    />
+                  </View>
                 </View>
                 <View style={styles.row}>
-                  <Icon
-                    name="twitter"
-                    type="font-awesome"
-                    color="#094E6F"
-                    size={Device.isTablet ? 250 : 150}
-                    iconStyle={styles.icon}
-                    onPress={() =>
-                      Linking.openURL('https://twitter.com/GalaUTT')
-                    }
-                  />
-                  <Icon
-                    name="youtube-play"
-                    type="font-awesome"
-                    color="#094E6F"
-                    size={Device.isTablet ? 250 : 130}
-                    iconStyle={styles.icon}
-                    onPress={() =>
-                      Linking.openURL(
-                        'https://www.youtube.com/channel/UCLprjLc5CJMNUjSolrTyu4g'
-                      )
-                    }
-                  />
+                  <TitleText style={styles.social_name}>@gala.utt</TitleText>
+                  <TitleText style={styles.social_name}>
+                    cassiopee_galautt
+                  </TitleText>
+                </View>
+
+                <View style={styles.row}>
+                  <View style={styles.social}>
+                    <Icon
+                      name="twitter"
+                      type="font-awesome"
+                      color="#094E6F"
+                      size={Device.isTablet ? 250 : 150}
+                      onPress={() =>
+                        Linking.openURL('https://twitter.com/GalaUTT')
+                      }
+                    />
+                  </View>
+                  <View style={styles.social}>
+                    <Icon
+                      name="youtube-play"
+                      type="font-awesome"
+                      color="#094E6F"
+                      size={Device.isTablet ? 250 : 130}
+                      onPress={() =>
+                        Linking.openURL(
+                          'https://www.youtube.com/channel/UCLprjLc5CJMNUjSolrTyu4g'
+                        )
+                      }
+                    />
+                  </View>
+                </View>
+                <View style={styles.row}>
+                  <TitleText style={styles.social_name}>@GalaUTT</TitleText>
+                  <TitleText style={styles.social_name}>Gala UTT</TitleText>
                 </View>
               </LinearGradient>
             </View>
@@ -138,8 +160,8 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 10,
   },
-  icon: {
-    margin: 15,
+  social: {
+    width: '50%',
   },
   follow: {
     color: '#094E6F',
@@ -147,6 +169,19 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     marginTop: 25,
     width: '100%',
+    textAlign: 'center',
+  },
+  social_name: {
+    width: '50%',
+    fontSize: 28,
+    color: '#094E6F',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  social_name_bas: {
+    width: '50%',
+    fontSize: 28,
+    color: '#094E6F',
     textAlign: 'center',
   },
 })

@@ -35,9 +35,7 @@ export default function FoodTruckChoice({ navigation }) {
             />
           </View>
           <View style={styles.main_container}>
-            <TitleText style={styles.tipText}>
-              Choisissez votre Food Truck.
-            </TitleText>
+            <TitleText style={styles.tipText}>Choose your Food Truck</TitleText>
             <TouchableOpacity
               style={styles.button}
               title="Go to TRUCK 1"
