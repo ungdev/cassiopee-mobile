@@ -96,9 +96,7 @@ class HomeScreen extends Component {
                     <TouchableOpacity
                       style={styles.button}
                       onPress={() =>
-                        Linking.openURL(
-                          'https://www.billetweb.fr/cassiopee-gala-utt'
-                        )
+                        Linking.openURL('https://www.billetterie.gala.utt.fr')
                       }
                     >
                       <StyledText style={styles.text}>
@@ -198,9 +196,7 @@ class HomeScreen extends Component {
                     <TouchableOpacity
                       style={styles.button}
                       onPress={() =>
-                        Linking.openURL(
-                          'https://www.billetweb.fr/cassiopee-gala-utt'
-                        )
+                        Linking.openURL('https://www.billetterie.gala.utt.fr')
                       }
                     >
                       <StyledText style={styles.text}>
