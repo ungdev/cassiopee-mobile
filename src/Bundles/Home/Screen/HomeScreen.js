@@ -9,7 +9,9 @@ import {
   Platform,
   Dimensions,
   SafeAreaView,
+  Modal,
 } from 'react-native'
+import WebView from 'react-native-webview'
 import { LinearGradient } from 'expo-linear-gradient'
 import Header from '../../../components/Header'
 import CountDown from 'react-native-countdown-component'
@@ -25,11 +27,22 @@ class HomeScreen extends Component {
     super(props)
     this.state = {
       totalDuration: '',
+      modalVisible: false,
+      modal2Visible: false,
     }
+  }
+
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible })
+  }
+
+  setModal2Visible = (visible) => {
+    this.setState({ modal2Visible: visible })
   }
 
   render() {
     const x = this.state.totalDuration
+    const { modalVisible, modal2Visible } = this.state
     console.log('token stocké', this.props.keyToken)
     if (x <= 0) {
       return (
@@ -41,6 +54,40 @@ class HomeScreen extends Component {
               end={[1, 0]}
               colors={['#22749C', '#43B9D5']}
             >
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modal2Visible}
+                onRequestClose={() => {
+                  this.setModal2Visible(!modal2Visible)
+                }}
+              >
+                <SafeAreaView style={styles.droidSafeArea}>
+                  <View style={styles.globalcontainer}>
+                    <View style={styles.container_modal}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          this.setModal2Visible(!modal2Visible)
+                        }}
+                        style={styles.topbutton}
+                      >
+                        <StyledText style={styles.topbuttontext}>
+                          {i18n.t('close_modal')}
+                        </StyledText>
+                      </TouchableOpacity>
+                    </View>
+                    <WebView
+                      source={{
+                        uri: 'https://billetterie.gala.utt.fr',
+                      }}
+                      startInLoadingState
+                      originWhitelist={['*']}
+                      javaScriptEnabled
+                      domStorageEnabled
+                    />
+                  </View>
+                </SafeAreaView>
+              </Modal>
               <View style={styles.containerBottomImage}>
                 <Image
                   style={styles.bottomImage}
@@ -95,9 +142,7 @@ class HomeScreen extends Component {
                   <View style={styles.container_button}>
                     <TouchableOpacity
                       style={styles.button}
-                      onPress={() =>
-                        Linking.openURL('https://www.billetterie.gala.utt.fr')
-                      }
+                      onPress={() => this.setModal2Visible(!modal2Visible)}
                     >
                       <StyledText style={styles.text}>
                         {i18n.t('billeterie_champagne')}
@@ -131,6 +176,40 @@ class HomeScreen extends Component {
               end={[1, 0]}
               colors={['#22749C', '#43B9D5']}
             >
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                  this.setModalVisible(!modalVisible)
+                }}
+              >
+                <SafeAreaView style={styles.droidSafeArea}>
+                  <View style={styles.globalcontainer}>
+                    <View style={styles.container_modal}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          this.setModalVisible(!modalVisible)
+                        }}
+                        style={styles.topbutton}
+                      >
+                        <StyledText style={styles.topbuttontext}>
+                          {i18n.t('close_modal')}
+                        </StyledText>
+                      </TouchableOpacity>
+                    </View>
+                    <WebView
+                      source={{
+                        uri: 'https://billetterie.gala.utt.fr',
+                      }}
+                      startInLoadingState
+                      originWhitelist={['*']}
+                      javaScriptEnabled
+                      domStorageEnabled
+                    />
+                  </View>
+                </SafeAreaView>
+              </Modal>
               <View style={styles.containerBottomImage}>
                 <Image
                   style={styles.bottomImage}
@@ -195,9 +274,7 @@ class HomeScreen extends Component {
                   <View style={styles.container_button}>
                     <TouchableOpacity
                       style={styles.button}
-                      onPress={() =>
-                        Linking.openURL('https://www.billetterie.gala.utt.fr')
-                      }
+                      onPress={() => this.setModalVisible(!modalVisible)}
                     >
                       <StyledText style={styles.text}>
                         {i18n.t('billeterie_champagne')}
@@ -225,11 +302,11 @@ class HomeScreen extends Component {
 
   componentDidMount() {
     var that = this
-    var date = moment().utcOffset('+2').format('YYYY-MM-DD hh:mm:ss')
+    var date = moment().utcOffset(2).format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
-    var expirydate = '2021-06-04 15:00:00' //Date of event
+    var expirydate = '2021-06-05 03:00:00' //Date of event in am/pm format
     var diffr = moment.duration(moment(expirydate).diff(moment(date)))
-    var hours = parseInt(diffr.asHours()) + 10 //add +12 sometimes
+    var hours = parseInt(diffr.asHours())
     var minutes = parseInt(diffr.minutes())
     var seconds = parseInt(diffr.seconds())
     var d = hours * 60 * 60 + minutes * 60 + seconds
@@ -250,6 +327,25 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(HomeScreen)
 
 const styles = StyleSheet.create({
+  globalcontainer: {
+    flex: 1,
+  },
+
+  container_modal: {
+    width: '100%',
+  },
+
+  topbutton: {
+    marginTop: 10,
+    padding: 10,
+  },
+
+  topbuttontext: {
+    color: 'white',
+    fontSize: 18,
+    textAlign: 'right',
+  },
+
   scroll: {
     backgroundColor: 'transparent',
     height: '100%',

@@ -109,9 +109,7 @@ class Reglement extends React.Component {
             {i18n.t('rule_credits_one')}{' '}
             <StyledText
               style={styles.dev}
-              onPress={() =>
-                Linking.openURL('https://www.linkedin.com/in/quentin-letellier')
-              }
+              onPress={() => Linking.openURL('https://www.quentinletellier.fr')}
             >
               Quentin Letellier,
             </StyledText>{' '}

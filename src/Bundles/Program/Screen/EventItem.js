@@ -56,6 +56,14 @@ export class EventItem extends React.Component {
               <TitleText style={styles.hour_start_text}>
                 {moment(event.start).format('HH:mm')}
               </TitleText>
+              <TitleText
+                style={{ textAlign: 'center', fontSize: 10, color: 'white' }}
+              >
+                |
+              </TitleText>
+              <TitleText style={styles.hour_start_text}>
+                {moment(event.end).format('HH:mm')}
+              </TitleText>
             </View>
 
             <View style={styles.name_event}>
@@ -139,6 +147,7 @@ const styles = StyleSheet.create({
     width: '97%',
   },
   hour_start: {
+    flexDirection: 'column',
     height: 90,
     width: '26%',
     borderTopLeftRadius: 10,

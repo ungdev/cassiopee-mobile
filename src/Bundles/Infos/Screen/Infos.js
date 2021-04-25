@@ -8,6 +8,7 @@ import i18n from '../../../translate/index'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
 import { LinearGradient } from 'expo-linear-gradient'
+import { useScrollToTop } from '@react-navigation/native'
 const Device = require('react-native-device-detection')
 
 class Infos extends React.Component {

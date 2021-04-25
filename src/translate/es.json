@@ -20,6 +20,7 @@
   "seconds": "Segundos",
   "billeterie_champagne": "Orden de champán",
   "restauration_link": "Pedido de camión de comida",
+  "close_modal": "Cerrar",
 
   "error": "Se produjo un error con el servidor. Por favor, inténtelo de nuevo en unos momentos. Código de error: ",
   "error2": "La solicitud de notificación no fue apoyada por el servidor. Inténtalo de nuevo más tarde.",

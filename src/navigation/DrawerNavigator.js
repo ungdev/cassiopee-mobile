@@ -23,6 +23,10 @@ const CustomDrawerComponent = (props) => (
     colors={['#22749C', '#43B9D5']}
   >
     <SafeAreaView style={{ flex: 1 }}>
+      <Image
+        style={styles.bottomImage}
+        source={require('../../assets/bottom_chateau_menu.png')}
+      />
       <ScrollView style={{ flex: 1 }}>
         <Image
           source={require('../../assets/logo_2021_dayedition.png')}
@@ -38,10 +42,6 @@ const CustomDrawerComponent = (props) => (
 
         <DrawerItems {...props} />
       </ScrollView>
-      <Image
-        style={styles.bottomImage}
-        source={require('../../assets/bottom_chateau_menu.png')}
-      />
     </SafeAreaView>
   </LinearGradient>
 )
@@ -135,7 +135,7 @@ const DrawerNavigator = createDrawerNavigator(
         ),
       },
     },
-    Food_Truck: {
+    /*Food_Truck: {
       screen: FoodTruckScreen,
       navigationOptions: {
         title: i18n.t('menu_foodtruck'),
@@ -146,7 +146,7 @@ const DrawerNavigator = createDrawerNavigator(
           />
         ),
       },
-    },
+    },*/
     /*Playlist: {
       screen: PlaylistScreen,
       navigationOptions: {
@@ -193,6 +193,7 @@ export default DrawerNavigator
 
 const styles = StyleSheet.create({
   containerBottomImage: {
+    zIndex: -1,
     position: 'absolute',
     bottom: 0,
     left: 0,
