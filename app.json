@@ -4,7 +4,7 @@
     "slug": "cassiopee2021",
     "privacy": "public",
     "platforms": ["ios", "android"],
-    "version": "2.1.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/logo_appli_1024px.png",
     "splash": {
@@ -18,15 +18,14 @@
     },
     "assetBundlePatterns": ["./src/images/*"],
     "ios": {
-      "bundleIdentifier": "com.galautt.cassiopee2021",
+      "bundleIdentifier": "com.galautt.cassiopee",
       "buildNumber": "1.0.0",
-      "supportsTablet": true,
-      "infoPlist": {
-        "LSApplicationQueriesSchemes": ["fb", "twitter", "YouTube", "intagram"]
-      }
+      "supportsTablet": true
     },
     "android": {
-      "package": "com.galautt.cassiopee2021",
+      "package": "com.galautt.cassiopee",
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./google-services.json",
       "versionCode": 1,
       "permissions": ["INTERNET", "NOTIFICATIONS"]
     }

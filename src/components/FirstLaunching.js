@@ -1,6 +1,7 @@
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import { StyleSheet, View, Text, Dimensions } from 'react-native'
+import Constants from 'expo-constants'
+import { StyleSheet, View, Text, Dimensions, Platform } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from '../navigation/DrawerNavigator'
@@ -8,7 +9,6 @@ import Store from '../store/configureStore'
 import { persistStore } from 'redux-persist'
 import i18n from '../translate/index'
 import * as Notifications from 'expo-notifications'
-import * as Permissions from 'expo-permissions'
 import { api } from '../lib/api'
 import { connect } from 'react-redux'
 
@@ -46,27 +46,49 @@ class FirstLaunching extends React.Component {
   }
 
   async registerForPushNotificationsAsync() {
-    //Demande de permissions
-    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS)
-    //Si la permission n'est pas accordée on fait rien.
-    if (status !== 'granted') {
-      return
+    let token
+    if (Constants.isDevice) {
+      const {
+        status: existingStatus,
+      } = await Notifications.getPermissionsAsync()
+      let finalStatus = existingStatus
+      if (existingStatus !== 'granted') {
+        const { status } = await Notifications.requestPermissionsAsync()
+        finalStatus = status
+      }
+      if (finalStatus !== 'granted') {
+        return
+      }
+      token = await Notifications.getExpoPushTokenAsync()
+      console.log('token recupere de expo', token)
+      if (this.props.keyToken !== token.data) {
+        console.log('token différent')
+        const action = { type: 'SET_TOKEN', value: token.data }
+        this.props.dispatch(action)
+        //On envoie ensuite au serveur
+        try {
+          const result = await api.post('expoTokens', { token: token.data })
+          console.log('Token envoyé au serveur')
+        } catch (e) {
+          console.log('token pas envoyé au serveur')
+          console.log('reponse', e.response)
+          alert(i18n.t('error2') + e)
+        }
+      }
+    } else {
+      alert('Must use physical device for Push Notifications')
     }
-    //Récupération Token
-    let token = await Notifications.getExpoPushTokenAsync()
-    //Stockage dans l'Appli
-    console.log('token recupere', token.data)
-    const action = { type: 'SET_TOKEN', value: token }
-    this.props.dispatch(action)
-    //On envoie ensuite au serveur
-    try {
-      const result = await api.post('expoTokens', { token: token.data })
-      console.log('Token envoyé au serveur')
-    } catch (e) {
-      console.log('token pas envoyé au serveur')
-      console.log('reponse', e.response)
-      alert(i18n.t('error2') + e)
+
+    if (Platform.OS === 'android') {
+      Notifications.setNotificationChannelAsync('default', {
+        name: 'default',
+        importance: Notifications.AndroidImportance.MAX,
+        vibrationPattern: [0, 250, 250, 250],
+        //lightColor: '#FFFFFF',
+      })
     }
+
+    return token.data
   }
 
   _renderItem = ({ item }) => (

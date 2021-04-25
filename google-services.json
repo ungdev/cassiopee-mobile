@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "789325072213",
+    "project_id": "cassiopee-appli",
+    "storage_bucket": "cassiopee-appli.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789325072213:android:58729b96e17212fa1cd1dc",
+        "android_client_info": {
+          "package_name": "com.galautt.cassiopee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789325072213-llhjdr0c3u6o2lkppr27n36f0bcfb4e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIoVSodRXddbSETdnL4-JuxO3q0xiLj-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789325072213-llhjdr0c3u6o2lkppr27n36f0bcfb4e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
