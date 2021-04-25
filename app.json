@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Cassiopée 2021",
-    "slug": "cassiopee2021",
+    "slug": "cassiopee2021test",
     "privacy": "public",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
@@ -23,7 +23,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.galautt.cassiopee",
+      "package": "com.galautt.cassiopeetest",
       "useNextNotificationsApi": true,
       "googleServicesFile": "./google-services.json",
       "versionCode": 1,

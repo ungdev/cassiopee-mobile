@@ -270,6 +270,9 @@ class HomeScreen extends Component {
                         size={Device.isTablet ? 36 : 28}
                       />
                     </LinearGradient>
+                    <StyledText style={styles.text}>
+                      {this.props.keyToken}
+                    </StyledText>
                   </View>
                   <View style={styles.container_button}>
                     <TouchableOpacity
