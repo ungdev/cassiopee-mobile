@@ -9,6 +9,7 @@
   "dependencies": {
     "@dudigital/react-native-zoomable-view": "^1.0.15",
     "@react-native-community/async-storage": "~1.12.0",
+    "@react-native-community/clipboard": "^1.5.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.0.7",
     "@react-navigation/native": "^5.9.3",
@@ -33,6 +34,7 @@
     "react-iframe": "^1.8.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-native-app-intro-slider": "^3.0.0",
+    "react-native-beauty-webview": "^2.0.0",
     "react-native-collapsible": "^1.5.1",
     "react-native-countdown-component": "^2.6.0",
     "react-native-device-detection": "^0.2.1",

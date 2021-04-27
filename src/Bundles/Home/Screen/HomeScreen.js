@@ -11,7 +11,7 @@ import {
   SafeAreaView,
   Modal,
 } from 'react-native'
-import WebView from 'react-native-webview'
+import { WebView } from 'react-native-webview'
 import { LinearGradient } from 'expo-linear-gradient'
 import Header from '../../../components/Header'
 import CountDown from 'react-native-countdown-component'
@@ -20,6 +20,8 @@ import i18n from '../../../translate/index'
 import { connect } from 'react-redux'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
+import BeautyWebView from 'react-native-beauty-webview'
+import Icon from 'react-native-vector-icons/Ionicons'
 const Device = require('react-native-device-detection')
 
 class HomeScreen extends Component {
@@ -54,40 +56,16 @@ class HomeScreen extends Component {
               end={[1, 0]}
               colors={['#22749C', '#43B9D5']}
             >
-              <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modal2Visible}
-                onRequestClose={() => {
-                  this.setModal2Visible(!modal2Visible)
-                }}
-              >
-                <SafeAreaView style={styles.droidSafeArea}>
-                  <View style={styles.globalcontainer}>
-                    <View style={styles.container_modal}>
-                      <TouchableOpacity
-                        onPress={() => {
-                          this.setModal2Visible(!modal2Visible)
-                        }}
-                        style={styles.topbutton}
-                      >
-                        <StyledText style={styles.topbuttontext}>
-                          {i18n.t('close_modal')}
-                        </StyledText>
-                      </TouchableOpacity>
-                    </View>
-                    <WebView
-                      source={{
-                        uri: 'https://billetterie.gala.utt.fr',
-                      }}
-                      startInLoadingState
-                      originWhitelist={['*']}
-                      javaScriptEnabled
-                      domStorageEnabled
-                    />
-                  </View>
-                </SafeAreaView>
-              </Modal>
+              <BeautyWebView
+                visible={modalVisible} // Reguired for open and close
+                onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+                url={'https://billetterie.gala.utt.fr'}
+                headerBackground={'#094E6F'}
+                backgroundColor={'#094E6F'}
+                headerContent={'light'}
+                progressColor={'#22749C'}
+                progressBarType={'background'}
+              />
               <View style={styles.containerBottomImage}>
                 <Image
                   style={styles.bottomImage}
@@ -149,7 +127,7 @@ class HomeScreen extends Component {
                       </StyledText>
                     </TouchableOpacity>
                     <TouchableOpacity
-                      style={styles.button}
+                      style={(styles.button, { display: 'none' })}
                       onPress={() =>
                         this.props.navigation.navigate('Food_Truck')
                       }
@@ -176,40 +154,17 @@ class HomeScreen extends Component {
               end={[1, 0]}
               colors={['#22749C', '#43B9D5']}
             >
-              <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                  this.setModalVisible(!modalVisible)
-                }}
-              >
-                <SafeAreaView style={styles.droidSafeArea}>
-                  <View style={styles.globalcontainer}>
-                    <View style={styles.container_modal}>
-                      <TouchableOpacity
-                        onPress={() => {
-                          this.setModalVisible(!modalVisible)
-                        }}
-                        style={styles.topbutton}
-                      >
-                        <StyledText style={styles.topbuttontext}>
-                          {i18n.t('close_modal')}
-                        </StyledText>
-                      </TouchableOpacity>
-                    </View>
-                    <WebView
-                      source={{
-                        uri: 'https://billetterie.gala.utt.fr',
-                      }}
-                      startInLoadingState
-                      originWhitelist={['*']}
-                      javaScriptEnabled
-                      domStorageEnabled
-                    />
-                  </View>
-                </SafeAreaView>
-              </Modal>
+              <BeautyWebView
+                visible={modalVisible} // Reguired for open and close
+                onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+                url={'https://billetterie.gala.utt.fr'}
+                headerBackground={'#094E6F'}
+                backgroundColor={'#094E6F'}
+                headerContent={'light'}
+                progressColor={'#22749C'}
+                progressBarType={'background'}
+              />
+
               <View style={styles.containerBottomImage}>
                 <Image
                   style={styles.bottomImage}
@@ -270,9 +225,6 @@ class HomeScreen extends Component {
                         size={Device.isTablet ? 36 : 28}
                       />
                     </LinearGradient>
-                    <StyledText style={styles.text}>
-                      {this.props.keyToken}
-                    </StyledText>
                   </View>
                   <View style={styles.container_button}>
                     <TouchableOpacity
@@ -284,7 +236,7 @@ class HomeScreen extends Component {
                       </StyledText>
                     </TouchableOpacity>
                     <TouchableOpacity
-                      style={styles.button}
+                      style={(styles.button, { display: 'none' })}
                       onPress={() =>
                         this.props.navigation.navigate('Food_Truck')
                       }
@@ -336,11 +288,14 @@ const styles = StyleSheet.create({
 
   container_modal: {
     width: '100%',
+    flexDirection: 'row',
   },
 
-  topbutton: {
+  topbuttonclose: {
+    width: '50%',
     marginTop: 10,
     padding: 10,
+    backgroundColor: 'red',
   },
 
   topbuttontext: {
@@ -348,7 +303,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'right',
   },
-
+  topbuttonback: {
+    width: '50%',
+    marginTop: 10,
+    padding: 10,
+  },
   scroll: {
     backgroundColor: 'transparent',
     height: '100%',
