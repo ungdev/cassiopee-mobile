@@ -1,14 +1,25 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView, Linking } from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
 import Accordion from '../Accordion/Accordion.js'
 import i18n from '../../../translate/index'
 import { TitleText } from '../../../components/TitleText.js'
 import { StyledText } from '../../../components/StyledText.js'
 import { LinearGradient } from 'expo-linear-gradient'
+import BeautyWebView from 'react-native-beauty-webview'
 const Device = require('react-native-device-detection')
 
 class Transports extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalVisible: false,
+    }
+  }
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible })
+  }
   render() {
+    const { modalVisible } = this.state
     return (
       <ScrollView style={{ flex: 1 }}>
         <View style={styles.main_container}>
@@ -18,6 +29,16 @@ class Transports extends React.Component {
             colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
             style={styles.container}
           >
+            <BeautyWebView
+              visible={modalVisible} // Reguired for open and close
+              onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+              url={'https://www.tcat.fr/'}
+              headerBackground={'#094E6F'}
+              backgroundColor={'#094E6F'}
+              headerContent={'light'}
+              progressColor={'#22749C'}
+              progressBarType={'background'}
+            />
             <View style={styles.container_second}>
               <TitleText style={styles.title}>
                 {i18n.t('transport_shuttle_title')}
@@ -30,7 +51,7 @@ class Transports extends React.Component {
 
             <StyledText
               style={styles.buslink}
-              onPress={() => Linking.openURL('https://www.tcat.fr/')}
+              onPress={() => this.setModalVisible(!modalVisible)}
             >
               www.tcat.fr
             </StyledText>

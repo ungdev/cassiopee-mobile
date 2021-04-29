@@ -1,13 +1,24 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
-import { ScrollView, StyleSheet, Text, Linking, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import { StyledText } from '../../../components/StyledText'
 import { TitleText } from '../../../components/TitleText'
 import i18n from '../../../translate/index'
+import BeautyWebView from 'react-native-beauty-webview'
 const Device = require('react-native-device-detection')
 
 class Reglement extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalVisible: false,
+    }
+  }
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible })
+  }
   render() {
+    const { modalVisible } = this.state
     return (
       <ScrollView contentContainerStyle={styles.container}>
         <TitleText style={styles.t}>{i18n.t('rule_title')}</TitleText>
@@ -18,6 +29,16 @@ class Reglement extends React.Component {
           colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
           style={styles.container_rules}
         >
+          <BeautyWebView
+            visible={modalVisible} // Reguired for open and close
+            onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+            url={'https://www.quentinletellier.fr'}
+            headerBackground={'#094E6F'}
+            backgroundColor={'#094E6F'}
+            headerContent={'light'}
+            progressColor={'#22749C'}
+            progressBarType={'background'}
+          />
           <View style={styles.container_second}>
             <TitleText style={styles.h}>
               {i18n.t('rule_security_title')}
@@ -109,9 +130,9 @@ class Reglement extends React.Component {
             {i18n.t('rule_credits_one')}{' '}
             <StyledText
               style={styles.dev}
-              onPress={() => Linking.openURL('https://www.quentinletellier.fr')}
+              onPress={() => this.setModalVisible(!modalVisible)}
             >
-              Quentin Letellier,
+              Quentin Letellier
             </StyledText>{' '}
             {i18n.t('rule_credits_two')}
           </StyledText>
@@ -167,6 +188,10 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
     color: '#094E6F',
   },
+  bouton: {
+    margin: 0,
+    padding: 0,
+  },
   dev: {
     alignSelf: 'stretch',
     padding: 5,
@@ -175,7 +200,6 @@ const styles = StyleSheet.create({
     color: '#094E6F',
     textDecorationLine: 'underline',
   },
-
   t: {
     marginTop: 15,
     color: '#094E6F',

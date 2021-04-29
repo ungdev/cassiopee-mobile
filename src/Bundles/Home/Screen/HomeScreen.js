@@ -4,14 +4,12 @@ import {
   ScrollView,
   StyleSheet,
   Image,
-  Linking,
   TouchableOpacity,
   Platform,
   Dimensions,
   SafeAreaView,
-  Modal,
 } from 'react-native'
-import { WebView } from 'react-native-webview'
+
 import { LinearGradient } from 'expo-linear-gradient'
 import Header from '../../../components/Header'
 import CountDown from 'react-native-countdown-component'
@@ -21,7 +19,6 @@ import { connect } from 'react-redux'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
 import BeautyWebView from 'react-native-beauty-webview'
-import Icon from 'react-native-vector-icons/Ionicons'
 const Device = require('react-native-device-detection')
 
 class HomeScreen extends Component {
@@ -123,7 +120,7 @@ class HomeScreen extends Component {
                       onPress={() => this.setModal2Visible(!modal2Visible)}
                     >
                       <StyledText style={styles.text}>
-                        {i18n.t('billeterie_champagne')}
+                        {i18n.t('billeterie')}
                       </StyledText>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -232,7 +229,7 @@ class HomeScreen extends Component {
                       onPress={() => this.setModalVisible(!modalVisible)}
                     >
                       <StyledText style={styles.text}>
-                        {i18n.t('billeterie_champagne')}
+                        {i18n.t('billeterie')}
                       </StyledText>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -259,7 +256,7 @@ class HomeScreen extends Component {
     var that = this
     var date = moment().utcOffset(2).format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
-    var expirydate = '2021-06-05 03:00:00' //Date of event in am/pm format
+    var expirydate = '2021-06-05 02:30:00' //Date of event in am/pm format
     var diffr = moment.duration(moment(expirydate).diff(moment(date)))
     var hours = parseInt(diffr.asHours())
     var minutes = parseInt(diffr.minutes())

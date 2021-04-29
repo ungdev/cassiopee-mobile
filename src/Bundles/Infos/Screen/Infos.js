@@ -8,10 +8,19 @@ import i18n from '../../../translate/index'
 import { TitleText } from '../../../components/TitleText'
 import { StyledText } from '../../../components/StyledText'
 import { LinearGradient } from 'expo-linear-gradient'
-import { useScrollToTop } from '@react-navigation/native'
+import BeautyWebView from 'react-native-beauty-webview'
 const Device = require('react-native-device-detection')
 
 class Infos extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalVisible: false,
+    }
+  }
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible })
+  }
   _goToUTT() {
     openMap({
       latitude: 48.270371,
@@ -40,6 +49,7 @@ class Infos extends React.Component {
   }
 
   render() {
+    const { modalVisible } = this.state
     return (
       <ScrollView style={styles.main_container}>
         <LinearGradient
@@ -48,6 +58,16 @@ class Infos extends React.Component {
           colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
           style={styles.category}
         >
+          <BeautyWebView
+            visible={modalVisible} // Reguired for open and close
+            onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+            url={'https://gala.utt.fr/confidentialite'}
+            headerBackground={'#094E6F'}
+            backgroundColor={'#094E6F'}
+            headerContent={'light'}
+            progressColor={'#22749C'}
+            progressBarType={'background'}
+          />
           <View>
             <TitleText style={styles.title}>
               {i18n.t('info_access_title')}
@@ -162,7 +182,7 @@ class Infos extends React.Component {
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon
-                name="ios-time"
+                name="time"
                 size={Device.isTablet ? 36 : 25}
                 color={'#094E6F'}
               />
@@ -175,7 +195,20 @@ class Infos extends React.Component {
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon
-                name="ios-volume-high"
+                name="musical-notes"
+                size={Device.isTablet ? 36 : 25}
+                color={'#094E6F'}
+              />
+            </View>
+            <StyledText style={styles.text}>
+              {i18n.t('info_schedule_start')}
+            </StyledText>
+          </View>
+
+          <View style={styles.element}>
+            <View style={styles.element_icon}>
+              <Icon
+                name="volume-mute"
                 size={Device.isTablet ? 36 : 25}
                 color={'#094E6F'}
               />
@@ -200,9 +233,7 @@ class Infos extends React.Component {
 
           <TouchableOpacity
             style={styles.element}
-            onPress={() =>
-              Linking.openURL('https://gala.utt.fr/confidentialite')
-            }
+            onPress={() => this.setModalVisible(!modalVisible)}
           >
             <View style={styles.element_icon}>
               <Icon
