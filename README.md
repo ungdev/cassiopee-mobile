@@ -2,29 +2,60 @@
 
 Mobile app for UTT's Gala : Cassiopée
 
-## Requirement :
+## Requirement :bangbang: :
 
 - React Native with Expo
 
-## Installation :
+## Installation :hammer: :
 
-1. clone repository
+1. Clone repository
 
-- git clone https://github.com/ungdev/cassiopee-mobile
-- cd cassiopee-mobile
+- ```bash
+  git clone https://github.com/ungdev/cassiopee-mobile
+  ```
 
-2. install dependencies :
+- ```bash
+  cd cassiopee-mobile
+  ```
 
-- npm
+2. Install dependencies :
 
-3. launch the app on expo :
+- ```bash
+  npm
+  ```
 
-- npm start
+3. Launch the app on Expo :
 
-## File Architecture :
+- ```bash
+  npm start
+  ```
+  or
+- ```bash
+  expo start
+  ```
+
+(When you run expo start, the CLI uses Metro to bundle JavaScript for Android and iOS platforms)
+
+4. Test on Android emulator :
+
+- Install [Android Studio](https://developer.android.com/studio) and config AVD Manager with a virtual devices
+- After Metro opens a page in your browser, press "a" in your terminal
+
+5. Test on physical iOS/Android device :
+
+- Install "Expo Go" on AppStore/PlayStore
+- Flash QR-code in the terminal with you device to emulate app
+- Enjoy !
+
+## Documentations :closed_book: :green_book: :blue_book: :
+
+- [React Native](https://reactnative.dev/docs/getting-started)
+- [Expo](https://docs.expo.io/)
+
+## File Architecture :file_folder: :
 
 - /assets/\* => icon, splash and pictures
-- /node_modules/\* => dependencies, dont touch it
+- /node_modules/\* => dependencies, don't touch it
 - /src/\* => All App' resources
 
   - /Bundles/\* => all the app's bundles, for example, Artists or Program which contain screens and specific elements
@@ -39,10 +70,18 @@ Mobile app for UTT's Gala : Cassiopée
 - app.json => app infos, like version (it's important to increase it when you publish a new version)
 - README.md => this file
 
-## Version Syntax :
+## Icons :star: :
+
+- You can see all icons usable here : https://oblador.github.io/react-native-vector-icons/
+
+## Version Syntax :100: :
 
 Cassiopée is the new concept of GALA UTT. The original version is 2.0.0 (May 2020)
 
 - First number will be incremented for each edition so +1 every year.
 - Second number will be incremented for an update with new functionality in the same year (add Plan for exemple few weeks before event)
 - Third number will be incremented for minor fix, text error or security patch
+
+## Developper Contact :100: :
+
+- My Name is [Quentin Letellier](https://www.quentinletellier.fr), student at the [University of Technology of Troyes](https://www.utt.fr). You can contact me on [LinkedIn](https://www.linkedin.com/in/quentin-letellier/)
