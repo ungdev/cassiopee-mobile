@@ -22,7 +22,7 @@ class PlanScreen extends Component {
       selectedAreaName: i18n.t('map_title'),
       selectedAreaDescription: i18n.t('map_first_message'),
       selectedAreaOther: null,
-      image_plan: require('../../../../assets/all.png'),
+      image_plan: require('../../../../assets/map_all.png'),
       index: 0,
     }
   }
@@ -36,25 +36,21 @@ class PlanScreen extends Component {
       index: index,
     })
 
-    if (index === 1) {
+    if (index === 0) {
       this.setState({
-        image_plan: require('../../../../assets/all.png'),
+        image_plan: require('../../../../assets/map_all.png'),
+      })
+    } else if (index === 1) {
+      this.setState({
+        image_plan: require('../../../../assets/map_animations.png'),
       })
     } else if (index === 2) {
       this.setState({
-        image_plan: require('../../../../assets/all.png'),
+        image_plan: require('../../../../assets/map_artists.png'),
       })
     } else if (index === 3) {
       this.setState({
-        image_plan: require('../../../../assets/all.png'),
-      })
-    } else if (index === 4) {
-      this.setState({
-        image_plan: require('../../../../assets/all.png'),
-      })
-    } else {
-      this.setState({
-        image_plan: require('../../../../assets/all.png'),
+        image_plan: require('../../../../assets/map_restauration.png'),
       })
     }
   }
@@ -149,7 +145,6 @@ class PlanScreen extends Component {
                 i18n.t('map_filter_animation'),
                 i18n.t('map_filter_artist'),
                 i18n.t('map_filter_food'),
-                i18n.t('map_filter_eat'),
               ]}
               containerStyle={styles.button}
               textStyle={styles.text_button}

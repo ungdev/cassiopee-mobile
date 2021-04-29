@@ -102,7 +102,7 @@
   "rule_credits_one": "Application mobile développée par",
   "rule_credits_two": "étudiant de l'Université de Technologie de Troyes.",
   "rule_development_title": "Développement",
-  "rule_development": "Application développée avec React Native",
+  "rule_development": "Application développée avec React Native.",
 
   "coming_soon_title": "Bientôt disponible...",
 
@@ -126,79 +126,51 @@
   "map_filter_all": "Voir tout",
   "map_filter_animation": "Animation",
   "map_filter_artist": "Artiste",
-  "map_filter_food": "Food",
-  "map_filter_eat": "Producteurs Locaux",
+  "map_filter_food": "Restauration",
 
-  "map_id1_name": "STAND DE PREVENTION ANPAA",
-  "map_id1_description": "Passez une soirée en toute sécurité avec l'ANPAA.\nDu matériel de prévention est disponible sur le stand :\n\n- Ethylotests\n- Couvercles pour écocups\n- Bouchons d'oreille\n- Préservatifs",
+  "map_id1_name": "ENTREE PRINCIPALE",
+  "map_id1_description": "N'oubliez pas d'acheter gratuitement votre billet.\nIl vous sera demandé à l'entrée.",
 
-  "map_id2_name": "BORNE DE RECHARGEMENT CASHLESS Bâtiment M",
-  "map_id2_description": "Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.",
+  "map_id2_name": "RESTAURATION 1",
+  "map_id2_description": " ",
+  "map_id2_selling": "En vente sur cette espace :",
 
-  "map_id3_name": "BORNE DE RECHARGEMENT CASHLESS Bâtiment A",
-  "map_id3_description": "Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.",
+  "map_id3_name": "ANIMATION 1",
+  "map_id3_description": "L'équipe 'Animation' vous a préparé des petites choses sympathiques",
+  "map_id3_selling": "Activités sur cette zone :",
 
-  "map_id4_name": "BORNE DE RECHARGEMENT CASHLESS Accueil",
-  "map_id4_description": "Vous retrouverez ici un point de rechargement pour recharger votre compte cashless.",
+  "map_id4_name": "RESTAURATION 2",
+  "map_id4_description": " ",
+  "map_id4_selling": "En vente sur cette espace :",
 
-  "map_id5_name": "STAND PHOTO ARGENTIQUE ET CHAPELLE",
-  "map_id5_description": "Venez immortaliser cette magnifique soirée sous les appareils photos l'association Argentique !\n\nUne envie de mariage ?\nVous pourrez également immortaliser le plus beau jour de votre vie !",
+  "map_id5_name": "BAR 1",
+  "map_id5_description": " ",
+  "map_id5_selling": "En vente sur cette espace :",
 
-  "map_id6_name": "BAR INSAISISSABLES",
-  "map_id6_description": "Le personnel de l'UTT et l'ASANUTT s'associent pour vous faire retrouver votre vie étudiante.",
-  "map_id6_selling": "En vente sur cette espace :\n\n- Plateau de fromage et de charcuterie\n- Vins\n- Champagne",
+  "map_id6_name": "SCENE PRINCIPALE",
+  "map_id6_description": "Venez découvrir nos talents venus de toute la France !",
+  "map_id6_selling": "Se produiront sur cette scène :",
 
-  "map_id7_name": "GOLDEN STAGE & \nEAT LE CABARET DES FAL' INNOV' UTT",
-  "map_id7_description": "Venez retrouver les plus grands DJs étudiants.\n\n- HYXY à 22H35\n\n- Antoto à 00H00\n\n- Quentin LTL à 01H00\n\n- Stormer à 02H00",
-  "map_id7_selling": "Tous pensaient cela impossible, mais pourtant les voilà ! Innov'UTT et Fal'UTT réunis pour ce Gala, pour vous !\n\nEn vente sur cet espace :\n\n- Cocktail Cacibel\n- Chouffe\n- Faro\n- Champagne\n- Pin's",
+  "map_id7_name": "RECHARGE LYDIA",
+  "map_id7_description": " ",
 
-  "map_id8_name": "BAR GOLDEN NUGGET",
-  "map_id8_description": "Pars à la conquête de l'ouest dans notre bar cowboy !\nTu pourras goûter à des bières venues tout droit des contrées lointaines de Belgique telles que la Delirium Red et la Maredsous !\n\nTu auras aussi l'occasion de tester un cocktail bien de chez nous, el famoso kir royal !",
-  "map_id8_selling": "En vente sur cet espace :\n\n- Kir Royale\n- Delirium Red\n- Maredsous",
+  "map_id8_name": "SCENE DJ",
+  "map_id8_description": "Il y a comme un air de discothèque qui nous a beaucoup manqué",
+  "map_id8_selling": "Se produiront sur cette scène :",
 
-  "map_id9_name": "HEALTHY FOODTRUCK\n& FRANCK'S DINNER",
-  "map_id9_description": "Un petit creux ? C'est par ici !",
-  "map_id9_selling": "En vente sur cet espace :\n\n- Burger poulet\n- Burger saumon\n- Buddha bowl poulet/saumon/falafel\n- Gâteau de fleurs vegan\n- Tiramisu aux biscuits roses\n- Jus détox\n- Hot-dog\n- Nachos",
+  "map_id9_name": "SCENE DJ",
+  "map_id9_description": "Il y a comme un air de discothèque qui nous a beaucoup manqué",
+  "map_id9_selling": "Se produiront sur cette scène :",
 
-  "map_id10_name": "BAR INTER ECOLE",
-  "map_id10_description": "Bar géré par les différentes écoles de l'agglomération troyenne, vous y recontrerez de nouvelles têtes !",
-  "map_id10_selling": "En vente sur cet espace :\n\n- Delirium Red\n- Chouffe\n- Faro\n- Terrano Blanche\n- Terrano Blonde\n- Maredsous\n- Saint-Martin Ambrée",
+  "map_id10_name": "ANIMATION 2",
+  "map_id10_description": "L'équipe 'Animation' vous a préparé des petites choses sympathiques",
+  "map_id10_selling": "Activités sur cette zone :",
 
-  "map_id11_name": "CAESAR PALACE (SCENE PRINCIPALE)",
-  "map_id11_description": "Scène principale où se produiront les plus grands artistes du Gala.\n\n\n- FRH & Léo L'AS à 21H30\n\n- Tez Cadey à 22H30\n\n- French Fuse à 00H00\n\n- Jay Style à 01H15\n\n- Salut C'est Cool à 02H30",
+  "map_id11_name": "BAR 2",
+  "map_id11_description": " ",
+  "map_id11_selling": "En vente sur cet espace :",
 
-  "map_id12_name": "LA CARTE URBAN FOODTRUCK",
-  "map_id12_description": "Un petit creux ? Venez vous restaurer !",
-  "map_id12_selling": "En vente sur cet espace :\n\n- Frites\n- Salade Végétarienne\n- Burger Boeuf\n- Burritos",
-
-  "map_id13_name": "POSTE DE SECOURISME SEC'UTT",
-  "map_id13_description": "Si tu finis en PLS, tu te réveilleras sûrement là bas :)",
-
-  "map_id14_name": "BAR A SOFTS (GRATUITS) ET KARAOKE",
-  "map_id14_description": "Tu as soif ?\n\nViens boire des softs gratuits dans ce bar !\nEn plus il y aura un Karaoké",
-
-  "map_id15_name": "ELVIS STAGE & BAR",
-  "map_id15_description": "Une ambiance rock pour toute la soirée :\n\n\n- Prol'UTT à 20H30\n\n- Big Band UTT à 21H45\n\n- Wazaaa à 23H00\n\n- Ceci Dit à 00H45\n\n- KMGB à 02H00\n\n- Max Motion à 03H30",
-  "map_id15_selling": "Entrez dans l'atmosphère greco-romaine de notre bar, nous allons vous plonger dans l'ambiance d'un des hôtels les plus connus au monde : Le Caesar Palace !\nLes fontaines de bières vous rappelleront les thermes romains avec la douce Blanche de Namur pour vous désaltérer. Rendez hommage à Bachus en profitant de la musique enivrante et laissez celle-ci être la muse de votre soirée !\n\nEn vente sur cet espace :\n\n- Cocktail Viridi Malum\n- Chouffe\n- Deli Red\n- Terrano Blanche\n- Saint-Martin Ambrée\n- Champagne",
-
-  "map_id16_name": "TAUREAU MECANIQUE",
-  "map_id16_description": "C'est partit pour le rodéo ! Battrez-vous le record ?",
-
-  "map_id17_name": "RUTT VEGAS & VERY BAD PMOM",
-  "map_id17_description": "Le rugby, c'est l'histoire d'un ballon avec des copains autour et quand il n'y a plus de ballon, il reste les copains. Tu aimes la fête et les copains, tu sais où nous trouver !\n\nPour passer un Gala extraordinaire, venez nous rejoindre au sein de notre EAT pour vous retrouver dans l'ambiance de Very Bad Trip avec bien sur la convivialité et la bonne ambiance reconnu mondialement des PMOMs.",
-  "map_id17_selling": "En vente sur cet espace :\n\n- Suze Cocktail\n- Chouffe\n- Faro\n- Saint-Martin Ambrée\n- Buzz Fick\n- Deli Red\n- Terrano Blanche\n- Champagne\n\nRetrouvez l'activité suivante sur cet espace :\n\n- Roulette Folle",
-
-  "map_id18_name": "VESTIAIRE ET ESPACE DE REPOS SAM",
-  "map_id18_description": "Déposez ici vos affaires gratuitement.\nNe perdez pas votre ticket !\nVous pouvez le noter directement dans cette application, rubrique 'Mon Billet'\n\nL'espace repos SAM vous permet de dormir un petit moment pour reprendre la route en toute sécurité !",
-
-  "map_id19_name": "SALLE DE JEUX CASINO",
-  "map_id19_description": "Rien ne va plus ! Faîtes vos jeux !\nMontrer vos talents au poker, blackjack et roulette.",
-
-  "map_id20_name": "DREAM NIGHT (B105) + SALLE DE BAL",
-  "map_id20_description": "La fanfare et l'ATECAP vous proposent un EAT des plus exotiques !\nVenez nous retrouver pour vous déhancher en écoutant de la musique de qualité, vous ressourcer en sirotant bières, softs et cocktails fruités et vous amuser avec un Water-Pong, une roulette géante et d'autres festivités.\nQuel programme alléchant… A toute suite !",
-  "map_id20_selling": "En vente sur cet espace :\n\n- Cocktail l'EXO\n- Maredsous\n- Faro\n- Champagne\n\nRetrouvez l'activité suivante sur cet espace :\n\n- Waterpong",
-
-  "map_id21_name": "FOODTRUCKS : CREP D'ELO &\nL'ATELIER DU LAHMACUN",
-  "map_id21_description": "Un petit creux ? Venez vous sustanter !",
-  "map_id21_selling": "En vente sur cet espace :\n\n- Crêpes au sucre/confiture de fraise/nutella\n- Crêpes à la crème fraîche, emmentale et jambon\n- Crêpes à la crème fraîche, jambon et oeuf\n\n- Lahmacun\n- Frites"
+  "map_id12_name": "SCENE ARTISTIQUE",
+  "map_id12_description": "Le chant, la dance, la musique et les arts : un quatuor de folie !",
+  "map_id12_selling": "Se produiront sur cette scène :"
 }
