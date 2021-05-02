@@ -82,6 +82,6 @@ Cassiopée is the new concept of GALA UTT. The original version is 2.0.0 (May 20
 - Second number will be incremented for an update with new functionality in the same year (add Plan for exemple few weeks before event)
 - Third number will be incremented for minor fix, text error or security patch
 
-## Developper Contact :100: :
+## Developper Contact :smirk: :
 
-- My Name is [Quentin Letellier](https://www.quentinletellier.fr), student at the [University of Technology of Troyes](https://www.utt.fr). You can contact me on [LinkedIn](https://www.linkedin.com/in/quentin-letellier/)
+- My Name is [Quentin Letellier](https://www.quentinletellier.fr), student at the [University of Technology of Troyes](https://www.utt.fr). You can contact me on [LinkedIn](https://www.linkedin.com/in/quentin-letellier/).
