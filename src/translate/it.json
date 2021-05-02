@@ -129,49 +129,48 @@
   "map_filter_food": "Cibo",
   "map_filter_eat": "Produttori locali",
 
-  "map_id1_name": "ENTREE PRINCIPALE",
-  "map_id1_description": "N'oubliez pas d'acheter gratuitement votre billet. Il vous sera demandé à l'entrée.",
+  "map_id1_name": "ENTRATA PRINCIPALE",
+  "map_id1_description": "Non dimenticare di acquistare il tuo biglietto gratuitamente. \nTi verrà chiesto all'ingresso.",
 
-  "map_id2_name": "RESTAURATION 1",
-  "map_id2_description": "BLABLA",
-  "map_id2_selling": "En vente sur cette espace :",
+  "map_id2_name": "CHAMPAGNE DI BARFONTARC",
+  "map_id2_description": "Scopri una cuvée regionale di qualità",
+  "map_id2_selling": "In vendita in questo spazio:",
 
-  "map_id3_name": "ANIMATION 1",
-  "map_id3_description": "BLA",
-  "map_id3_selling": "BLA",
+  "map_id3_name": "GIANT CLUEDO",
+  "map_id3_description": "Il team di 'Animazione' ha preparato delle piccole cose carine per te",
+  "map_id3_selling": "Indossa il berretto da detective e vieni a risolvere una misteriosa indagine all'interno dell'ellisse.",
 
-  "map_id4_name": "RESTAURATION 2",
-  "map_id4_description": "BLA",
-  "map_id4_selling": "En vente sur cette espace :",
+  "map_id4_name": "AREA PRODUTTORI",
+  "map_id4_description": "Uno spazio interamente dedicato ai produttori locali",
+  "map_id4_selling": "In vendita in questo spazio:",
 
-  "map_id5_name": "RESTAURATION 3",
-  "map_id5_description": "BLA",
-  "map_id5_selling": "En vente sur cette espace :",
+  "map_id5_name": "FOOD TRUCK 1",
+  "map_id5_description": " ",
+  "map_id5_selling": "In vendita in questo spazio:",
 
-  "map_id6_name": "SCENE PRINCIPALE",
-  "map_id6_description": "BLA",
-  "map_id6_selling": "BLA",
+  "map_id6_name": "GRANDE PALCO",
+  "map_id6_description": "Vieni a scoprire i nostri talenti da tutta la Francia!",
+  "map_id6_selling": "Su questo palco si esibiranno:",
 
-  "map_id7_name": "RECHARGE LYDIA",
-  "map_id7_description": "BLA",
+  "map_id7_name": "LYDIA CHARGE",
+  "map_id7_description": " ",
 
-  "map_id8_name": "SCENE DJ",
-  "map_id8_description": "BLA",
-  "map_id8_selling": "BLA",
+  "map_id8_name": "DJ STAGE",
+  "map_id8_description": "C'è come una melodia da nightclub che ci è mancato molto",
+  "map_id8_selling": "Su questo palco si esibiranno:",
 
-  "map_id9_name": "SCENE DJ",
-  "map_id9_description": "BLA",
-  "map_id9_selling": "BLA",
+  "map_id9_name": "DJ STAGE",
+  "map_id9_description": "C'è come una melodia da nightclub che ci è mancato molto",
+  "map_id9_selling": "Su questo palco si esibiranno:",
 
-  "map_id10_name": "ANIMATION 2",
-  "map_id10_description": "BLA",
-  "map_id10_selling": "BLA",
+  "map_id10_name": "BAG JUMP",
+  "map_id10_description": "Hai il coraggio di saltare in questo gigantesco airbag?",
 
-  "map_id11_name": "RESTAURATION 4",
-  "map_id11_description": "BLA",
-  "map_id11_selling": "En vente sur cet espace",
+  "map_id11_name": "FOOD TRUCK 2",
+  "map_id11_description": " ",
+  "map_id11_selling": "In vendita in questo spazio:",
 
-  "map_id12_name": "SCENE ARTISTIQUE",
-  "map_id12_description": "BLA",
-  "map_id12_selling": "BLA"
+  "map_id12_name": "SCENA ARTISTICA",
+  "map_id12_description": "Canto, ballo, musica e arte: un quartetto di follia!",
+  "map_id12_selling": "Su questo palco si esibiranno:"
 }

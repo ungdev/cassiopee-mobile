@@ -120,9 +120,8 @@ export default FIGURES = [
   {
     id: '10',
     name: i18n.t('map_id10_name'),
-    shape: 'circle',
     description: i18n.t('map_id10_description'),
-    selling: i18n.t('map_id10_selling'),
+    shape: 'circle',
     x1: 209,
     y1: 98,
     radius: 22,

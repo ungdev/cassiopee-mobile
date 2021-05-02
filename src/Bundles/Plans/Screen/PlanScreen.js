@@ -214,6 +214,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     padding: 6,
     color: '#094E6F',
+    textAlign: 'justify',
   },
   select_bouton: {
     width: '96%',

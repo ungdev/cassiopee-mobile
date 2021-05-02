@@ -83,6 +83,8 @@ export class EventItem extends React.Component {
             colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
             style={styles.content}
           >
+            <StyledText style={styles.title}>{event.name}</StyledText>
+
             <Text
               style={{
                 color: '#094E6F',
@@ -104,7 +106,7 @@ export class EventItem extends React.Component {
               }}
             >
               {i18n.t('program_list_place')}{' '}
-              <StyledText style={styles.text}>{event.place}</StyledText>
+              <StyledText style={styles.text}>{event.Place.name}</StyledText>
             </Text>
 
             <Text
@@ -192,10 +194,17 @@ const styles = StyleSheet.create({
     width: '95.7%',
     alignSelf: 'center',
   },
+  title: {
+    textAlign: 'center',
+    color: '#094E6F',
+    fontSize: 18,
+    marginBottom: 8,
+  },
   text: {
     color: '#094E6F',
     fontSize: 16,
     fontWeight: 'normal',
+    textAlign: 'justify',
   },
 })
 

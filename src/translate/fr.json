@@ -128,49 +128,48 @@
   "map_filter_artist": "Artiste",
   "map_filter_food": "Restauration",
 
-  "map_id1_name": "ENTREE PRINCIPALE",
+  "map_id1_name": "ENTRÉE PRINCIPALE",
   "map_id1_description": "N'oubliez pas d'acheter gratuitement votre billet.\nIl vous sera demandé à l'entrée.",
 
-  "map_id2_name": "RESTAURATION 1",
-  "map_id2_description": " ",
+  "map_id2_name": "CHAMPAGNE DE BARFONTARC",
+  "map_id2_description": "Découvrez une cuvée régionale de qualité",
   "map_id2_selling": "En vente sur cette espace :",
 
-  "map_id3_name": "ANIMATION 1",
+  "map_id3_name": "CLUEDO GÉANT",
   "map_id3_description": "L'équipe 'Animation' vous a préparé des petites choses sympathiques",
-  "map_id3_selling": "Activités sur cette zone :",
+  "map_id3_selling": "Enfilez votre casquette de détective et venez résoudre une mystérieuse enquête à l'intérieur de l'ellipse.",
 
-  "map_id4_name": "RESTAURATION 2",
-  "map_id4_description": " ",
+  "map_id4_name": "ESPACE PRODUCTEURS",
+  "map_id4_description": "Un espace entièrement dédié aux producteurs locaux",
   "map_id4_selling": "En vente sur cette espace :",
 
-  "map_id5_name": "BAR 1",
+  "map_id5_name": "FOOD TRUCK 1",
   "map_id5_description": " ",
-  "map_id5_selling": "En vente sur cette espace :",
+  "map_id5_selling": "En vente sur cet espace :",
 
-  "map_id6_name": "SCENE PRINCIPALE",
+  "map_id6_name": "GRANDE SCÈNE",
   "map_id6_description": "Venez découvrir nos talents venus de toute la France !",
   "map_id6_selling": "Se produiront sur cette scène :",
 
   "map_id7_name": "RECHARGE LYDIA",
   "map_id7_description": " ",
 
-  "map_id8_name": "SCENE DJ",
+  "map_id8_name": "SCÈNE DJ",
   "map_id8_description": "Il y a comme un air de discothèque qui nous a beaucoup manqué",
   "map_id8_selling": "Se produiront sur cette scène :",
 
-  "map_id9_name": "SCENE DJ",
+  "map_id9_name": "SCÈNE DJ",
   "map_id9_description": "Il y a comme un air de discothèque qui nous a beaucoup manqué",
   "map_id9_selling": "Se produiront sur cette scène :",
 
-  "map_id10_name": "ANIMATION 2",
-  "map_id10_description": "L'équipe 'Animation' vous a préparé des petites choses sympathiques",
-  "map_id10_selling": "Activités sur cette zone :",
+  "map_id10_name": "BAG JUMP",
+  "map_id10_description": "Oserez-vous sauter dans cet airbag géant ?",
 
-  "map_id11_name": "BAR 2",
+  "map_id11_name": "FOOD TRUCK 2",
   "map_id11_description": " ",
   "map_id11_selling": "En vente sur cet espace :",
 
-  "map_id12_name": "SCENE ARTISTIQUE",
-  "map_id12_description": "Le chant, la dance, la musique et les arts : un quatuor de folie !",
+  "map_id12_name": "SCÈNE ARTISTIQUE",
+  "map_id12_description": "Le chant, la danse, la musique et les arts : un quatuor de folie !",
   "map_id12_selling": "Se produiront sur cette scène :"
 }
