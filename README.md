@@ -18,13 +18,17 @@ Mobile app for UTT's Gala : Cassiopée
   cd cassiopee-mobile
   ```
 
-2. Install dependencies :
+2. Install Node.js 
+
+https://nodejs.org/en/ 
+
+3. Install dependencies :
 
 - ```bash
-  npm
+  npm install
   ```
 
-3. Launch the app on Expo :
+4. Launch the app on Expo :
 
 - ```bash
   npm start
@@ -36,12 +40,12 @@ Mobile app for UTT's Gala : Cassiopée
 
 (When you run expo start, the CLI uses Metro to bundle JavaScript for Android and iOS platforms)
 
-4. Test on Android emulator :
+5. Test on Android emulator :
 
 - Install [Android Studio](https://developer.android.com/studio) and config AVD Manager with a virtual devices
 - After Metro opens a page in your browser, press "a" in your terminal
 
-5. Test on physical iOS/Android device :
+6. Test on physical iOS/Android device :
 
 - Install "Expo Go" on AppStore/PlayStore
 - Flash QR-code in the terminal with you device to emulate app

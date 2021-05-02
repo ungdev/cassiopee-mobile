@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "925763504127",
-    "project_id": "testcassiopee",
-    "storage_bucket": "testcassiopee.appspot.com"
+    "project_number": "207770492239",
+    "project_id": "cassiopee-gala",
+    "storage_bucket": "cassiopee-gala.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:925763504127:android:54f88575bb1cc409b989ca",
+        "mobilesdk_app_id": "1:207770492239:android:53905c286d40eae67af93a",
         "android_client_info": {
-          "package_name": "com.galautt.cassiopeetest"
+          "package_name": "fr.uttnetgroup.gala"
         }
       },
       "oauth_client": [
         {
-          "client_id": "925763504127-sgeatmucnmptmt9mlrd59vh12n0gfoob.apps.googleusercontent.com",
+          "client_id": "207770492239-5k4luejpjdcr7jh50cq04skrddpuoca6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD0OTegps1WC4RaLeDoTVWjxqKekz0Fhpk"
+          "current_key": "AIzaSyD0Gfix-xx8Nr50jGGoTAW6KylgYyQVrHM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "925763504127-sgeatmucnmptmt9mlrd59vh12n0gfoob.apps.googleusercontent.com",
+              "client_id": "207770492239-5k4luejpjdcr7jh50cq04skrddpuoca6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
