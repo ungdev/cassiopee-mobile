@@ -48,25 +48,12 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   image: {
-    height: Dimensions.get('screen').height < 600 ? 150 : 200,
+    height: Dimensions.get('screen').height < 600 ? 150 : 180,
     position: 'relative',
     resizeMode: 'contain',
   },
 })
 
-if (Device.isTablet) {
-  Object.assign(styles, {
-    item_container: {
-      height: 280,
-      width: '50%',
-      alignite: 'center',
-    },
-    image: {
-      height: 280,
-      position: 'relative',
-      resizeMode: 'contain',
-    },
-  })
-}
+
 
 export default PartenairesItem

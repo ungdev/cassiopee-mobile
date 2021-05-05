@@ -128,6 +128,7 @@ class PlanScreen extends Component {
                   }
                   containerStyle={{
                     alignSelf: 'center',
+                    justifyContent:'center'
                   }}
                   selectedAreaId={this.state.selectedAreaId}
                 />

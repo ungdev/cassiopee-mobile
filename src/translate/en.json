@@ -133,26 +133,25 @@
 
   "map_id2_name": "BARFONTARC CHAMPAGNE",
   "map_id2_description": "Discover a quality regional cuvée",
-  "map_id2_selling": "On sale in this space:",
+  "map_id2_selling": "On sale in this space: \n\n- Brut Tradition\n- Millésime Sainte Germaine 2011",
 
   "map_id3_name": "GIANT CLUEDO",
   "map_id3_description": "The 'Animation' team has prepared some nice little things for you",
   "map_id3_selling": "Put on your detective cap and come solve a mysterious investigation inside the ellipse.",
 
-  "map_id4_name": "PRODUCERS AREA",
-  "map_id4_description": "A space entirely dedicated to local producers",
-  "map_id4_selling": "On sale in this space:",
-
+  "map_id4_name": "ASTRÉE STAND & GOBBYS SALE",
+  "map_id4_description": "Discover the Astrée association which supports people in very lonely situations and helps them restore social ties.",
+  
   "map_id5_name": "FOOD TRUCK 1",
-  "map_id5_description": " ",
+  "map_id5_description": "Peckish ? This is where it happens.",
   "map_id5_selling": "On sale in this space:",
 
   "map_id6_name": "MAIN STAGE",
   "map_id6_description": "Come and discover our talents from all over France!",
   "map_id6_selling": "Will perform on this stage:",
 
-  "map_id7_name": "LYDIA CHARGE",
-  "map_id7_description": " ",
+  "map_id7_name": "LYF PAY CHARGE",
+  "map_id7_description": "Reload your account and find all the information from our partner Lyf Pay",
 
   "map_id8_name": "DJ STAGE",
   "map_id8_description": "There is like a nightclub tune that we missed a lot",
@@ -166,7 +165,7 @@
   "map_id10_description": "Do you dare to jump in this giant airbag?",
 
   "map_id11_name": "FOOD TRUCK 2",
-  "map_id11_description": " ",
+  "map_id11_description": "Peckish ? This is where it happens.",
   "map_id11_selling": "On sale in this space:",
 
   "map_id12_name": "ARTISTIC SCENE",

@@ -4,7 +4,7 @@
     "slug": "cassiopee2021",
     "privacy": "public",
     "platforms": ["ios", "android"],
-    "version": "2.0.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/logo_appli_1024px.png",
     "splash": {
@@ -19,7 +19,7 @@
     "assetBundlePatterns": ["./src/images/*"],
     "ios": {
       "bundleIdentifier": "fr.uttnetgroup.gala",
-      "buildNumber": "2.0.0",
+      "buildNumber": "2.0.1",
       "supportsTablet": true
     },
     "android": {

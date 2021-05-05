@@ -134,26 +134,25 @@
 
   "map_id2_name": "BARFONTARC CHAMPAGNE",
   "map_id2_description": "Descubra una cuvée regional de calidad",
-  "map_id2_selling": "A la venta en este espacio:",
+  "map_id2_selling": "A la venta en este espacio: \n\n- Brut Tradition\n- Millésime Sainte Germaine 2011",
 
   "map_id3_name": "CLUEDO GIGANTE",
   "map_id3_description": "El equipo de 'Animación' ha preparado algunas cositas agradables para ti",
   "map_id3_selling": "Ponte tu gorra de detective y ven a resolver una misteriosa investigación dentro de la elipse.",
 
-  "map_id4_name": "AREA DE PRODUCTORES",
-  "map_id4_description": "Un espacio íntegramente dedicado a los productores locales",
-  "map_id4_selling": "A la venta en este espacio:",
+  "map_id4_name": "REBAJAS ASTRÉE STAND & GOBBYS",
+  "map_id4_description": "Descubra la asociación Astrée que apoya a personas en situaciones muy solitarias y les ayuda a restablecer los lazos sociales.",
 
   "map_id5_name": "FOOD TRUCK 1",
-  "map_id5_description": " ",
+  "map_id5_description": "¿Hambriento? Aquí es donde sucede.",
   "map_id5_selling": "A la venta en este espacio:",
 
   "map_id6_name": "GRAN ETAPA",
   "map_id6_description": "¡Ven y descubre nuestros talentos de toda Francia!",
   "map_id6_selling": "Actuará en este escenario:",
 
-  "map_id7_name": "CARGO DE LYDIA",
-  "map_id7_description": " ",
+  "map_id7_name": "CARGO DE LYF PAY",
+  "map_id7_description": "Recargue su cuenta y encuentre toda la información de nuestro socio Lyf Pay",
 
   "map_id8_name": "ETAPA DE DJ",
   "map_id8_description": "Hay como una melodía de discoteca que nos perdimos mucho",
@@ -167,7 +166,7 @@
   "map_id10_description": "¿Te atreves a saltar en este airbag gigante?",
 
   "map_id11_name": "FOOD TRUCK 2",
-  "map_id11_description": " ",
+  "map_id11_description": "¿Hambriento? Aquí es donde sucede.",
   "map_id11_selling": "A la venta en este espacio:",
 
   "map_id12_name": "ESCENA ARTÍSTICA",

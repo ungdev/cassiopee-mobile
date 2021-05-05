@@ -134,26 +134,25 @@
 
   "map_id2_name": "BARFONTARC CHAMPAGNE",
   "map_id2_description": "Entdecken Sie eine hochwertige regionale Cuvée",
-  "map_id2_selling": "Zum Verkauf in diesem Raum:",
+  "map_id2_selling": "Zum Verkauf in diesem Raum: \n\n- Brut Tradition\n- Millésime Sainte Germaine 2011",
 
   "map_id3_name": "RIESIGER CLUEDO",
   "map_id3_description": "Das 'Animation'-Team hat einige nette kleine Dinge für Sie vorbereitet",
   "map_id3_selling": "Setzen Sie Ihre Detektivmütze auf und lösen Sie eine mysteriöse Untersuchung innerhalb der Ellipse.",
 
-  "map_id4_name": "HERSTELLERBEREICH",
-  "map_id4_description": "Ein Raum, der ausschließlich lokalen Produzenten gewidmet ist",
-  "map_id4_selling": "Zum Verkauf in diesem Raum:",
+  "map_id4_name": "ASTRÉE STAND & GOBBYS VERKAUF",
+  "map_id4_description": "Entdecken Sie den Astrée-Verein, der Menschen in sehr einsamen Situationen unterstützt und ihnen hilft, soziale Bindungen wiederherzustellen.",
 
   "map_id5_name": "FOOD TRUCK 1",
-  "map_id5_description": " ",
+  "map_id5_description": "Peckish? Hier passiert es.",
   "map_id5_selling": "Zum Verkauf in diesem Raum:",
 
   "map_id6_name": "GROSSE BÜHNE",
   "map_id6_description": "Kommen Sie und entdecken Sie unsere Talente aus ganz Frankreich!",
   "map_id6_selling": "Wird auf dieser Bühne auftreten:",
 
-  "map_id7_name": "LYDIA CHARGE",
-  "map_id7_description": " ",
+  "map_id7_name": "LYF PAY CHARGE",
+  "map_id7_description": "Laden Sie Ihr Konto neu und finden Sie alle Informationen von unserem Partner Lyf Pay",
 
   "map_id8_name": "DJ STAGE",
   "map_id8_description": "Es ist wie eine Nachtclub-Melodie, die wir sehr vermisst haben",
@@ -167,7 +166,7 @@
   "map_id10_description": "Wagen Sie es, in diesen riesigen Airbag zu springen?",
 
   "map_id11_name": "FOOD TRUCK 2",
-  "map_id11_description": " ",
+  "map_id11_description": "Peckish? Hier passiert es.",
   "map_id11_selling": "Zum Verkauf in diesem Raum:",
 
   "map_id12_name": "KÜNSTLERISCHE SZENE",

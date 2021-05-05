@@ -134,26 +134,25 @@
 
   "map_id2_name": "CHAMPAGNE DE BARFONTARC",
   "map_id2_description": "发现优质的本地小酒馆",
-  "map_id2_selling": "在此空间发售：",
+  "map_id2_selling": "在此空间发售： \n\n- Brut Tradition\n- Millésime Sainte Germaine 2011",
 
   "map_id3_name": "CLUEDO GÉANT",
   "map_id3_description": "“动画”团队为您准备了一些不错的小东西",
   "map_id3_selling": "戴上侦探帽，然后解决椭圆形内部的神秘问题。",
 
-  "map_id4_name": "生产区",
-  "map_id4_description": "一个完全致力于本地生产者的空间",
-  "map_id4_selling": "在此空间发售：",
+  "map_id4_name": "ASTRÉESTAND＆GOBBYS促销",
+  "map_id4_description": "发现Astrée协会，该协会在非常孤独的情况下为人们提供支持，并帮助他们恢复社交联系。",
 
   "map_id5_name": "FOOD TRUCK 1",
-  "map_id5_description": " ",
+  "map_id5_description": "啄食？ 这就是它发生的地方。",
   "map_id5_selling": "在此空间发售：",
 
   "map_id6_name": "大舞台",
   "map_id6_description": "快来发现我们来自法国各地的才能！",
   "map_id6_selling": "将在此阶段执行：",
 
-  "map_id7_name": "LYDIA CHARGE",
-  "map_id7_description": " ",
+  "map_id7_name": "LYF PAY CHARGE",
+  "map_id7_description": "重新加载您的帐户并找到我们合作伙伴Lyf Pay提供的所有信息",
 
   "map_id8_name": "DJ舞台",
   "map_id8_description": "就像夜总会的曲子，我们错过了很多",
@@ -167,7 +166,7 @@
   "map_id10_description": "你敢跳上这个巨大的安全气囊吗？",
 
   "map_id11_name": "FOOD TRUCK 2",
-  "map_id11_description": " ",
+  "map_id11_description": "啄食？ 这就是它发生的地方。",
   "map_id11_selling": "在此空间发售：",
 
   "map_id12_name": "艺术现场",

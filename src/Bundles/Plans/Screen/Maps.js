@@ -48,7 +48,6 @@ export default FIGURES = [
     name: i18n.t('map_id4_name'),
     shape: 'rectangle',
     description: i18n.t('map_id4_description'),
-    selling: i18n.t('map_id4_selling'),
     x2: 130,
     y2: 166,
     x1: 80,
@@ -59,8 +58,8 @@ export default FIGURES = [
   {
     id: '5',
     name: i18n.t('map_id5_name'),
-    shape: 'rectangle',
     description: i18n.t('map_id5_description'),
+    shape: 'rectangle',
     selling: i18n.t('map_id5_selling'),
     x2: 155,
     y2: 230,
@@ -131,8 +130,8 @@ export default FIGURES = [
   {
     id: '11',
     name: i18n.t('map_id11_name'),
-    shape: 'rectangle',
     description: i18n.t('map_id11_description'),
+    shape: 'rectangle',
     selling: i18n.t('map_id11_selling'),
     x2: 280,
     y2: 122,

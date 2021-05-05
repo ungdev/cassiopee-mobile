@@ -133,26 +133,25 @@
 
   "map_id2_name": "CHAMPAGNE DE BARFONTARC",
   "map_id2_description": "Découvrez une cuvée régionale de qualité",
-  "map_id2_selling": "En vente sur cette espace :",
+  "map_id2_selling": "En vente sur cette espace : \n\n- Brut Tradition\n- Millésime Sainte Germaine 2011",
 
   "map_id3_name": "CLUEDO GÉANT",
   "map_id3_description": "L'équipe 'Animation' vous a préparé des petites choses sympathiques",
   "map_id3_selling": "Enfilez votre casquette de détective et venez résoudre une mystérieuse enquête à l'intérieur de l'ellipse.",
 
-  "map_id4_name": "ESPACE PRODUCTEURS",
-  "map_id4_description": "Un espace entièrement dédié aux producteurs locaux",
-  "map_id4_selling": "En vente sur cette espace :",
+  "map_id4_name": "STAND ASTRÉE & VENTE DE GOBBYS",
+  "map_id4_description": "Découvrer l'association Astrée qui accompagne les personnes en situation de grande solitude et les aide à restaurer le lien social.",
 
   "map_id5_name": "FOOD TRUCK 1",
-  "map_id5_description": " ",
+  "map_id5_description": "Une petite faim ? C'est ici que ça se passe.",
   "map_id5_selling": "En vente sur cet espace :",
 
   "map_id6_name": "GRANDE SCÈNE",
   "map_id6_description": "Venez découvrir nos talents venus de toute la France !",
   "map_id6_selling": "Se produiront sur cette scène :",
 
-  "map_id7_name": "RECHARGE LYDIA",
-  "map_id7_description": " ",
+  "map_id7_name": "RECHARGE LYF PAY",
+  "map_id7_description": "Rechargez votre compte et retrouvez toutes les infos de notre partenaire Lyf Pay",
 
   "map_id8_name": "SCÈNE DJ",
   "map_id8_description": "Il y a comme un air de discothèque qui nous a beaucoup manqué",
@@ -166,7 +165,7 @@
   "map_id10_description": "Oserez-vous sauter dans cet airbag géant ?",
 
   "map_id11_name": "FOOD TRUCK 2",
-  "map_id11_description": " ",
+  "map_id11_description": "Une petite faim ? C'est ici que ça se passe.",
   "map_id11_selling": "En vente sur cet espace :",
 
   "map_id12_name": "SCÈNE ARTISTIQUE",
