@@ -21,8 +21,6 @@ class Reglement extends React.Component {
     const { modalVisible } = this.state
     return (
       <ScrollView contentContainerStyle={styles.container}>
-        <TitleText style={styles.t}>{i18n.t('rule_title')}</TitleText>
-
         <LinearGradient
           start={[0, 1]}
           end={[1, 0]}
@@ -53,6 +51,9 @@ class Reglement extends React.Component {
           colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
           style={styles.container_rules}
         >
+          <View style={styles.container_second}>
+            <TitleText style={styles.h}>{i18n.t('rule_mask_title')}</TitleText>
+          </View>
           <StyledText style={styles.textimportant}>
             {i18n.t('rule_mask')}
           </StyledText>
@@ -118,14 +119,17 @@ class Reglement extends React.Component {
           <StyledText style={styles.p}>{i18n.t('rule_local')}</StyledText>
         </LinearGradient>
 
-        <TitleText style={styles.t}>{i18n.t('rule_credits_title')}</TitleText>
-
         <LinearGradient
           start={[0, 1]}
           end={[1, 0]}
           colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
           style={styles.container_rules}
         >
+          <View style={styles.container_second}>
+            <TitleText style={styles.h}>
+              {i18n.t('rule_credits_title')}
+            </TitleText>
+          </View>
           <StyledText style={styles.p}>
             {i18n.t('rule_credits_one')}{' '}
             <StyledText
@@ -138,16 +142,17 @@ class Reglement extends React.Component {
           </StyledText>
         </LinearGradient>
 
-        <TitleText style={styles.h}>
-          {i18n.t('rule_development_title')}
-        </TitleText>
-
         <LinearGradient
           start={[0, 1]}
           end={[1, 0]}
           colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
           style={styles.container_rules}
         >
+          <View style={styles.container_second}>
+            <TitleText style={styles.h}>
+              {i18n.t('rule_development_title')}
+            </TitleText>
+          </View>
           <StyledText style={styles.p}>{i18n.t('rule_development')}</StyledText>
         </LinearGradient>
       </ScrollView>

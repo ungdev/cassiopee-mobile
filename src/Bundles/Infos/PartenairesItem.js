@@ -1,7 +1,7 @@
 import React from 'react'
 import { TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 import env from '../../config'
-import Device from 'react-native-device-detection'
 import BeautyWebView from 'react-native-beauty-webview'
 
 class PartenairesItem extends React.Component {
@@ -32,10 +32,17 @@ class PartenairesItem extends React.Component {
           progressColor={'#22749C'}
           progressBarType={'background'}
         />
-        <Image
-          style={styles.image}
-          source={{ uri: `${env.API_URI}/api/v1${partenaire.image}` }}
-        />
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
+          <Image
+            style={styles.image}
+            source={{ uri: `${env.API_URI}/api/v1${partenaire.image}` }}
+          />
+        </LinearGradient>
       </TouchableOpacity>
     )
   }
@@ -51,9 +58,8 @@ const styles = StyleSheet.create({
     height: Dimensions.get('screen').height < 600 ? 150 : 180,
     position: 'relative',
     resizeMode: 'contain',
+    margin: 5,
   },
 })
-
-
 
 export default PartenairesItem

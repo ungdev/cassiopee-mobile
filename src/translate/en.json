@@ -11,7 +11,7 @@
   "menu_foodtruck": "Food Truck",
 
   "welcome": "Welcome on Cassiopée App' !",
-  "welcome2": "The event opens its doors on \nJune 5th, 2021.",
+  "welcome2": "The event opens its doors on \nJune 5th, 2021 at 2.30pm.",
   "open_message": "Cassiopée opened its doors!",
   "good_message": "We wish you a good day.",
   "days": "Days",
@@ -141,7 +141,7 @@
 
   "map_id4_name": "ASTRÉE STAND & GOBBYS SALE",
   "map_id4_description": "Discover the Astrée association which supports people in very lonely situations and helps them restore social ties.",
-  
+
   "map_id5_name": "FOOD TRUCK 1",
   "map_id5_description": "Peckish ? This is where it happens.",
   "map_id5_selling": "On sale in this space:",
