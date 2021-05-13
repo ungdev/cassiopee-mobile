@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { SafeAreaView, View } from 'react-native'
-import FoodTruckNavigator from '../FoodTruckNavigator'
-import i18n from '../../../translate/index'
+import { View } from 'react-native'
+import FoodTruckNavigator from './FoodTruckNavigator'
 
 class FoodTruckScreen extends Component {
   render() {

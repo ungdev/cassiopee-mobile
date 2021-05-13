@@ -1,45 +1,42 @@
-import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
 import {
   View,
-  RefreshControl,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  Dimensions,
-  SafeAreaView,
+  FlatList,
   ActivityIndicator,
+  RefreshControl,
   ScrollView,
+  Dimensions,
+  Image,
+  StyleSheet,
+  SafeAreaView,
 } from 'react-native'
-import ComingSoon from '../../../components/ComingSoon.js'
-import Header from '../../../components/Header.js'
-import { TitleText } from '../../../components/TitleText.js'
-import { api_bouffe } from '../../../lib/api_bouffe.js'
-import i18n from '../../../translate/index'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { api_bouffe } from '../../../../lib/api_bouffe'
+import i18n from '../../../../translate/index'
+import { LinearGradient } from 'expo-linear-gradient'
+import ZeroCommande from '../../Components/ZeroCommande'
+import { OrderItem } from '../../Components/OrderItem'
+import Header2 from '../../../../components/Header2'
+import { StyledText } from '../../../../components/StyledText'
 
-class FoodTruckChoice extends React.Component {
+class OrdersFoodTruck2 extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: false,
+      loading: true,
       refreshing: false,
-      coming: false,
-      vendors1: null,
-      vendors2: null,
+      orders: [],
+      coming: true,
     }
     this.getDataFromServer()
   }
 
   getDataFromServer = async () => {
-    const { coming, vendors } = this.state
+    const { coming } = this.state
     try {
-      const result = await api_bouffe.get('vendors')
-      this.setState({
-        vendors1: result.data[0].name,
-        vendors2: result.data[1].name,
-        loading: false,
-        refreshing: false,
-      })
+      const result = await api_bouffe.get('vendors/Y7YSSE/orders')
+
+      this.setState({ orders: result.data, loading: false, refreshing: false })
       if (result.data.length === 0) {
         this.setState({ coming: true })
       } else {
@@ -55,13 +52,18 @@ class FoodTruckChoice extends React.Component {
     this.setState({ refreshing: true })
     this.getDataFromServer()
   }
-
   render() {
-    const { vendors1, vendors2, loading, coming, refreshing } = this.state
+    const { orders, loading, refreshing, coming } = this.state
     if (loading) {
       return (
         <React.Fragment>
-          <Header bigtitle={i18n.t('menu_foodtruck')} />
+          <TouchableWithoutFeedback
+            onPress={() => {
+              this.props.navigation.navigate('Food Truck 2')
+            }}
+          >
+            <Header2 bigtitle={i18n.t('foodtruck_select_order')} />
+          </TouchableWithoutFeedback>
           <SafeAreaView style={styles.droidSafeArea}>
             <LinearGradient
               start={[0, 1]}
@@ -79,7 +81,13 @@ class FoodTruckChoice extends React.Component {
     if (coming) {
       return (
         <React.Fragment>
-          <Header bigtitle={i18n.t('menu_foodtruck')} />
+          <TouchableWithoutFeedback
+            onPress={() => {
+              this.props.navigation.navigate('Food Truck 2')
+            }}
+          >
+            <Header2 bigtitle={i18n.t('foodtruck_select_order')} />
+          </TouchableWithoutFeedback>
           <SafeAreaView style={styles.droidSafeArea}>
             <LinearGradient
               start={[0, 1]}
@@ -89,7 +97,7 @@ class FoodTruckChoice extends React.Component {
               <View style={styles.containerBottomImage}>
                 <Image
                   style={styles.bottomImage}
-                  source={require('../../../../assets/bottom_ocean.png')}
+                  source={require('../../../../../assets/bottom_ocean.png')}
                 />
               </View>
               <ScrollView
@@ -103,7 +111,7 @@ class FoodTruckChoice extends React.Component {
                   />
                 }
               >
-                <ComingSoon />
+                <ZeroCommande />
               </ScrollView>
             </LinearGradient>
           </SafeAreaView>
@@ -112,29 +120,38 @@ class FoodTruckChoice extends React.Component {
     } else {
       return (
         <React.Fragment>
-          <Header bigtitle={i18n.t('menu_foodtruck')} />
-          <SafeAreaView
-            style={{
-              backgroundColor: '#0A3D60',
-              flex: 1,
+          <TouchableWithoutFeedback
+            onPress={() => {
+              this.props.navigation.navigate('Food Truck 2')
             }}
           >
+            <Header2 bigtitle={i18n.t('foodtruck_select_order')} />
+          </TouchableWithoutFeedback>
+          <SafeAreaView style={styles.droidSafeArea}>
             <LinearGradient
-              style={{ height: '100%' }}
               start={[0, 1]}
               end={[1, 0]}
               colors={['#22749C', '#43B9D5']}
+              style={{ height: '100%' }}
             >
               <View style={styles.containerBottomImage}>
                 <Image
                   style={styles.bottomImage}
-                  source={require('../../../../assets/bottom_ocean.png')}
+                  source={require('../../../../../assets/bottom_ocean.png')}
                 />
               </View>
-
-              <ScrollView
-                style={{ height: '100%' }}
-                contentContainerStyle={styles.main_container}
+              <FlatList
+                data={orders}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item }) => (
+                  <OrderItem
+                    order={item.id}
+                    display={item.displayId}
+                    firstname={item.firstname}
+                    lastname={item.lastnameTrimmed}
+                    status={item.status}
+                  />
+                )}
                 refreshControl={
                   <RefreshControl
                     //refresh control used for the Pull to Refresh
@@ -143,26 +160,16 @@ class FoodTruckChoice extends React.Component {
                     tintColor={'white'}
                   />
                 }
-              >
-                <TitleText style={styles.tipText}>
-                  {i18n.t('foodtruck_choose')}
-                </TitleText>
-                <TouchableOpacity
-                  style={styles.button}
-                  title="Go to TRUCK 1"
-                  onPress={() => this.props.navigation.navigate('Food Truck 1')}
-                >
-                  <TitleText style={styles.text}>{vendors1}</TitleText>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                  style={styles.button}
-                  title="Go to TRUCK 2"
-                  onPress={() => this.props.navigation.navigate('Food Truck 2')}
-                >
-                  <TitleText style={styles.text}>{vendors2}</TitleText>
-                </TouchableOpacity>
-              </ScrollView>
+                ListHeaderComponent={
+                  <View>
+                    <StyledText style={styles.bottom_list_text}>
+                      {i18n.t('foodtruck_swipe_down')}
+                      {'\n'}
+                      {i18n.t('foodtruck_go_foodtruck')}
+                    </StyledText>
+                  </View>
+                }
+              />
             </LinearGradient>
           </SafeAreaView>
         </React.Fragment>
@@ -171,44 +178,15 @@ class FoodTruckChoice extends React.Component {
   }
 }
 
-export default FoodTruckChoice
+export default OrdersFoodTruck2
 
 const styles = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
     backgroundColor: '#0A3D60',
   },
-  main_container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%',
-  },
-  button: {
-    width: '90%',
-    height: '20%',
-    justifyContent: 'center',
-    margin: '5%',
-    padding: 5,
-    borderRadius: 0,
-    alignItems: 'center',
-    backgroundColor: '#094E6F',
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: 'transparent',
-  },
-  text: {
-    textAlign: 'center',
-    fontSize: 28,
-    color: 'white',
-  },
-  tipText: {
-    fontSize: 28,
-    color: 'white',
-    marginBottom: '10%',
-  },
   containerBottomImage: {
+    flex: 1,
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -222,5 +200,11 @@ const styles = StyleSheet.create({
     height: (Dimensions.get('screen').height * 17) / 100,
     width: Dimensions.get('screen').width,
     resizeMode: 'cover',
+  },
+  bottom_list_text: {
+    padding: 5,
+    fontSize: 17,
+    textAlign: 'center',
+    color: '#094E6F',
   },
 })

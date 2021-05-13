@@ -10,9 +10,9 @@ import SocialScreen from '../Bundles/Social/Screen/SocialScreen'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Icone from 'react-native-vector-icons/FontAwesome5'
 import i18n from '../translate/index'
-import FoodTruckScreen from '../Bundles/FoodTruck/Screen/FoodTruckScreen'
 import { LinearGradient } from 'expo-linear-gradient'
 import { SafeAreaView } from 'react-navigation'
+import FoodTruckScreen from '../Bundles/FoodTruck/FoodTruckScreen'
 const Device = require('react-native-device-detection')
 
 const CustomDrawerComponent = (props) => (
@@ -135,7 +135,7 @@ const DrawerNavigator = createDrawerNavigator(
         ),
       },
     },
-    /*Food_Truck: {
+    Food_Truck: {
       screen: FoodTruckScreen,
       navigationOptions: {
         title: i18n.t('menu_foodtruck'),
@@ -146,7 +146,7 @@ const DrawerNavigator = createDrawerNavigator(
           />
         ),
       },
-    },*/
+    },
     /*Playlist: {
       screen: PlaylistScreen,
       navigationOptions: {
