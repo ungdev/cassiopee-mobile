@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {
+  Linking,
   View,
   ScrollView,
   StyleSheet,
@@ -9,7 +10,7 @@ import {
   Dimensions,
   SafeAreaView,
 } from 'react-native'
-
+import { Icon } from 'react-native-elements'
 import { LinearGradient } from 'expo-linear-gradient'
 import Header from '../../../components/Header'
 import CountDown from 'react-native-countdown-component'
@@ -26,6 +27,9 @@ class HomeScreen extends Component {
     super(props)
     this.state = {
       totalDuration: '',
+      now: '',
+      start: '',
+      end: '',
       modalVisible: false,
       modal2Visible: false,
     }
@@ -40,10 +44,9 @@ class HomeScreen extends Component {
   }
 
   render() {
-    const x = this.state.totalDuration
-    const { modalVisible, modal2Visible } = this.state
+    const { modalVisible, modal2Visible, now, end, start } = this.state
     console.log('token stocké', this.props.keyToken)
-    if (x <= 0) {
+    if ((now > start) & (now < end)) {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_home')} />
@@ -54,8 +57,8 @@ class HomeScreen extends Component {
               colors={['#22749C', '#43B9D5']}
             >
               <BeautyWebView
-                visible={modalVisible} // Reguired for open and close
-                onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+                visible={modal2Visible} // Reguired for open and close
+                onPressClose={() => this.setModal2Visible(!modal2Visible)} // Reguired for closing the modal
                 url={'https://billetterie.gala.utt.fr'}
                 headerBackground={'#094E6F'}
                 backgroundColor={'#094E6F'}
@@ -87,9 +90,6 @@ class HomeScreen extends Component {
                     <TitleText style={styles.welcome}>
                       {i18n.t('welcome')}
                     </TitleText>
-                    <StyledText style={styles.welcome2}>
-                      {i18n.t('welcome2')}
-                    </StyledText>
                   </LinearGradient>
 
                   <LinearGradient
@@ -134,6 +134,109 @@ class HomeScreen extends Component {
                       </StyledText>
                     </TouchableOpacity>
                   </View>
+                </View>
+              </ScrollView>
+            </LinearGradient>
+          </SafeAreaView>
+        </React.Fragment>
+      )
+    } else if (now > end) {
+      return (
+        <React.Fragment>
+          <Header bigtitle={i18n.t('menu_home')} />
+          <SafeAreaView style={styles.droidSafeArea}>
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
+            >
+              <View style={styles.containerBottomImage}>
+                <Image
+                  style={styles.bottomImage}
+                  source={require('../../../../assets/bottom_ocean_fish.png')}
+                />
+              </View>
+              <ScrollView style={styles.scroll}>
+                <View style={styles.container}>
+                  <View style={styles.container_image}>
+                    <Image
+                      style={styles.image}
+                      source={require('../../../../assets/logo_2021_dayedition.png')}
+                    />
+                  </View>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_welcome}
+                  >
+                    <TitleText style={styles.welcome}>
+                      {i18n.t('see_you')}
+                    </TitleText>
+                    <StyledText style={styles.text_end}>
+                      {i18n.t('see_you_info')}
+                    </StyledText>
+                  </LinearGradient>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_end}
+                  >
+                    <StyledText style={styles.text_end}>
+                      {i18n.t('see_you_follow')}
+                    </StyledText>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignSelf: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <TouchableOpacity
+                        onPress={() =>
+                          Linking.openURL('https://www.facebook.com/gala.utt')
+                        }
+                        style={{
+                          marginHorizontal: 10,
+                          marginVertical: 5,
+                        }}
+                      >
+                        <Icon
+                          name="facebook"
+                          type="font-awesome-5"
+                          color="#094E6F"
+                          size={Device.isTablet ? 60 : 50}
+                          onPress={() =>
+                            Linking.openURL('https://www.facebook.com/gala.utt')
+                          }
+                        />
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        onPress={() =>
+                          Linking.openURL('https://www.facebook.com/gala.utt')
+                        }
+                        style={{
+                          marginHorizontal: 10,
+                          marginVertical: 5,
+                        }}
+                      >
+                        <Icon
+                          name="instagram"
+                          type="font-awesome"
+                          color="#094E6F"
+                          size={Device.isTablet ? 60 : 50}
+                          onPress={() =>
+                            Linking.openURL(
+                              'https://www.instagram.com/cassiopee_galautt/'
+                            )
+                          }
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  </LinearGradient>
                 </View>
               </ScrollView>
             </LinearGradient>
@@ -253,7 +356,6 @@ class HomeScreen extends Component {
   }
 
   componentDidMount() {
-    var that = this
     var date = moment().utcOffset(2).format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
     var expirydate = '2021-06-05 02:30:00' //Date of event in am/pm format
@@ -263,10 +365,16 @@ class HomeScreen extends Component {
     var seconds = parseInt(diffr.seconds())
     var d = hours * 60 * 60 + minutes * 60 + seconds
     //converting in seconds
-    that.setState({ totalDuration: d })
-    that.setState({ heure: hours })
-    that.setState({ minute: minutes })
-    that.setState({ seconde: seconds })
+    var date_now = Date.now() //allows to display different info in HomeScreen in fonction of hours
+    var date_start = new Date('June 05, 2021 14:30:00').getTime() //allows to display different info in HomeScreen in fonction of hours
+    var date_end = new Date('June 05, 2021 19:00:00').getTime() //allows to display different info in HomeScreen in fonction of hours
+    this.setState({ totalDuration: d })
+    this.setState({ heure: hours })
+    this.setState({ minute: minutes })
+    this.setState({ seconde: seconds })
+    this.setState({ now: date_now })
+    this.setState({ end: date_end })
+    this.setState({ start: date_start })
   }
 }
 

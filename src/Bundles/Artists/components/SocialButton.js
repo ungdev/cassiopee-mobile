@@ -75,6 +75,16 @@ class SocialButton extends React.Component {
       case 'web':
         return (
           <TouchableOpacity onPress={() => this._showAlert(url)}>
+            <Icon
+              name="spotify"
+              size={Device.isTablet ? 60 : 45}
+              color={'#094E6F'}
+            />
+          </TouchableOpacity>
+        )
+      case 'spotify':
+        return (
+          <TouchableOpacity onPress={() => this._showAlert(url)}>
             <Icon2
               name="web"
               size={Device.isTablet ? 60 : 45}
