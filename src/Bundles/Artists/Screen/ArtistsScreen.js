@@ -5,15 +5,17 @@ import {
   ActivityIndicator,
   RefreshControl,
   ScrollView,
-  ImageBackground,
   Dimensions,
+  Image,
+  StyleSheet,
+  SafeAreaView,
 } from 'react-native'
 import Header from '../../../components/Header'
 import ComingSoon from '../../../components/ComingSoon'
 import { ArtistItem } from '../components/ArtistItem'
 import { api } from '../../../lib/api'
 import i18n from '../../../translate/index'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { LinearGradient } from 'expo-linear-gradient'
 
 class ArtistsScreen extends React.Component {
   constructor(props) {
@@ -53,17 +55,18 @@ class ArtistsScreen extends React.Component {
     if (loading) {
       return (
         <React.Fragment>
-          <SafeAreaProvider style={{ flex: 1, backgroundColor: '#171530' }}>
-            <ImageBackground
-              source={require('../../../../assets/background_cassiopee_modif.png')}
-              style={{ width: '100%', height: '100%' }}
+          <Header bigtitle={i18n.t('menu_artist')} />
+          <SafeAreaView style={styles.droidSafeArea}>
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
             >
-              <Header bigtitle={i18n.t('menu_artist')} />
-              <View style={{ paddingTop: 20 }}>
+              <View style={{ height: '100%', paddingTop: 20 }}>
                 <ActivityIndicator size="large" color="white" />
               </View>
-            </ImageBackground>
-          </SafeAreaProvider>
+            </LinearGradient>
+          </SafeAreaView>
         </React.Fragment>
       )
     }
@@ -71,13 +74,20 @@ class ArtistsScreen extends React.Component {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_artist')} />
-          <SafeAreaProvider style={{ flex: 1, backgroundColor: '#171530' }}>
-            <ImageBackground
-              source={require('../../../../assets/background_cassiopee_modif.png')}
-              style={{ width: '100%', height: '100%' }}
+          <SafeAreaView style={styles.droidSafeArea}>
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
             >
+              <View style={styles.containerBottomImage}>
+                <Image
+                  style={styles.bottomImage}
+                  source={require('../../../../assets/bottom_ocean.png')}
+                />
+              </View>
               <ScrollView
-                style={{ flex: 1 }}
+                style={{ height: '100%' }}
                 refreshControl={
                   <RefreshControl
                     //refresh control used for the Pull to Refresh
@@ -89,26 +99,27 @@ class ArtistsScreen extends React.Component {
               >
                 <ComingSoon />
               </ScrollView>
-            </ImageBackground>
-          </SafeAreaProvider>
+            </LinearGradient>
+          </SafeAreaView>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_artist')} />
-          <SafeAreaProvider
-            style={{
-              flex:
-                (Platform.OS === 'android' ? 1 : 0) ||
-                (Dimensions.get('screen').height < 600 ? 1 : 0),
-              backgroundColor: '#171530',
-            }}
-          >
-            <ImageBackground
-              source={require('../../../../assets/background_cassiopee_modif.png')}
-              style={{ width: '100%', height: '100%' }}
+          <SafeAreaView style={styles.droidSafeArea}>
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
+              style={{ height: '100%' }}
             >
+              <View style={styles.containerBottomImage}>
+                <Image
+                  style={styles.bottomImage}
+                  source={require('../../../../assets/bottom_ocean.png')}
+                />
+              </View>
               <FlatList
                 data={artists}
                 keyExtractor={(item) => item.id}
@@ -131,8 +142,8 @@ class ArtistsScreen extends React.Component {
                   />
                 }
               />
-            </ImageBackground>
-          </SafeAreaProvider>
+            </LinearGradient>
+          </SafeAreaView>
         </React.Fragment>
       )
     }
@@ -140,3 +151,26 @@ class ArtistsScreen extends React.Component {
 }
 
 export default ArtistsScreen
+
+const styles = StyleSheet.create({
+  droidSafeArea: {
+    flex: 1,
+    backgroundColor: '#0A3D60',
+  },
+  containerBottomImage: {
+    flex: 1,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: '18%',
+    width: '100%',
+  },
+  bottomImage: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: (Dimensions.get('screen').height * 17) / 100,
+    width: Dimensions.get('screen').width,
+    resizeMode: 'cover',
+  },
+})

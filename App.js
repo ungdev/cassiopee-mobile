@@ -7,6 +7,8 @@ import { Provider } from 'react-redux' //distribution store in App
 import Store from './src/store/configureStore'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
+import * as Font from 'expo-font'
+import { AppLoading } from 'expo'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -15,6 +17,20 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    this._loadResourcesAsync()
+    this._firstLaunched()
+  }
+
+  _loadResourcesAsync = async () => {
+    return Promise.all([
+      Font.loadAsync({
+        'brigade-condensed-regular': require('./assets/font/Fundamental_Brigade_Condensed.ttf'),
+        'brigade-regular': require('./assets/font/Fundamental_Brigade.ttf'),
+      }),
+    ])
+  }
+
+  _firstLaunched = async () => {
     AsyncStorage.getItem('alreadyLaunched').then((value) => {
       if (value == null) {
         AsyncStorage.setItem('alreadyLaunched', 'true') // No need to wait for `setItem` to finish, although you might want to handle errors
@@ -30,7 +46,7 @@ export default class App extends React.Component {
     if (this.state.firstLaunch === null) {
       return (
         <ImageBackground
-          source={require('./assets/splash.png')}
+          source={require('./assets/splash_2021.png')}
           style={{ width: '100%', height: '100%', resizeMode: 'center' }}
         ></ImageBackground>
       ) // This is the 'tricky' part: The query to AsyncStorage is not finished, but we have to present something to the user. Null will just render nothing, so you can also put a placeholder of some sort, but effectively the interval between the first mount and AsyncStorage retrieving your data won't be noticeable to the user.
@@ -40,7 +56,7 @@ export default class App extends React.Component {
           <PersistGate
             loading={
               <ImageBackground
-                source={require('./assets/splash.png')}
+                source={require('./assets/splash_2021.png')}
                 style={{ width: '100%', height: '100%', resizeMode: 'center' }}
               ></ImageBackground>
             }
@@ -56,7 +72,7 @@ export default class App extends React.Component {
           <PersistGate
             loading={
               <ImageBackground
-                source={require('./assets/splash.png')}
+                source={require('./assets/splash_2021.png')}
                 style={{ width: '100%', height: '100%', resizeMode: 'center' }}
               ></ImageBackground>
             }

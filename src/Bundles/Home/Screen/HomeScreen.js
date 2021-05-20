@@ -1,22 +1,25 @@
 import React, { Component } from 'react'
 import {
+  Linking,
   View,
   ScrollView,
-  Text,
   StyleSheet,
   Image,
-  Linking,
   TouchableOpacity,
-  ImageBackground,
   Platform,
   Dimensions,
   SafeAreaView,
 } from 'react-native'
+import { Icon } from 'react-native-elements'
+import { LinearGradient } from 'expo-linear-gradient'
 import Header from '../../../components/Header'
 import CountDown from 'react-native-countdown-component'
 import moment from 'moment'
 import i18n from '../../../translate/index'
 import { connect } from 'react-redux'
+import { TitleText } from '../../../components/TitleText'
+import { StyledText } from '../../../components/StyledText'
+import BeautyWebView from 'react-native-beauty-webview'
 const Device = require('react-native-device-detection')
 
 class HomeScreen extends Component {
@@ -24,120 +27,328 @@ class HomeScreen extends Component {
     super(props)
     this.state = {
       totalDuration: '',
+      now: '',
+      start: '',
+      end: '',
+      modalVisible: false,
+      modal2Visible: false,
     }
   }
 
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible })
+  }
+
+  setModal2Visible = (visible) => {
+    this.setState({ modal2Visible: visible })
+  }
+
   render() {
-    const x = this.state.totalDuration
+    const { modalVisible, modal2Visible, now, end, start } = this.state
     console.log('token stocké', this.props.keyToken)
-    if (x <= 0) {
+    if ((now > start) & (now < end)) {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_home')} />
-
-          <ImageBackground
-            source={require('../../../../assets/background_cassiopee_modif.png')}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <ScrollView style={styles.scroll}>
-              <View style={styles.container}>
-                <View style={styles.container_image}>
-                  <Image
-                    style={styles.image}
-                    source={require('../../../../assets/Logo_Cassiopée/LogoClair.png')}
-                  />
-                </View>
-
-                <View style={styles.container_welcome}>
-                  <Text style={styles.welcome}>{i18n.t('welcome')}</Text>
-                  <Text style={styles.welcome}>{i18n.t('welcome2')}</Text>
-                </View>
-
-                <View style={styles.container_end}>
-                  <Text style={styles.text_end}>{i18n.t('open_message')}</Text>
-                </View>
-                <View style={styles.container_end}>
-                  <Text style={styles.text_end}>{i18n.t('good_message')}</Text>
-                </View>
-
-                <View>
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={() =>
-                      Linking.openURL(
-                        'https://www.billetweb.fr/cassiopee-gala-utt'
-                      )
-                    }
-                  >
-                    <Text style={styles.text}>{i18n.t('take_place')}</Text>
-                  </TouchableOpacity>
-                </View>
+          <SafeAreaView style={styles.droidSafeArea}>
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
+            >
+              <BeautyWebView
+                visible={modal2Visible} // Reguired for open and close
+                onPressClose={() => this.setModal2Visible(!modal2Visible)} // Reguired for closing the modal
+                url={'https://billetterie.gala.utt.fr'}
+                headerBackground={'#094E6F'}
+                backgroundColor={'#094E6F'}
+                headerContent={'light'}
+                progressColor={'#22749C'}
+                progressBarType={'background'}
+              />
+              <View style={styles.containerBottomImage}>
+                <Image
+                  style={styles.bottomImage}
+                  source={require('../../../../assets/bottom_ocean_fish.png')}
+                />
               </View>
-            </ScrollView>
-          </ImageBackground>
+              <ScrollView style={styles.scroll}>
+                <View style={styles.container}>
+                  <View style={styles.container_image}>
+                    <Image
+                      style={styles.image}
+                      source={require('../../../../assets/logo_2021_dayedition.png')}
+                    />
+                  </View>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_welcome}
+                  >
+                    <TitleText style={styles.welcome}>
+                      {i18n.t('welcome')}
+                    </TitleText>
+                  </LinearGradient>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_end}
+                  >
+                    <StyledText style={styles.text_end}>
+                      {i18n.t('open_message')}
+                    </StyledText>
+                  </LinearGradient>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_end}
+                  >
+                    <StyledText style={styles.text_end}>
+                      {i18n.t('good_message')}
+                    </StyledText>
+                  </LinearGradient>
+
+                  <View style={styles.container_button}>
+                    <TouchableOpacity
+                      style={styles.button}
+                      onPress={() => this.setModal2Visible(!modal2Visible)}
+                    >
+                      <StyledText style={styles.text}>
+                        {i18n.t('billeterie')}
+                      </StyledText>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={(styles.button, { display: 'none' })}
+                      onPress={() =>
+                        this.props.navigation.navigate('Food_Truck')
+                      }
+                    >
+                      <StyledText style={styles.text}>
+                        {i18n.t('restauration_link')}
+                      </StyledText>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </ScrollView>
+            </LinearGradient>
+          </SafeAreaView>
+        </React.Fragment>
+      )
+    } else if (now > end) {
+      return (
+        <React.Fragment>
+          <Header bigtitle={i18n.t('menu_home')} />
+          <SafeAreaView style={styles.droidSafeArea}>
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
+            >
+              <View style={styles.containerBottomImage}>
+                <Image
+                  style={styles.bottomImage}
+                  source={require('../../../../assets/bottom_ocean_fish.png')}
+                />
+              </View>
+              <ScrollView style={styles.scroll}>
+                <View style={styles.container}>
+                  <View style={styles.container_image}>
+                    <Image
+                      style={styles.image}
+                      source={require('../../../../assets/logo_2021_dayedition.png')}
+                    />
+                  </View>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_welcome}
+                  >
+                    <TitleText style={styles.welcome}>
+                      {i18n.t('see_you')}
+                    </TitleText>
+                    <StyledText style={styles.text_end}>
+                      {i18n.t('see_you_info')}
+                    </StyledText>
+                  </LinearGradient>
+
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_end}
+                  >
+                    <StyledText style={styles.text_end}>
+                      {i18n.t('see_you_follow')}
+                    </StyledText>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignSelf: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <TouchableOpacity
+                        onPress={() =>
+                          Linking.openURL('https://www.facebook.com/gala.utt')
+                        }
+                        style={{
+                          marginHorizontal: 10,
+                          marginVertical: 5,
+                        }}
+                      >
+                        <Icon
+                          name="facebook"
+                          type="font-awesome-5"
+                          color="#094E6F"
+                          size={Device.isTablet ? 60 : 50}
+                          onPress={() =>
+                            Linking.openURL('https://www.facebook.com/gala.utt')
+                          }
+                        />
+                      </TouchableOpacity>
+                      <TouchableOpacity
+                        onPress={() =>
+                          Linking.openURL('https://www.facebook.com/gala.utt')
+                        }
+                        style={{
+                          marginHorizontal: 10,
+                          marginVertical: 5,
+                        }}
+                      >
+                        <Icon
+                          name="instagram"
+                          type="font-awesome"
+                          color="#094E6F"
+                          size={Device.isTablet ? 60 : 50}
+                          onPress={() =>
+                            Linking.openURL(
+                              'https://www.instagram.com/cassiopee_galautt/'
+                            )
+                          }
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  </LinearGradient>
+                </View>
+              </ScrollView>
+            </LinearGradient>
+          </SafeAreaView>
         </React.Fragment>
       )
     } else {
       return (
         <React.Fragment>
           <Header bigtitle={i18n.t('menu_home')} />
+
           <SafeAreaView style={styles.droidSafeArea}>
-            <ImageBackground
-              source={require('../../../../assets/background_cassiopee_modif.png')}
-              style={{ width: '100%', height: '100%' }}
+            <LinearGradient
+              start={[0, 1]}
+              end={[1, 0]}
+              colors={['#22749C', '#43B9D5']}
             >
+              <BeautyWebView
+                visible={modalVisible} // Reguired for open and close
+                onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+                url={'https://billetterie.gala.utt.fr'}
+                headerBackground={'#094E6F'}
+                backgroundColor={'#094E6F'}
+                headerContent={'light'}
+                progressColor={'#22749C'}
+                progressBarType={'background'}
+              />
+
+              <View style={styles.containerBottomImage}>
+                <Image
+                  style={styles.bottomImage}
+                  source={require('../../../../assets/bottom_ocean_fish.png')}
+                />
+              </View>
               <ScrollView style={styles.scroll}>
                 <View style={styles.container}>
                   <View style={styles.container_image}>
                     <Image
                       style={styles.image}
-                      source={require('../../../../assets/Logo_Cassiopée/LogoClair.png')}
+                      source={require('../../../../assets/logo_2021_dayedition.png')}
                     />
                   </View>
 
-                  <View style={styles.container_welcome}>
-                    <Text style={styles.welcome}>{i18n.t('welcome')}</Text>
-                    <Text style={styles.welcome}>{i18n.t('welcome2')}</Text>
-                  </View>
+                  <LinearGradient
+                    start={[0, 1]}
+                    end={[1, 0]}
+                    colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                    style={styles.container_welcome}
+                  >
+                    <TitleText style={styles.welcome}>
+                      {i18n.t('welcome')}
+                    </TitleText>
+                    <StyledText style={styles.welcome2}>
+                      {i18n.t('welcome2')}
+                    </StyledText>
+                  </LinearGradient>
 
                   <View style={styles.container_countdown}>
-                    <CountDown
-                      digitStyle={{ backgroundColor: 'transparrent' }}
-                      digitTxtStyle={{ color: 'white' }}
-                      separatorStyle={{ color: 'transparent' }}
-                      showSeparator
-                      timeLabels={{
-                        d: i18n.t('days'),
-                        h: i18n.t('hours'),
-                        m: i18n.t('minutes'),
-                        s: i18n.t('seconds'),
+                    <LinearGradient
+                      style={{
+                        borderWidth: 1,
+                        borderRadius: 10,
+                        borderColor: 'transparent',
                       }}
-                      timeLabelStyle={{ color: 'white' }}
-                      until={this.state.totalDuration}
-                      timetoShow={('D', 'H', 'M', 'S')}
-                      size={Device.isTablet ? 36 : 28}
-                    />
+                      start={[0, 1]}
+                      end={[1, 0]}
+                      colors={[
+                        'rgb(198, 233, 250)',
+                        'rgba(198, 233, 250, 0.6)',
+                      ]}
+                    >
+                      <CountDown
+                        digitStyle={{ backgroundColor: 'transparrent' }}
+                        digitTxtStyle={{ color: '#094E6F' }}
+                        separatorStyle={{ color: 'transparent' }}
+                        showSeparator
+                        timeLabels={{
+                          d: i18n.t('days'),
+                          h: i18n.t('hours'),
+                          m: i18n.t('minutes'),
+                          s: i18n.t('seconds'),
+                        }}
+                        timeLabelStyle={{ color: '#094E6F' }}
+                        until={this.state.totalDuration}
+                        timetoShow={('D', 'H', 'M', 'S')}
+                        size={Device.isTablet ? 36 : 28}
+                      />
+                    </LinearGradient>
                   </View>
-
-                  <View>
+                  <View style={styles.container_button}>
                     <TouchableOpacity
                       style={styles.button}
+                      onPress={() => this.setModalVisible(!modalVisible)}
+                    >
+                      <StyledText style={styles.text}>
+                        {i18n.t('billeterie')}
+                      </StyledText>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={(styles.button, { display: 'none' })}
                       onPress={() =>
-                        Linking.openURL(
-                          'https://www.billetweb.fr/cassiopee-gala-utt'
-                        )
+                        this.props.navigation.navigate('Food_Truck')
                       }
                     >
-                      <Text style={styles.text}>{i18n.t('take_place')}</Text>
+                      <StyledText style={styles.text}>
+                        {i18n.t('restauration_link')}
+                      </StyledText>
                     </TouchableOpacity>
                   </View>
-                  <Text style={{ color: 'white', textAlign: 'center' }}>
-                    Votre Token :{'\n'}
-                    {this.props.keyToken}
-                  </Text>
                 </View>
               </ScrollView>
-            </ImageBackground>
+            </LinearGradient>
           </SafeAreaView>
         </React.Fragment>
       )
@@ -145,20 +356,25 @@ class HomeScreen extends Component {
   }
 
   componentDidMount() {
-    var that = this
-    var date = moment().utcOffset('+1').format('YYYY-MM-DD hh:mm:ss')
+    var date = moment().utcOffset(2).format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
-    var expirydate = '2021-06-04 20:00:00' //Date of event
+    var expirydate = '2021-06-05 02:30:00' //Date of event in am/pm format
     var diffr = moment.duration(moment(expirydate).diff(moment(date)))
-    var hours = parseInt(diffr.asHours()) + 12 //add +12 sometimes
+    var hours = parseInt(diffr.asHours())
     var minutes = parseInt(diffr.minutes())
     var seconds = parseInt(diffr.seconds())
     var d = hours * 60 * 60 + minutes * 60 + seconds
     //converting in seconds
-    that.setState({ totalDuration: d })
-    that.setState({ heure: hours })
-    that.setState({ minute: minutes })
-    that.setState({ seconde: seconds })
+    var date_now = Date.now() //allows to display different info in HomeScreen in fonction of hours
+    var date_start = new Date('June 05, 2021 14:30:00').getTime() //allows to display different info in HomeScreen in fonction of hours
+    var date_end = new Date('June 05, 2021 19:00:00').getTime() //allows to display different info in HomeScreen in fonction of hours
+    this.setState({ totalDuration: d })
+    this.setState({ heure: hours })
+    this.setState({ minute: minutes })
+    this.setState({ seconde: seconds })
+    this.setState({ now: date_now })
+    this.setState({ end: date_end })
+    this.setState({ start: date_start })
   }
 }
 
@@ -171,15 +387,43 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(HomeScreen)
 
 const styles = StyleSheet.create({
+  globalcontainer: {
+    flex: 1,
+  },
+
+  container_modal: {
+    width: '100%',
+    flexDirection: 'row',
+  },
+
+  topbuttonclose: {
+    width: '50%',
+    marginTop: 10,
+    padding: 10,
+    backgroundColor: 'red',
+  },
+
+  topbuttontext: {
+    color: 'white',
+    fontSize: 18,
+    textAlign: 'right',
+  },
+  topbuttonback: {
+    width: '50%',
+    marginTop: 10,
+    padding: 10,
+  },
   scroll: {
     backgroundColor: 'transparent',
     height: '100%',
   },
   container: {
+    width: '100%',
     backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   container_image: {
     alignItems: 'center',
     width: '100%',
@@ -188,58 +432,95 @@ const styles = StyleSheet.create({
   image: {
     marginTop: 0,
     width: Dimensions.get('window').height < 600 ? 280 : 320,
-    height: Dimensions.get('window').height < 600 ? 120 : 210,
+    height: Dimensions.get('window').height < 600 ? 120 : 180,
     resizeMode: 'contain',
   },
   container_countdown: {
-    margin: 10,
-    marginTop: 25,
+    width: '95.7%',
     padding: 5,
-    borderWidth: 3,
-    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'transparent',
+    marginBottom: '5%',
   },
   container_welcome: {
-    width: '90%',
-    borderWidth: 3,
-    borderColor: 'white',
-    marginTop: Dimensions.get('window').height < 600 ? 15 : 20,
-    margin: 5,
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: 'transparent',
+    width: '93%',
     alignItems: 'center',
+    marginBottom: '5%',
+    marginTop: '5%',
   },
   welcome: {
-    padding: 5,
-    fontSize: 20,
+    padding: 10,
+    fontSize: 28,
     textAlign: 'center',
-    color: 'white',
+    color: '#094E6F',
+  },
+  welcome2: {
+    padding: 10,
+    fontSize: 24,
+    textAlign: 'center',
+    color: '#094E6F',
   },
   button: {
-    marginTop: 18,
-    padding: 16,
-    width: 200,
-    borderRadius: 24,
+    padding: 5,
+    width: '44%',
+    marginHorizontal: '1.2%',
+    height: 80,
+    borderRadius: 10,
     alignItems: 'center',
-    backgroundColor: '#171530',
+    backgroundColor: '#094E6F',
+    borderWidth: 1,
+    borderColor: 'transparent',
+    justifyContent: 'center',
   },
   text: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 22,
+    textAlign: 'center',
+    padding: 8,
   },
   container_end: {
-    marginTop: Dimensions.get('window').height < 600 ? 15 : 30,
-    marginBottom: Dimensions.get('window').height < 600 ? 10 : 15,
+    width: '90%',
     padding: 5,
-    borderWidth: 3,
-    borderColor: 'white',
+    borderRadius: 10,
+    marginBottom: '5%',
   },
   text_end: {
-    fontSize: 18,
-    color: 'white',
+    textAlign: 'center',
+    fontSize: 20,
+    color: '#094E6F',
+    padding: 10,
   },
   droidSafeArea: {
     flex:
-      (Platform.OS === 'android' ? 1 : 0) ||
-      (Dimensions.get('screen').height < 600 ? 1 : 0),
-    backgroundColor: '#171530',
+      (Platform.OS === 'android' ? 1 : 1) ||
+      (Dimensions.get('screen').height < 600 ? 1 : 1),
+    backgroundColor: '#0A3D60',
+  },
+  container_button: {
+    justifyContent: 'center',
+    width: '100%',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+  },
+  containerBottomImage: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: '18%',
+    width: '100%',
+  },
+  bottomImage: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: (Dimensions.get('screen').height * 17) / 100,
+    width: Dimensions.get('screen').width,
+    resizeMode: 'cover',
   },
 })
 
@@ -252,48 +533,44 @@ if (Device.isTablet) {
       resizeMode: 'contain',
     },
     container_countdown: {
-      margin: 10,
-      marginTop: 45,
-      padding: 25,
-      borderWidth: 3,
-      borderColor: 'white',
+      width: '90%',
+      marginBottom: '5%',
     },
     container_welcome: {
       width: '90%',
-      borderWidth: 3,
-      borderColor: 'white',
-      marginTop: 20,
-      margin: 5,
       alignItems: 'center',
+      borderRadius: 10,
+      marginBottom: '5%',
     },
     welcome: {
+      fontWeight: 'bold',
+      padding: 5,
+      fontSize: 37,
+      textAlign: 'center',
+      color: '#094E6F',
+    },
+    welcome2: {
       padding: 5,
       fontSize: 25,
       textAlign: 'center',
-      color: 'white',
+      color: '#094E6F',
     },
-    button: {
-      marginTop: 43,
-      padding: 16,
-      width: 250,
-      borderRadius: 24,
-      alignItems: 'center',
-      backgroundColor: '#171530',
-    },
+
     text: {
       color: 'white',
       fontSize: 25,
     },
     container_end: {
-      marginTop: 40,
-      marginBottom: 15,
+      width: '90%',
       padding: 5,
-      borderWidth: 3,
-      borderColor: 'white',
+      borderRadius: 10,
+      marginBottom: '5%',
     },
     text_end: {
       fontSize: 22,
-      color: 'white',
+      color: '#094E6F',
+      padding: 10,
+      textAlign: 'center',
     },
   })
 }

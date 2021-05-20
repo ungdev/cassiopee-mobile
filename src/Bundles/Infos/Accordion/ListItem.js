@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export const LIST_ITEM_HEIGHT = 57 //height of item list
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#bd945a',
+    backgroundColor: '#C6E9FA',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

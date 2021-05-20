@@ -5,9 +5,22 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import openMap from 'react-native-open-maps'
 import email from 'react-native-email'
 import i18n from '../../../translate/index'
+import { TitleText } from '../../../components/TitleText'
+import { StyledText } from '../../../components/StyledText'
+import { LinearGradient } from 'expo-linear-gradient'
+import BeautyWebView from 'react-native-beauty-webview'
 const Device = require('react-native-device-detection')
 
 class Infos extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalVisible: false,
+    }
+  }
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible })
+  }
   _goToUTT() {
     openMap({
       latitude: 48.270371,
@@ -36,11 +49,29 @@ class Infos extends React.Component {
   }
 
   render() {
+    const { modalVisible } = this.state
     return (
       <ScrollView style={styles.main_container}>
-        <View style={styles.category}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.category}
+        >
+          <BeautyWebView
+            visible={modalVisible} // Reguired for open and close
+            onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+            url={'https://gala.utt.fr/confidentialite'}
+            headerBackground={'#094E6F'}
+            backgroundColor={'#094E6F'}
+            headerContent={'light'}
+            progressColor={'#22749C'}
+            progressBarType={'background'}
+          />
           <View>
-            <Text style={styles.title}>{i18n.t('info_access_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_access_title')}
+            </TitleText>
           </View>
 
           <View style={styles.element}>
@@ -48,21 +79,23 @@ class Infos extends React.Component {
               <Icon
                 name="ios-body"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_age')}</Text>
+            <StyledText style={styles.text}>{i18n.t('info_age')}</StyledText>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon
-                name="ios-bowtie"
+                name="ios-fitness"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_dresscode')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_dresscode')}
+            </StyledText>
           </View>
 
           <View style={styles.element}>
@@ -70,16 +103,23 @@ class Infos extends React.Component {
               <Icon
                 name="ios-beer"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_spirit')}</Text>
+            <StyledText style={styles.text}>{i18n.t('info_spirit')}</StyledText>
           </View>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.category}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.category}
+        >
           <View>
-            <Text style={styles.title}>{i18n.t('info_adress_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_adress_title')}
+            </TitleText>
           </View>
 
           <TouchableOpacity style={styles.element} onPress={this._goToUTT}>
@@ -87,23 +127,32 @@ class Infos extends React.Component {
               <Icon
                 name="ios-pin"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>12 Rue Marie Curie, Troyes</Text>
+            <StyledText style={styles.text}>
+              12 Rue Marie Curie, Troyes
+            </StyledText>
             <View style={styles.element_arrow}>
               <Icon
                 name="ios-arrow-forward"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
           </TouchableOpacity>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.category}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.category}
+        >
           <View>
-            <Text style={styles.title}>{i18n.t('info_date_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_date_title')}
+            </TitleText>
           </View>
 
           <View style={styles.element}>
@@ -111,86 +160,111 @@ class Infos extends React.Component {
               <Icon
                 name="ios-calendar"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_date')}</Text>
+            <StyledText style={styles.text}>{i18n.t('info_date')}</StyledText>
           </View>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.category}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.category}
+        >
           <View>
-            <Text style={styles.title}>{i18n.t('info_schedule_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_schedule_title')}
+            </TitleText>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon
-                name="ios-time"
+                name="time"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_schedule_open')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_schedule_open')}
+            </StyledText>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon
-                name="ios-warning"
+                name="musical-notes"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>
-              {i18n.t('info_schedule_ticket_close')}
-            </Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_schedule_start')}
+            </StyledText>
           </View>
 
           <View style={styles.element}>
             <View style={styles.element_icon}>
               <Icon
-                name="ios-volume-high"
+                name="volume-mute"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_schedule_close')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_schedule_close')}
+            </StyledText>
           </View>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.category}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.category}
+        >
           <View>
-            <Text style={styles.title}>{i18n.t('info_privacy_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_privacy_title')}
+            </TitleText>
           </View>
 
           <TouchableOpacity
             style={styles.element}
-            onPress={() =>
-              Linking.openURL('https://gala.utt.fr/confidentialite')
-            }
+            onPress={() => this.setModalVisible(!modalVisible)}
           >
             <View style={styles.element_icon}>
               <Icon
-                name="ios-lock"
+                name="ios-lock-closed"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_privacy')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_privacy')}
+            </StyledText>
             <View style={styles.element_arrow}>
               <Icon
                 name="ios-arrow-forward"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
           </TouchableOpacity>
-        </View>
+        </LinearGradient>
 
-        <View style={styles.category}>
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.category}
+        >
           <View>
-            <Text style={styles.title}>{i18n.t('info_contact_title')}</Text>
+            <TitleText style={styles.title}>
+              {i18n.t('info_contact_title')}
+            </TitleText>
           </View>
 
           <TouchableOpacity
@@ -201,15 +275,17 @@ class Infos extends React.Component {
               <Icon
                 name="ios-mail"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_contact_mail_gala')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_contact_mail_gala')}
+            </StyledText>
             <View style={styles.element_arrow}>
               <Icon
                 name="ios-arrow-forward"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
           </TouchableOpacity>
@@ -222,23 +298,38 @@ class Infos extends React.Component {
               <Icon
                 name="ios-settings"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
-            <Text style={styles.text}>{i18n.t('info_contact_mail_ung')}</Text>
+            <StyledText style={styles.text}>
+              {i18n.t('info_contact_mail_ung')}
+            </StyledText>
             <View style={styles.element_arrow}>
               <Icon
                 name="ios-arrow-forward"
                 size={Device.isTablet ? 36 : 25}
-                color={'whitesmoke'}
+                color={'#094E6F'}
               />
             </View>
           </TouchableOpacity>
-        </View>
+        </LinearGradient>
       </ScrollView>
     )
   }
 }
+
+/* <View style={styles.element}>
+            <View style={styles.element_icon}>
+              <Icon
+                name="ios-warning"
+                size={Device.isTablet ? 36 : 25}
+                color={'#094E6F'}
+              />
+            </View>
+            <Text style={styles.text}>
+              {i18n.t('info_schedule_ticket_close')}
+            </Text>
+   </View> */
 
 export default Infos
 
@@ -252,23 +343,25 @@ const styles = StyleSheet.create({
     padding: 5,
     margin: 10,
     width: '95%',
-    borderWidth: 2,
-    borderColor: 'whitesmoke',
+    borderWidth: 0,
+    borderColor: '#094E6F',
     flexDirection: 'column',
+    borderRadius: 10,
+    alignSelf: 'center',
   },
 
   title: {
     marginBottom: 7,
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: '#bd945a',
+    fontSize: 25,
+    color: '#094E6F',
+    textAlign: 'center',
   },
 
   element: {
     flexDirection: 'row',
     height: 35,
     borderTopWidth: 1,
-    borderColor: 'whitesmoke',
+    borderColor: '#094E6F',
     padding: 5,
   },
 
@@ -285,31 +378,42 @@ const styles = StyleSheet.create({
 
   text: {
     marginTop: 4,
-    fontSize: 15,
+    fontSize: 17,
     marginLeft: 10,
-    color: 'whitesmoke',
+    color: '#094E6F',
   },
 })
 
 if (Device.isTablet) {
   Object.assign(styles, {
+    category: {
+      padding: 5,
+      margin: 10,
+      width: '95%',
+      borderWidth: 0,
+      borderColor: '#094E6F',
+      flexDirection: 'column',
+      borderRadius: 10,
+      alignSelf: 'center',
+    },
     title: {
+      textAlign: 'center',
       marginBottom: 7,
       fontWeight: 'bold',
-      fontSize: 24,
-      color: '#bd945a',
+      fontSize: 25,
+      color: '#094E6F',
     },
     text: {
-      marginTop: 4,
-      fontSize: 22,
+      marginTop: 8,
+      fontSize: 18,
       marginLeft: 10,
-      color: 'whitesmoke',
+      color: '#094E6F',
     },
     element: {
       flexDirection: 'row',
       height: 45,
       borderTopWidth: 1,
-      borderColor: 'whitesmoke',
+      borderColor: '#094E6F',
       padding: 5,
     },
   })

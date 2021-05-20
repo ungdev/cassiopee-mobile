@@ -37,15 +37,16 @@ const TabNavigatorInfo = createAppContainer(
     },
     {
       tabBarOptions: {
-        activeTintColor: '#bd945a',
-        inactiveTintColor: 'whitesmoke',
+        activeTintColor: '#43B9D5',
+        inactiveTintColor: 'white',
         style: {
-          backgroundColor: '#171530',
+          backgroundColor: '#094E6F',
         },
         labelStyle: {
-          fontSize: Device.isTablet ? 14 : 10,
+          fontSize: Device.isTablet ? 20 : 16,
           textAlign: 'center',
           padding: 0,
+          fontFamily: 'brigade-condensed-regular',
         },
         tabStyle: {
           witdh: '100%',
@@ -53,7 +54,7 @@ const TabNavigatorInfo = createAppContainer(
           height: 55,
         },
         indicatorStyle: {
-          backgroundColor: '#bd945a',
+          backgroundColor: '#43B9D5',
           height: 3,
         },
       },

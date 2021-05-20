@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native'
+import { TitleText } from '../../../../components/TitleText'
 import env from '../../../../config'
 const Device = require('react-native-device-detection')
 
@@ -20,7 +21,7 @@ export class ArtistItem extends React.Component {
           style={styles.image}
           source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
         />
-        <Text style={styles.title_text}>{artist.name}</Text>
+        <TitleText style={styles.title_text}>{artist.name}</TitleText>
       </TouchableOpacity>
     )
   }
@@ -37,11 +38,10 @@ const styles = StyleSheet.create({
   },
   title_text: {
     color: 'white',
-    fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 35,
     position: 'absolute',
     bottom: 5,
-    right: 5,
+    right: 10,
   },
 })
 
@@ -54,6 +54,14 @@ if (Device.isTablet) {
       width: '100%',
       height: 300,
       position: 'relative',
+    },
+    title_text: {
+      color: 'white',
+      fontSize: 30,
+      position: 'absolute',
+      bottom: 5,
+      right: 10,
+      fontSize: 35,
     },
   })
 }

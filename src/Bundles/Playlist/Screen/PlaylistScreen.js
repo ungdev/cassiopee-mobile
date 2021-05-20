@@ -33,6 +33,7 @@ class PlaylistScreen extends Component {
         >
           <View style={styles.container}>
             <WebView
+              automaticallyAdjustContentInsets={false}
               onLoadStart={() => this.showSpinner()}
               onLoad={() => this.hideSpinner()}
               source={{
@@ -67,7 +68,7 @@ export default PlaylistScreen
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: '90%',
     padding: 4,
     backgroundColor: 'transparent',
   },

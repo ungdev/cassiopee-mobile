@@ -1,26 +1,48 @@
 import React from 'react'
-import {
-  TouchableOpacity,
-  ImageBackground,
-  StyleSheet,
-  Linking,
-  Dimensions,
-} from 'react-native'
+import { TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 import env from '../../config'
-import Device from 'react-native-device-detection'
+import BeautyWebView from 'react-native-beauty-webview'
 
 class PartenairesItem extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalVisible: false,
+    }
+  }
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible })
+  }
   render() {
     const { partenaire } = this.props
+    const { modalVisible } = this.state
     return (
       <TouchableOpacity
         style={styles.item_container}
-        onPress={() => Linking.openURL(partenaire.url)}
+        onPress={() => this.setModalVisible(!modalVisible)}
       >
-        <ImageBackground
-          style={styles.image}
-          source={{ uri: `${env.API_URI}/api/v1${partenaire.image}` }}
+        <BeautyWebView
+          visible={modalVisible} // Reguired for open and close
+          onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+          url={partenaire.url}
+          headerBackground={'#094E6F'}
+          backgroundColor={'#094E6F'}
+          headerContent={'light'}
+          progressColor={'#22749C'}
+          progressBarType={'background'}
         />
+        <LinearGradient
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+          style={styles.container_rules}
+        >
+          <Image
+            style={styles.image}
+            source={{ uri: `${env.API_URI}/api/v1${partenaire.image}` }}
+          />
+        </LinearGradient>
       </TouchableOpacity>
     )
   }
@@ -30,27 +52,14 @@ const styles = StyleSheet.create({
   item_container: {
     height: 200,
     width: '50%',
+    padding: 5,
   },
   image: {
-    width: '100%',
-    height: Dimensions.get('screen').height < 600 ? 150 : 200,
+    height: Dimensions.get('screen').height < 600 ? 150 : 180,
     position: 'relative',
+    resizeMode: 'contain',
+    margin: 5,
   },
 })
-
-if (Device.isTablet) {
-  Object.assign(styles, {
-    item_container: {
-      height: 280,
-      width: '50%',
-      alignite: 'center',
-    },
-    image: {
-      height: 280,
-      width: '98%',
-      position: 'relative',
-    },
-  })
-}
 
 export default PartenairesItem

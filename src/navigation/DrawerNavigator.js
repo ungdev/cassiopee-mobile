@@ -1,41 +1,49 @@
 import React from 'react'
-import { ScrollView, Image, ImageBackground, Dimensions } from 'react-native'
+import { ScrollView, Image, Dimensions, StyleSheet, View } from 'react-native'
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer'
 import HomeScreen from '../Bundles/Home/Screen/HomeScreen'
 import ProgramScreen from '../Bundles/Program/Screen/ProgramScreen'
 import NavigatorArtist from '../Bundles/Artists/NavigatorArtist'
 import PlanScreen from '../Bundles/Plans/Screen/PlanScreen'
 import InformationsScreen from '../Bundles/Infos/Screen/InformationsScreen'
-import AssoScreen from '../Bundles/Asso/AssoScreen'
 import SocialScreen from '../Bundles/Social/Screen/SocialScreen'
-import PlaylistScreen from '../Bundles/Playlist/Screen/PlaylistScreen'
-import MyTicketScreen from '../Bundles/Tickets/Screen/MyTicketScreen'
 import Icon from 'react-native-vector-icons/Ionicons'
 import Icone from 'react-native-vector-icons/FontAwesome5'
 import i18n from '../translate/index'
+import { LinearGradient } from 'expo-linear-gradient'
+import { SafeAreaView } from 'react-navigation'
+import FoodTruckScreen from '../Bundles/FoodTruck/FoodTruckScreen'
 const Device = require('react-native-device-detection')
 
 const CustomDrawerComponent = (props) => (
-  <ImageBackground
-    source={require('../../assets/Logo_Cassiopée/tower3.png')}
-    style={{ width: '100%', height: '100%' }}
+  <LinearGradient
+    style={{ height: '100%' }}
+    start={[0, 1]}
+    end={[1, 0]}
+    colors={['#22749C', '#43B9D5']}
   >
-    <ScrollView>
+    <SafeAreaView style={{ flex: 1 }}>
       <Image
-        source={require('../../assets/Logo_Cassiopée/LogoClair.png')}
-        style={{
-          height: Device.isTablet ? 90 : 70,
-          width: Device.isTablet ? 270 : 200,
-          alignSelf: 'center',
-          marginTop: Dimensions.get('screen').height > 700 ? 88 : 30,
-          marginBottom: 20,
-          resizeMode: 'cover',
-        }}
+        style={styles.bottomImage}
+        source={require('../../assets/bottom_chateau_menu.png')}
       />
+      <ScrollView style={{ flex: 1 }}>
+        <Image
+          source={require('../../assets/logo_2021_dayedition.png')}
+          style={{
+            height: Device.isTablet ? 100 : 70,
+            width: Device.isTablet ? 270 : 200,
+            alignSelf: 'center',
+            marginTop: Dimensions.get('screen').height > 700 ? 55 : 30,
+            marginBottom: 30,
+            resizeMode: 'cover',
+          }}
+        />
 
-      <DrawerItems {...props} />
-    </ScrollView>
-  </ImageBackground>
+        <DrawerItems {...props} />
+      </ScrollView>
+    </SafeAreaView>
+  </LinearGradient>
 )
 
 const DrawerNavigator = createDrawerNavigator(
@@ -47,7 +55,10 @@ const DrawerNavigator = createDrawerNavigator(
         drawerIcon: (
           <Icon
             name="ios-home"
-            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+            style={{
+              fontSize: Device.isTablet ? 27 : 24,
+              color: 'white',
+            }}
           />
         ),
       },
@@ -100,7 +111,7 @@ const DrawerNavigator = createDrawerNavigator(
         ),
       },
     },
-    "Asso'": {
+    /*"Asso'": {
       screen: AssoScreen,
       navigationOptions: {
         title: i18n.t('menu_asso'),
@@ -111,7 +122,7 @@ const DrawerNavigator = createDrawerNavigator(
           />
         ),
       },
-    },
+    },*/
     'Réseaux Sociaux': {
       screen: SocialScreen,
       navigationOptions: {
@@ -124,7 +135,19 @@ const DrawerNavigator = createDrawerNavigator(
         ),
       },
     },
-    Playlist: {
+    Food_Truck: {
+      screen: FoodTruckScreen,
+      navigationOptions: {
+        title: i18n.t('menu_foodtruck'),
+        drawerIcon: (
+          <Icon
+            name="ios-fast-food"
+            style={{ fontSize: Device.isTablet ? 27 : 24, color: 'white' }}
+          />
+        ),
+      },
+    },
+    /*Playlist: {
       screen: PlaylistScreen,
       navigationOptions: {
         title: i18n.t('menu_playlist'),
@@ -147,16 +170,19 @@ const DrawerNavigator = createDrawerNavigator(
           />
         ),
       },
-    },
+    },*/
   },
   {
     contentComponent: CustomDrawerComponent,
     contentOptions: {
-      activeBackgroundColor: '#46403b',
+      activeTintColor: '#ffffff',
+      activeBackgroundColor: '#094E6F',
+      inactiveTintColor: '#ffffff',
       inactiveBackgroundColor: 'transparent',
       labelStyle: {
-        color: 'white',
-        fontSize: Device.isTablet ? 18 : 14,
+        fontSize: Device.isTablet ? 26 : 22,
+        fontFamily: 'brigade-condensed-regular',
+        fontWeight: 'normal',
       },
     },
     drawerBackgroundColor: 'transparent',
@@ -164,3 +190,24 @@ const DrawerNavigator = createDrawerNavigator(
 )
 
 export default DrawerNavigator
+
+const styles = StyleSheet.create({
+  containerBottomImage: {
+    zIndex: -1,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: '18%',
+    width: '100%',
+    backgroundColor: 'green',
+    alignItems: 'center',
+  },
+  bottomImage: {
+    height: Device.isTablet ? 200 : 200,
+    width: Device.isTablet ? 300 : 300,
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    position: 'absolute',
+    bottom: 0,
+  },
+})

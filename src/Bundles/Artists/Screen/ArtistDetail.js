@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
   StyleSheet,
   View,
@@ -6,7 +6,6 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  ImageBackground,
   Alert,
   Dimensions,
 } from 'react-native'
@@ -18,8 +17,11 @@ import moment from 'moment'
 import { connect } from 'react-redux'
 import i18n from '../../../translate/index'
 import * as Permissions from 'expo-permissions'
-import { Notifications } from 'expo'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import * as Notifications from 'expo-notifications'
+import { SafeAreaView } from 'react-navigation'
+import { TitleText } from '../../../components/TitleText'
+import { StyledText } from '../../../components/StyledText'
+import { LinearGradient } from 'expo-linear-gradient'
 const Device = require('react-native-device-detection')
 
 class ArtistDetail extends React.Component {
@@ -80,61 +82,95 @@ class ArtistDetail extends React.Component {
     console.log(this.props.favoritesArtist)
     return (
       <React.Fragment>
-        <TouchableWithoutFeedback
-          onPress={() => {
-            this.props.navigation.navigate('ArtistsScreen')
-          }}
+        <LinearGradient
+          style={{ height: '100%' }}
+          start={[0, 1]}
+          end={[1, 0]}
+          colors={['#22749C', '#43B9D5']}
         >
-          <Header2 bigtitle={artist.name} />
-        </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => {
+              this.props.navigation.navigate('ArtistsScreen')
+            }}
+          >
+            <Header2 bigtitle={artist.name} />
+          </TouchableWithoutFeedback>
 
-        <View style={styles.main_container}>
           <View style={styles.image_container}>
             <Image
               style={styles.image}
               source={{ uri: `${env.API_URI}/api/v1${artist.image}` }}
             />
           </View>
-          <SafeAreaProvider style={styles.droidSafeArea}>
-            <ImageBackground
-              source={require('../../../../assets/Logo_Cassiopée/coverartiste.png')}
-              style={{ width: '100%', height: '100%' }}
-            >
-              <ScrollView
-                style={{
-                  flex: 1,
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: 'transparent',
-                }}
+
+          <ScrollView style={{ flex: 1 }}>
+            <SafeAreaView style={styles.droidSafeArea}>
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
               >
-                <Text style={styles.title_text}>{artist.name}</Text>
-                <TouchableOpacity
-                  style={styles.favorite_container}
-                  onPress={() => this._toggleFavorite()}
-                >
-                  {this._displayFavoriteImage()}
-                </TouchableOpacity>
+                <TitleText style={styles.title_text}>{artist.name}</TitleText>
+              </LinearGradient>
+
+              <TouchableOpacity
+                style={styles.favorite_container}
+                onPress={() => this._toggleFavorite()}
+              >
+                {this._displayFavoriteImage()}
+              </TouchableOpacity>
+
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
                 <Text style={styles.default_text}>
                   {i18n.t('artist_detail_hours')}
                   {'  '}
-                  <Text style={{ fontWeight: 'normal' }}>
+                  <StyledText style={{ fontWeight: 'normal' }}>
                     {moment(artist.eventDate).format('HH:mm')}
-                  </Text>
+                  </StyledText>
                 </Text>
+              </LinearGradient>
+
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
                 <Text style={styles.default_text}>
                   {i18n.t('artist_detail_stage')}
                   {'  '}
-                  <Text style={{ fontWeight: 'normal' }}>
+                  <StyledText style={{ fontWeight: 'normal' }}>
                     {artist.eventPlace}
-                  </Text>
+                  </StyledText>
                 </Text>
+              </LinearGradient>
+
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
                 <Text style={styles.default_text}>
                   {i18n.t('artist_detail_biography')}{' '}
-                  <Text style={styles.description_text}>
+                  <StyledText style={styles.description_text}>
                     {artist.description}
-                  </Text>
+                  </StyledText>
                 </Text>
+              </LinearGradient>
+
+              <LinearGradient
+                start={[0, 1]}
+                end={[1, 0]}
+                colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+                style={styles.container_description}
+              >
                 <Text style={styles.default_text_lien}>
                   {i18n.t('artist_detail_links')}
                 </Text>
@@ -148,10 +184,10 @@ class ArtistDetail extends React.Component {
                     ></SocialButton>
                   ))}
                 </View>
-              </ScrollView>
-            </ImageBackground>
-          </SafeAreaProvider>
-        </View>
+              </LinearGradient>
+            </SafeAreaView>
+          </ScrollView>
+        </LinearGradient>
       </React.Fragment>
     )
   }
@@ -169,52 +205,60 @@ const styles = StyleSheet.create({
   },
   image_container: {
     alignItems: 'center',
+    marginBottom: 5,
   },
   image: {
     width: '100%',
     height: 190,
     position: 'relative',
   },
+  container_description: {
+    width: '96%',
+    padding: 5,
+    alignSelf: 'center',
+    borderWidth: 0,
+    borderColor: 'white',
+    borderRadius: 10,
+    marginTop: 5,
+    marginBottom: 5,
+  },
   title_text: {
-    fontWeight: 'bold',
     fontSize: 35,
     flexWrap: 'wrap',
     marginLeft: 5,
     marginRight: 5,
-    marginTop: 25,
-    marginBottom: 20,
-    color: 'white',
+    color: '#094E6F',
     textAlign: 'center',
   },
   favorite_container: {
+    display: 'none' /*delete this if ou want add favorite feature*/,
     alignItems: 'center',
     marginBottom: 10,
   },
   description_text: {
-    fontStyle: 'italic',
-    color: 'whitesmoke',
+    fontWeight: 'normal',
+    color: '#094E6F',
     margin: 5,
-    lineHeight: 23,
+    lineHeight: 25,
   },
   default_text: {
-    textTransform: 'uppercase',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 16,
     marginLeft: 10,
     textAlign: 'justify',
     marginRight: 10,
-    marginTop: 15,
-    marginBottom: 10,
-    color: 'white',
+    marginTop: 5,
+    marginBottom: 5,
+    color: '#094E6F',
+    lineHeight: 25,
   },
   default_text_lien: {
-    textTransform: 'uppercase',
     fontWeight: 'bold',
     marginLeft: 10,
     marginRight: 5,
-    marginTop: 25,
-    marginBottom: 8,
-    color: 'white',
+    marginTop: 5,
+    marginBottom: 5,
+    color: '#094E6F',
   },
   favorite_image: {
     width: 40,
@@ -223,10 +267,10 @@ const styles = StyleSheet.create({
   socialartist: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 15,
-    paddingBottom: Platform.OS === 'android' ? 20 : 0,
+    paddingBottom: 5,
   },
   droidSafeArea: {
+    height: '100%',
     flex:
       (Platform.OS === 'android' ? 1 : 0) ||
       (Dimensions.get('screen').height < 600 ? 1 : 0),
@@ -246,24 +290,24 @@ if (Device.isTablet) {
       height: 60,
     },
     default_text: {
-      textTransform: 'uppercase',
       fontWeight: 'bold',
-      fontSize: 15,
+      fontSize: 18,
       textAlign: 'justify',
-      marginLeft: 20,
-      marginRight: 20,
-      marginTop: 15,
+      marginLeft: 10,
+      marginRight: 10,
+      marginTop: 10,
       marginBottom: 10,
-      color: 'white',
+      color: '#094E6F',
+      lineHeight: 28,
     },
     default_text_lien: {
-      textTransform: 'uppercase',
+      fontSize: 18,
       fontWeight: 'bold',
-      marginLeft: 20,
-      marginRight: 5,
-      marginTop: 25,
-      marginBottom: 8,
-      color: 'white',
+      marginLeft: 10,
+      marginRight: 10,
+      marginTop: 10,
+      marginBottom: 10,
+      color: '#094E6F',
     },
   })
 }

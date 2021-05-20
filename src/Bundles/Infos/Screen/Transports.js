@@ -1,75 +1,157 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView } from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
 import Accordion from '../Accordion/Accordion.js'
 import i18n from '../../../translate/index'
+import { TitleText } from '../../../components/TitleText.js'
+import { StyledText } from '../../../components/StyledText.js'
+import { LinearGradient } from 'expo-linear-gradient'
+import BeautyWebView from 'react-native-beauty-webview'
 const Device = require('react-native-device-detection')
 
 class Transports extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      modalVisible: false,
+    }
+  }
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible })
+  }
   render() {
+    const { modalVisible } = this.state
     return (
-      <ScrollView style={styles.main_container}>
-        <Text style={styles.title}>{i18n.t('transport_shuttle_title')}</Text>
-        <View style={styles.container}>
-          <Text style={styles.paragraphe}>
-            {i18n.t('transport_shuttle_before')}
-          </Text>
-        </View>
-        <View style={styles.container}>
-          <Text style={styles.paragraphe}>
-            {i18n.t('transport_shuttle_after')}
-          </Text>
-        </View>
-        <Accordion />
-        <Text style={styles.title}>{i18n.t('transport_car_title')}</Text>
-        <View style={styles.container}>
-          <Text style={styles.paragraphe}>{i18n.t('transport_car')}</Text>
-        </View>
-        <Text style={styles.title}>{i18n.t('transport_train_title')}</Text>
-        <View style={styles.container}>
-          <Text style={styles.paragraphe}>{i18n.t('transport_train')}</Text>
+      <ScrollView style={{ flex: 1 }}>
+        <View style={styles.main_container}>
+          <LinearGradient
+            start={[0, 1]}
+            end={[1, 0]}
+            colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+            style={styles.container}
+          >
+            <BeautyWebView
+              visible={modalVisible} // Reguired for open and close
+              onPressClose={() => this.setModalVisible(!modalVisible)} // Reguired for closing the modal
+              url={'https://www.tcat.fr/'}
+              headerBackground={'#094E6F'}
+              backgroundColor={'#094E6F'}
+              headerContent={'light'}
+              progressColor={'#22749C'}
+              progressBarType={'background'}
+            />
+            <View style={styles.container_second}>
+              <TitleText style={styles.title}>
+                {i18n.t('transport_shuttle_title')}
+              </TitleText>
+            </View>
+
+            <StyledText style={styles.paragraphe}>
+              {i18n.t('transport_shuttle_before')}
+            </StyledText>
+
+            <StyledText
+              style={styles.buslink}
+              onPress={() => this.setModalVisible(!modalVisible)}
+            >
+              www.tcat.fr
+            </StyledText>
+          </LinearGradient>
+
+          <LinearGradient
+            start={[0, 1]}
+            end={[1, 0]}
+            colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+            style={styles.container}
+          >
+            <View style={styles.container_second}>
+              <TitleText style={styles.title}>
+                {i18n.t('transport_car_title')}
+              </TitleText>
+            </View>
+
+            <StyledText style={styles.paragraphe}>
+              {i18n.t('transport_car')}
+            </StyledText>
+          </LinearGradient>
+
+          <LinearGradient
+            start={[0, 1]}
+            end={[1, 0]}
+            colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+            style={styles.container}
+          >
+            <View style={styles.container_second}>
+              <TitleText style={styles.title}>
+                {i18n.t('transport_train_title')}
+              </TitleText>
+            </View>
+
+            <StyledText style={styles.paragraphe}>
+              {i18n.t('transport_train')}
+            </StyledText>
+          </LinearGradient>
         </View>
       </ScrollView>
     )
   }
 }
 
+/*If you want add Shuttle info, add this component : <Accordion /> */
+
 export default Transports
 
 const styles = StyleSheet.create({
   main_container: {
     flex: 1,
-    backgroundColor: 'transparent',
+    alignItems: 'center',
   },
   container: {
-    borderWidth: 2,
-    borderColor: 'whitesmoke',
+    borderWidth: 0,
+    borderColor: '#094E6F',
     borderRadius: 10,
     padding: 10,
     margin: 15,
+    width: '95%',
+  },
+  container_second: {
+    borderBottomWidth: 1,
+    borderColor: '#094E6F',
+    alignSelf: 'center',
+    width: '100%',
   },
   title: {
-    marginTop: 15,
-    color: '#bd945a',
+    marginBottom: 5,
+    color: '#094E6F',
     fontSize: 25,
     textAlign: 'center',
   },
   paragraphe: {
+    marginTop: 15,
     textAlign: 'justify',
-    color: 'whitesmoke',
+    color: '#094E6F',
+    fontSize: 17,
+  },
+  buslink: {
+    marginTop: 15,
+    textAlign: 'center',
+    color: '#094E6F',
+    textDecorationLine: 'underline',
+    fontSize: 17,
   },
 })
 
 if (Device.isTablet) {
   Object.assign(styles, {
     title: {
-      marginTop: 15,
-      color: '#bd945a',
+      color: '#094E6F',
       fontSize: 25,
       textAlign: 'center',
+      marginBottom: 10,
     },
     paragraphe: {
+      marginTop: 10,
       textAlign: 'justify',
-      color: 'whitesmoke',
+      color: '#094E6F',
       fontSize: 18,
     },
   })

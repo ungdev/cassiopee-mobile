@@ -1,14 +1,14 @@
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import { StyleSheet, View, Text, Dimensions } from 'react-native'
+import Constants from 'expo-constants'
+import { StyleSheet, View, Text, Dimensions, Platform } from 'react-native'
 import AppIntroSlider from 'react-native-app-intro-slider'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from '../navigation/DrawerNavigator'
 import Store from '../store/configureStore'
 import { persistStore } from 'redux-persist'
 import i18n from '../translate/index'
-import { Notifications } from 'expo'
-import * as Permissions from 'expo-permissions'
+import * as Notifications from 'expo-notifications'
 import { api } from '../lib/api'
 import { connect } from 'react-redux'
 
@@ -16,19 +16,19 @@ const slides = [
   {
     key: 'slide1',
     title: i18n.t('first_launching_slide_one_title'),
-    text: i18n.t('first_launching_slide_one'),
+    text: i18n.t('first_launching_slide_one_2021'),
     image: 'md-heart',
   },
   {
     key: 'slide2',
     title: i18n.t('first_launching_slide_two_title'),
-    text: i18n.t('first_launching_slide_two'),
+    text: i18n.t('first_launching_slide_two_2021'),
     image: 'ios-musical-notes',
   },
   {
     key: 'slide3',
     title: i18n.t('first_launching_slide_three_title'),
-    text: i18n.t('first_launching_slide_three'),
+    text: i18n.t('first_launching_slide_three_2021'),
     image: 'ios-cog',
   },
   {
@@ -44,31 +44,51 @@ class FirstLaunching extends React.Component {
     super()
     this.state = { showRealApp: false }
   }
-  componentDidMount() {
-    this.registerForPushNotificationsAsync()
-  }
 
   async registerForPushNotificationsAsync() {
-    //Demande de permissions
-    const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS)
-    //Si la permission n'est pas accordée on fait rien.
-    if (status !== 'granted') {
-      return
+    let token
+    if (Constants.isDevice) {
+      const {
+        status: existingStatus,
+      } = await Notifications.getPermissionsAsync()
+      let finalStatus = existingStatus
+      if (existingStatus !== 'granted') {
+        const { status } = await Notifications.requestPermissionsAsync()
+        finalStatus = status
+      }
+      if (finalStatus !== 'granted') {
+        return
+      }
+      token = await Notifications.getExpoPushTokenAsync()
+      console.log('token recupere de expo', token)
+      if (this.props.keyToken !== token.data) {
+        console.log('token différent')
+        const action = { type: 'SET_TOKEN', value: token.data }
+        this.props.dispatch(action)
+        //On envoie ensuite au serveur
+        try {
+          const result = await api.post('expoTokens', { token: token.data })
+          console.log('Token envoyé au serveur')
+        } catch (e) {
+          console.log('token pas envoyé au serveur')
+          console.log('reponse', e.response)
+          alert(i18n.t('error2') + e)
+        }
+      }
+    } else {
+      alert('Must use physical device for Push Notifications')
     }
-    //Récupération Token
-    let token = await Notifications.getExpoPushTokenAsync()
-    //Stockage dans l'Appli
-    console.log('token recupere', token)
-    const action = { type: 'SET_TOKEN', value: token }
-    this.props.dispatch(action)
-    //On envoie ensuite au serveur
-    try {
-      const result = await api.post('expoTokens', { token })
-      console.log('Token envoyé au serveur')
-    } catch (e) {
-      console.log('erreur:', e)
-      alert(i18n.t('error2') + e)
+
+    if (Platform.OS === 'android') {
+      Notifications.setNotificationChannelAsync('default', {
+        name: 'default',
+        importance: Notifications.AndroidImportance.MAX,
+        vibrationPattern: [0, 250, 250, 250],
+        //lightColor: '#FFFFFF',
+      })
     }
+
+    return token.data
   }
 
   _renderItem = ({ item }) => (
@@ -88,7 +108,7 @@ class FirstLaunching extends React.Component {
     return (
       <View style={styles.buttonCircle}>
         <Ionicons
-          name="md-arrow-round-forward"
+          name="md-arrow-forward-sharp"
           color="rgba(255, 255, 255, .9)"
           size={24}
           style={{ backgroundColor: 'transparent' }}
@@ -111,6 +131,7 @@ class FirstLaunching extends React.Component {
 
   _onDone = () => {
     this.setState({ showRealApp: true })
+    this.registerForPushNotificationsAsync()
   }
 
   render() {
@@ -134,7 +155,7 @@ class FirstLaunching extends React.Component {
 
 const styles = StyleSheet.create({
   mainContent: {
-    backgroundColor: '#171530',
+    backgroundColor: '#094E6F',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-evenly',
@@ -144,7 +165,7 @@ const styles = StyleSheet.create({
     height: 280,
   },
   text: {
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: 'white',
     backgroundColor: 'transparent',
     textAlign: 'center',
     paddingHorizontal: 8,

@@ -27,7 +27,7 @@ export default ({ aller }: ListProps) => {
   })
   return (
     <>
-      <TouchableWithoutFeedback onPress={() => setOpen(prev => !prev)}>
+      <TouchableWithoutFeedback onPress={() => setOpen((prev) => !prev)}>
         <Animated.View
           style={[
             styles.container,
@@ -52,7 +52,7 @@ export default ({ aller }: ListProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#bd945a',
+    backgroundColor: '#094E6F',
     padding: 16,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,

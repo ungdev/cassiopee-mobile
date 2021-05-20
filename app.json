@@ -1,42 +1,33 @@
 {
   "expo": {
     "name": "Cassiopée 2021",
-    "slug": "cassiopee",
+    "slug": "cassiopee2021",
     "privacy": "public",
     "platforms": ["ios", "android"],
     "version": "2.1.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo_appli_1024px.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#171530"
+      "image": "./assets/splash_2021.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#094E6F"
     },
-    "primaryColor": "#171530",
+    "primaryColor": "#094E6F",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": ["./src/images/*"],
     "ios": {
-      "bundleIdentifier": "com.galautt.cassiopeetest",
-      "buildNumber": "1.0.0",
-      "supportsTablet": true,
-      "infoPlist": {
-        "NSCameraUsageDescription": "L'application utilise l'appareil photo pour scanner votre billet.",
-        "NSPhotoLibraryUsageDescription": "Cette application utilise votre galerie pour importer votre billet."
-      }
+      "bundleIdentifier": "fr.uttnetgroup.gala",
+      "buildNumber": "2.1.0",
+      "supportsTablet": true
     },
     "android": {
-      "package": "com.galautt.cassiopee_test",
-      "versionCode": 1,
+      "package": "fr.uttnetgroup.gala",
+      "useNextNotificationsApi": true,
       "googleServicesFile": "./google-services.json",
-      "permissions": [
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE",
-        "INTERNET",
-        "NOTIFICATIONS"
-      ]
+      "versionCode": 2,
+      "permissions": ["INTERNET", "NOTIFICATIONS"]
     }
   }
 }

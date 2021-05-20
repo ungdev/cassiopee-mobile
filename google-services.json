@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "218552717492",
-    "firebase_url": "https://cassiopee-test.firebaseio.com",
-    "project_id": "cassiopee-test",
-    "storage_bucket": "cassiopee-test.appspot.com"
+    "project_number": "207770492239",
+    "project_id": "cassiopee-gala",
+    "storage_bucket": "cassiopee-gala.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:218552717492:android:bd4f6a4c4f26576969c7e1",
+        "mobilesdk_app_id": "1:207770492239:android:53905c286d40eae67af93a",
         "android_client_info": {
-          "package_name": "com.galautt.cassiopee_test"
+          "package_name": "fr.uttnetgroup.gala"
         }
       },
       "oauth_client": [
         {
-          "client_id": "218552717492-3q69p4b0vjdllnpqq389odmvrtbepcae.apps.googleusercontent.com",
+          "client_id": "207770492239-5k4luejpjdcr7jh50cq04skrddpuoca6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBjwWfAi335Cr_SpZKQaRHGHfTM-oL6qK4"
+          "current_key": "AIzaSyD0Gfix-xx8Nr50jGGoTAW6KylgYyQVrHM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "218552717492-3q69p4b0vjdllnpqq389odmvrtbepcae.apps.googleusercontent.com",
+              "client_id": "207770492239-5k4luejpjdcr7jh50cq04skrddpuoca6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

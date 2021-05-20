@@ -11,6 +11,10 @@ import Collapsible from 'react-native-collapsible'
 import env from '../../../config'
 import moment from 'moment'
 import i18n from '../../../translate/index'
+import { LinearGradient } from 'expo-linear-gradient'
+import { TitleText } from '../../../components/TitleText'
+import { StyledText } from '../../../components/StyledText'
+const Device = require('react-native-device-detection')
 
 export class EventItem extends React.Component {
   constructor(props) {
@@ -49,13 +53,21 @@ export class EventItem extends React.Component {
             onPress={this.toggleExpanded}
           >
             <View style={styles.hour_start}>
-              <Text style={styles.hour_start_text}>
+              <TitleText style={styles.hour_start_text}>
                 {moment(event.start).format('HH:mm')}
-              </Text>
+              </TitleText>
+              <TitleText
+                style={{ textAlign: 'center', fontSize: 10, color: 'white' }}
+              >
+                |
+              </TitleText>
+              <TitleText style={styles.hour_start_text}>
+                {moment(event.end).format('HH:mm')}
+              </TitleText>
             </View>
 
             <View style={styles.name_event}>
-              <Text style={styles.name_event_text}>{event.name}</Text>
+              <TitleText style={styles.name_event_text}>{event.name}</TitleText>
             </View>
 
             <View style={styles.chevron}>
@@ -65,29 +77,56 @@ export class EventItem extends React.Component {
         </ImageBackground>
 
         <Collapsible collapsed={this.state.collapsed}>
-          <View style={styles.content}>
-            <Text style={{ fontWeight: 'bold', paddingBottom: 10 }}>
+          <LinearGradient
+            start={[0, 1]}
+            end={[1, 0]}
+            colors={['rgb(198, 233, 250)', 'rgba(198, 233, 250, 0.6)']}
+            style={styles.content}
+          >
+            <StyledText style={styles.title}>{event.name}</StyledText>
+
+            <Text
+              style={{
+                color: '#094E6F',
+                fontWeight: 'bold',
+                paddingBottom: 10,
+              }}
+            >
               {i18n.t('program_list_startEvent')}{' '}
-              <Text style={{ fontWeight: 'normal' }}>
+              <StyledText style={styles.text}>
                 {moment(event.start).format('HH:mm')}
-              </Text>
-            </Text>
-            <Text style={{ fontWeight: 'bold', paddingBottom: 10 }}>
-              {i18n.t('program_list_place')}{' '}
-              <Text style={{ fontWeight: 'normal' }}>{event.place}</Text>
-            </Text>
-            <Text style={{ fontWeight: 'bold', paddingBottom: 10 }}>
-              {i18n.t('program_list_description')}{' '}
-              <Text style={{ fontWeight: 'normal' }}>{event.description}</Text>
+              </StyledText>
             </Text>
 
-            <Text style={{ fontWeight: 'bold' }}>
-              {i18n.t('program_list_endEvent')}{' '}
-              <Text style={{ fontWeight: 'normal' }}>
-                {moment(event.end).format('HH:mm')}
-              </Text>
+            <Text
+              style={{
+                color: '#094E6F',
+                fontWeight: 'bold',
+                paddingBottom: 10,
+              }}
+            >
+              {i18n.t('program_list_place')}{' '}
+              <StyledText style={styles.text}>{event.Place.name}</StyledText>
             </Text>
-          </View>
+
+            <Text
+              style={{
+                color: '#094E6F',
+                fontWeight: 'bold',
+                paddingBottom: 10,
+              }}
+            >
+              {i18n.t('program_list_description')}{' '}
+              <StyledText style={styles.text}>{event.description}</StyledText>
+            </Text>
+
+            <Text style={{ color: '#094E6F', fontWeight: 'bold' }}>
+              {i18n.t('program_list_endEvent')}{' '}
+              <StyledText style={styles.text}>
+                {moment(event.end).format('HH:mm')}
+              </StyledText>
+            </Text>
+          </LinearGradient>
         </Collapsible>
       </React.Fragment>
     )
@@ -107,8 +146,10 @@ const styles = StyleSheet.create({
     height: 90,
     justifyContent: 'center',
     alignSelf: 'center',
+    width: '97%',
   },
   hour_start: {
+    flexDirection: 'column',
     height: 90,
     width: '26%',
     borderTopLeftRadius: 10,
@@ -118,8 +159,7 @@ const styles = StyleSheet.create({
   },
   hour_start_text: {
     textAlign: 'center',
-    fontSize: 17,
-    fontWeight: 'bold',
+    fontSize: 25,
     color: 'white',
   },
   name_event: {
@@ -128,10 +168,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   name_event_text: {
-    fontSize: 18,
+    fontSize: 25,
     margin: 0,
     color: 'white',
-    fontWeight: 'bold',
   },
   chevron: {
     height: 90,
@@ -148,12 +187,43 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   content: {
-    backgroundColor: 'white',
-    borderWidth: 1,
+    borderWidth: 0,
     borderRadius: 10,
-
+    borderColor: 'transparent',
     padding: 5,
-    width: '98%',
+    width: '95.7%',
     alignSelf: 'center',
   },
+  title: {
+    textAlign: 'center',
+    color: '#094E6F',
+    fontSize: 18,
+    marginBottom: 8,
+  },
+  text: {
+    color: '#094E6F',
+    fontSize: 16,
+    fontWeight: 'normal',
+    textAlign: 'justify',
+  },
 })
+
+if (Device.isTablet) {
+  Object.assign(styles, {
+    hour_start_text: {
+      textAlign: 'center',
+      fontSize: 30,
+      color: 'white',
+    },
+    name_event_text: {
+      fontSize: 30,
+      margin: 0,
+      color: 'white',
+    },
+    text: {
+      color: '#094E6F',
+      fontSize: 18,
+      fontWeight: 'normal',
+    },
+  })
+}
