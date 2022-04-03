@@ -1,7 +1,8 @@
 import React from 'react'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import DrawerNavigator from './src/navigation/DrawerNavigator'
-import { AsyncStorage, ImageBackground } from 'react-native'
+import { ImageBackground } from 'react-native'
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import FirstLaunching from './src/components/FirstLaunching'
 import { Provider } from 'react-redux' //distribution store in App
 import Store from './src/store/configureStore'

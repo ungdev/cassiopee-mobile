@@ -33,8 +33,8 @@ class ArtistsScreen extends React.Component {
     const { coming } = this.state
     try {
       const result = await api.get('artists')
-
       this.setState({ artists: result.data, loading: false, refreshing: false })
+      
       if (result.data.length === 0) {
         this.setState({ coming: true })
       } else {

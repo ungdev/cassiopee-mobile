@@ -3,7 +3,7 @@ import { StyleSheet, View, ScrollView, Dimensions, Text } from 'react-native'
 import { ButtonGroup } from 'react-native-elements'
 import Header from '../../../components/Header'
 import ImageMapper from './components/ImageMapper'
-import ReactNativeZoomableView from '@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView'
+
 import FIGURES from './Maps'
 import i18n from '../../../translate/index'
 import { TitleText } from '../../../components/TitleText'
@@ -107,17 +107,7 @@ class PlanScreen extends Component {
 
           <View style={styles.container_map}>
             <ScrollView>
-              <ReactNativeZoomableView
-                maxZoom={Device.isTablet ? 4 : 3}
-                minZoom={0.55}
-                zoomStep={-0.000003}
-                initialZoom={Device.isTablet ? 1.4 : 1}
-                bindToBorders={true}
-                pinchToZoomInSensitivity={Device.isTablet ? 3 : 2}
-                pinchToZoomOutSensitivity={Device.isTablet ? 3 : 2}
-                movementSensibility={0.7}
-                captureEvent={true}
-              >
+              
                 <ImageMapper
                   imgHeight={Device.isTablet ? 330 : 330}
                   imgWidth={Device.isTablet ? 395 : 395}
@@ -132,7 +122,7 @@ class PlanScreen extends Component {
                   }}
                   selectedAreaId={this.state.selectedAreaId}
                 />
-              </ReactNativeZoomableView>
+             
             </ScrollView>
           </View>
 

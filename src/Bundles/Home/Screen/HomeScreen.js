@@ -358,7 +358,7 @@ class HomeScreen extends Component {
   componentDidMount() {
     var date = moment().utcOffset(2).format('YYYY-MM-DD hh:mm:ss')
     //Getting the current date-time with required formate and UTC
-    var expirydate = '2021-06-05 02:30:00' //Date of event in am/pm format
+    var expirydate = '2022-05-14 20:00:00' //Date of event in am/pm format
     var diffr = moment.duration(moment(expirydate).diff(moment(date)))
     var hours = parseInt(diffr.asHours())
     var minutes = parseInt(diffr.minutes())
@@ -366,8 +366,8 @@ class HomeScreen extends Component {
     var d = hours * 60 * 60 + minutes * 60 + seconds
     //converting in seconds
     var date_now = Date.now() //allows to display different info in HomeScreen in fonction of hours
-    var date_start = new Date('June 05, 2021 14:30:00').getTime() //allows to display different info in HomeScreen in fonction of hours
-    var date_end = new Date('June 05, 2021 19:00:00').getTime() //allows to display different info in HomeScreen in fonction of hours
+    var date_start = new Date('May 14, 2022 20:00:00').getTime() //allows to display different info in HomeScreen in fonction of hours
+    var date_end = new Date('May 15, 2022 04:00:00').getTime() //allows to display different info in HomeScreen in fonction of hours
     this.setState({ totalDuration: d })
     this.setState({ heure: hours })
     this.setState({ minute: minutes })
